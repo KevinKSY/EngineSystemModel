@@ -18,7 +18,7 @@
   *   in the Simulink Coder User's Manual in the Chapter titled,
   *   "Wrapper S-functions".
   *
-  *   Created: Thu Aug  7 23:43:12 2014
+  *   Created: Thu Sep 18 11:33:31 2014
   */
 
 
@@ -50,37 +50,24 @@
  * Output functions
  *
  */
-void pCompCalc_Update_wrapper(const real_T *pCyl,
-                          const real_T *vCyl,
-                          const real_T *tempWall,
-                          const real_T *exhVVOpen,
-                          const real_T  *vComp,  const int_T p_width0,
-                          real_T *pComp, real_T *reset)
+void CombGasZach_Outputs_wrapper(const real_T *p,
+                          const real_T *T,
+                          const real_T *F,
+                          real_T *R,
+                          real_T *h,
+                          real_T *s,
+                          real_T *u,
+                          real_T *RF,
+                          real_T *RP,
+                          real_T *RT,
+                          real_T *uF,
+                          real_T *uP,
+                          real_T *uT,
+                          real_T *Cp,
+                          real_T *Cv,
+                          real_T *K)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
-    const double coeffKappa[6] = {1.3714,0.0011656,2.9770e-08,1.2930e-05,
-                                  2.4836e-09,-1.8433e-14};
-                // coefficient for regression model for finding kappa
-    const double corrFactKappaTw = 1.3464e-05; 
-                // correction factor for kappa w.r.t. cylinder wall temp.
-    double kappa;
-    double compRatio;
-    
-    if ((exhVVOpen[0]>0)&(reset[0]==0)) {
-        reset[0] = 1;
-    }
-    else {
-        if ((exhVVOpen[0]==0)&(reset[0]==1)) {
-            reset[0] = 0;
-            compRatio = vCyl[0] / vComp[0];
-            kappa = coeffKappa[0] + coeffKappa[1]*compRatio + 
-                    coeffKappa[2]*pCyl[0]/1e5 + 
-                    coeffKappa[3]*pow(compRatio,2) + 
-                    coeffKappa[4]*compRatio*pCyl[0]/1e5 + 
-                    coeffKappa[5]*pow(pCyl[0]/1e5,2);
-            kappa = kappa + corrFactKappaTw*(900-tempWall[0]);
-            pComp[0] = pCyl[0]*pow(vCyl[0]/vComp[0],kappa);
-        }
-    }
+GetThdynCombGasZach(p[0],T[0],F[0],R,h,s,u,RF,RP,RT,uF,uP,uT,Cp,Cv,K);
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }

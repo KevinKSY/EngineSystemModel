@@ -1,5 +1,5 @@
 /*
- * File: pCompCalc.c
+ * File: ThdynCV.c
  *
  *
   *
@@ -26,18 +26,18 @@
   *  -------------------------------------------------------------------------
   * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
   *  ------------------------------------------------------------------------- 
- * Created: Thu Aug  7 23:43:12 2014
+ * Created: Tue Aug  5 16:32:52 2014
  * 
  *
  */
 
 #define S_FUNCTION_LEVEL 2
-#define S_FUNCTION_NAME pCompCalc
+#define S_FUNCTION_NAME ThdynCV
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
 #define NUM_INPUTS          4
 /* Input Port  0 */
-#define IN_PORT_0_NAME      pCyl
+#define IN_PORT_0_NAME      m
 #define INPUT_0_WIDTH       1
 #define INPUT_DIMS_0_COL    1
 #define INPUT_0_DTYPE       real_T
@@ -54,7 +54,7 @@
 #define IN_0_BIAS            0
 #define IN_0_SLOPE           0.125
 /* Input Port  1 */
-#define IN_PORT_1_NAME      vCyl
+#define IN_PORT_1_NAME      E
 #define INPUT_1_WIDTH       1
 #define INPUT_DIMS_1_COL    1
 #define INPUT_1_DTYPE       real_T
@@ -71,7 +71,7 @@
 #define IN_1_BIAS            0
 #define IN_1_SLOPE           0.125
 /* Input Port  2 */
-#define IN_PORT_2_NAME      tempWall
+#define IN_PORT_2_NAME      mb
 #define INPUT_2_WIDTH       1
 #define INPUT_DIMS_2_COL    1
 #define INPUT_2_DTYPE       real_T
@@ -88,7 +88,7 @@
 #define IN_2_BIAS            0
 #define IN_2_SLOPE           0.125
 /* Input Port  3 */
-#define IN_PORT_3_NAME      exhVVOpen
+#define IN_PORT_3_NAME      V
 #define INPUT_3_WIDTH       1
 #define INPUT_DIMS_3_COL    1
 #define INPUT_3_DTYPE       real_T
@@ -105,9 +105,9 @@
 #define IN_3_BIAS            0
 #define IN_3_SLOPE           0.125
 
-#define NUM_OUTPUTS          2
+#define NUM_OUTPUTS          3
 /* Output Port  0 */
-#define OUT_PORT_0_NAME      pCompOut
+#define OUT_PORT_0_NAME      p
 #define OUTPUT_0_WIDTH       1
 #define OUTPUT_DIMS_0_COL    1
 #define OUTPUT_0_DTYPE       real_T
@@ -122,9 +122,8 @@
 #define OUT_0_FRACTIONLENGTH  3
 #define OUT_0_BIAS            0
 #define OUT_0_SLOPE           0.125
-
 /* Output Port  1 */
-#define OUT_PORT_1_NAME      reset
+#define OUT_PORT_1_NAME      T
 #define OUTPUT_1_WIDTH       1
 #define OUTPUT_DIMS_1_COL    1
 #define OUTPUT_1_DTYPE       real_T
@@ -139,24 +138,37 @@
 #define OUT_1_FRACTIONLENGTH  3
 #define OUT_1_BIAS            0
 #define OUT_1_SLOPE           0.125
+/* Output Port  2 */
+#define OUT_PORT_2_NAME      F
+#define OUTPUT_2_WIDTH       1
+#define OUTPUT_DIMS_2_COL    1
+#define OUTPUT_2_DTYPE       real_T
+#define OUTPUT_2_COMPLEX     COMPLEX_NO
+#define OUT_2_FRAME_BASED    FRAME_NO
+#define OUT_2_BUS_BASED      0
+#define OUT_2_BUS_NAME       
+#define OUT_2_DIMS           1-D
+#define OUT_2_ISSIGNED        1
+#define OUT_2_WORDLENGTH      8
+#define OUT_2_FIXPOINTSCALING 1
+#define OUT_2_FRACTIONLENGTH  3
+#define OUT_2_BIAS            0
+#define OUT_2_SLOPE           0.125
 
 #define NPARAMS              1
-
-#define PARAMETER_0_NAME      vComp
+/* Parameter  1 */
+#define PARAMETER_0_NAME      fs
 #define PARAMETER_0_DTYPE     real_T
 #define PARAMETER_0_COMPLEX   COMPLEX_NO
 
-#define NDWORKS              2
+/*definition related to DWork Vectors*/
+#define NDWORKS              1
 // DWork 1
-#define DWORK_0_NAME         pComp
+#define DWORK_0_NAME         T_prev
 #define DWORK_0_WIDTH        1
 #define DWORK_0_DTYPE        real_T
 #define DWORK_0_COMPLEX      COMPLEX_NO
-// DWork 2
-#define DWORK_1_NAME         reset
-#define DWORK_1_WIDTH        1
-#define DWORK_1_DTYPE        real_T
-#define DWORK_1_COMPLEX      COMPLEX_NO
+/*end of definition related to DWork Vectors*/
 
 #define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
 #define NUM_DISC_STATES      0
@@ -165,7 +177,7 @@
 #define CONT_STATES_IC       [0]
 
 #define SFUNWIZ_GENERATE_TLC 1
-#define SOURCEFILES "__SFB__"
+#define SOURCEFILES "__SFB__GetPTF.c__SFB__GetThdynCombGasZach.c"
 #define PANELINDEX           6
 #define USE_SIMSTRUCT        0
 #define SHOW_COMPILE_STEPS   0                   
@@ -177,19 +189,18 @@
 #include "simstruc.h"
 #define PARAM_DEF0(S) ssGetSFcnParam(S, 0)
 
-#define IS_PARAM_INT8(pVal) (mxIsNumeric(pVal) && !mxIsLogical(pVal) &&\
-!mxIsEmpty(pVal) && !mxIsSparse(pVal) && !mxIsComplex(pVal) && mxIsInt8(pVal))
-
 #define IS_PARAM_DOUBLE(pVal) (mxIsNumeric(pVal) && !mxIsLogical(pVal) &&\
 !mxIsEmpty(pVal) && !mxIsSparse(pVal) && !mxIsComplex(pVal) && mxIsDouble(pVal))
 
-extern void pCompCalc_Update_wrapper(const real_T *pCyl,
-                          const real_T *vCyl,
-                          const real_T *tempWall,
-                          const real_T *exhVVOpen,
-                          const real_T  *vComp,  const int_T p_width0,
-                          real_T *pComp, 
-                          real_T *reset);
+extern void ThdynCV_Outputs_wrapper(const real_T *m,
+                          const real_T *E,
+                          const real_T *mb,
+                          const real_T *V,
+                          real_T *p,
+                          real_T *T,
+                          real_T *F, 
+                          const real_T *T_prev,
+                           const real_T  *fs, const int_T p_width0);
 
 /*====================*
  * S-function methods *
@@ -215,8 +226,7 @@ extern void pCompCalc_Update_wrapper(const real_T *pCyl,
 	    goto EXIT_POINT;
 	  }
 	 }
-
-	       
+      
      EXIT_POINT:
       if (validParam) {
           char parameterErrorMsg[1024];
@@ -284,14 +294,19 @@ static void mdlInitializeSizes(SimStruct *S)
 
 
     if (!ssSetNumOutputPorts(S, NUM_OUTPUTS)) return;
+    /* Output Port 0 */
     ssSetOutputPortWidth(S, 0, OUTPUT_0_WIDTH);
     ssSetOutputPortDataType(S, 0, SS_DOUBLE);
     ssSetOutputPortComplexSignal(S, 0, OUTPUT_0_COMPLEX);
-    
+    /* Output Port 1 */
     ssSetOutputPortWidth(S, 1, OUTPUT_1_WIDTH);
     ssSetOutputPortDataType(S, 1, SS_DOUBLE);
     ssSetOutputPortComplexSignal(S, 1, OUTPUT_1_COMPLEX);
-    
+    /* Output Port 2 */
+    ssSetOutputPortWidth(S, 2, OUTPUT_2_WIDTH);
+    ssSetOutputPortDataType(S, 2, SS_DOUBLE);
+    ssSetOutputPortComplexSignal(S, 2, OUTPUT_2_COMPLEX);
+
     ssSetNumSampleTimes(S, 1);
     ssSetNumRWork(S, 0);
     ssSetNumIWork(S, 0);
@@ -304,11 +319,6 @@ static void mdlInitializeSizes(SimStruct *S)
     /*DWork vector 1*/
     ssSetDWorkWidth(S, 0, DWORK_0_WIDTH);
     ssSetDWorkDataType(S, 0, SS_DOUBLE);
-    /*DWork vector 2*/    
-    ssSetDWorkWidth(S, 1, DWORK_1_WIDTH);
-    ssSetDWorkDataType(S, 1, SS_DOUBLE);
-    /*DWork vector 3*/
-    
     
     /* Take care when specifying exception free code - see sfuntmpl_doc.c */
     ssSetOptions(S, (SS_OPTION_EXCEPTION_FREE_CODE |
@@ -346,12 +356,11 @@ static void mdlInitializeSampleTimes(SimStruct *S)
 * Initialize both continuous states to zero
 */
     real_T *x1 = (real_T*) ssGetDWork(S,0);
-    real_T *x2 = (real_T*) ssGetDWork(S,1);
 
-    /* Initialize the dwork to 0 */
-    x1[0] = 60;  // pComp
-    x2[0] = 0;  // reset
- }
+    /* Initialize the previous temperature */
+    x1[0] = 300;  
+}
+
 
 #define MDL_SET_INPUT_PORT_DATA_TYPE
 static void mdlSetInputPortDataType(SimStruct *S, int port, DTypeId dType)
@@ -375,13 +384,18 @@ static void mdlSetDefaultPortDataTypes(SimStruct *S)
 */
 static void mdlOutputs(SimStruct *S, int_T tid)
 {
-    real_T        *pCompOut  = (real_T *)ssGetOutputPortRealSignal(S,0);
-    real_T        *resetOut  = (real_T *)ssGetOutputPortRealSignal(S,1);
-    const real_T  *pComp = (const real_T*) ssGetDWork(S,0);
-    const real_T  *reset = (const real_T*) ssGetDWork(S,1);
-
-    pCompOut[0] = pComp[0];
-    resetOut[0] = reset[0];
+    const real_T   *m  = (const real_T*) ssGetInputPortSignal(S,0);
+    const real_T   *E  = (const real_T*) ssGetInputPortSignal(S,1);
+    const real_T   *mb  = (const real_T*) ssGetInputPortSignal(S,2);
+    const real_T   *V  = (const real_T*) ssGetInputPortSignal(S,3);
+    real_T        *p  = (real_T *)ssGetOutputPortRealSignal(S,0);
+    real_T        *T  = (real_T *)ssGetOutputPortRealSignal(S,1);
+    real_T        *F  = (real_T *)ssGetOutputPortRealSignal(S,2);
+    const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
+    const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
+    const real_T *T_prev = (const real_T*) ssGetDWork(S,0);
+    
+    ThdynCV_Outputs_wrapper(m, E, mb, V, p, T, F, T_prev, fs, p_width0);
 }
 
 #define MDL_UPDATE  /* Change to #undef to remove function */
@@ -392,26 +406,12 @@ static void mdlOutputs(SimStruct *S, int_T tid)
    *    for performing any tasks that should only take place once per
    *    integration step.
    */
-  static void mdlUpdate(SimStruct *S, int_T tid)
-  {
-    const real_T   *pCyl  = (const real_T*) ssGetInputPortSignal(S,0);
-    const real_T   *vCyl  = (const real_T*) ssGetInputPortSignal(S,1);
-    const real_T   *tempWall  = (const real_T*) ssGetInputPortSignal(S,2);
-    const real_T   *exhVVOpen  = (const real_T*) ssGetInputPortSignal(S,3);
-    const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
-    const real_T  *vComp  = (const real_T *)mxGetData(PARAM_DEF0(S));
-    real_T          *pComp = (real_T*)ssGetDWork(S,0);
-    real_T           *reset = (real_T*)ssGetDWork(S,1);
-
-    pCompCalc_Update_wrapper(pCyl, vCyl, tempWall, exhVVOpen, vComp, p_width0, pComp, reset);
-    /*
-    combState_Update_wrapper(phi, phiInj, uGov, omega, temp, p, combState, 
-            phiIg, mqf, combStateO, phiComb, phiIgO, mqfO, mqfCycMax, 
-            p_width0, wiebePara, p_width1);
-     */
+static void mdlUpdate(SimStruct *S, int_T tid)
+{
+    const real_T *T  = (const real_T *)ssGetOutputPortRealSignal(S,1);
+    real_T *T_prev = (real_T*) ssGetDWork(S,0);
+    *T_prev = *T;
 }
-
-
 
 
 /* Function: mdlTerminate =====================================================

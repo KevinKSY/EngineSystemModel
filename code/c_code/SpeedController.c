@@ -320,8 +320,8 @@ static void mdlDerivatives (double *dx, double *x, double *u, SimStruct *S, int 
     const real_T  *Td  = (const real_T *)mxGetData(PARAM_DEF1(S));
     const real_T  *N  = (const real_T *)mxGetData(PARAM_DEF2(S));
     const real_T  *Ti  = (const real_T *)mxGetData(PARAM_DEF3(S));
-    const real_T  *max  = (const real_T *)mxGetData(PARAM_DEF4(S));
-    const real_T  *min  = (const real_T *)mxGetData(PARAM_DEF5(S));
+    const real_T  *min  = (const real_T *)mxGetData(PARAM_DEF4(S));
+    const real_T  *max  = (const real_T *)mxGetData(PARAM_DEF5(S));
     
     
 	/* copy the SimStruct pointer S to the global variable */
@@ -390,8 +390,8 @@ static void mdlOutputs (double *y, double *x, double *u, SimStruct *S, int tid)
     const real_T  *Td  = (const real_T *)mxGetData(PARAM_DEF1(S));
     const real_T  *N  = (const real_T *)mxGetData(PARAM_DEF2(S));
     const real_T  *Ti  = (const real_T *)mxGetData(PARAM_DEF3(S));
-    const real_T  *max  = (const real_T *)mxGetData(PARAM_DEF4(S));
-    const real_T  *min  = (const real_T *)mxGetData(PARAM_DEF5(S));
+    const real_T  *min  = (const real_T *)mxGetData(PARAM_DEF4(S));
+    const real_T  *max  = (const real_T *)mxGetData(PARAM_DEF5(S));
     
 	int index;
     	/* copy the SimStruct pointer S to the global variable */
