@@ -1,0 +1,5217 @@
+Model {
+  Name			  "EngCylTestNV"
+  Version		  7.5
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.2"
+    NumModelReferences	    0
+    NumTestPointedSignals   33
+    TestPointedSignal {
+      SignalName	      "pMax"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/pMaxFinder"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune1/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune1/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune1/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune1/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune2/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune2/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune2/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune2/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune3/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune3/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune3/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune3/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune4/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune4/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune4/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune4/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune5/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune5/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune5/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune5/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune6/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune6/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune6/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune6/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune7/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune7/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune7/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune7/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "dmEmbComb"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune8/ROHR1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phiIg"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune8/ROHR1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pTFCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune8/ThdynCV_VarVol1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "vCyl"
+      FullBlockPath	      "EngCylTestNV/EngineCylinderBlockSSTune/EngCylinderSSTune8/ThdynCV_VarVol1"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+  }
+  SavedCharacterEncoding  "windows-949"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  MaxMDLFileLineLength	  120
+  Created		  "Fri Nov 07 09:11:49 2014"
+  Creator		  "KevinKSY"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "KevinKSY"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Nov 07 09:18:04 2014"
+  RTWModifiedTimeStamp	  337252536
+  ModelVersionFormat	  "1.%<AutoIncrement:2>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.10.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.10.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.10.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Version		  "1.10.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    7
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.10.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.10.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.10.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  8
+	  Version		  "1.10.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  9
+	  Version		  "1.10.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    6
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      10
+	      Version		      "1.10.0"
+	      Array {
+		Type			"Cell"
+		Dimension		19
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      11
+	      Version		      "1.10.0"
+	      Array {
+		Type			"Cell"
+		Dimension		17
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTCodeCoverageTool     "None"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition    " [ 520, 285, 1400, 915 ] "
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      BusCreator
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      BusSelector
+      OutputAsBus	      off
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      SignalViewerScope
+      Floating		      off
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+      Disabled		      off
+      ScrollMode	      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  System {
+    Name		    "EngCylTestNV"
+    Location		    [2, 74, 1918, 1139]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    11
+    Block {
+      BlockType		      Constant
+      Name		      "Constant"
+      SID		      2
+      Position		      [595, 140, 625, 170]
+      Value		      "[4e5;300;0]"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"pTFScav"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant1"
+      SID		      4
+      Position		      [620, 95, 650, 125]
+      Value		      "[3.5e5;700;0]"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"pTFExh"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant2"
+      SID		      5
+      Position		      [630, 35, 660, 65]
+      Value		      "9.3"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"omegaE"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant3"
+      SID		      6
+      Position		      [445, 265, 475, 295]
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"uGov"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant4"
+      SID		      7
+      Position		      [445, 220, 475, 250]
+      Value		      "-2.7"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"phiInj"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant5"
+      SID		      8
+      Position		      [470, 185, 500, 215]
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"CAStartNom"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant6"
+      SID		      9
+      Position		      [485, 155, 515, 185]
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"EVC"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant7"
+      SID		      10
+      Position		      [515, 105, 545, 135]
+      Value		      "550"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"tempWall"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "EngineCylinderBlockSSTune"
+      SID		      1
+      Ports		      [8, 9]
+      Position		      [541, 300, 719, 445]
+      BlockRotation	      270
+      BlockMirror	      on
+      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+      NamePlacement	      "alternate"
+      AncestorBlock	      "EngineSystemSubmodel_SHI/EngineCylinderBlockSSTune"
+      LibraryVersion	      "*1.130"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskPromptString	      "Stoichiometric fuel-air ratio|Number of stroke|Lower heating value of the fuel [J/kg]|Nu"
+      "mber of cylinders|Bore of the cylinder [m]|Stroke [m]|Ratio of length of crank rod to connecting rod|Length of c"
+      "rank rod [m]|Width of inport opening [m]|Height of inport opening [m]|Raidus of fillet of the opening|Number of "
+      "ports [pcs]|Maximum valve lift [m]|Valve head diameter [m]|Seat angle [rad]|Valve seat width [m]|Inner seat diam"
+      "eter [m]|Stem diameter [m]|Crank angle array for opening [deg]|Crank angle array for closing [deg]|Normalized li"
+      "ft array for opening (0~1)|Normalized lift array for closing (0~1)|Nominal crank angle at start of valve lif [de"
+      "g]|Nominal duration of crank angle for valve opening [deg]|Nominal duration of crank angle for valve closing [de"
+      "g]|Nominal duration of crank angle for valve open [deg]|Heat capacity of the cylinder [J/K]|Polynomial coefficie"
+      "nt for heat rejection model from the cylinder (4 x 1)|Fitting coefficient for convective heat transfer coefficie"
+      "nt|Maximum fuel mass injected per cycle [kg]|3-Wiebe Parameters (9x1)|Initial crank angle array [deg]|Initial ma"
+      "ss array [kg]|Initial internal energy array [J]|Initial burned fuel mass array [kg]|Initial volume array [m3]"
+      MaskStyleString	      "edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit"
+      ",edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit,edit"
+      MaskTunableValueString  "on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,"
+      "on,on,on,on,on,on,on"
+      MaskCallbackString      "|||||||||||||||||||||||||||||||||||"
+      MaskEnableString	      "on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,o"
+      "n,on,on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,"
+      "on,on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,on,"
+      "on,on,on,on,on,on,on"
+      MaskVariables	      "fs=@1;nStroke=@2;hn=@3;nCyl=@4;B=@5;stroke=@6;lambdaCrank=@7;aCrank=@8;X=@9;Y=@10;r=@11;nPo"
+      "rt=@12;liftMax=@13;Dv=@14;beta=@15;w=@16;Dp=@17;Ds=@18;cAVVUpRef=@19;cAVVDownRef=@20;liftUpRef=@21;liftDownRef=@"
+      "22;cAStartRef=@23;dCALiftUp=@24;dCALiftDown=@25;dCALiftTopRef=@26;mCp=@27;cCylHT=@28;cAlpha=@29;mqfCycMax=@30;wi"
+      "ebePara=@31;phi0A=@32;m0A=@33;E0A=@34;mb0A=@35;V0A=@36;"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "fs|nStroke|hn|nCyl|B|stroke|lambdaCrank|stroke/2|X|Y|r|nPort|liftMax|Dv|beta|w|Dp|Ds|cAVV"
+      "UpRef|cAVVDownRef|liftUpRef|liftDownRef|cAStartRef|dCALiftUp|dCALiftDown|dCALiftTopRef|mCp|cCylHT|cAlpha|mqfCycM"
+      "ax|wiebePara|phi0rad|mCyl0|ECyl0|mbCyl0|vCyl0"
+      MaskTabNameString	      "General,General,General,General,Cyl. Dim.,Cyl. Dim.,Cyl. Dim.,Cyl. Dim.,Scav. Port,Scav"
+      ". Port,Scav. Port,Scav. Port,Exh. VV Dim,Exh. VV Dim,Exh. VV Dim,Exh. VV Dim,Exh. VV Dim,Exh. VV Dim,Exh. VV Pro"
+      "file,Exh. VV Profile,Exh. VV Profile,Exh. VV Profile,Exh. VV Profile,Exh. VV Profile,Exh. VV Profile,Exh. VV Pro"
+      "file,Heat Transfer,Heat Transfer,Heat Transfer,Combustion,Combustion,Initial Conditions,Initial Conditions,Initi"
+      "al Conditions,Initial Conditions,Initial Conditions"
+      Port {
+	PortNumber		1
+	Name			"dmEmbScav"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		2
+	Name			"dmEmbExh"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		3
+	Name			"Tq"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		5
+	Name			"pMax"
+	PropagatedSignals	"pMax"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		6
+	Name			"pCyl"
+	PropagatedSignals	"pCyl"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"EngineCylinderBlockSSTune"
+	Location		[2, 82, 1885, 1130]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	2798
+	SIDPrevWatermark	2798
+	Block {
+	  BlockType		  Inport
+	  Name			  "uGov"
+	  SID			  2628
+	  Position		  [255, 53, 285, 67]
+	  BackgroundColor	  "green"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "phiInj"
+	  SID			  2629
+	  Position		  [255, 83, 285, 97]
+	  BackgroundColor	  "green"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "cAStartNom"
+	  SID			  2630
+	  Position		  [255, 113, 285, 127]
+	  BackgroundColor	  "green"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dCALiftUp"
+	  SID			  2631
+	  Position		  [255, 143, 285, 157]
+	  BackgroundColor	  "green"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "tempWall"
+	  SID			  2689
+	  Position		  [255, 173, 285, 187]
+	  BackgroundColor	  "green"
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "pTFScav"
+	  SID			  2632
+	  Position		  [255, 203, 285, 217]
+	  BackgroundColor	  "green"
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "pTFExh"
+	  SID			  2633
+	  Position		  [255, 233, 285, 247]
+	  BackgroundColor	  "green"
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "omega"
+	  SID			  2634
+	  Position		  [255, 263, 285, 277]
+	  BackgroundColor	  "green"
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator"
+	  SID			  2697
+	  Ports			  [8, 1]
+	  Position		  [325, 44, 330, 286]
+	  ShowName		  off
+	  Inputs		  "8"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator1"
+	  SID			  2716
+	  Ports			  [10, 1]
+	  Position		  [359, 640, 516, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator2"
+	  SID			  2717
+	  Ports			  [10, 1]
+	  Position		  [574, 640, 731, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator3"
+	  SID			  2718
+	  Ports			  [10, 1]
+	  Position		  [789, 640, 946, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator4"
+	  SID			  2719
+	  Ports			  [10, 1]
+	  Position		  [1004, 640, 1161, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator5"
+	  SID			  2720
+	  Ports			  [10, 1]
+	  Position		  [1224, 640, 1381, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator6"
+	  SID			  2721
+	  Ports			  [10, 1]
+	  Position		  [1434, 640, 1591, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator7"
+	  SID			  2722
+	  Ports			  [10, 1]
+	  Position		  [1649, 640, 1806, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator8"
+	  SID			  2723
+	  Ports			  [10, 1]
+	  Position		  [1854, 640, 2011, 645]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Inputs		  "10"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector1"
+	  SID			  2794
+	  Ports			  [1, 8]
+	  Position		  [359, 375, 521, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector10"
+	  SID			  2738
+	  Ports			  [1, 4]
+	  Position		  [851, 735, 889, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector11"
+	  SID			  2747
+	  Ports			  [1, 4]
+	  Position		  [1066, 735, 1104, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector12"
+	  SID			  2749
+	  Ports			  [1, 4]
+	  Position		  [1916, 735, 1954, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector13"
+	  SID			  2751
+	  Ports			  [1, 4]
+	  Position		  [1711, 735, 1749, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector14"
+	  SID			  2753
+	  Ports			  [1, 4]
+	  Position		  [1496, 735, 1534, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector15"
+	  SID			  2755
+	  Ports			  [1, 4]
+	  Position		  [1281, 735, 1319, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector16"
+	  SID			  2772
+	  Ports			  [1, 4]
+	  Position		  [250, 656, 255, 694]
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "pCyl,phi,vCyl,exhVVOpen"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<pCyl>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phi>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<vCyl>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<exhVVOpen>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector17"
+	  SID			  2798
+	  Ports			  [1, 8]
+	  Position		  [1219, 375, 1381, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector2"
+	  SID			  2795
+	  Ports			  [1, 8]
+	  Position		  [574, 375, 736, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector3"
+	  SID			  2796
+	  Ports			  [1, 8]
+	  Position		  [789, 375, 951, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector4"
+	  SID			  2797
+	  Ports			  [1, 8]
+	  Position		  [1004, 375, 1166, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector5"
+	  SID			  2710
+	  Ports			  [1, 8]
+	  Position		  [1434, 375, 1596, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector6"
+	  SID			  2712
+	  Ports			  [1, 8]
+	  Position		  [1648, 375, 1812, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector7"
+	  SID			  2714
+	  Ports			  [1, 8]
+	  Position		  [1853, 375, 2017, 380]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "uGov,phiInj,CAStartNom,EVC,tempWall,pTFScav,pTFExh,omegaE"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<uGov>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<phiInj>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<CAStartNom>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<EVC>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "<tempWall>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "<pTFScav>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "<pTFExh>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "<omegaE>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector8"
+	  SID			  2725
+	  Ports			  [1, 4]
+	  Position		  [421, 735, 459, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector9"
+	  SID			  2736
+	  Ports			  [1, 4]
+	  Position		  [636, 735, 674, 740]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  OutputSignals		  "dmEmb_u,dmEmb_d,Tq,dmb"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<dmEmb_u>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<dmEmb_d>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "<Tq>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "<dmb>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune1"
+	  SID			  2688
+	  Ports			  [8, 10]
+	  Position		  [354, 425, 521, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "1"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune2"
+	  SID			  2739
+	  Ports			  [8, 10]
+	  Position		  [569, 425, 736, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "2"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune3"
+	  SID			  2740
+	  Ports			  [8, 10]
+	  Position		  [784, 425, 951, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "3"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune4"
+	  SID			  2741
+	  Ports			  [8, 10]
+	  Position		  [999, 425, 1166, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "4"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune5"
+	  SID			  2742
+	  Ports			  [8, 10]
+	  Position		  [1214, 425, 1381, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "2"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune6"
+	  SID			  2743
+	  Ports			  [8, 10]
+	  Position		  [1429, 425, 1596, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "2"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune7"
+	  SID			  2744
+	  Ports			  [8, 10]
+	  Position		  [1644, 425, 1811, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "2"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "EngCylinderSSTune8"
+	  SID			  2745
+	  Ports			  [8, 10]
+	  Position		  [1849, 425, 2016, 590]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/EngCylinderSSTune"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  fs			  "fs"
+	  nStroke		  "nStroke"
+	  hn			  "hn"
+	  nCyl			  "nCyl"
+	  iCyl			  "2"
+	  B			  "B"
+	  stroke		  "stroke"
+	  lambdaCrank		  "lambdaCrank"
+	  aCrank		  "aCrank"
+	  X			  "X"
+	  Y			  "Y"
+	  r			  "r"
+	  nPort			  "nPort"
+	  liftMax		  "liftMax"
+	  Dv			  "Dv"
+	  beta			  "beta"
+	  w			  "w"
+	  Dp			  "Dp"
+	  Ds			  "Ds"
+	  cAVVUpRef		  "cAVVUpRef"
+	  cAVVDownRef		  "cAVVDownRef"
+	  liftUpRef		  "liftUpRef"
+	  liftDownRef		  "liftDownRef"
+	  cAStartRef		  "cAStartRef"
+	  dCALiftUp		  "dCALiftUp"
+	  dCALiftDown		  "dCALiftDown"
+	  dCALiftTopRef		  "dCALiftTopRef"
+	  mCp			  "mCp"
+	  cCylHT		  "cCylHT"
+	  cAlpha		  "cAlpha"
+	  mqfCycMax		  "mqfCycMax"
+	  wiebePara		  "wiebePara"
+	  phi0			  "phi0"
+	  m0			  "mCyl0"
+	  E0			  "ECyl0"
+	  mb0			  "mbCyl0"
+	  V0			  "vCyl0"
+	  phi0A			  "phi0A"
+	  m0A			  "m0A"
+	  E0A			  "E0A"
+	  mb0A			  "mb0A"
+	  V0A			  "V0A"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pCyl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "phi"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "phiIg"
+	    PropagatedSignals	    "phiIg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "dQ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "dmEmb_u"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "dmEmb_d"
+	    PropagatedSignals	    ", , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "Tq"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "dmb"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From1"
+	  SID			  2702
+	  Position		  [618, 330, 692, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From2"
+	  SID			  2703
+	  Position		  [403, 330, 477, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From3"
+	  SID			  2705
+	  Position		  [833, 330, 907, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From4"
+	  SID			  2707
+	  Position		  [1048, 330, 1122, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From5"
+	  SID			  2709
+	  Position		  [1263, 330, 1337, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From6"
+	  SID			  2711
+	  Position		  [1478, 330, 1552, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From7"
+	  SID			  2713
+	  Position		  [1693, 330, 1767, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From8"
+	  SID			  2715
+	  Position		  [1898, 330, 1972, 350]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  BackgroundColor	  "magenta"
+	  GotoTag		  "toCylinder"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto"
+	  SID			  2698
+	  Position		  [370, 155, 440, 175]
+	  BackgroundColor	  "orange"
+	  GotoTag		  "toCylinder"
+	  TagVisibility		  "local"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  2765
+	  Ports			  [8, 1]
+	  Position		  [1160, 835, 1200, 875]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++++++++"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  2767
+	  Ports			  [8, 1]
+	  Position		  [1170, 980, 1210, 1020]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++++++++"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  SID			  2768
+	  Ports			  [8, 1]
+	  Position		  [1180, 1125, 1220, 1165]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++++++++"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum3"
+	  SID			  2770
+	  Ports			  [8, 1]
+	  Position		  [1190, 1260, 1230, 1300]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++++++++"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "dmf"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  2778
+	  Position		  [255, 545, 275, 565]
+	  BackgroundColor	  "red"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "pMaxFinder"
+	  SID			  2683
+	  Ports			  [2, 2]
+	  Position		  [115, 489, 220, 576]
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  LibraryVersion	  "1.130"
+	  SourceBlock		  "EngineSystemSubmodel_SHI/pMaxFinder"
+	  SourceType		  "SubSystem"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pMax"
+	    RTWStorageClass	    "Auto"
+	    DataLogging		    on
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dmEmbScvg"
+	  SID			  2684
+	  Position		  [1225, 898, 1255, 912]
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dmEmbExh"
+	  SID			  2685
+	  Position		  [1230, 1043, 1260, 1057]
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Tq"
+	  SID			  2686
+	  Position		  [1235, 1188, 1265, 1202]
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dmf"
+	  SID			  2687
+	  Position		  [1245, 1323, 1275, 1337]
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "pMax"
+	  SID			  2776
+	  Position		  [255, 503, 285, 517]
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "pCyl1"
+	  SID			  2781
+	  Position		  [290, 603, 320, 617]
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  NamePlacement		  "alternate"
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "vCyl1"
+	  SID			  2779
+	  Position		  [170, 673, 200, 687]
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "exhVVOpen"
+	  SID			  2780
+	  Position		  [170, 703, 200, 717]
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dQCyl1"
+	  SID			  2782
+	  Position		  [290, 633, 320, 647]
+	  BlockMirror		  on
+	  BackgroundColor	  "[0.901961, 0.000000, 0.000000]"
+	  NamePlacement		  "alternate"
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  Name			  "<exhVVOpen>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector16"
+	  SrcPort		  4
+	  Points		  [-15, 0; 0, 20]
+	  DstBlock		  "exhVVOpen"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<vCyl>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector16"
+	  SrcPort		  3
+	  DstBlock		  "vCyl1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  10
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  9
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  10
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  9
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  10
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  9
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  10
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  9
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  10
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  9
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  10
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  9
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  10
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  9
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  9
+	}
+	Line {
+	  Name			  "<phi>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector16"
+	  SrcPort		  2
+	  Points		  [-165, 0; 0, -160]
+	  DstBlock		  "pMaxFinder"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<pCyl>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector16"
+	  SrcPort		  1
+	  Points		  [-155, 0; 0, -105]
+	  DstBlock		  "pMaxFinder"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "dmf"
+	  Labels		  [2, 0]
+	  SrcBlock		  "Sum3"
+	  SrcPort		  1
+	  Points		  [0, 25]
+	  DstBlock		  "dmf"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector12"
+	  SrcPort		  4
+	  Points		  [0, 535]
+	  DstBlock		  "Sum3"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector13"
+	  SrcPort		  4
+	  Points		  [0, 521]
+	  DstBlock		  "Sum3"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector14"
+	  SrcPort		  4
+	  Points		  [0, 505; -299, 0]
+	  DstBlock		  "Sum3"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector15"
+	  SrcPort		  4
+	  Points		  [0, 495; -98, 0]
+	  DstBlock		  "Sum3"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector11"
+	  SrcPort		  4
+	  Points		  [0, 495; 103, 0]
+	  DstBlock		  "Sum3"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector10"
+	  SrcPort		  4
+	  Points		  [0, 505; 304, 0]
+	  DstBlock		  "Sum3"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector9"
+	  SrcPort		  4
+	  Points		  [0, 520; 509, 0]
+	  DstBlock		  "Sum3"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<dmb>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector8"
+	  SrcPort		  4
+	  Points		  [0, 535]
+	  DstBlock		  "Sum3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  Points		  [0, 25]
+	  DstBlock		  "Tq"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector12"
+	  SrcPort		  3
+	  Points		  [0, 400]
+	  DstBlock		  "Sum2"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector13"
+	  SrcPort		  3
+	  Points		  [0, 386]
+	  DstBlock		  "Sum2"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector14"
+	  SrcPort		  3
+	  Points		  [0, 375; -299, 0]
+	  DstBlock		  "Sum2"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector15"
+	  SrcPort		  3
+	  Points		  [0, 360; -98, 0]
+	  DstBlock		  "Sum2"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector11"
+	  SrcPort		  3
+	  Points		  [0, 360; 103, 0]
+	  DstBlock		  "Sum2"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector10"
+	  SrcPort		  3
+	  Points		  [0, 370; 304, 0]
+	  DstBlock		  "Sum2"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector9"
+	  SrcPort		  3
+	  Points		  [0, 385; 509, 0]
+	  DstBlock		  "Sum2"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<Tq>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector8"
+	  SrcPort		  3
+	  Points		  [0, 400]
+	  DstBlock		  "Sum2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  Points		  [0, 25]
+	  DstBlock		  "dmEmbExh"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector12"
+	  SrcPort		  2
+	  Points		  [0, 255]
+	  DstBlock		  "Sum1"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector13"
+	  SrcPort		  2
+	  Points		  [0, 241]
+	  DstBlock		  "Sum1"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector14"
+	  SrcPort		  2
+	  Points		  [0, 230; -299, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector15"
+	  SrcPort		  2
+	  Points		  [0, 215; -98, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector11"
+	  SrcPort		  2
+	  Points		  [0, 215; 103, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector10"
+	  SrcPort		  2
+	  Points		  [0, 225; 304, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector9"
+	  SrcPort		  2
+	  Points		  [0, 240; 509, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<dmEmb_d>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector8"
+	  SrcPort		  2
+	  Points		  [0, 255]
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [0, 25]
+	  DstBlock		  "dmEmbScvg"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector12"
+	  SrcPort		  1
+	  Points		  [0, 110]
+	  DstBlock		  "Sum"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector13"
+	  SrcPort		  1
+	  Points		  [0, 96]
+	  DstBlock		  "Sum"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector14"
+	  SrcPort		  1
+	  Points		  [0, 85; -299, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector15"
+	  SrcPort		  1
+	  Points		  [0, 70; -98, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector11"
+	  SrcPort		  1
+	  Points		  [0, 70; 103, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector10"
+	  SrcPort		  1
+	  Points		  [0, 85; 304, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector9"
+	  SrcPort		  1
+	  Points		  [0, 95; 509, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<dmEmb_u>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector8"
+	  SrcPort		  1
+	  Points		  [0, 110]
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator8"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector12"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator7"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector13"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator6"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector14"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator5"
+	  SrcPort		  1
+	  Points		  [-5, 0]
+	  DstBlock		  "Bus\nSelector15"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator4"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector11"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator3"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector10"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator2"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector9"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  8
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  7
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  6
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  5
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  4
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  3
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  2
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune8"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator8"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  8
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  7
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  6
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  5
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  4
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  3
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  2
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune7"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator7"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  8
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  7
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  6
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  5
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  4
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  3
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  2
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune6"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator6"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  8
+	  Points		  [5, 0]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  7
+	  Points		  [5, 0]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  6
+	  Points		  [5, 0]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  5
+	  Points		  [5, 0]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  4
+	  Points		  [5, 0]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  3
+	  Points		  [0, 30]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  2
+	  Points		  [0, 30]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  1
+	  Points		  [0, 30]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  8
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  7
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  6
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  5
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  4
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  3
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  2
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune4"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  8
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  7
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  6
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  5
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  4
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  3
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  2
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune3"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  8
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  7
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  6
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  5
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  4
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  3
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  2
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune2"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator1"
+	  SrcPort		  1
+	  Points		  [0, 25]
+	  Branch {
+	    DstBlock		    "Bus\nSelector16"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Bus\nSelector8"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "dmb"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  8
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "Tq"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  7
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "dmEmb_d"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  6
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "dmEmb_u"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  5
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "dQ"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  4
+	  Points		  [0, 25]
+	  Branch {
+	    Points		    [-80, 0]
+	    DstBlock		    "dQCyl1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Bus\nCreator1"
+	    DstPort		    4
+	  }
+	}
+	Line {
+	  Name			  "phiIg"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  3
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "phi"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  2
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pCyl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "EngCylinderSSTune1"
+	  SrcPort		  1
+	  Points		  [0, 15]
+	  Branch {
+	    DstBlock		    "pCyl1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Bus\nCreator1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "From8"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector7"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From7"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector6"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From6"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From5"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector17"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From4"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From3"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From2"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From1"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator"
+	  SrcPort		  1
+	  DstBlock		  "Goto"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "omega"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "pTFExh"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "pTFScav"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  6
+	}
+	Line {
+	  Labels		  [0, 0]
+	  SrcBlock		  "tempWall"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "dCALiftUp"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "cAStartNom"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "phiInj"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "uGov"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "pMaxFinder"
+	  SrcPort		  2
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "pMax"
+	  Labels		  [1, 1]
+	  SrcBlock		  "pMaxFinder"
+	  SrcPort		  1
+	  DstBlock		  "pMax"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector7"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune8"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector6"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune7"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector5"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune6"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune1"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 1]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 1]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 1]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune2"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune3"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector4"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune4"
+	  DstPort		  8
+	}
+	Line {
+	  Name			  "<uGov>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  1
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<phiInj>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  2
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<CAStartNom>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  3
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<EVC>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  4
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<tempWall>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  5
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<pTFScav>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  6
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "<pTFExh>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  7
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "<omegaE>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector17"
+	  SrcPort		  8
+	  DstBlock		  "EngCylinderSSTune5"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  9
+	  Points		  [0, 25; 5, 0]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "EngCylinderSSTune5"
+	  SrcPort		  10
+	  Points		  [0, 10; 5, 0]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  10
+	}
+	Annotation {
+	  Position		  [881, 732]
+	}
+      }
+    }
+    Block {
+      BlockType		      SignalViewerScope
+      Name		      "Scope"
+      SID		      11
+      Ports		      []
+      Position		      [20, 15, 60, 55]
+      IOType		      "viewer"
+      List {
+	ListType		IOSignalStrings
+	set0ParseKeys		"28"
+	set0Sigs		"EngineCylinderBlockSSTune:o6"
+      }
+      Location		      [1019, 230, 1343, 469]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      ShowDataMarkers	      off
+      ShowLegends	      off
+      DataFormat	      "Array"
+      MaxDataPoints	      "7500"
+      RefreshTime	      0.035000
+    }
+    Line {
+      Name		      "pTFScav"
+      Labels		      [2, 0]
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      Points		      [30, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      6
+    }
+    Line {
+      Name		      "pTFExh"
+      Labels		      [2, 0]
+      SrcBlock		      "Constant1"
+      SrcPort		      1
+      Points		      [25, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      7
+    }
+    Line {
+      Name		      "omegaE"
+      Labels		      [2, 0]
+      SrcBlock		      "Constant2"
+      SrcPort		      1
+      Points		      [35, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      8
+    }
+    Line {
+      Name		      "uGov"
+      Labels		      [0, 0]
+      SrcBlock		      "Constant3"
+      SrcPort		      1
+      Points		      [80, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      1
+    }
+    Line {
+      Name		      "phiInj"
+      Labels		      [0, 0]
+      SrcBlock		      "Constant4"
+      SrcPort		      1
+      Points		      [100, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      2
+    }
+    Line {
+      Name		      "CAStartNom"
+      Labels		      [0, 0]
+      SrcBlock		      "Constant5"
+      SrcPort		      1
+      Points		      [95, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      3
+    }
+    Line {
+      Name		      "EVC"
+      Labels		      [0, 0]
+      SrcBlock		      "Constant6"
+      SrcPort		      1
+      Points		      [65, 0; 0, 20; 35, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      4
+    }
+    Line {
+      Name		      "tempWall"
+      Labels		      [0, 0]
+      SrcBlock		      "Constant7"
+      SrcPort		      1
+      Points		      [35, 0; 0, 160; 55, 0]
+      DstBlock		      "EngineCylinderBlockSSTune"
+      DstPort		      5
+    }
+    Line {
+      Name		      "dmEmbScav"
+      Labels		      [0, 0]
+      SrcBlock		      "EngineCylinderBlockSSTune"
+      SrcPort		      1
+      Points		      [0, 50]
+    }
+    Line {
+      Name		      "dmEmbExh"
+      Labels		      [0, 0]
+      SrcBlock		      "EngineCylinderBlockSSTune"
+      SrcPort		      2
+      Points		      [0, 45]
+    }
+    Line {
+      Name		      "Tq"
+      Labels		      [0, 0]
+      SrcBlock		      "EngineCylinderBlockSSTune"
+      SrcPort		      3
+      Points		      [0, 35]
+    }
+    Line {
+      Name		      "pCyl"
+      Labels		      [0, 0]
+      SrcBlock		      "EngineCylinderBlockSSTune"
+      SrcPort		      6
+      Points		      [0, 60]
+    }
+    Line {
+      Name		      "pMax"
+      Labels		      [0, 0]
+      SrcBlock		      "EngineCylinderBlockSSTune"
+      SrcPort		      5
+      Points		      [0, 55]
+    }
+  }
+}
