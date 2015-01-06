@@ -9,7 +9,7 @@ mdl1 = 'ThdynConvTest';
 mdl2 = 'ThdynTest';
 
 simTime = '1';
-solver = 'ode4';
+solver = 'ode45';
 relTol = '1e-5';
 absTol = '1e-5';
 fixTimeStep = '1e-3';
