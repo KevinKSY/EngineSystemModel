@@ -9,7 +9,7 @@
 
 /* Include files */
 #include "rt_nonfinite.h"
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 #include "GetPTF.h"
 
 /* Function Definitions */
@@ -26,6 +26,9 @@ void GetPTF(real_T m, real_T m_b, real_T E, real_T V, real_T T_prev,
   real_T unusedU12;
   real_T unusedU11;
   real_T unusedU10;
+  real_T unusedU16;
+  real_T unusedU17;
+  real_T unusedU18;
   real_T unusedUf;
   real_T unusedUe;
   real_T u_temp;
@@ -59,9 +62,10 @@ void GetPTF(real_T m, real_T m_b, real_T E, real_T V, real_T T_prev,
   *p = m * R_prev * T[0] / V;
   err_p = 1.0;
   while (err_p > 0.01) {
-    GetThdynCombGasZach(*p, T[0], *F, &err_p, &T_err, &u_temp, &unusedUe,
-                        &unusedUf, &unusedU10, &unusedU11, &unusedU12, &uT,
-                        &unusedU13, &unusedU14, &unusedU15, &R);
+    GetThdynCombGasZachV1(*p, T[0], *F, fs, &err_p, &T_err, &u_temp, &unusedUe,
+            &unusedUf, &unusedU10, &unusedU11, &unusedU12, &uT,
+            &unusedU13, &unusedU14, &unusedU15, &unusedU16, 
+            &unusedU17, &unusedU18,&R);
     T_err = m * err_p * T[0] / V;
     err_p = fabs(*p - T_err) / *p;
     *p = T_err;
@@ -75,9 +79,10 @@ void GetPTF(real_T m, real_T m_b, real_T E, real_T V, real_T T_prev,
     T_err = 1.0;
     while (T_err > 0.0001) {
       *T -= err_p;
-      GetThdynCombGasZach(*p, *T, *F, &R, &err_p, &T_err, &u_temp, &unusedUe,
-                          &unusedUf, &unusedU10, &unusedU11, &unusedU12, &uT,
-                          &unusedU13, &unusedU14, &unusedU15);
+      GetThdynCombGasZachV1(*p, *T, *F, fs, &R, &err_p, &T_err, &u_temp, 
+              &unusedUe, &unusedUf, &unusedU10, &unusedU11, &unusedU12,&uT,
+              &unusedU16, &unusedU17, &unusedU18, &unusedU13, &unusedU14, 
+              &unusedU15);
       err_p = (u_temp - E / m) / uT;
       T_err = fabs(err_p) / *T;
     }

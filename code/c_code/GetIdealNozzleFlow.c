@@ -9,12 +9,13 @@
 
 /* Include files */
 #include "rt_nonfinite.h"
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 #include "GetCompCombGas_rtwutil.h"
 
 /* Function Definitions */
-void GetIdealNozzleFlow(real_T Cd, real_T A, real_T p_in, real_T p_out, real_T
-  T_in, real_T F_in, real_T fs, real_T *m_dot, real_T *h_dot, real_T *m_b_dot)
+void GetIdealNozzleFlow(real_T Cd, real_T A, real_T p_in, real_T p_out, 
+        real_T T_in, real_T F_in, real_T fs, real_T *m_dot, 
+        real_T *h_dot, real_T *m_b_dot)
 {
   real_T pr;
   real_T gamma1;
@@ -22,14 +23,17 @@ void GetIdealNozzleFlow(real_T Cd, real_T A, real_T p_in, real_T p_out, real_T
   real_T K;
   real_T R;
   real_T MW;
-  real_T unused1,unused2,unused3,unused4,unused5,unused6,unused7,unused8,unused9,unused10;
+  real_T unused1,unused2,unused3,unused4,unused5,unused6,unused7,unused8,
+          unused9,unused10,unused11,unused12,unused13;
 
   /* Calculate the mass flow through ideal nozzle(valve) */
   /*    Input */
   /*        Cd, A, p_in, p_out, T_in, X_in */
   /*    Output */
   /*        m_dot */
-  GetThdynCombGasZach(p_in, T_in, F_in, &R, &h, &unused1, &unused2, &unused3, &unused4, &unused5, &unused6, &unused7, &unused8, &unused9, &unused10, &K);
+  GetThdynCombGasZachV1(p_in, T_in, F_in, fs, &R, &h, &unused1, &unused2, 
+          &unused3, &unused4, &unused5, &unused6, &unused7, &unused8, 
+          &unused11, &unused12, &unused13, &unused9, &unused10, &K);
   
   MW = 8314.4621 / R;
   pr = p_out / p_in;

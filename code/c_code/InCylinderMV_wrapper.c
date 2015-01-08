@@ -35,7 +35,7 @@
 
 /* %%%-SFUNWIZ_wrapper_includes_Changes_BEGIN --- EDIT HERE TO _END */
 #include <math.h>
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
 #define u_width 1
 #define y_width 1
@@ -98,7 +98,7 @@ void InCylinderMV_Outputs_wrapper(const real_T *pu,
 double const pi = 3.14159265359;
 
 //Variables
-double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,Cpu,Cvu,Ku;
+double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,sFu,spu,sTu,Cpu,Cvu,Ku;
                     //Thermodynamic properties of inlet gas
 double p_bar;       // pressure in bar
 double m_cyc;       // mass of charge trapped per cycle
@@ -108,8 +108,8 @@ double Pe, Pe_d_nom;   // inst shaft power (W), delayed shaft power(W)
 double SFOC;        // Specific fuel oil consumption (g/kWh)
 //code
 
-GetThdynCombGasZach(*pu,*Tu,*Fu,&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,&uFu,&upu,
-                    &uTu,&Cpu,&Cvu,&Ku);
+GetThdynCombGasZachV1(*pu,*Tu,*Fu,fs[0],&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,&uFu,&upu,
+                    &uTu,&sFu,&spu,&sTu,&Cpu,&Cvu,&Ku);
 p_bar = *pu/1.0e5;
 if (p_bar > *p_a_inf){
     *vol_eff = p_bar*(p_bar*vol_eff_coeff1[0] + vol_eff_coeff1[1]) 

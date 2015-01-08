@@ -35,7 +35,7 @@
 
 /* %%%-SFUNWIZ_wrapper_includes_Changes_BEGIN --- EDIT HERE TO _END */
 #include <math.h>
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
 #define u_width 1
 #define y_width 1
@@ -86,9 +86,9 @@ double dmt_corr;    // Corrected mass flow(kg/s)
 double dmt, dmbt;   // Actual mass flow, burned fuel mass flow (kg/s)
 double err_td, dtd; // Variables for calculating the discharge temperature
 
-double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,Cpu,Cvu,Ku;
-double hdi,sdi,udi,Rdi,RFdi,Rpdi,RTdi,uFdi,updi,uTdi,Cpdi,Cvdi,Kdi;
-double hd,hd_temp,sd,ud,RFd,Rd,Rpd,RTd,uFd,upd,uTd,Cpd,Cvd,Kd;
+double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,sFu,spu,sTu,Cpu,Cvu,Ku;
+double hdi,sdi,udi,Rdi,RFdi,Rpdi,RTdi,uFdi,updi,uTdi,sFdi,spdi,sTdi,Cpdi,Cvdi,Kdi;
+double hd,hd_temp,sd,ud,RFd,Rd,Rpd,RTd,uFd,upd,uTd,sFd,spd,sTd,Cpd,Cvd,Kd;
                     // Thermodynamic properties of the upstream, downstream 
                     // at isentropic expansion and downstream gas.
 const double pi = 3.14159265358979323846;
@@ -100,13 +100,13 @@ dmt = dmt_corr*(*pu/1000)/sqrt(*Tu);
 dmbt = dmt*(*Fu)*(*fs)/(1+(*Fu)*(*fs));
 
 // Calculate the discharge temperature at isentropic expansion
-GetThdynCombGasZach(*pu,*Tu,*Fu,&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,&uFu,&upu,
-                    &uTu,&Cpu,&Cvu,&Ku);
+GetThdynCombGasZachV1(*pu,*Tu,*Fu,fs[0],&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,&uFu,&upu,
+                    &uTu,&sFu,&spu,&sTu,&Cpu,&Cvu,&Ku);
 Tdi = *Tu*pow(er,((1-Ku)/Ku));
 
 // Calculate the discharge enthalpy with the efficiency from the efficiency model
-GetThdynCombGasZach(*pd,Tdi,*Fu,&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,&RTdi,&uFdi,
-                    &updi,&uTdi,&Cpdi,&Cvdi,&Kdi);
+GetThdynCombGasZachV1(*pd,Tdi,*Fu,fs[0],&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,&RTdi,&uFdi,
+                    &updi,&uTdi,&sFdi,&spdi,&sTdi,&Cpdi,&Cvdi,&Kdi);
 dhi = hu - hdi;
 Uc = *omegat/sqrt(2*dhi);
 eta_t[0] = eff_coeff[0] + eff_coeff[1]*Uc + eff_coeff[2]*Uc*Uc 
@@ -127,8 +127,8 @@ hd = hu - dh;
 *Td_calc = Tdi / eta_t[0];
 err_td = 1;
 while (err_td > 0.001) {
-    GetThdynCombGasZach(*pd,*Td_calc,*Fu,&Rd,&hd_temp,&sd,&ud,&RFd,&Rpd,
-                &RTd,&uFd,&upd,&uTd,&Cpd,&Cvd,&Kd);
+    GetThdynCombGasZachV1(*pd,*Td_calc,*Fu,fs[0],&Rd,&hd_temp,&sd,&ud,&RFd,&Rpd,
+                &RTd,&uFd,&upd,&uTd,&sFd,&spd,&sTd,&Cpd,&Cvd,&Kd);
     dtd = (hd_temp - hd)/(uTd + Rd);
     err_td = abs(dtd)/(*Td_calc);
     *Td_calc = *Td_calc - dtd;

@@ -35,7 +35,7 @@
 
 /* %%%-SFUNWIZ_wrapper_includes_Changes_BEGIN --- EDIT HERE TO _END */
 #include <math.h>
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
 #define u_width 1
 #define y_width 1
@@ -82,9 +82,10 @@ double n288, dn288_intv, dpr_intv, dz1, dz11, dz2, dz21, z1, z11, z2, z21,
 int i, j, istart, iend, jstart, jend;        
 double dm_corr;
 double pr, pic, Tdi, delhc;
-double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,Cpu,Cvu,Ku;
-double hdi,sdi,udi,Rdi,RFdi,Rpdi,RTdi,uFdi,updi,uTdi,Cpdi,Cvdi,Kdi;
-double hd,sd,ud,RFd,Rd,Rpd,RTd,uFd,upd,uTd,Cpd,Cvd,Kd;
+double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,sFu,spu,sTu,Cpu,Cvu,Ku;
+double hdi,sdi,udi,Rdi,RFdi,Rpdi,RTdi,uFdi,updi,uTdi,sFdi,spdi,sTdi,
+        Cpdi,Cvdi,Kdi;
+double hd,sd,ud,RFd,Rd,Rpd,RTd,uFd,upd,uTd,sFd,spd,sTd,Cpd,Cvd,Kd;
 const double pi = 3.14159265358979323846;
 
 bool first;
@@ -135,14 +136,14 @@ dm_corr = z1 + (dz_flow/dn288_intv)*(n288- n288_rep[jstart]);
 *eta_ic = z11 + (dz_eff/dn288_intv)*(n288- n288_rep[jstart]);
 
 //Calculate the thermodynamic property of the upstream gas
-GetThdynCombGasZach(*pu,*Tu,*Fu,&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,&uFu,&upu,
-                    &uTu,&Cpu,&Cvu,&Ku);
+GetThdynCombGasZachV1(*pu,*Tu,*Fu,fs[0],&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,
+        &uFu,&upu,&uTu,&sFu,&spu,&sTu,&Cpu,&Cvu,&Ku);
 
 //Calculate the temperature and thermodynamic property of the downstream 
 //gas with isentropic expansion
 Tdi = *Tu*pow(pic,((Ku-1)/(Ku)));
-GetThdynCombGasZach(*pd,Tdi,*Fu,&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,&RTdi,&uFdi,
-                    &updi,&uTdi,&Cpdi,&Cvdi,&Kdi);
+GetThdynCombGasZachV1(*pd,Tdi,*Fu,fs[0],&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,
+        &RTdi,&uFdi,&updi,&uTdi,&sFdi,&spdi,&sTdi,&Cpdi,&Cvdi,&Kdi);
 
 //Calculate the actual increase in enthalpy using isentropic efficiency
 if (*eta_ic < 0.5) {

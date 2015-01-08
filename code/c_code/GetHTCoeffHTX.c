@@ -12,7 +12,7 @@
 #include "GetAirDensity.h"
 #include "GetAirThermalConduct.h"
 #include "GetAirViscosity.h"
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 #include "GetCompCombGas_rtwutil.h"
 #include "GetHTCoeffHTX.h"
 
@@ -25,6 +25,9 @@ real_T GetHTCoeffHTX(real_T p, real_T m_dot, real_T T, real_T D, real_T A)
   real_T unusedUb;
   real_T unusedUa;
   real_T d0;
+  real_T unusedU12;
+  real_T unusedU11;
+  real_T unusedU10;
   real_T unusedU9;
   real_T unusedU8;
   real_T unusedU7;
@@ -42,9 +45,10 @@ real_T GetHTCoeffHTX(real_T p, real_T m_dot, real_T T, real_T D, real_T A)
   rho_a = GetAirDensity(p, T);
   mu_a = GetAirViscosity(rho_a, T);
   lambda = GetAirThermalConduct(rho_a, T);
-  GetThdynCombGasZach(p, T, 0.0, &Re_D, &unusedU1, &unusedU2, &unusedU3,
-                      &unusedU4, &unusedU5, &unusedU6, &unusedU7, &unusedU8,
-                      &unusedU9, &d0, &unusedUa, &unusedUb);
+  GetThdynCombGasZachV1(p, T, 0.0, 0.0683, &Re_D, &unusedU1, &unusedU2, 
+          &unusedU3, &unusedU4, &unusedU5, &unusedU6, &unusedU7, &unusedU8,
+          &unusedU9, &unusedU10, &unusedU11, &unusedU12, &d0, 
+          &unusedUa, &unusedUb);
 
   Re_D = m_dot / rho_a / A * D * rho_a / mu_a;
   rho_a = mu_a * d0 / lambda;

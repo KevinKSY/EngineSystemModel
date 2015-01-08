@@ -63,8 +63,9 @@ void blower_Outputs_wrapper(const real_T *pTF_u,
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 double pu, pd, tu, td, fu, fd, pr, tdi;
 double dmBlowerCorr;
-double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,Cpu,Cvu,Ku;
-double hdi,sdi,udi,RFdi,Rdi,Rpdi,RTdi,uFdi,updi,uTdi,Cpdi,Cvdi,Kdi;
+double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,sFu,spu,sTu,Cpu,Cvu,Ku;
+double hdi,sdi,udi,RFdi,Rdi,Rpdi,RTdi,uFdi,updi,uTdi,sFdi,spdi,sTdi,
+        Cpdi,Cvdi,Kdi;
 
 
 if (blowerRun[0] == 0) {
@@ -84,15 +85,15 @@ else {
             exp(-coeffBlowerFlow[1]*pr) + coeffBlowerFlow[2]);
     dmEmb_u[0] = dmBlowerCorr*pu/1e5*sqrt(298.15/tu);
     dmEmb_u[2] = dmEmb_u[0]*fu*fs[0]/(1+fu*fs[0]);
-    GetThdynCombGasZach(pu,tu,fu,&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,&uFu,&upu, 
-            &uTu, &Cpu, &Cvu, &Ku);
+    GetThdynCombGasZachV1(pu,tu,fu,fs[0],&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,
+            &uFu,&upu,&uTu,&sFu,&spu,&sTu,&Cpu,&Cvu,&Ku);
     dmEmb_u[1] = dmEmb_u[0]*hu;
     
     dmEmb_d[0] = dmEmb_u[0];
     dmEmb_d[2] = dmEmb_u[2];
     tdi = tu*pow(pr,((Ku-1)/Ku));
-    GetThdynCombGasZach(pd,tdi,fu,&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,&RTdi,
-            &uFdi,&updi,&uTdi,&Cpdi,&Cvdi,&Kdi);
+    GetThdynCombGasZachV1(pd,tdi,fu,fs[0],&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,
+            &RTdi,&uFdi,&updi,&uTdi,&sFdi,&spdi,&sTdi,&Cpdi,&Cvdi,&Kdi);
     dmEmb_d[1] = dmEmb_d[0]*(hdi - hu)/effBlower[0];
     powBlower[0] = dmEmb_d[1];
     dmEmb_d[1] = dmEmb_u[1] + dmEmb_d[1];

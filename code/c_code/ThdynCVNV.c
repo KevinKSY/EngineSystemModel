@@ -551,6 +551,7 @@ static void mdlUpdate(SimStruct *S, int_T tid)
     const real_T *p  = (const real_T *)ssGetOutputPortRealSignal(S,0);
     const real_T *T  = (const real_T *)ssGetOutputPortRealSignal(S,1);
     const real_T *F  = (const real_T *)ssGetOutputPortRealSignal(S,2);
+    const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
     
     real_T *T_prev = (real_T*) ssGetDWork(S,0);
     
@@ -561,9 +562,10 @@ static void mdlUpdate(SimStruct *S, int_T tid)
     real_T *Cv_prev = (real_T*) ssGetDWork(S,3);
     
     
-    real_T R,h,s,u,uP,uT,uF,RP,RT,RF,Cp,Cv,K;
+    real_T R,h,s,u,uP,uT,uF,RP,RT,RF,sP,sT,sF,Cp,Cv,K;
     
-    GetThdynCombGasZach(*p,*T,*F,&R,&h,&s,&u,&uP,&uT,&uF,&RP,&RT,&RF,&Cp,&Cv,&K);
+    GetThdynCombGasZachV1(*p,*T,*F,fs[0],&R,&h,&s,&u,&RF,&RP,&RT,&uF,&uP,
+            &uT,&sF,&sP,&sT,&Cp,&Cv,&K);
     
     
     *T_prev = *T;

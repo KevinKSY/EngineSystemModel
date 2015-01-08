@@ -37,7 +37,7 @@
 #include <math.h>
 #include "GetIdealNozzleFlow.h"
 #include "GetHTCoeffHTX.h"
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
 #define u_width 1
 #define y_width 1
@@ -91,8 +91,8 @@ double d;                   //flow direction
 double gamma1;
 double p_in, T_in, F_in;    //inlet pressure, temperature, FA equivalent ratio
 double p_out, T_out;        //outlet pressure, temperature
-double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,Cpu,Cvu,Ku;
-double hd,sd,ud,RFd,Rd,Rpd,RTd,uFd,upd,uTd,Cpd,Cvd,Kd;
+double hu,su,uu,Ru,RFu,Rpu,RTu,uFu,upu,uTu,sFu,spu,sTu,Cpu,Cvu,Ku;
+double hd,sd,ud,RFd,Rd,Rpd,RTd,uFd,upd,uTd,sFd,spd,sTd,Cpd,Cvd,Kd;
                             //thermodynamic properties of in/out gases
 double alpha, K;            //convective heat transfer coefficient
                             //Effective heat transfer area
@@ -112,8 +112,8 @@ else {
     a = aa;       d = -1;
 }
 
-GetThdynCombGasZach(p_in, T_in, F_in, &Ru, &hu, &su, &uu, &RFu, 
-                &Rpu, &RTu, &uFu, &upu, &uTu, &Cpu, &Cvu, &Ku);
+GetThdynCombGasZachV1(p_in, T_in, F_in, fs[0], &Ru, &hu, &su, &uu, &RFu, 
+        &Rpu, &RTu, &uFu, &upu, &uTu, &sFu, &spu, &sTu, &Cpu, &Cvu, &Ku);
 gamma1 = (Ku - 1.0) / Ku;
 aCR = pow(2.0 / (Ku + 1.0), 1.0 / gamma1);
 
@@ -151,8 +151,8 @@ else {
 	    T_out = T_out_temp;
     }
 }
-GetThdynCombGasZach(p_out, T_out, F_in, &Rd, &hd, &sd, &ud, &RFd, 
-                &Rpd, &RTd, &uFd, &upd, &uTd, &Cpd, &Cvd, &Kd);
+GetThdynCombGasZachV1(p_out, T_out, F_in, fs[0], &Rd, &hd, &sd, &ud, &RFd, 
+        &Rpd, &RTd, &uFd, &upd, &uTd, &sFd, &spd, &sTd, &Cpd, &Cvd, &Kd);
 dmd[0] = dmu[0];
 ded[0] = hd*dmd[0];
 dmbd[0] = dmbu[0];

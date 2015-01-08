@@ -36,7 +36,7 @@
 /* %%%-SFUNWIZ_wrapper_includes_Changes_BEGIN --- EDIT HERE TO _END */
 #include <math.h>
 #include "GetIdealNozzleFlow.h"
-#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
 #define u_width 1
 #define y_width 1
