@@ -54,14 +54,28 @@ void ThdynCVConv_Outputs_wrapper(real_T *p,
                           real_T *T,
                           real_T *F,
                           real_T *V ,
+                          real_T *m_err,
+                          real_T *mf_err,
+                          real_T *E_err,
 			   const real_T *xC,
                           const real_T  *fs)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
+real_T R, h, s, u, RF, RP, RT, uF, uP, uT, sF, sP, sT, Cp, Cv, K; 
+real_T m,mf,E;
 p[0] = xC[0];
 T[0] = xC[1];
 F[0] = xC[2];
 V[0] = xC[3];
+GetThdynCombGasZachV1(p[0], T[0], F[0], fs[0], &R, &h, &s, &u, &RF, &RP, &RT, 
+        &uF, &uP, &uT, &sF, &sP, &sT,&Cp, &Cv, &K);
+m = p[0]*V[0]/(R*T[0]);
+mf = F[0]*fs[0]/(1+F[0]*fs[0])*m;
+E = u*m;
+m_err[0] = (m - xC[4])/xC[4];
+mf_err[0] = (mf - xC[6])/xC[6];
+E_err[0] = (E - xC[5])/xC[5];
+
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
 
@@ -90,8 +104,10 @@ real_T pTemp, TTemp, FTemp, dF, m, mf, ma, VTemp;
 real_T D;
 real_T R1, h1, s1, uu1, RF1, RP1, RT1, uF1, uP1, uT1, sF1, sP1, sT1, Cp1, Cv1, K1; 
 real_T rho, rhoP, rhoT, rhoF, RtimesT, RtimesTSq;
+real_T dx1, dx2, dx3, dx4;
 real_T u1, u2, u3, u4;
 real_T a11, a12, a13, a21, a22, a23, a33, a44;
+
 
 pTemp = xC[0];
 TTemp = xC[1];
@@ -123,5 +139,10 @@ dx[0] = a11*u1 + a12*u2 + a13*u3;
 dx[1] = a21*u1 + a22*u2 + a23*u3;
 dx[2] = u3;
 dx[3] = u4;
+dx[4] = dm[0];
+dx[5] = dE[0]-pTemp*u4;
+dx[6] = dmf[0];
+
+
 /* %%%-SFUNWIZ_wrapper_Derivatives_Changes_END --- EDIT HERE TO _BEGIN */
 }

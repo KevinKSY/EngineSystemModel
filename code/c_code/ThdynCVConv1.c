@@ -32,7 +32,7 @@
  */
 
 #define S_FUNCTION_LEVEL 2
-#define S_FUNCTION_NAME ThdynCVConv
+#define S_FUNCTION_NAME ThdynCVConv1
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
 #define NUM_INPUTS          4
@@ -105,7 +105,7 @@
 #define IN_3_BIAS            0
 #define IN_3_SLOPE           0.125
 
-#define NUM_OUTPUTS          4
+#define NUM_OUTPUTS          7
 /* Output Port  0 */
 #define OUT_PORT_0_NAME      p
 #define OUTPUT_0_WIDTH       1
@@ -170,6 +170,54 @@
 #define OUT_3_FRACTIONLENGTH  3
 #define OUT_3_BIAS            0
 #define OUT_3_SLOPE           0.125
+/* Output Port  4 */
+#define OUT_PORT_4_NAME      m_err
+#define OUTPUT_4_WIDTH       1
+#define OUTPUT_DIMS_4_COL    1
+#define OUTPUT_4_DTYPE       real_T
+#define OUTPUT_4_COMPLEX     COMPLEX_NO
+#define OUT_4_FRAME_BASED    FRAME_NO
+#define OUT_4_BUS_BASED      0
+#define OUT_4_BUS_NAME       
+#define OUT_4_DIMS           1-D
+#define OUT_4_ISSIGNED        1
+#define OUT_4_WORDLENGTH      8
+#define OUT_4_FIXPOINTSCALING 1
+#define OUT_4_FRACTIONLENGTH  3
+#define OUT_4_BIAS            0
+#define OUT_4_SLOPE           0.125
+/* Output Port  5 */
+#define OUT_PORT_5_NAME      mf_err
+#define OUTPUT_5_WIDTH       1
+#define OUTPUT_DIMS_5_COL    1
+#define OUTPUT_5_DTYPE       real_T
+#define OUTPUT_5_COMPLEX     COMPLEX_NO
+#define OUT_5_FRAME_BASED    FRAME_NO
+#define OUT_5_BUS_BASED      0
+#define OUT_5_BUS_NAME       
+#define OUT_5_DIMS           1-D
+#define OUT_5_ISSIGNED        1
+#define OUT_5_WORDLENGTH      8
+#define OUT_5_FIXPOINTSCALING 1
+#define OUT_5_FRACTIONLENGTH  3
+#define OUT_5_BIAS            0
+#define OUT_5_SLOPE           0.125
+/* Output Port  6 */
+#define OUT_PORT_6_NAME      E_err
+#define OUTPUT_6_WIDTH       1
+#define OUTPUT_DIMS_6_COL    1
+#define OUTPUT_6_DTYPE       real_T
+#define OUTPUT_6_COMPLEX     COMPLEX_NO
+#define OUT_6_FRAME_BASED    FRAME_NO
+#define OUT_6_BUS_BASED      0
+#define OUT_6_BUS_NAME       
+#define OUT_6_DIMS           1-D
+#define OUT_6_ISSIGNED        1
+#define OUT_6_WORDLENGTH      8
+#define OUT_6_FIXPOINTSCALING 1
+#define OUT_6_FRACTIONLENGTH  3
+#define OUT_6_BIAS            0
+#define OUT_6_SLOPE           0.125
 
 #define NPARAMS              5
 /* Parameter  1 */
@@ -196,7 +244,7 @@
 #define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
 #define NUM_DISC_STATES      0
 #define DISC_STATES_IC       [0]
-#define NUM_CONT_STATES      4
+#define NUM_CONT_STATES      7
 #define CONT_STATES_IC       [p0,T0,F0,V0]
 
 #define SFUNWIZ_GENERATE_TLC 1
@@ -223,7 +271,10 @@ extern void ThdynCVConv_Outputs_wrapper(real_T *p,
                           real_T *T,
                           real_T *F,
                           real_T *V ,
-			   const real_T *xC,
+                          real_T *m_err,  
+                          real_T *mf_err,
+                          real_T *E_err,
+                          const real_T *xC,
                           const real_T  *fs);
 extern void ThdynCVConv_Derivatives_wrapper(const real_T *dm,
                           const real_T *dE,
@@ -232,7 +283,7 @@ extern void ThdynCVConv_Derivatives_wrapper(const real_T *dm,
                           const real_T *p,
                           const real_T *T,
                           const real_T *F,
-                          const real_T *V,
+                          const real_T *V,       
                           real_T *dx ,
                           real_T *xC, 
                           const real_T  *fs,  const int_T  p_width0,
@@ -385,7 +436,18 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortWidth(S, 3, OUTPUT_3_WIDTH);
     ssSetOutputPortDataType(S, 3, SS_DOUBLE);
     ssSetOutputPortComplexSignal(S, 3, OUTPUT_3_COMPLEX);
-
+    /* Output Port 4 */
+    ssSetOutputPortWidth(S, 4, OUTPUT_4_WIDTH);
+    ssSetOutputPortDataType(S, 4, SS_DOUBLE);
+    ssSetOutputPortComplexSignal(S, 4, OUTPUT_4_COMPLEX);
+    /* Output Port 5 */
+    ssSetOutputPortWidth(S, 5, OUTPUT_5_WIDTH);
+    ssSetOutputPortDataType(S, 5, SS_DOUBLE);
+    ssSetOutputPortComplexSignal(S, 5, OUTPUT_5_COMPLEX);
+    /* Output Port 5 */
+    ssSetOutputPortWidth(S, 6, OUTPUT_5_WIDTH);
+    ssSetOutputPortDataType(S, 6, SS_DOUBLE);
+    ssSetOutputPortComplexSignal(S, 6, OUTPUT_5_COMPLEX);    
     ssSetNumSampleTimes(S, 1);
     ssSetNumRWork(S, 0);
     ssSetNumIWork(S, 0);
@@ -428,10 +490,17 @@ static void mdlInitializeSampleTimes(SimStruct *S)
    real_T R, h, s, u, RF, RP, RT, uF, uP, uT, sF, sP, sT, Cp, Cv, K; 
    
    fs = (*mxGetPr(ssGetSFcnParam(S, 0)));
+   
     xC[0] = (*mxGetPr(ssGetSFcnParam(S, 1)));
     xC[1] = (*mxGetPr(ssGetSFcnParam(S, 2)));
     xC[2] = (*mxGetPr(ssGetSFcnParam(S, 3)));
     xC[3] = (*mxGetPr(ssGetSFcnParam(S, 4)));   
+    
+    GetThdynCombGasZachV1(xC[0],xC[1],xC[2],fs,&R,&h,&s,&u,&RF,&RP,&RT, 
+        &uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv,&K);
+    xC[4] = xC[0]*xC[3]/(R*xC[1]);
+    xC[5] = u*xC[4];  
+    xC[6] = xC[0]*xC[2]*fs/(1+xC[2]*fs);    
  }
 #define MDL_SET_INPUT_PORT_DATA_TYPE
 static void mdlSetInputPortDataType(SimStruct *S, int port, DTypeId dType)
@@ -459,10 +528,13 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     real_T        *T  = (real_T *)ssGetOutputPortRealSignal(S,1);
     real_T        *F  = (real_T *)ssGetOutputPortRealSignal(S,2);
     real_T        *V  = (real_T *)ssGetOutputPortRealSignal(S,3);
+    real_T        *m_err  = (real_T *)ssGetOutputPortRealSignal(S,4);
+    real_T        *mf_err  = (real_T *)ssGetOutputPortRealSignal(S,5);
+    real_T        *E_err = (real_T *)ssGetOutputPortRealSignal(S,6);
     const real_T   *xC = ssGetContStates(S);
     const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
 
-    ThdynCVConv_Outputs_wrapper(p, T, F, V, xC, fs);
+    ThdynCVConv_Outputs_wrapper(p, T, F, V, m_err, mf_err, E_err, xC, fs);
 }
 
 #define MDL_DERIVATIVES  /* Change to #undef to remove function */
