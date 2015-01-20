@@ -19,7 +19,7 @@ Library {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-9.0, 0.0, 1938.0, 1170.0]
+      Location		      [-9.0, -9.0, 1938.0, 1170.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -42,10 +42,10 @@ Library {
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
 	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"938"
+	LoadSaveID		"1327"
 	Extents			[1692.0, 984.0]
-	ZoomFactor		[0.6]
-	Offset			[-410.83333333333303, -151.25]
+	ZoomFactor		[1.5]
+	Offset			[1072.150000000001, -214.85000000000048]
       }
     }
   }
@@ -55,9 +55,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "yum"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 16 11:43:39 2015"
-  RTWModifiedTimeStamp	  343309417
-  ModelVersionFormat	  "1.%<AutoIncrement:142>"
+  LastModifiedDate	  "Tue Jan 20 00:04:26 2015"
+  RTWModifiedTimeStamp	  343613065
+  ModelVersionFormat	  "1.%<AutoIncrement:158>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1001,7 +1001,7 @@ Library {
   }
   System {
     Name		    "EngineSystemSubmodel"
-    Location		    [-9, 0, 1929, 1170]
+    Location		    [0, 0, 960, 1152]
     Open		    off
     ModelBrowserVisibility  on
     ModelBrowserWidth	    200
@@ -1015,7 +1015,7 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2510"
+    SIDHighWatermark	    "2748"
     Block {
       BlockType		      SubSystem
       Name		      "Combustion"
@@ -1033,7 +1033,7 @@ Library {
       MaskHideContents	      off
       System {
 	Name			"Combustion"
-	Location		[0, 0, 960, 1152]
+	Location		[-9, -9, 1929, 1161]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -1350,6 +1350,364 @@ Library {
 	    }
 	  }
 	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "ROHRBus"
+	  SID			  "2587"
+	  Ports			  [5, 3]
+	  Position		  [210, 16, 305, 134]
+	  ZOrder		  155
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "ROHRBus"
+	    Location		    [0, 0, 960, 1152]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "125"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF"
+	      SID		      "2588"
+	      Position		      [70, 308, 100, 322]
+	      ZOrder		      -1
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "u_gov"
+	      SID		      "2589"
+	      Position		      [70, 233, 100, 247]
+	      ZOrder		      1
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "phiInj"
+	      SID		      "2590"
+	      Position		      [70, 203, 100, 217]
+	      ZOrder		      3
+	      BackgroundColor	      "green"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "phi"
+	      SID		      "2591"
+	      Position		      [70, 173, 100, 187]
+	      ZOrder		      2
+	      BackgroundColor	      "green"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omega"
+	      SID		      "2592"
+	      Position		      [70, 263, 100, 277]
+	      ZOrder		      4
+	      BackgroundColor	      "green"
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      SID		      "2593"
+	      Ports		      [3, 1]
+	      Position		      [700, 261, 705, 299]
+	      ZOrder		      13
+	      ShowName		      off
+	      Inputs		      "3"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "2594"
+	      Ports		      [1, 2]
+	      Position		      [180, 286, 185, 344]
+	      ZOrder		      16
+	      ShowName		      off
+	      OutputSignals	      "p,T"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<T>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux1"
+	      SID		      "2595"
+	      Ports		      [1, 3]
+	      Position		      [590, 261, 595, 299]
+	      ZOrder		      14
+	      ShowName		      off
+	      Outputs		      "3"
+	      DisplayOption	      "bar"
+	      Port {
+		PortNumber		1
+		Name			"dm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"dE"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"dmb"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function"
+	      SID		      "2596"
+	      Ports		      [6, 4]
+	      Position		      [235, 162, 350, 348]
+	      ZOrder		      8
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "combState"
+	      Parameters	      "cyl.comb.mqfCycMax,cyl.comb.wiebePara,eng.nStroke"
+	      EnableBusSupport	      off
+	      Port {
+		PortNumber		1
+		Name			"combState"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"phiComb"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"phiIg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"mqf"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function1"
+	      SID		      "2597"
+	      Ports		      [5, 1]
+	      Position		      [480, 172, 545, 388]
+	      ZOrder		      11
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "CombWiebe"
+	      Parameters	      "eng.hn, cyl.comb.wiebePara"
+	      EnableBusSupport	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb"
+	      SID		      "2602"
+	      Position		      [740, 273, 770, 287]
+	      ZOrder		      17
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "combState"
+	      SID		      "2599"
+	      Position		      [590, 133, 620, 147]
+	      ZOrder		      5
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "phiIg"
+	      SID		      "2600"
+	      Position		      [420, 248, 450, 262]
+	      ZOrder		      12
+	      BackgroundColor	      "red"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      Name		      "mqf"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      4
+	      DstBlock		      "S-Function1"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "phiIg"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      3
+	      Points		      [39, 0]
+	      Branch {
+		Points			[0, -25]
+		DstBlock		"phiIg"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"S-Function1"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      Name		      "phiComb"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "S-Function1"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "combState"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      Points		      [86, 0]
+	      Branch {
+		DstBlock		"S-Function1"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -50]
+		DstBlock		"combState"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "S-Function1"
+	      SrcPort		      1
+	      DstBlock		      "Demux1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pTF"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "omega"
+	      SrcPort		      1
+	      Points		      [32, 0]
+	      Branch {
+		DstBlock		"S-Function"
+		DstPort			4
+	      }
+	      Branch {
+		Points			[0, 26; -79, 0; 0, 101; 300, 0; 0, -27]
+		DstBlock		"S-Function1"
+		DstPort			5
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "u_gov"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "phiInj"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "phi"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "dE"
+	      Labels		      [1, 1]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      2
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "dmb"
+	      Labels		      [1, 1]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      3
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "dm"
+	      Labels		      [1, 1]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<T>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      DstBlock		      "S-Function"
+	      DstPort		      6
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      DstBlock		      "dmEmb"
+	      DstPort		      1
+	    }
+	  }
+	}
       }
     }
     Block {
@@ -1369,8 +1727,8 @@ Library {
       MaskHideContents	      off
       System {
 	Name			"Components"
-	Location		[-9, 0, 1929, 1170]
-	Open			off
+	Location		[-9, -9, 1929, 1161]
+	Open			on
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1381,13 +1739,13 @@ Library {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"60"
+	ZoomFactor		"150"
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "EngCylinder2Stroke"
 	  SID			  "320"
 	  Ports			  [7, 9]
-	  Position		  [865, 24, 1055, 266]
+	  Position		  [1070, 24, 1260, 266]
 	  ZOrder		  363
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "yellow"
@@ -1541,7 +1899,7 @@ Library {
 	      Position		      [620, 759, 745, 871]
 	      ZOrder		      178
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.136"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Mechanical Part/CrankMechKinematic"
 	      SourceType	      "SubSystem"
 	    }
@@ -1576,7 +1934,7 @@ Library {
 	      Position		      [635, 534, 775, 646]
 	      ZOrder		      187
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.136"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Heat Transfer/EngCylHeatTransfer"
 	      SourceType	      "SubSystem"
 	    }
@@ -1589,7 +1947,7 @@ Library {
 	      ZOrder		      199
 	      BlockRotation	      270
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
-	      LibraryVersion	      "1.136"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Components/ExhValve"
 	      SourceType	      "SubSystem"
 	    }
@@ -1640,7 +1998,7 @@ Library {
 	      ZOrder		      151
 	      BlockRotation	      270
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.136"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Components/IntakePort"
 	      SourceType	      "SubSystem"
 	    }
@@ -1693,7 +2051,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "yellow"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.136"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Combustion/ROHR"
 	      SourceType	      "SubSystem"
 	      Port {
@@ -1813,7 +2171,7 @@ Library {
 	      BlockRotation	      270
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
-	      LibraryVersion	      "1.136"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Control Volume/ThdynCV_VarVol"
 	      SourceType	      ""
 	      CV		      "cyl.init"
@@ -2321,7 +2679,7 @@ Library {
 	  Name			  "EngCylinder2Stroke_ExtendedOutput"
 	  SID			  "467"
 	  Ports			  [7, 11]
-	  Position		  [1100, 24, 1290, 266]
+	  Position		  [1305, 24, 1495, 266]
 	  ZOrder		  276
 	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
 	  MinAlgLoopOccurrences	  off
@@ -2467,7 +2825,7 @@ Library {
 	      Position		      [620, 759, 745, 871]
 	      ZOrder		      178
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.138"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Mechanical Part/CrankMechKinematic"
 	      SourceType	      "SubSystem"
 	    }
@@ -2502,7 +2860,7 @@ Library {
 	      Position		      [635, 534, 775, 646]
 	      ZOrder		      187
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.138"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Heat Transfer/EngCylHeatTransfer"
 	      SourceType	      "SubSystem"
 	    }
@@ -2515,7 +2873,7 @@ Library {
 	      ZOrder		      199
 	      BlockRotation	      270
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
-	      LibraryVersion	      "1.138"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Components/ExhValve"
 	      SourceType	      "SubSystem"
 	    }
@@ -2528,7 +2886,7 @@ Library {
 	      ZOrder		      151
 	      BlockRotation	      270
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.138"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Components/IntakePort"
 	      SourceType	      "SubSystem"
 	    }
@@ -2555,7 +2913,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "yellow"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.138"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Combustion/ROHR"
 	      SourceType	      "SubSystem"
 	      Port {
@@ -2689,7 +3047,7 @@ Library {
 	      BlockRotation	      270
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
-	      LibraryVersion	      "1.138"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Control Volume/ThdynCV_VarVol"
 	      SourceType	      ""
 	      CV		      "cylCV(cylNo)"
@@ -3207,11 +3565,11 @@ Library {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "EngCylinderConv"
-	  SID			  "763"
-	  Ports			  [7, 9]
-	  Position		  [1555, 29, 1740, 261]
-	  ZOrder		  343
+	  Name			  "EngCylinder4Stroke"
+	  SID			  "2683"
+	  Ports			  [9, 9]
+	  Position		  [1990, 31, 2160, 259]
+	  ZOrder		  525
 	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -3231,11 +3589,1618 @@ Library {
 		$ObjectID		25
 		Type			"edit"
 		Name			"cyl"
-		Prompt			"Name of the cylinder"
+		Prompt			"Engine Cylinder Parameters  (struct)"
 		Value			"eng.cyl"
 	      }
 	      Object {
 		$ObjectID		26
+		Type			"edit"
+		Name			"cylNo"
+		Prompt			"Cylinder number"
+		Value			"1"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
+	  System {
+	    Name		    "EngCylinder4Stroke"
+	    Location		    [-9, 0, 1929, 1170]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "80"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "uGov"
+	      SID		      "2684"
+	      Position		      [20, 1252, 50, 1268]
+	      ZOrder		      158
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "phiInj"
+	      SID		      "2685"
+	      Position		      [20, 1282, 50, 1298]
+	      ZOrder		      159
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "intakeOpenNomCA"
+	      SID		      "2686"
+	      Position		      [20, 1317, 50, 1333]
+	      ZOrder		      239
+	      BackgroundColor	      "green"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "intakeOpenUpDCA"
+	      SID		      "2687"
+	      Position		      [20, 1352, 50, 1368]
+	      ZOrder		      240
+	      BackgroundColor	      "green"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "exhOpenNomCA"
+	      SID		      "2688"
+	      Position		      [20, 1387, 50, 1403]
+	      ZOrder		      161
+	      BackgroundColor	      "green"
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "exhOpenUpDCA"
+	      SID		      "2689"
+	      Position		      [20, 1422, 50, 1438]
+	      ZOrder		      162
+	      BackgroundColor	      "green"
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_u"
+	      SID		      "2690"
+	      Position		      [20, 1462, 50, 1478]
+	      ZOrder		      164
+	      BackgroundColor	      "[0.000000, 0.819608, 0.000000]"
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_d"
+	      SID		      "2691"
+	      Position		      [20, 1497, 50, 1513]
+	      ZOrder		      163
+	      BackgroundColor	      "green"
+	      Port		      "8"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omega"
+	      SID		      "2692"
+	      Position		      [20, 1533, 50, 1547]
+	      ZOrder		      165
+	      BackgroundColor	      "green"
+	      Port		      "9"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "2693"
+	      Ports		      [1, 3]
+	      Position		      [620, 1425, 625, 1485]
+	      ZOrder		      346
+	      ShowName		      off
+	      OutputSignals	      "dmd,dEd,dmbd"
+	      Port {
+		PortNumber		1
+		Name			"<dmd>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<dEd>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"<dmbd>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector1"
+	      SID		      "2694"
+	      Ports		      [1, 3]
+	      Position		      [690, 1230, 810, 1235]
+	      ZOrder		      349
+	      BlockRotation	      270
+	      BlockMirror	      on
+	      NamePlacement	      "alternate"
+	      ShowName		      off
+	      OutputSignals	      "dmu,dEu,dmbu"
+	      Port {
+		PortNumber		1
+		Name			"<dmu>"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<dEu>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"<dmbu>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector2"
+	      SID		      "2695"
+	      Ports		      [1, 3]
+	      Position		      [620, 1348, 625, 1422]
+	      ZOrder		      351
+	      ShowName		      off
+	      OutputSignals	      "dm,dE,dmb"
+	      Port {
+		PortNumber		1
+		Name			"<dm>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<dE>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"<dmb>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector3"
+	      SID		      "2696"
+	      Ports		      [1, 1]
+	      Position		      [650, 1571, 655, 1589]
+	      ZOrder		      356
+	      ShowName		      off
+	      OutputSignals	      "p"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector4"
+	      SID		      "2697"
+	      Ports		      [1, 1]
+	      Position		      [680, 1666, 685, 1684]
+	      ZOrder		      363
+	      ShowName		      off
+	      OutputSignals	      "p"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "CrankMechKinematic"
+	      SID		      "2698"
+	      Ports		      [3, 4]
+	      Position		      [730, 1613, 815, 1682]
+	      ZOrder		      520
+	      BackgroundColor	      "yellow"
+	      LibraryVersion	      "1.157"
+	      SourceBlock	      "EngineSystemSubmodel/Mechanical Part/CrankMechKinematic"
+	      SourceType	      "SubSystem"
+	      Port {
+		PortNumber		4
+		Name			"phiCyl"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "EngCylHeatTransferBus"
+	      SID		      "2699"
+	      Ports		      [2, 2]
+	      Position		      [665, 1486, 745, 1559]
+	      ZOrder		      524
+	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+	      LibraryVersion	      "1.157"
+	      SourceBlock	      "EngineSystemSubmodel/Heat Transfer/EngCylHeatTransferBus"
+	      SourceType	      "SubSystem"
+	      Port {
+		PortNumber		1
+		Name			"dQCyl"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"tempWall"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "ExhValveBus"
+	      SID		      "2700"
+	      Ports		      [5, 4]
+	      Position		      [1215, 1368, 1330, 1502]
+	      ZOrder		      525
+	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+	      LibraryVersion	      "1.157"
+	      SourceBlock	      "EngineSystemSubmodel/Components/ExhValveBus"
+	      SourceType	      "SubSystem"
+	      Port {
+		PortNumber		1
+		Name			"dmEmbCylExh"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"ExhOpen"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From1"
+	      SID		      "2701"
+	      Position		      [1120, 1477, 1185, 1493]
+	      ZOrder		      527
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "pTF_d"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From10"
+	      SID		      "2702"
+	      Position		      [1410, 1622, 1450, 1638]
+	      ZOrder		      378
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "dmb"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From11"
+	      SID		      "2703"
+	      Position		      [1410, 1382, 1450, 1398]
+	      ZOrder		      381
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "pCyl"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From12"
+	      SID		      "2704"
+	      Position		      [260, 1422, 325, 1438]
+	      ZOrder		      382
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "intakeStart"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From13"
+	      SID		      "2705"
+	      Position		      [260, 1447, 325, 1463]
+	      ZOrder		      383
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "intakeDCA"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From14"
+	      SID		      "2706"
+	      Position		      [1135, 1402, 1200, 1418]
+	      ZOrder		      384
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "exhStart"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From15"
+	      SID		      "2707"
+	      Position		      [1075, 1427, 1140, 1443]
+	      ZOrder		      385
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "exhDCA"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From2"
+	      SID		      "2708"
+	      Position		      [355, 1397, 395, 1413]
+	      ZOrder		      360
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "phi"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From3"
+	      SID		      "2709"
+	      Position		      [1075, 1377, 1115, 1393]
+	      ZOrder		      361
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "phi"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From4"
+	      SID		      "2710"
+	      Position		      [305, 1322, 345, 1338]
+	      ZOrder		      364
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "phi"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From5"
+	      SID		      "2711"
+	      Position		      [1410, 1412, 1450, 1428]
+	      ZOrder		      365
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "phi"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From6"
+	      SID		      "2712"
+	      Position		      [1410, 1472, 1450, 1488]
+	      ZOrder		      368
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "phiIg"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From7"
+	      SID		      "2713"
+	      Position		      [1410, 1532, 1475, 1548]
+	      ZOrder		      370
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "dmEmbU"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From8"
+	      SID		      "2714"
+	      Position		      [1410, 1442, 1475, 1458]
+	      ZOrder		      372
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "tempWall"
+	    }
+	    Block {
+	      BlockType		      From
+	      Name		      "From9"
+	      SID		      "2715"
+	      Position		      [1410, 1502, 1450, 1518]
+	      ZOrder		      375
+	      BackgroundColor	      "cyan"
+	      GotoTag		      "dQ"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto"
+	      SID		      "2716"
+	      Position		      [105, 1386, 175, 1404]
+	      ZOrder		      229
+	      BackgroundColor	      "orange"
+	      GotoTag		      "exhStart"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto1"
+	      SID		      "2717"
+	      Position		      [105, 1421, 175, 1439]
+	      ZOrder		      230
+	      BackgroundColor	      "orange"
+	      GotoTag		      "exhDCA"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto10"
+	      SID		      "2718"
+	      Position		      [770, 1572, 810, 1588]
+	      ZOrder		      380
+	      BackgroundColor	      "orange"
+	      GotoTag		      "pCyl"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto11"
+	      SID		      "2719"
+	      Position		      [105, 1496, 175, 1514]
+	      ZOrder		      526
+	      BackgroundColor	      "orange"
+	      GotoTag		      "pTF_d"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto2"
+	      SID		      "2720"
+	      Position		      [105, 1316, 175, 1334]
+	      ZOrder		      241
+	      BackgroundColor	      "orange"
+	      GotoTag		      "intakeStart"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto3"
+	      SID		      "2721"
+	      Position		      [105, 1351, 175, 1369]
+	      ZOrder		      242
+	      BackgroundColor	      "orange"
+	      GotoTag		      "intakeDCA"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto4"
+	      SID		      "2722"
+	      Position		      [985, 1662, 1025, 1678]
+	      ZOrder		      359
+	      BackgroundColor	      "orange"
+	      GotoTag		      "phi"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto5"
+	      SID		      "2723"
+	      Position		      [550, 1337, 590, 1353]
+	      ZOrder		      366
+	      BackgroundColor	      "orange"
+	      GotoTag		      "phiIg"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto6"
+	      SID		      "2724"
+	      Position		      [550, 1402, 610, 1418]
+	      ZOrder		      369
+	      BackgroundColor	      "orange"
+	      GotoTag		      "dmEmbU"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto7"
+	      SID		      "2725"
+	      Position		      [780, 1532, 845, 1548]
+	      ZOrder		      371
+	      BackgroundColor	      "[1.000000, 0.501961, 0.000000]"
+	      GotoTag		      "tempWall"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto8"
+	      SID		      "2726"
+	      Position		      [810, 1477, 850, 1493]
+	      ZOrder		      374
+	      BackgroundColor	      "orange"
+	      GotoTag		      "dQ"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto9"
+	      SID		      "2727"
+	      Position		      [660, 1312, 700, 1328]
+	      ZOrder		      376
+	      BackgroundColor	      "orange"
+	      GotoTag		      "dmb"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "IntakeValveBus"
+	      SID		      "2728"
+	      Ports		      [5, 4]
+	      Position		      [430, 1393, 535, 1517]
+	      ZOrder		      528
+	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+	      AncestorBlock	      "EngineSystemSubmodel/Components/IntakeValveBus"
+	      LibraryVersion	      "*1.157"
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		2
+		Name			"dmEmbCylIntake"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"IntakeOpen"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"IntakeValveBus"
+		Location		[-9, 0, 1929, 1170]
+		Open			off
+		ModelBrowserVisibility	on
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"2616"
+		SIDPrevWatermark	"2616"
+		Block {
+		  BlockType		  Inport
+		  Name			  "phi"
+		  SID			  "2728:2542"
+		  Position		  [100, 123, 130, 137]
+		  ZOrder		  65
+		  BackgroundColor	  "green"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "cAStartNom"
+		  SID			  "2728:2543"
+		  Position		  [100, 158, 130, 172]
+		  ZOrder		  74
+		  BackgroundColor	  "green"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "dCALiftUp"
+		  SID			  "2728:2544"
+		  Position		  [100, 193, 130, 207]
+		  ZOrder		  75
+		  BackgroundColor	  "green"
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "pTF_u"
+		  SID			  "2728:2545"
+		  Position		  [100, 243, 130, 257]
+		  ZOrder		  68
+		  BackgroundColor	  "green"
+		  Port			  "4"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "pTF_d"
+		  SID			  "2728:2546"
+		  Position		  [100, 273, 130, 287]
+		  ZOrder		  69
+		  BackgroundColor	  "green"
+		  Port			  "5"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  BusSelector
+		  Name			  "Bus\nSelector"
+		  SID			  "2728:2583"
+		  Ports			  [1, 1]
+		  Position		  [375, 106, 380, 144]
+		  ZOrder		  471
+		  ShowName		  off
+		  OutputSignals		  "p"
+		  Port {
+		    PortNumber		    1
+		    Name		    "<p>"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  BusSelector
+		  Name			  "Bus\nSelector1"
+		  SID			  "2728:2585"
+		  Ports			  [1, 1]
+		  Position		  [375, 151, 380, 189]
+		  ZOrder		  473
+		  ShowName		  off
+		  OutputSignals		  "p"
+		  Port {
+		    PortNumber		    1
+		    Name		    "<p>"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "IdealNozzleBus"
+		  SID			  "2728:2581"
+		  Ports			  [3, 2]
+		  Position		  [690, 201, 790, 299]
+		  ZOrder		  470
+		  BackgroundColor	  "yellow"
+		  LibraryVersion	  "1.157"
+		  SourceBlock		  "EngineSystemSubmodel/Flow Restriction/IdealNozzleBus"
+		  SourceType		  "SubSystem"
+		}
+		Block {
+		  BlockType		  S-Function
+		  Name			  "S-Function"
+		  SID			  "2728:2586"
+		  Ports			  [3, 1]
+		  Position		  [200, 111, 270, 219]
+		  ZOrder		  474
+		  BackgroundColor	  "yellow"
+		  FunctionName		  "GetVVLift"
+		  Parameters		  "eng.nStroke,cyl.intakeVVDim.liftMax,cyl.intakeVVProf.cAStartRef,cyl.intakeVVProf.dCALiftUp,cyl.inta"
+		  "keVVProf.dCALiftDown,cyl.intakeVVProf.dCALiftTopRef,cyl.intakeVVProf.cAVVUpRef,cyl.intakeVVProf.cAVVDownRef,cyl.in"
+		  "takeVVProf.liftUpRef,cyl.intakeVVProf.liftDownRef"
+		  EnableBusSupport	  off
+		  Port {
+		    PortNumber		    1
+		    Name		    "intakeVVlift"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  S-Function
+		  Name			  "S-Function1"
+		  SID			  "2728:2551"
+		  Ports			  [3, 3]
+		  Position		  [500, 60, 615, 190]
+		  ZOrder		  77
+		  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+		  FunctionName		  "GetIntakeVVArea"
+		  Parameters		  "cyl.intakeVVDim.Dv,cyl.intakeVVDim.beta,cyl.intakeVVDim.w,cyl.intakeVVDim.Dp,cyl.intakeVVDim.Ds"
+		  EnableBusSupport	  off
+		  Port {
+		    PortNumber		    3
+		    Name		    "aEff"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "dmEmb_u"
+		  SID			  "2728:2556"
+		  Position		  [830, 218, 860, 232]
+		  ZOrder		  66
+		  BackgroundColor	  "red"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "dmEmb_d"
+		  SID			  "2728:2557"
+		  Position		  [830, 268, 860, 282]
+		  ZOrder		  67
+		  BackgroundColor	  "red"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "aOpen"
+		  SID			  "2728:2558"
+		  Position		  [830, 73, 860, 87]
+		  ZOrder		  78
+		  BackgroundColor	  "red"
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Cd"
+		  SID			  "2728:2559"
+		  Position		  [830, 118, 860, 132]
+		  ZOrder		  79
+		  BackgroundColor	  "red"
+		  Port			  "4"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  Name			  "<p>"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Bus\nSelector1"
+		  SrcPort		  1
+		  DstBlock		  "S-Function1"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "<p>"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Bus\nSelector"
+		  SrcPort		  1
+		  DstBlock		  "S-Function1"
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "intakeVVlift"
+		  Labels		  [0, 0]
+		  SrcBlock		  "S-Function"
+		  SrcPort		  1
+		  Points		  [23, 0; 0, -85]
+		  DstBlock		  "S-Function1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "pTF_d"
+		  SrcPort		  1
+		  Points		  [210, 0]
+		  Branch {
+		    DstBlock		    "IdealNozzleBus"
+		    DstPort		    3
+		  }
+		  Branch {
+		    Points		    [0, -110]
+		    DstBlock		    "Bus\nSelector1"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "pTF_u"
+		  SrcPort		  1
+		  Points		  [191, 0]
+		  Branch {
+		    DstBlock		    "IdealNozzleBus"
+		    DstPort		    2
+		  }
+		  Branch {
+		    Points		    [0, -125]
+		    DstBlock		    "Bus\nSelector"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "IdealNozzleBus"
+		  SrcPort		  2
+		  DstBlock		  "dmEmb_d"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "IdealNozzleBus"
+		  SrcPort		  1
+		  DstBlock		  "dmEmb_u"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "phi"
+		  SrcPort		  1
+		  DstBlock		  "S-Function"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "cAStartNom"
+		  SrcPort		  1
+		  DstBlock		  "S-Function"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "dCALiftUp"
+		  SrcPort		  1
+		  DstBlock		  "S-Function"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "aEff"
+		  Labels		  [0, 0]
+		  SrcBlock		  "S-Function1"
+		  SrcPort		  3
+		  Points		  [37, 0; 0, 50]
+		  DstBlock		  "IdealNozzleBus"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "S-Function1"
+		  SrcPort		  1
+		  DstBlock		  "aOpen"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "S-Function1"
+		  SrcPort		  2
+		  DstBlock		  "Cd"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "ROHRBus"
+	      SID		      "2729"
+	      Ports		      [5, 3]
+	      Position		      [420, 1246, 515, 1364]
+	      ZOrder		      529
+	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+	      LibraryVersion	      "1.157"
+	      SourceBlock	      "EngineSystemSubmodel/Combustion/ROHRBus"
+	      SourceType	      "SubSystem"
+	      Port {
+		PortNumber		1
+		Name			"dmEmbFCyl"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum2"
+	      SID		      "2730"
+	      Ports		      [3, 1]
+	      Position		      [700, 1350, 720, 1370]
+	      ZOrder		      255
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "-++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum3"
+	      SID		      "2731"
+	      Ports		      [4, 1]
+	      Position		      [740, 1375, 760, 1395]
+	      ZOrder		      347
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "-++-"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"dECyl"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum4"
+	      SID		      "2732"
+	      Ports		      [3, 1]
+	      Position		      [780, 1400, 800, 1420]
+	      ZOrder		      348
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "-++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum5"
+	      SID		      "2733"
+	      Ports		      [2, 1]
+	      Position		      [870, 1495, 890, 1515]
+	      ZOrder		      358
+	      BlockRotation	      270
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "++|"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      "Terminator"
+	      SID		      "2734"
+	      Position		      [560, 1295, 580, 1315]
+	      ZOrder		      390
+	      BackgroundColor	      "red"
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      "Terminator1"
+	      SID		      "2735"
+	      Position		      [560, 1460, 580, 1480]
+	      ZOrder		      391
+	      BackgroundColor	      "red"
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      "Terminator2"
+	      SID		      "2736"
+	      Position		      [560, 1490, 580, 1510]
+	      ZOrder		      392
+	      BackgroundColor	      "red"
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      "Terminator3"
+	      SID		      "2737"
+	      Position		      [1355, 1440, 1375, 1460]
+	      ZOrder		      393
+	      BackgroundColor	      "red"
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      "Terminator4"
+	      SID		      "2738"
+	      Position		      [1355, 1470, 1375, 1490]
+	      ZOrder		      394
+	      BackgroundColor	      "red"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "ThdynCV_VarVolBus"
+	      SID		      "2739"
+	      Ports		      [4, 1]
+	      Position		      [940, 1348, 1035, 1447]
+	      ZOrder		      533
+	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+	      LibraryVersion	      "1.157"
+	      SourceBlock	      "EngineSystemSubmodel/Control Volume/ThdynCV_VarVolBus"
+	      SourceType	      ""
+	      CV		      "cyl.init"
+	      Port {
+		PortNumber		1
+		Name			"pTFVCyl"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "pCyl"
+	      SID		      "2740"
+	      Position		      [1520, 1382, 1550, 1398]
+	      ZOrder		      233
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "phi"
+	      SID		      "2741"
+	      Position		      [1520, 1413, 1550, 1427]
+	      ZOrder		      197
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "teampWall"
+	      SID		      "2742"
+	      Position		      [1520, 1442, 1550, 1458]
+	      ZOrder		      196
+	      BackgroundColor	      "red"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "phiIg"
+	      SID		      "2743"
+	      Position		      [1520, 1472, 1550, 1488]
+	      ZOrder		      213
+	      BackgroundColor	      "red"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dQ"
+	      SID		      "2744"
+	      Position		      [1520, 1502, 1550, 1518]
+	      ZOrder		      195
+	      BackgroundColor	      "[0.901961, 0.000000, 0.000000]"
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_u"
+	      SID		      "2745"
+	      Position		      [1520, 1532, 1550, 1548]
+	      ZOrder		      171
+	      BackgroundColor	      "red"
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_d"
+	      SID		      "2746"
+	      Position		      [1520, 1562, 1550, 1578]
+	      ZOrder		      168
+	      BackgroundColor	      "red"
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Tq"
+	      SID		      "2747"
+	      Position		      [1520, 1593, 1550, 1607]
+	      ZOrder		      175
+	      BackgroundColor	      "red"
+	      Port		      "8"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmb"
+	      SID		      "2748"
+	      Position		      [1520, 1622, 1550, 1638]
+	      ZOrder		      221
+	      BackgroundColor	      "red"
+	      Port		      "9"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      Name		      "dmEmbCylIntake"
+	      Labels		      [1, 1]
+	      SrcBlock		      "IntakeValveBus"
+	      SrcPort		      2
+	      Points		      [60, 0; 0, 15]
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum2"
+	      SrcPort		      1
+	      DstBlock		      "ThdynCV_VarVolBus"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "dECyl"
+	      Labels		      [1, 1]
+	      SrcBlock		      "Sum3"
+	      SrcPort		      1
+	      DstBlock		      "ThdynCV_VarVolBus"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum4"
+	      SrcPort		      1
+	      DstBlock		      "ThdynCV_VarVolBus"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "dmEmbCylExh"
+	      Labels		      [3, 1]
+	      SrcBlock		      "ExhValveBus"
+	      SrcPort		      1
+	      Points		      [9, 0; 0, -170]
+	      DstBlock		      "Bus\nSelector1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<dmu>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      1
+	      DstBlock		      "Sum2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<dEu>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      2
+	      DstBlock		      "Sum3"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<dmbu>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      3
+	      DstBlock		      "Sum4"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "pTFVCyl"
+	      Labels		      [0, 0]
+	      SrcBlock		      "ThdynCV_VarVolBus"
+	      SrcPort		      1
+	      Points		      [14, 0; 0, 60]
+	      Branch {
+		DstBlock		"ExhValveBus"
+		DstPort			4
+	      }
+	      Branch {
+		Points			[0, 260; -426, 0]
+		Branch {
+		  Points		  [-398, 0; 0, -215]
+		  Branch {
+		    Points		    [0, -250]
+		    DstBlock		    "ROHRBus"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "IntakeValveBus"
+		    DstPort		    5
+		  }
+		}
+		Branch {
+		  Points		  [0, -140]
+		  Branch {
+		    Points		    [0, -75]
+		    DstBlock		    "EngCylHeatTransferBus"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Bus\nSelector3"
+		    DstPort		    1
+		  }
+		}
+	      }
+	    }
+	    Line {
+	      Name		      "<dmd>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      Points		      [80, 0]
+	      DstBlock		      "Sum2"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "dmEmbFCyl"
+	      Labels		      [1, 1]
+	      SrcBlock		      "ROHRBus"
+	      SrcPort		      1
+	      Points		      [85, 0]
+	      DstBlock		      "Bus\nSelector2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<dm>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector2"
+	      SrcPort		      1
+	      Points		      [8, 0]
+	      Branch {
+		Points			[0, -40]
+		DstBlock		"Goto9"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Sum2"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      Name		      "<dEd>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      Points		      [99, 0]
+	      DstBlock		      "Sum3"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "<dmbd>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      3
+	      Points		      [160, 0]
+	      DstBlock		      "Sum4"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "<dmb>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector2"
+	      SrcPort		      3
+	      DstBlock		      "Sum4"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "omega"
+	      SrcPort		      1
+	      Points		      [354, 0]
+	      Branch {
+		Points			[0, -185]
+		DstBlock		"ROHRBus"
+		DstPort			5
+	      }
+	      Branch {
+		Points			[0, 110; 196, 0]
+		Branch {
+		  Points		  [0, -110]
+		  DstBlock		  "EngCylHeatTransferBus"
+		  DstPort		  2
+		}
+		Branch {
+		  DstBlock		  "CrankMechKinematic"
+		  DstPort		  2
+		}
+	      }
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector3"
+	      SrcPort		      1
+	      Points		      [42, 0]
+	      Branch {
+		Points			[0, 45]
+		DstBlock		"CrankMechKinematic"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Goto10"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "CrankMechKinematic"
+	      SrcPort		      2
+	      Points		      [412, 0; 0, -40]
+	      DstBlock		      "Tq"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "CrankMechKinematic"
+	      SrcPort		      1
+	      Points		      [40, 0; 0, -190]
+	      DstBlock		      "ThdynCV_VarVolBus"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "dQCyl"
+	      Labels		      [0, 0]
+	      SrcBlock		      "EngCylHeatTransferBus"
+	      SrcPort		      1
+	      Points		      [39, 0]
+	      Branch {
+		Points			[0, -20]
+		DstBlock		"Goto8"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Sum5"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      Name		      "phiCyl"
+	      Labels		      [1, 1]
+	      SrcBlock		      "CrankMechKinematic"
+	      SrcPort		      4
+	      DstBlock		      "Goto4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From2"
+	      SrcPort		      1
+	      DstBlock		      "IntakeValveBus"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From3"
+	      SrcPort		      1
+	      DstBlock		      "ExhValveBus"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pTF_u"
+	      SrcPort		      1
+	      Points		      [53, 0; 0, 10; 255, 0]
+	      Branch {
+		Points			[0, 195]
+		DstBlock		"Bus\nSelector4"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"IntakeValveBus"
+		DstPort			4
+	      }
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector4"
+	      SrcPort		      1
+	      DstBlock		      "CrankMechKinematic"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "intakeOpenNomCA"
+	      SrcPort		      1
+	      DstBlock		      "Goto2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "intakeOpenUpDCA"
+	      SrcPort		      1
+	      DstBlock		      "Goto3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "exhOpenNomCA"
+	      SrcPort		      1
+	      DstBlock		      "Goto"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "exhOpenUpDCA"
+	      SrcPort		      1
+	      DstBlock		      "Goto1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From4"
+	      SrcPort		      1
+	      DstBlock		      "ROHRBus"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "ROHRBus"
+	      SrcPort		      3
+	      DstBlock		      "Goto5"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From6"
+	      SrcPort		      1
+	      DstBlock		      "phiIg"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From5"
+	      SrcPort		      1
+	      DstBlock		      "phi"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "IntakeValveBus"
+	      SrcPort		      1
+	      DstBlock		      "Goto6"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From7"
+	      SrcPort		      1
+	      DstBlock		      "dmEmb_u"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "ExhValveBus"
+	      SrcPort		      2
+	      Points		      [64, 0; 0, 150]
+	      DstBlock		      "dmEmb_d"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "tempWall"
+	      Labels		      [1, 1]
+	      SrcBlock		      "EngCylHeatTransferBus"
+	      SrcPort		      2
+	      DstBlock		      "Goto7"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From8"
+	      SrcPort		      1
+	      DstBlock		      "teampWall"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From9"
+	      SrcPort		      1
+	      DstBlock		      "dQ"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From10"
+	      SrcPort		      1
+	      DstBlock		      "dmb"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From11"
+	      SrcPort		      1
+	      DstBlock		      "pCyl"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From12"
+	      SrcPort		      1
+	      DstBlock		      "IntakeValveBus"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "From13"
+	      SrcPort		      1
+	      DstBlock		      "IntakeValveBus"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "From14"
+	      SrcPort		      1
+	      DstBlock		      "ExhValveBus"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "From15"
+	      SrcPort		      1
+	      DstBlock		      "ExhValveBus"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "ROHRBus"
+	      SrcPort		      2
+	      DstBlock		      "Terminator"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "IntakeOpen"
+	      Labels		      [1, 1]
+	      SrcBlock		      "IntakeValveBus"
+	      SrcPort		      3
+	      DstBlock		      "Terminator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "IntakeValveBus"
+	      SrcPort		      4
+	      DstBlock		      "Terminator2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "ExhOpen"
+	      Labels		      [0, 0]
+	      SrcBlock		      "ExhValveBus"
+	      SrcPort		      3
+	      Points		      [5, 0]
+	      DstBlock		      "Terminator3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "ExhValveBus"
+	      SrcPort		      4
+	      Points		      [5, 0]
+	      DstBlock		      "Terminator4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum5"
+	      SrcPort		      1
+	      Points		      [0, -41; -130, 0]
+	      DstBlock		      "Sum3"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "<dE>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector2"
+	      SrcPort		      2
+	      Points		      [99, 0]
+	      DstBlock		      "Sum3"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "uGov"
+	      SrcPort		      1
+	      Points		      [114, 0; 0, 20]
+	      DstBlock		      "ROHRBus"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "phiInj"
+	      SrcPort		      1
+	      Points		      [243, 0; 0, 15]
+	      DstBlock		      "ROHRBus"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "pTF_d"
+	      SrcPort		      1
+	      DstBlock		      "Goto11"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "From1"
+	      SrcPort		      1
+	      DstBlock		      "ExhValveBus"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "CrankMechKinematic"
+	      SrcPort		      3
+	      Points		      [60, 0]
+	      DstBlock		      "Sum5"
+	      DstPort		      2
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "EngCylinderConv"
+	  SID			  "763"
+	  Ports			  [7, 9]
+	  Position		  [1760, 29, 1945, 261]
+	  ZOrder		  343
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    27
+	    $ClassName		    "Simulink.Mask"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      2
+	      Object {
+		$ObjectID		28
+		Type			"edit"
+		Name			"cyl"
+		Prompt			"Name of the cylinder"
+		Value			"eng.cyl"
+	      }
+	      Object {
+		$ObjectID		29
 		Type			"edit"
 		Name			"cylNo"
 		Prompt			"Cylinder no"
@@ -3356,7 +5321,7 @@ Library {
 	      Position		      [620, 759, 745, 871]
 	      ZOrder		      178
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.140"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Mechanical Part/CrankMechKinematic"
 	      SourceType	      "SubSystem"
 	    }
@@ -3391,7 +5356,7 @@ Library {
 	      Position		      [635, 534, 775, 646]
 	      ZOrder		      187
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.140"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Heat Transfer/EngCylHeatTransfer"
 	      SourceType	      "SubSystem"
 	    }
@@ -3404,7 +5369,7 @@ Library {
 	      ZOrder		      199
 	      BlockRotation	      270
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
-	      LibraryVersion	      "1.140"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Components/ExhValve"
 	      SourceType	      "SubSystem"
 	    }
@@ -3455,7 +5420,7 @@ Library {
 	      ZOrder		      151
 	      BlockRotation	      270
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.140"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Components/IntakePort"
 	      SourceType	      "SubSystem"
 	    }
@@ -3508,7 +5473,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "yellow"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.140"
+	      LibraryVersion	      "1.143"
 	      SourceBlock	      "EngineSystemSubmodel/Combustion/ROHR"
 	      SourceType	      "SubSystem"
 	      Port {
@@ -4146,7 +6111,7 @@ Library {
 	  Name			  "EngineCylinderBlock"
 	  SID			  "660"
 	  Ports			  [7, 9]
-	  Position		  [1335, 27, 1520, 263]
+	  Position		  [1540, 27, 1725, 263]
 	  ZOrder		  337
 	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
 	  MinAlgLoopOccurrences	  off
@@ -4377,7 +6342,7 @@ Library {
 	      ForegroundColor	      "red"
 	      BackgroundColor	      "yellow"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -4455,7 +6420,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -4533,7 +6498,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -4612,7 +6577,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -4690,7 +6655,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -4767,7 +6732,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -4845,7 +6810,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -4923,7 +6888,7 @@ Library {
 	      BlockMirror	      on
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
 	      NamePlacement	      "alternate"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Components/EngCylinder2Stroke_ExtendedOutput"
 	      SourceType	      ""
 	      cyl		      "eng.cyl"
@@ -5341,7 +7306,7 @@ Library {
 	      Position		      [60, 364, 165, 451]
 	      ZOrder		      223
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
-	      LibraryVersion	      "1.141"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Control System/pMaxFinder"
 	      SourceType	      "SubSystem"
 	      Port {
@@ -6652,7 +8617,7 @@ Library {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "80"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "phi"
@@ -6744,7 +8709,7 @@ Library {
 	      Position		      [700, 201, 795, 299]
 	      ZOrder		      63
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.137"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Flow Restriction/IdealNozzle"
 	      SourceType	      "SubSystem"
 	    }
@@ -6782,27 +8747,27 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		27
+		$ObjectID		30
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    28
+		    $ObjectID		    31
 		    Type		    "edit"
 		    Name		    "coeffCdCorrP"
 		    Prompt		    "Produt coefficient for discharge coefficient for lift ratio"
 		    Value		    "[0.5329;-0.2047;0.04292]"
 		  }
 		  Object {
-		    $ObjectID		    29
+		    $ObjectID		    32
 		    Type		    "edit"
 		    Name		    "coeffCdCorrQ"
 		    Prompt		    "Quotient coefficient for discharge coefficient for lift ratio"
 		    Value		    "[0.5359;-0.2962;0.06275]"
 		  }
 		  Object {
-		    $ObjectID		    30
+		    $ObjectID		    33
 		    Type		    "edit"
 		    Name		    "coeffCdCorrPR"
 		    Prompt		    "Coefficient for discharge coefficient for pressure ratio"
@@ -7029,6 +8994,346 @@ Library {
 	}
 	Block {
 	  BlockType		  SubSystem
+	  Name			  "ExhValveBus"
+	  SID			  "2522"
+	  Ports			  [5, 4]
+	  Position		  [880, 23, 995, 157]
+	  ZOrder		  443
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "ExhValveBus"
+	    Location		    [-9, -9, 1929, 1161]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "125"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "phi"
+	      SID		      "2524"
+	      Position		      [100, 123, 130, 137]
+	      ZOrder		      65
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "cAStartNom"
+	      SID		      "2525"
+	      Position		      [100, 158, 130, 172]
+	      ZOrder		      74
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dCALiftUp"
+	      SID		      "2526"
+	      Position		      [100, 193, 130, 207]
+	      ZOrder		      75
+	      BackgroundColor	      "green"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_u"
+	      SID		      "2527"
+	      Position		      [100, 243, 130, 257]
+	      ZOrder		      68
+	      BackgroundColor	      "green"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_d"
+	      SID		      "2528"
+	      Position		      [100, 273, 130, 287]
+	      ZOrder		      69
+	      BackgroundColor	      "green"
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "2561"
+	      Ports		      [1, 1]
+	      Position		      [360, 106, 365, 144]
+	      ZOrder		      89
+	      ShowName		      off
+	      OutputSignals	      "p"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector1"
+	      SID		      "2562"
+	      Ports		      [1, 1]
+	      Position		      [360, 151, 365, 189]
+	      ZOrder		      90
+	      ShowName		      off
+	      OutputSignals	      "p"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "IdealNozzleBus"
+	      SID		      "2582"
+	      Ports		      [3, 2]
+	      Position		      [680, 201, 780, 299]
+	      ZOrder		      470
+	      BackgroundColor	      "yellow"
+	      LibraryVersion	      "1.157"
+	      SourceBlock	      "EngineSystemSubmodel/Flow Restriction/IdealNozzleBus"
+	      SourceType	      "SubSystem"
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function"
+	      SID		      "2532"
+	      Ports		      [3, 1]
+	      Position		      [200, 111, 270, 219]
+	      ZOrder		      72
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "GetVVLift"
+	      Parameters	      "eng.nStroke,cyl.exhVVDim.liftMax,cyl.exhVVProf.cAStartRef,cyl.exhVVProf.dCALiftUp,cyl.exhVVPr"
+	      "of.dCALiftDown,cyl.exhVVProf.dCALiftTopRef,cyl.exhVVProf.cAVVUpRef,cyl.exhVVProf.cAVVDownRef,cyl.exhVVProf.lift"
+	      "UpRef,cyl.exhVVProf.liftDownRef"
+	      EnableBusSupport	      off
+	      Port {
+		PortNumber		1
+		Name			"ExhVVlift"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function1"
+	      SID		      "2533"
+	      Ports		      [3, 3]
+	      Position		      [500, 60, 615, 190]
+	      ZOrder		      77
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "GetExhVVArea"
+	      Parameters	      "cyl.exhVVDim.Dv,cyl.exhVVDim.beta,cyl.exhVVDim.w,cyl.exhVVDim.Dp,cyl.exhVVDim.Ds,coeffCdCorrP"
+	      ",coeffCdCorrQ,coeffCdCorrPR"
+	      EnableBusSupport	      off
+	      Object {
+		$PropName		"MaskObject"
+		$ObjectID		34
+		$ClassName		"Simulink.Mask"
+		Array {
+		  Type			  "Simulink.MaskParameter"
+		  Dimension		  3
+		  Object {
+		    $ObjectID		    35
+		    Type		    "edit"
+		    Name		    "coeffCdCorrP"
+		    Prompt		    "Produt coefficient for discharge coefficient for lift ratio"
+		    Value		    "[0.5329;-0.2047;0.04292]"
+		  }
+		  Object {
+		    $ObjectID		    36
+		    Type		    "edit"
+		    Name		    "coeffCdCorrQ"
+		    Prompt		    "Quotient coefficient for discharge coefficient for lift ratio"
+		    Value		    "[0.5359;-0.2962;0.06275]"
+		  }
+		  Object {
+		    $ObjectID		    37
+		    Type		    "edit"
+		    Name		    "coeffCdCorrPR"
+		    Prompt		    "Coefficient for discharge coefficient for pressure ratio"
+		    Value		    "[-0.006345;0.09503;0.8117]"
+		  }
+		  PropName		  "Parameters"
+		}
+	      }
+	      Port {
+		PortNumber		3
+		Name			"aEff"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_u"
+	      SID		      "2538"
+	      Position		      [830, 218, 860, 232]
+	      ZOrder		      66
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_d"
+	      SID		      "2539"
+	      Position		      [830, 268, 860, 282]
+	      ZOrder		      67
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "aOpen"
+	      SID		      "2540"
+	      Position		      [670, 58, 700, 72]
+	      ZOrder		      78
+	      BackgroundColor	      "red"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Cd"
+	      SID		      "2541"
+	      Position		      [670, 103, 700, 117]
+	      ZOrder		      79
+	      BackgroundColor	      "red"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      Name		      "ExhVVlift"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      Points		      [21, 0; 0, -85]
+	      DstBlock		      "S-Function1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "IdealNozzleBus"
+	      SrcPort		      2
+	      DstBlock		      "dmEmb_d"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "IdealNozzleBus"
+	      SrcPort		      1
+	      DstBlock		      "dmEmb_u"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "phi"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "cAStartNom"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "dCALiftUp"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "aEff"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function1"
+	      SrcPort		      3
+	      Points		      [37, 0; 0, 50]
+	      DstBlock		      "IdealNozzleBus"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function1"
+	      SrcPort		      1
+	      Points		      [9, 0; 0, -15]
+	      DstBlock		      "aOpen"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function1"
+	      SrcPort		      2
+	      Points		      [9, 0; 0, -15]
+	      DstBlock		      "Cd"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pTF_u"
+	      SrcPort		      1
+	      Points		      [193, 0]
+	      Branch {
+		DstBlock		"IdealNozzleBus"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[0, -125]
+		DstBlock		"Bus\nSelector"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "S-Function1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "pTF_d"
+	      SrcPort		      1
+	      Points		      [209, 0]
+	      Branch {
+		DstBlock		"IdealNozzleBus"
+		DstPort			3
+	      }
+	      Branch {
+		Points			[0, -110]
+		DstBlock		"Bus\nSelector1"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      1
+	      DstBlock		      "S-Function1"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
 	  Name			  "InCylinderMV"
 	  SID			  "838"
 	  Ports			  [4, 5]
@@ -7044,13 +9349,13 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    31
+	    $ObjectID		    38
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      13
 	      Object {
-		$ObjectID		32
+		$ObjectID		39
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7063,7 +9368,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		33
+		$ObjectID		40
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7076,7 +9381,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		34
+		$ObjectID		41
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7089,7 +9394,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		35
+		$ObjectID		42
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7102,7 +9407,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		36
+		$ObjectID		43
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7115,7 +9420,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		37
+		$ObjectID		44
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7128,7 +9433,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		38
+		$ObjectID		45
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7141,7 +9446,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		39
+		$ObjectID		46
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7154,7 +9459,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		40
+		$ObjectID		47
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7167,7 +9472,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		41
+		$ObjectID		48
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7180,7 +9485,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		42
+		$ObjectID		49
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7193,7 +9498,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		43
+		$ObjectID		50
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7206,7 +9511,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		44
+		$ObjectID		51
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7333,97 +9638,97 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		45
+		$ObjectID		52
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  13
 		  Object {
-		    $ObjectID		    46
+		    $ObjectID		    53
 		    Type		    "edit"
 		    Name		    "fs"
 		    Prompt		    "Stoichiometric fuel air ratio"
 		    Value		    "fs"
 		  }
 		  Object {
-		    $ObjectID		    47
+		    $ObjectID		    54
 		    Type		    "edit"
 		    Name		    "Vd"
 		    Prompt		    "Displacement volume [m3]"
 		    Value		    "Vd"
 		  }
 		  Object {
-		    $ObjectID		    48
+		    $ObjectID		    55
 		    Type		    "edit"
 		    Name		    "LHV"
 		    Prompt		    "Low heating value of the fuel [J/kg]"
 		    Value		    "LHV"
 		  }
 		  Object {
-		    $ObjectID		    49
+		    $ObjectID		    56
 		    Type		    "edit"
 		    Name		    "Pe_nom"
 		    Prompt		    "Rated power [W]"
 		    Value		    "Pe_nom"
 		  }
 		  Object {
-		    $ObjectID		    50
+		    $ObjectID		    57
 		    Type		    "edit"
 		    Name		    "SFC"
 		    Prompt		    "Coefficient for the SFC model"
 		    Value		    "SFC"
 		  }
 		  Object {
-		    $ObjectID		    51
+		    $ObjectID		    58
 		    Type		    "edit"
 		    Name		    "vol_eff_coeff1"
 		    Prompt		    "Coefficient for volumetric efficiency model for higher pressure"
 		    Value		    "vol_eff_coeff1"
 		  }
 		  Object {
-		    $ObjectID		    52
+		    $ObjectID		    59
 		    Type		    "edit"
 		    Name		    "vol_eff_coeff2"
 		    Prompt		    "Coefficient for volumetric efficiency model for lower pressure"
 		    Value		    "vol_eff_coeff2"
 		  }
 		  Object {
-		    $ObjectID		    53
+		    $ObjectID		    60
 		    Type		    "edit"
 		    Name		    "T_pe"
 		    Prompt		    "Time constant for power development (0.01)"
 		    Value		    "T_pe"
 		  }
 		  Object {
-		    $ObjectID		    54
+		    $ObjectID		    61
 		    Type		    "edit"
 		    Name		    "nstroke"
 		    Prompt		    "Number of stroke"
 		    Value		    "nstroke"
 		  }
 		  Object {
-		    $ObjectID		    55
+		    $ObjectID		    62
 		    Type		    "edit"
 		    Name		    "m_f_cyc_max"
 		    Prompt		    "Maximum injected fuel per cycle"
 		    Value		    "m_f_cyc_max"
 		  }
 		  Object {
-		    $ObjectID		    56
+		    $ObjectID		    63
 		    Type		    "edit"
 		    Name		    "C1"
 		    Prompt		    "Cofficient of heat transfer"
 		    Value		    "C1"
 		  }
 		  Object {
-		    $ObjectID		    57
+		    $ObjectID		    64
 		    Type		    "edit"
 		    Name		    "p_a_inf"
 		    Prompt		    "Upper pressure limit for vol. eff. model change"
 		    Value		    "p_a_inf"
 		  }
 		  Object {
-		    $ObjectID		    58
+		    $ObjectID		    65
 		    Type		    "edit"
 		    Name		    "Pe0"
 		    Prompt		    "Initial power load"
@@ -7637,13 +9942,13 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    59
+	    $ObjectID		    66
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      13
 	      Object {
-		$ObjectID		60
+		$ObjectID		67
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7656,7 +9961,7 @@ Library {
 		Value			"genset.eng.fs"
 	      }
 	      Object {
-		$ObjectID		61
+		$ObjectID		68
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7669,7 +9974,7 @@ Library {
 		Value			"genset.eng.vD"
 	      }
 	      Object {
-		$ObjectID		62
+		$ObjectID		69
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7682,7 +9987,7 @@ Library {
 		Value			"genset.eng.LHV"
 	      }
 	      Object {
-		$ObjectID		63
+		$ObjectID		70
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7695,7 +10000,7 @@ Library {
 		Value			"genset.eng.powNom"
 	      }
 	      Object {
-		$ObjectID		64
+		$ObjectID		71
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7708,7 +10013,7 @@ Library {
 		Value			"genset.eng.SFC"
 	      }
 	      Object {
-		$ObjectID		65
+		$ObjectID		72
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7721,7 +10026,7 @@ Library {
 		Value			"genset.eng.volEff1"
 	      }
 	      Object {
-		$ObjectID		66
+		$ObjectID		73
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7734,7 +10039,7 @@ Library {
 		Value			"genset.eng.volEff2"
 	      }
 	      Object {
-		$ObjectID		67
+		$ObjectID		74
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7747,7 +10052,7 @@ Library {
 		Value			"genset.eng.tPe"
 	      }
 	      Object {
-		$ObjectID		68
+		$ObjectID		75
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7760,7 +10065,7 @@ Library {
 		Value			"genset.eng.nStroke"
 	      }
 	      Object {
-		$ObjectID		69
+		$ObjectID		76
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7773,7 +10078,7 @@ Library {
 		Value			"genset.eng.mFCycMax"
 	      }
 	      Object {
-		$ObjectID		70
+		$ObjectID		77
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7786,7 +10091,7 @@ Library {
 		Value			"genset.eng.C1"
 	      }
 	      Object {
-		$ObjectID		71
+		$ObjectID		78
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7799,7 +10104,7 @@ Library {
 		Value			"genset.eng.pAInf"
 	      }
 	      Object {
-		$ObjectID		72
+		$ObjectID		79
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -7960,97 +10265,97 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		73
+		$ObjectID		80
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  13
 		  Object {
-		    $ObjectID		    74
+		    $ObjectID		    81
 		    Type		    "edit"
 		    Name		    "fs"
 		    Prompt		    "Stoichiometric fuel air ratio"
 		    Value		    "fs"
 		  }
 		  Object {
-		    $ObjectID		    75
+		    $ObjectID		    82
 		    Type		    "edit"
 		    Name		    "Vd"
 		    Prompt		    "Displacement volume [m3]"
 		    Value		    "Vd"
 		  }
 		  Object {
-		    $ObjectID		    76
+		    $ObjectID		    83
 		    Type		    "edit"
 		    Name		    "LHV"
 		    Prompt		    "Low heating value of the fuel [J/kg]"
 		    Value		    "LHV"
 		  }
 		  Object {
-		    $ObjectID		    77
+		    $ObjectID		    84
 		    Type		    "edit"
 		    Name		    "Pe_nom"
 		    Prompt		    "Rated power [W]"
 		    Value		    "Pe_nom"
 		  }
 		  Object {
-		    $ObjectID		    78
+		    $ObjectID		    85
 		    Type		    "edit"
 		    Name		    "SFC"
 		    Prompt		    "Coefficient for the SFC model"
 		    Value		    "SFC"
 		  }
 		  Object {
-		    $ObjectID		    79
+		    $ObjectID		    86
 		    Type		    "edit"
 		    Name		    "vol_eff_coeff1"
 		    Prompt		    "Coefficient for volumetric efficiency model for higher pressure"
 		    Value		    "vol_eff_coeff1"
 		  }
 		  Object {
-		    $ObjectID		    80
+		    $ObjectID		    87
 		    Type		    "edit"
 		    Name		    "vol_eff_coeff2"
 		    Prompt		    "Coefficient for volumetric efficiency model for lower pressure"
 		    Value		    "vol_eff_coeff2"
 		  }
 		  Object {
-		    $ObjectID		    81
+		    $ObjectID		    88
 		    Type		    "edit"
 		    Name		    "T_pe"
 		    Prompt		    "Time constant for power development (0.01)"
 		    Value		    "T_pe"
 		  }
 		  Object {
-		    $ObjectID		    82
+		    $ObjectID		    89
 		    Type		    "edit"
 		    Name		    "nstroke"
 		    Prompt		    "Number of stroke"
 		    Value		    "nstroke"
 		  }
 		  Object {
-		    $ObjectID		    83
+		    $ObjectID		    90
 		    Type		    "edit"
 		    Name		    "m_f_cyc_max"
 		    Prompt		    "Maximum injected fuel per cycle"
 		    Value		    "m_f_cyc_max"
 		  }
 		  Object {
-		    $ObjectID		    84
+		    $ObjectID		    91
 		    Type		    "edit"
 		    Name		    "C1"
 		    Prompt		    "Cofficient of heat transfer"
 		    Value		    "C1"
 		  }
 		  Object {
-		    $ObjectID		    85
+		    $ObjectID		    92
 		    Type		    "edit"
 		    Name		    "p_a_inf"
 		    Prompt		    "Upper pressure limit for vol. eff. model change"
 		    Value		    "p_a_inf"
 		  }
 		  Object {
-		    $ObjectID		    86
+		    $ObjectID		    93
 		    Type		    "edit"
 		    Name		    "Pe0"
 		    Prompt		    "Initial power load"
@@ -8381,7 +10686,7 @@ Library {
 	      Position		      [445, 156, 540, 254]
 	      ZOrder		      63
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.137"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Flow Restriction/IdealNozzle"
 	      SourceType	      "SubSystem"
 	    }
@@ -8542,7 +10847,7 @@ Library {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "80"
+	    ZoomFactor		    "175"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "phi"
@@ -8634,7 +10939,7 @@ Library {
 	      Position		      [700, 201, 795, 299]
 	      ZOrder		      63
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.138"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Flow Restriction/IdealNozzle"
 	      SourceType	      "SubSystem"
 	    }
@@ -8647,13 +10952,13 @@ Library {
 	      ZOrder		      72
 	      BackgroundColor	      "yellow"
 	      FunctionName	      "GetVVLift"
-	      Parameters	      "eng.nStroke,cyl.exhVVDim.liftMax,cyl.exhVVProf.cAStartRef,cyl.exhVVProf.dCALiftUp,cyl.exhVVPr"
-	      "of.dCALiftDown,cyl.exhVVProf.dCALiftTopRef,cyl.exhVVProf.cAVVUpRef,cyl.exhVVProf.cAVVDownRef,cyl.exhVVProf.lift"
-	      "UpRef,cyl.exhVVProf.liftDownRef"
+	      Parameters	      "eng.nStroke,cyl.intakeVVDim.liftMax,cyl.intakeVVProf.cAStartRef,cyl.intakeVVProf.dCALiftUp,cy"
+	      "l.intakeVVProf.dCALiftDown,cyl.intakeVVProf.dCALiftTopRef,cyl.intakeVVProf.cAVVUpRef,cyl.intakeVVProf.cAVVDownR"
+	      "ef,cyl.intakeVVProf.liftUpRef,cyl.intakeVVProf.liftDownRef"
 	      EnableBusSupport	      off
 	      Port {
 		PortNumber		1
-		Name			"ExhVVlift"
+		Name			"intakeVVlift"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -8876,13 +11181,322 @@ Library {
 	      }
 	    }
 	    Line {
-	      Name		      "ExhVVlift"
+	      Name		      "intakeVVlift"
 	      Labels		      [0, 0]
 	      SrcBlock		      "S-Function"
 	      SrcPort		      1
 	      Points		      [21, 0; 0, -85]
 	      DstBlock		      "S-Function1"
 	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "IntakeValveBus"
+	  SID			  "2523"
+	  Ports			  [5, 4]
+	  Position		  [890, 198, 1005, 332]
+	  ZOrder		  444
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "IntakeValveBus"
+	    Location		    [-9, 0, 1929, 1170]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "phi"
+	      SID		      "2542"
+	      Position		      [100, 123, 130, 137]
+	      ZOrder		      65
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "cAStartNom"
+	      SID		      "2543"
+	      Position		      [100, 158, 130, 172]
+	      ZOrder		      74
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dCALiftUp"
+	      SID		      "2544"
+	      Position		      [100, 193, 130, 207]
+	      ZOrder		      75
+	      BackgroundColor	      "green"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_u"
+	      SID		      "2545"
+	      Position		      [100, 243, 130, 257]
+	      ZOrder		      68
+	      BackgroundColor	      "green"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_d"
+	      SID		      "2546"
+	      Position		      [100, 273, 130, 287]
+	      ZOrder		      69
+	      BackgroundColor	      "green"
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "2583"
+	      Ports		      [1, 1]
+	      Position		      [375, 106, 380, 144]
+	      ZOrder		      471
+	      ShowName		      off
+	      OutputSignals	      "p"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector1"
+	      SID		      "2585"
+	      Ports		      [1, 1]
+	      Position		      [375, 151, 380, 189]
+	      ZOrder		      473
+	      ShowName		      off
+	      OutputSignals	      "p"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "IdealNozzleBus"
+	      SID		      "2581"
+	      Ports		      [3, 2]
+	      Position		      [690, 201, 790, 299]
+	      ZOrder		      470
+	      BackgroundColor	      "yellow"
+	      LibraryVersion	      "1.157"
+	      SourceBlock	      "EngineSystemSubmodel/Flow Restriction/IdealNozzleBus"
+	      SourceType	      "SubSystem"
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function"
+	      SID		      "2586"
+	      Ports		      [3, 1]
+	      Position		      [200, 111, 270, 219]
+	      ZOrder		      474
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "GetVVLift"
+	      Parameters	      "eng.nStroke,cyl.intakeVVDim.liftMax,cyl.intakeVVProf.cAStartRef,cyl.intakeVVProf.dCALiftUp,cy"
+	      "l.intakeVVProf.dCALiftDown,cyl.intakeVVProf.dCALiftTopRef,cyl.intakeVVProf.cAVVUpRef,cyl.intakeVVProf.cAVVDownR"
+	      "ef,cyl.intakeVVProf.liftUpRef,cyl.intakeVVProf.liftDownRef"
+	      EnableBusSupport	      off
+	      Port {
+		PortNumber		1
+		Name			"intakeVVlift"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function1"
+	      SID		      "2551"
+	      Ports		      [3, 3]
+	      Position		      [500, 60, 615, 190]
+	      ZOrder		      77
+	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+	      FunctionName	      "GetIntakeVVArea"
+	      Parameters	      "cyl.intakeVVDim.Dv,cyl.intakeVVDim.beta,cyl.intakeVVDim.w,cyl.intakeVVDim.Dp,cyl.intakeVVDim."
+	      "Ds"
+	      EnableBusSupport	      off
+	      Port {
+		PortNumber		3
+		Name			"aEff"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_u"
+	      SID		      "2556"
+	      Position		      [830, 218, 860, 232]
+	      ZOrder		      66
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_d"
+	      SID		      "2557"
+	      Position		      [830, 268, 860, 282]
+	      ZOrder		      67
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "aOpen"
+	      SID		      "2558"
+	      Position		      [670, 58, 700, 72]
+	      ZOrder		      78
+	      BackgroundColor	      "red"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Cd"
+	      SID		      "2559"
+	      Position		      [670, 103, 700, 117]
+	      ZOrder		      79
+	      BackgroundColor	      "red"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "S-Function1"
+	      SrcPort		      2
+	      Points		      [9, 0; 0, -15]
+	      DstBlock		      "Cd"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function1"
+	      SrcPort		      1
+	      Points		      [9, 0; 0, -15]
+	      DstBlock		      "aOpen"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "aEff"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function1"
+	      SrcPort		      3
+	      Points		      [37, 0; 0, 50]
+	      DstBlock		      "IdealNozzleBus"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "dCALiftUp"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "cAStartNom"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "phi"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "IdealNozzleBus"
+	      SrcPort		      1
+	      DstBlock		      "dmEmb_u"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "IdealNozzleBus"
+	      SrcPort		      2
+	      DstBlock		      "dmEmb_d"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pTF_u"
+	      SrcPort		      1
+	      Points		      [191, 0]
+	      Branch {
+		Points			[0, -125]
+		DstBlock		"Bus\nSelector"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"IdealNozzleBus"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "pTF_d"
+	      SrcPort		      1
+	      Points		      [210, 0]
+	      Branch {
+		Points			[0, -110]
+		DstBlock		"Bus\nSelector1"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"IdealNozzleBus"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      Name		      "intakeVVlift"
+	      Labels		      [0, 0]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      Points		      [23, 0; 0, -85]
+	      DstBlock		      "S-Function1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "S-Function1"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      1
+	      DstBlock		      "S-Function1"
+	      DstPort		      3
 	    }
 	  }
 	}
@@ -8905,11 +11519,11 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    87
+	    $ObjectID		    94
 	    $ClassName		    "Simulink.Mask"
 	    Object {
 	      $PropName		      "Parameters"
-	      $ObjectID		      88
+	      $ObjectID		      95
 	      $ClassName	      "Simulink.MaskParameter"
 	      Type		      "edit"
 	      Name		      "turbo"
@@ -9313,104 +11927,104 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    89
+	    $ObjectID		    96
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      14
 	      Object {
-		$ObjectID		90
+		$ObjectID		97
 		Type			"edit"
 		Name			"fs"
 		Prompt			"Stoichiometric fuel-air ratio"
 		Value			"fs"
 	      }
 	      Object {
-		$ObjectID		91
+		$ObjectID		98
 		Type			"edit"
 		Name			"J_tc"
 		Prompt			"Mass moment of inertia of a rotor"
 		Value			"J_tc"
 	      }
 	      Object {
-		$ObjectID		92
+		$ObjectID		99
 		Type			"edit"
 		Name			"omegat0"
 		Prompt			"Initial rotor speed"
 		Value			"omegat0"
 	      }
 	      Object {
-		$ObjectID		93
+		$ObjectID		100
 		Type			"edit"
 		Name			"comp_flow_map"
 		Prompt			"Compressor map for corrected flow"
 		Value			"comp_flow_map"
 	      }
 	      Object {
-		$ObjectID		94
+		$ObjectID		101
 		Type			"edit"
 		Name			"comp_eff_map"
 		Prompt			"Compressor map for efficiency"
 		Value			"comp_eff_map"
 	      }
 	      Object {
-		$ObjectID		95
+		$ObjectID		102
 		Type			"edit"
 		Name			"pr_rep"
 		Prompt			"Pressure ratio arry for look-up in compressor map"
 		Value			"pr_rep"
 	      }
 	      Object {
-		$ObjectID		96
+		$ObjectID		103
 		Type			"edit"
 		Name			"n_288_rep"
 		Prompt			"Corrected speed array for look-up in compressor map"
 		Value			"n288_rep"
 	      }
 	      Object {
-		$ObjectID		97
+		$ObjectID		104
 		Type			"edit"
 		Name			"npr"
 		Prompt			"Length of pressure ratio array for look-up in compressor map"
 		Value			"npr"
 	      }
 	      Object {
-		$ObjectID		98
+		$ObjectID		105
 		Type			"edit"
 		Name			"nsp"
 		Prompt			"Length of corrected speed array for look-up in compressor map"
 		Value			"nsp"
 	      }
 	      Object {
-		$ObjectID		99
+		$ObjectID		106
 		Type			"edit"
 		Name			"flow_coeff_turb"
 		Prompt			"Flow coefficient for turbine model"
 		Value			"flow_coeff_turb"
 	      }
 	      Object {
-		$ObjectID		100
+		$ObjectID		107
 		Type			"edit"
 		Name			"D_wheel_turb"
 		Prompt			"Turbine wheel diameter"
 		Value			"D_turb_wheel"
 	      }
 	      Object {
-		$ObjectID		101
+		$ObjectID		108
 		Type			"edit"
 		Name			"Uc_opt"
 		Prompt			"Optimal blade speed ratio"
 		Value			"Uc_opt"
 	      }
 	      Object {
-		$ObjectID		102
+		$ObjectID		109
 		Type			"edit"
 		Name			"eta_turb_max"
 		Prompt			"Maximum efficiency"
 		Value			"eta_turb_max"
 	      }
 	      Object {
-		$ObjectID		103
+		$ObjectID		110
 		Type			"edit"
 		Name			"T_ref"
 		Prompt			"Reference temperature for turbine flow"
@@ -9882,7 +12496,7 @@ Library {
 	      Position		      [515, 206, 610, 304]
 	      ZOrder		      63
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.129"
+	      LibraryVersion	      "1.157"
 	      SourceBlock	      "EngineSystemSubmodel/Flow Restriction/IdealNozzle"
 	      SourceType	      "SubSystem"
 	    }
@@ -9900,20 +12514,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		104
+		$ObjectID		111
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    105
+		    $ObjectID		    112
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWdmExhBypass"
 		  }
 		  Object {
-		    $ObjectID		    106
+		    $ObjectID		    113
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -9936,20 +12550,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		107
+		$ObjectID		114
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    108
+		    $ObjectID		    115
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWdmExhBypass"
 		  }
 		  Object {
-		    $ObjectID		    109
+		    $ObjectID		    116
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -10024,13 +12638,13 @@ Library {
 	      MaskHideContents	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		110
+		$ObjectID		117
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  8
 		  Object {
-		    $ObjectID		    111
+		    $ObjectID		    118
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10044,7 +12658,7 @@ Library {
 		    Value		    "KpWG"
 		  }
 		  Object {
-		    $ObjectID		    112
+		    $ObjectID		    119
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10057,7 +12671,7 @@ Library {
 		    Value		    "TiWG"
 		  }
 		  Object {
-		    $ObjectID		    113
+		    $ObjectID		    120
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10070,7 +12684,7 @@ Library {
 		    Value		    "KbWG"
 		  }
 		  Object {
-		    $ObjectID		    114
+		    $ObjectID		    121
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10083,7 +12697,7 @@ Library {
 		    Value		    "wasteGateMax"
 		  }
 		  Object {
-		    $ObjectID		    115
+		    $ObjectID		    122
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10096,7 +12710,7 @@ Library {
 		    Value		    "wasteGateMin"
 		  }
 		  Object {
-		    $ObjectID		    116
+		    $ObjectID		    123
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10109,7 +12723,7 @@ Library {
 		    Value		    "wasteGateRatio"
 		  }
 		  Object {
-		    $ObjectID		    117
+		    $ObjectID		    124
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10122,7 +12736,7 @@ Library {
 		    Value		    "upperOpenWG"
 		  }
 		  Object {
-		    $ObjectID		    118
+		    $ObjectID		    125
 		    Type		    "promote"
 		    Array {
 		    Type		    "Cell"
@@ -10213,11 +12827,11 @@ Library {
 		  Value			  "bypassRatio"
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    119
+		    $ObjectID		    126
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    120
+		    $ObjectID		    127
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "bypassRatio"
@@ -10239,11 +12853,11 @@ Library {
 		  SaturateOnIntegerOverflow off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    121
+		    $ObjectID		    128
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    122
+		    $ObjectID		    129
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "Kp"
@@ -10265,21 +12879,21 @@ Library {
 		  SaturateOnIntegerOverflow off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    123
+		    $ObjectID		    130
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "TiInv = 1./Ti;"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    124
+		    $ObjectID		    131
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Integral time constant"
 		    Value		    "Ti"
 		    }
 		    Object {
-		    $ObjectID		    125
+		    $ObjectID		    132
 		    Type		    "edit"
 		    Name		    "TiInv"
 		    Prompt		    "Inverse of time constant"
@@ -10303,11 +12917,11 @@ Library {
 		  SaturateOnIntegerOverflow off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    126
+		    $ObjectID		    133
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    127
+		    $ObjectID		    134
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "Kp"
@@ -10330,11 +12944,11 @@ Library {
 		  SaturateOnIntegerOverflow off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    128
+		    $ObjectID		    135
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    129
+		    $ObjectID		    136
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "K_b"
@@ -10393,20 +13007,20 @@ Library {
 		  EnableBusSupport	  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    130
+		    $ObjectID		    137
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    131
+		    $ObjectID		    138
 		    Type		    "edit"
 		    Name		    "upper"
 		    Prompt		    "Upper bound"
 		    Value		    "upper"
 		    }
 		    Object {
-		    $ObjectID		    132
+		    $ObjectID		    139
 		    Type		    "edit"
 		    Name		    "lower"
 		    Prompt		    "Lower bound"
@@ -10429,20 +13043,20 @@ Library {
 		  LowerLimit		  "wasteGateMin"
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    133
+		    $ObjectID		    140
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    134
+		    $ObjectID		    141
 		    Type		    "edit"
 		    Name		    "max"
 		    Prompt		    "Maximum allowable valve opening"
 		    Value		    "max"
 		    }
 		    Object {
-		    $ObjectID		    135
+		    $ObjectID		    142
 		    Type		    "edit"
 		    Name		    "min"
 		    Prompt		    "Maximum allowable valve opening"
@@ -10885,7 +13499,7 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    136
+	    $ObjectID		    143
 	    $ClassName		    "Simulink.Mask"
 	    Initialization	    "omega0 = RPM0 / RPMMax;\nTqEMax = powMax / (RPMMax*pi/30);\ny0 = RPM0 * pi / 30;\npow0 = powL"
 	    "0 * powMax;\nuSpeed0 = powL0;"
@@ -10893,7 +13507,7 @@ Library {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      39
 	      Object {
-		$ObjectID		137
+		$ObjectID		144
 		Type			"edit"
 		Name			"powMax"
 		Prompt			"Maximum power rating [W]"
@@ -10901,7 +13515,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		138
+		$ObjectID		145
 		Type			"edit"
 		Name			"RPMMax"
 		Prompt			"RPM at NMCR [RPM]"
@@ -10909,7 +13523,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		139
+		$ObjectID		146
 		Type			"edit"
 		Name			"TqEMax"
 		Prompt			"Maximum torque ouput of the engine [Nm]"
@@ -10918,7 +13532,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		140
+		$ObjectID		147
 		Type			"edit"
 		Name			"vComp"
 		Prompt			"Compression volume [m3]"
@@ -10926,7 +13540,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		141
+		$ObjectID		148
 		Type			"edit"
 		Name			"nCyl"
 		Prompt			"Number of Cylinder"
@@ -10934,7 +13548,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		142
+		$ObjectID		149
 		Type			"edit"
 		Name			"KpSpeed"
 		Prompt			"Proportional gain"
@@ -10942,7 +13556,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		143
+		$ObjectID		150
 		Type			"edit"
 		Name			"TdSpeed"
 		Prompt			"Differential time constant"
@@ -10950,7 +13564,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		144
+		$ObjectID		151
 		Type			"edit"
 		Name			"NSpeed"
 		Prompt			"Dirty derivative gain"
@@ -10958,7 +13572,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		145
+		$ObjectID		152
 		Type			"edit"
 		Name			"TiSpeed"
 		Prompt			"Integral time constant"
@@ -10966,7 +13580,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		146
+		$ObjectID		153
 		Type			"edit"
 		Name			"uSpeedMax"
 		Prompt			"Minimum governor output"
@@ -10974,7 +13588,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		147
+		$ObjectID		154
 		Type			"edit"
 		Name			"uSpeedMin"
 		Prompt			"Maximum governor output"
@@ -10982,7 +13596,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		148
+		$ObjectID		155
 		Type			"edit"
 		Name			"RPM0"
 		Prompt			" Initial engine speed [RPM]"
@@ -10990,7 +13604,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		149
+		$ObjectID		156
 		Type			"edit"
 		Name			"y0"
 		Prompt			" Initial engine speed [pu]"
@@ -10999,7 +13613,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		150
+		$ObjectID		157
 		Type			"edit"
 		Name			"u0"
 		Prompt			"Initial governor output"
@@ -11007,7 +13621,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		151
+		$ObjectID		158
 		Type			"edit"
 		Name			"BWomegaE"
 		Prompt			"Bandwidth for LP filter for engine speed  [Hz]"
@@ -11015,7 +13629,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		152
+		$ObjectID		159
 		Type			"edit"
 		Name			"KpPhiInj"
 		Prompt			"Proportional gain"
@@ -11023,7 +13637,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		153
+		$ObjectID		160
 		Type			"edit"
 		Name			"TiPhiInj"
 		Prompt			"Integral time constant"
@@ -11031,7 +13645,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		154
+		$ObjectID		161
 		Type			"edit"
 		Name			"deltaPCombRef"
 		Prompt			"Reference pressure rise due to combustion"
@@ -11039,7 +13653,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		155
+		$ObjectID		162
 		Type			"edit"
 		Name			"phiInjMax"
 		Prompt			"Maximum allowable output"
@@ -11047,7 +13661,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		156
+		$ObjectID		163
 		Type			"edit"
 		Name			"phiInjMin"
 		Prompt			"Minimum allowable output"
@@ -11055,7 +13669,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		157
+		$ObjectID		164
 		Type			"edit"
 		Name			"y_reBSFC"
 		Prompt			"BSFC array for reference w.r.t. power load"
@@ -11063,7 +13677,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		158
+		$ObjectID		165
 		Type			"edit"
 		Name			"x_reBSFC"
 		Prompt			"Power load array for injection timing reference"
@@ -11071,7 +13685,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		159
+		$ObjectID		166
 		Type			"edit"
 		Name			"KpEVC"
 		Prompt			"Proportional gain"
@@ -11079,7 +13693,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		160
+		$ObjectID		167
 		Type			"edit"
 		Name			"TiEVC"
 		Prompt			"Integral time constant"
@@ -11087,7 +13701,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		161
+		$ObjectID		168
 		Type			"edit"
 		Name			"EVCmax"
 		Prompt			"Maximum allowable output"
@@ -11095,7 +13709,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		162
+		$ObjectID		169
 		Type			"edit"
 		Name			"EVCmin"
 		Prompt			"Minimum allowable output"
@@ -11103,7 +13717,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		163
+		$ObjectID		170
 		Type			"edit"
 		Name			"exhVVStart"
 		Prompt			"EVO timing (0.96~1.2)"
@@ -11111,7 +13725,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		164
+		$ObjectID		171
 		Type			"edit"
 		Name			"KpPMax"
 		Prompt			"Proportional gain"
@@ -11119,7 +13733,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		165
+		$ObjectID		172
 		Type			"edit"
 		Name			"TiPMax"
 		Prompt			"Integral time constant"
@@ -11127,7 +13741,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		166
+		$ObjectID		173
 		Type			"edit"
 		Name			"pMaxMax"
 		Prompt			"Maximum allowable maximum cylinder pressure"
@@ -11135,7 +13749,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		167
+		$ObjectID		174
 		Type			"edit"
 		Name			"pMaxMin"
 		Prompt			"Minimum allowable maximum cylinder pressure"
@@ -11143,7 +13757,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		168
+		$ObjectID		175
 		Type			"edit"
 		Name			"BWdmf"
 		Prompt			"Bandwidth for LP filter for fuel flow [Hz]"
@@ -11151,7 +13765,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		169
+		$ObjectID		176
 		Type			"edit"
 		Name			"powL0"
 		Prompt			"Initial power load (0~1)"
@@ -11159,7 +13773,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		170
+		$ObjectID		177
 		Type			"edit"
 		Name			"BW"
 		Prompt			"Bandwidth for LP filter for power"
@@ -11167,7 +13781,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		171
+		$ObjectID		178
 		Type			"edit"
 		Name			"pow0"
 		Prompt			"Initial power"
@@ -11176,7 +13790,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		172
+		$ObjectID		179
 		Type			"edit"
 		Name			"KpTW"
 		Prompt			"Proportional gain"
@@ -11184,7 +13798,7 @@ Library {
 		TabName			"tempWall"
 	      }
 	      Object {
-		$ObjectID		173
+		$ObjectID		180
 		Type			"edit"
 		Name			"TiTW"
 		Prompt			"Integral time constant"
@@ -11192,7 +13806,7 @@ Library {
 		TabName			"tempWall"
 	      }
 	      Object {
-		$ObjectID		174
+		$ObjectID		181
 		Type			"edit"
 		Name			"swTWCont"
 		Prompt			"Switch ON/OFF for wall temperature identification [0/1]"
@@ -11200,7 +13814,7 @@ Library {
 		TabName			"tempWall"
 	      }
 	      Object {
-		$ObjectID		175
+		$ObjectID		182
 		Type			"edit"
 		Name			"BWQCyl"
 		Prompt			"Bandwidth for LP filter for heat transfer [Hz]"
@@ -11360,11 +13974,11 @@ Library {
 	      Value		      "exhVVStart"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		176
+		$ObjectID		183
 		$ClassName		"Simulink.Mask"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  177
+		  $ObjectID		  184
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "exhVVStart"
@@ -11389,11 +14003,11 @@ Library {
 	      Value		      "deltaPCombRef"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		178
+		$ObjectID		185
 		$ClassName		"Simulink.Mask"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  179
+		  $ObjectID		  186
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "deltaPCombRef"
@@ -11419,34 +14033,34 @@ Library {
 	      MaskHideContents	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		180
+		$ObjectID		187
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  4
 		  Object {
-		    $ObjectID		    181
+		    $ObjectID		    188
 		    Type		    "edit"
 		    Name		    "Kp"
 		    Prompt		    "Proportional gain"
 		    Value		    "KpEVC"
 		  }
 		  Object {
-		    $ObjectID		    182
+		    $ObjectID		    189
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Integral time constant"
 		    Value		    "TiEVC"
 		  }
 		  Object {
-		    $ObjectID		    183
+		    $ObjectID		    190
 		    Type		    "edit"
 		    Name		    "max"
 		    Prompt		    "Maximum allowable output"
 		    Value		    "EVCMax"
 		  }
 		  Object {
-		    $ObjectID		    184
+		    $ObjectID		    191
 		    Type		    "edit"
 		    Name		    "min"
 		    Prompt		    "Minimum allowable output"
@@ -11523,11 +14137,11 @@ Library {
 		  SaturateOnIntegerOverflow off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    185
+		    $ObjectID		    192
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    186
+		    $ObjectID		    193
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "Kp"
@@ -11549,11 +14163,11 @@ Library {
 		  SaturateOnIntegerOverflow off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    187
+		    $ObjectID		    194
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    188
+		    $ObjectID		    195
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "Ti"
@@ -11585,20 +14199,20 @@ Library {
 		  LowerLimit		  "min"
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    189
+		    $ObjectID		    196
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    190
+		    $ObjectID		    197
 		    Type		    "edit"
 		    Name		    "max"
 		    Prompt		    "Maximum allowable output"
 		    Value		    "max"
 		    }
 		    Object {
-		    $ObjectID		    191
+		    $ObjectID		    198
 		    Type		    "edit"
 		    Name		    "min"
 		    Prompt		    "Minimum allowable output"
@@ -11834,34 +14448,34 @@ Library {
 	      MaskHideContents	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		192
+		$ObjectID		199
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  4
 		  Object {
-		    $ObjectID		    193
+		    $ObjectID		    200
 		    Type		    "edit"
 		    Name		    "Kp"
 		    Prompt		    "Proportional gain"
 		    Value		    "KpPhiInj"
 		  }
 		  Object {
-		    $ObjectID		    194
+		    $ObjectID		    201
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Integral time constant"
 		    Value		    "TiPhiInj"
 		  }
 		  Object {
-		    $ObjectID		    195
+		    $ObjectID		    202
 		    Type		    "edit"
 		    Name		    "max"
 		    Prompt		    "Maximum allowable output"
 		    Value		    "phiInjMax"
 		  }
 		  Object {
-		    $ObjectID		    196
+		    $ObjectID		    203
 		    Type		    "edit"
 		    Name		    "min"
 		    Prompt		    "Minimum allowable output"
@@ -11933,11 +14547,11 @@ Library {
 		  Value			  "Ti"
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    197
+		    $ObjectID		    204
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    198
+		    $ObjectID		    205
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "Ti"
@@ -11995,20 +14609,20 @@ Library {
 		  LowerLimit		  "min"
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    199
+		    $ObjectID		    206
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    200
+		    $ObjectID		    207
 		    Type		    "edit"
 		    Name		    "max"
 		    Prompt		    "Maximum allowable maximum cylinder pressure"
 		    Value		    "phiInjMax"
 		    }
 		    Object {
-		    $ObjectID		    201
+		    $ObjectID		    208
 		    Type		    "edit"
 		    Name		    "min"
 		    Prompt		    "Minimum allowable maximum cylinder pressure"
@@ -12256,20 +14870,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		202
+		$ObjectID		209
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    203
+		    $ObjectID		    210
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWQCyl"
 		  }
 		  Object {
-		    $ObjectID		    204
+		    $ObjectID		    211
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -12299,20 +14913,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		205
+		$ObjectID		212
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    206
+		    $ObjectID		    213
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWdmf"
 		  }
 		  Object {
-		    $ObjectID		    207
+		    $ObjectID		    214
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -12342,20 +14956,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		208
+		$ObjectID		215
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    209
+		    $ObjectID		    216
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "100"
 		  }
 		  Object {
-		    $ObjectID		    210
+		    $ObjectID		    217
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -12385,20 +14999,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		211
+		$ObjectID		218
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    212
+		    $ObjectID		    219
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWomegaE"
 		  }
 		  Object {
-		    $ObjectID		    213
+		    $ObjectID		    220
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -12432,34 +15046,34 @@ Library {
 	      MaskHideContents	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		214
+		$ObjectID		221
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  4
 		  Object {
-		    $ObjectID		    215
+		    $ObjectID		    222
 		    Type		    "edit"
 		    Name		    "Kp"
 		    Prompt		    "Proportional gain"
 		    Value		    "KpPMax"
 		  }
 		  Object {
-		    $ObjectID		    216
+		    $ObjectID		    223
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Integral time constant"
 		    Value		    "TiPMax"
 		  }
 		  Object {
-		    $ObjectID		    217
+		    $ObjectID		    224
 		    Type		    "edit"
 		    Name		    "max"
 		    Prompt		    "Maximum allowable output"
 		    Value		    "pMaxMax"
 		  }
 		  Object {
-		    $ObjectID		    218
+		    $ObjectID		    225
 		    Type		    "edit"
 		    Name		    "min"
 		    Prompt		    "Minimum allowable output"
@@ -12529,11 +15143,11 @@ Library {
 		  Value			  "Ti"
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    219
+		    $ObjectID		    226
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    220
+		    $ObjectID		    227
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "Ti"
@@ -12709,11 +15323,11 @@ Library {
 	      MaskHideContents	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		221
+		$ObjectID		228
 		$ClassName		"Simulink.Mask"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  222
+		  $ObjectID		  229
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "vComp"
@@ -12788,11 +15402,11 @@ Library {
 		  EnableBusSupport	  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    223
+		    $ObjectID		    230
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    224
+		    $ObjectID		    231
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "vComp"
@@ -12869,20 +15483,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		225
+		$ObjectID		232
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    226
+		    $ObjectID		    233
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BW"
 		  }
 		  Object {
-		    $ObjectID		    227
+		    $ObjectID		    234
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -12916,27 +15530,27 @@ Library {
 	      MaskHideContents	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		228
+		$ObjectID		235
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    229
+		    $ObjectID		    236
 		    Type		    "edit"
 		    Name		    "Kp"
 		    Prompt		    "Proportional gain"
 		    Value		    "KpTW"
 		  }
 		  Object {
-		    $ObjectID		    230
+		    $ObjectID		    237
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Integral time constant"
 		    Value		    "TiTW"
 		  }
 		  Object {
-		    $ObjectID		    231
+		    $ObjectID		    238
 		    Type		    "edit"
 		    Name		    "swTWCont"
 		    Prompt		    "Switch ON/OFF for TWall identification"
@@ -13003,11 +15617,11 @@ Library {
 		  Value			  "Ti"
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    232
+		    $ObjectID		    239
 		    $ClassName		    "Simulink.Mask"
 		    Object {
 		    $PropName		    "Parameters"
-		    $ObjectID		    233
+		    $ObjectID		    240
 		    $ClassName		    "Simulink.MaskParameter"
 		    Type		    "edit"
 		    Name		    "Ti"
@@ -13555,7 +16169,7 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    234
+	    $ObjectID		    241
 	    $ClassName		    "Simulink.Mask"
 	    Initialization	    "omega0 = RPM0 / RPMMax;\nTqEMax = powMax / (RPMMax*pi/30);\ny0 = RPM0 * pi / 30;\npow0 = powL"
 	    "0 * powMax;\nu0 = powL0;"
@@ -13563,7 +16177,7 @@ Library {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      23
 	      Object {
-		$ObjectID		235
+		$ObjectID		242
 		Type			"edit"
 		Name			"powMax"
 		Prompt			"Maximum power rating [W]"
@@ -13571,7 +16185,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		236
+		$ObjectID		243
 		Type			"edit"
 		Name			"RPMMax"
 		Prompt			"RPM at NMCR [RPM]"
@@ -13579,7 +16193,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		237
+		$ObjectID		244
 		Type			"edit"
 		Name			"TqEMax"
 		Prompt			"Maximum torque ouput of the engine [Nm]"
@@ -13588,7 +16202,7 @@ Library {
 		TabName			"General"
 	      }
 	      Object {
-		$ObjectID		238
+		$ObjectID		245
 		Type			"edit"
 		Name			"KpSpeed"
 		Prompt			"Proportional gain"
@@ -13596,7 +16210,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		239
+		$ObjectID		246
 		Type			"edit"
 		Name			"TdSpeed"
 		Prompt			"Differential time constant"
@@ -13604,7 +16218,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		240
+		$ObjectID		247
 		Type			"edit"
 		Name			"NSpeed"
 		Prompt			"Dirty derivative gain"
@@ -13612,7 +16226,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		241
+		$ObjectID		248
 		Type			"edit"
 		Name			"TiSpeed"
 		Prompt			"Integral time constant"
@@ -13620,7 +16234,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		242
+		$ObjectID		249
 		Type			"edit"
 		Name			"uSpeedMax"
 		Prompt			"Maximum governor output"
@@ -13628,7 +16242,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		243
+		$ObjectID		250
 		Type			"edit"
 		Name			"uSpeedMin"
 		Prompt			"Minimum governor output"
@@ -13636,7 +16250,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		244
+		$ObjectID		251
 		Type			"edit"
 		Name			"RPM0"
 		Prompt			" Initial engine speed [RPM]"
@@ -13644,7 +16258,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		245
+		$ObjectID		252
 		Type			"edit"
 		Name			"y0"
 		Prompt			" Initial engine speed [pu]"
@@ -13652,7 +16266,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		246
+		$ObjectID		253
 		Type			"edit"
 		Name			"u0"
 		Prompt			"Initial governor output"
@@ -13660,7 +16274,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		247
+		$ObjectID		254
 		Type			"edit"
 		Name			"BWomegaE"
 		Prompt			"Bandwidth for LP filter for engine speed  [Hz]"
@@ -13668,7 +16282,7 @@ Library {
 		TabName			"Governor"
 	      }
 	      Object {
-		$ObjectID		248
+		$ObjectID		255
 		Type			"edit"
 		Name			"y_refInj"
 		Prompt			"Injection timing array for reference w.r.t. power load"
@@ -13676,7 +16290,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		249
+		$ObjectID		256
 		Type			"edit"
 		Name			"x_refInj"
 		Prompt			"Power load array for injection timing reference"
@@ -13684,7 +16298,7 @@ Library {
 		TabName			"Injection"
 	      }
 	      Object {
-		$ObjectID		250
+		$ObjectID		257
 		Type			"edit"
 		Name			"exhVVStart"
 		Prompt			"EVO timing (0.96~1.2)"
@@ -13692,7 +16306,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		251
+		$ObjectID		258
 		Type			"edit"
 		Name			"y_refEVC"
 		Prompt			"EVC Liftup time array for reference w.r.t. power load"
@@ -13700,7 +16314,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		252
+		$ObjectID		259
 		Type			"edit"
 		Name			"x_refEVC"
 		Prompt			"Power load array for EVC liftup time reference"
@@ -13708,7 +16322,7 @@ Library {
 		TabName			"Exhaust Valve Timing"
 	      }
 	      Object {
-		$ObjectID		253
+		$ObjectID		260
 		Type			"edit"
 		Name			"BWdmf"
 		Prompt			"Bandwidth for LP filter for fuel flow [Hz]"
@@ -13716,7 +16330,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		254
+		$ObjectID		261
 		Type			"edit"
 		Name			"BWdme"
 		Prompt			"Bandwidth for LP filter for exhaust gas flow [Hz]"
@@ -13724,7 +16338,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		255
+		$ObjectID		262
 		Type			"edit"
 		Name			"BWpow"
 		Prompt			"Bandwidth for LP filter for power [Hz]"
@@ -13732,7 +16346,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		256
+		$ObjectID		263
 		Type			"edit"
 		Name			"powL0"
 		Prompt			"Initial power load (0~1)"
@@ -13740,7 +16354,7 @@ Library {
 		TabName			"pMax"
 	      }
 	      Object {
-		$ObjectID		257
+		$ObjectID		264
 		Type			"edit"
 		Name			"pow0"
 		Prompt			"Initial power"
@@ -13834,11 +16448,11 @@ Library {
 	      Value		      "exhVVStart"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		258
+		$ObjectID		265
 		$ClassName		"Simulink.Mask"
 		Object {
 		  $PropName		  "Parameters"
-		  $ObjectID		  259
+		  $ObjectID		  266
 		  $ClassName		  "Simulink.MaskParameter"
 		  Type			  "edit"
 		  Name			  "exhVVStart"
@@ -14013,20 +16627,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		260
+		$ObjectID		267
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    261
+		    $ObjectID		    268
 		    Type		    "edit"
 		    Name		    "xREf"
 		    Prompt		    "x Reference array to interpolate"
 		    Value		    "x_refInj"
 		  }
 		  Object {
-		    $ObjectID		    262
+		    $ObjectID		    269
 		    Type		    "edit"
 		    Name		    "yRef"
 		    Prompt		    "y Reference array to interpolate "
@@ -14049,20 +16663,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		263
+		$ObjectID		270
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    264
+		    $ObjectID		    271
 		    Type		    "edit"
 		    Name		    "xREf"
 		    Prompt		    "x Reference array to interpolate"
 		    Value		    "x_refEVC"
 		  }
 		  Object {
-		    $ObjectID		    265
+		    $ObjectID		    272
 		    Type		    "edit"
 		    Name		    "yRef"
 		    Prompt		    "y Reference array to interpolate "
@@ -14085,20 +16699,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		266
+		$ObjectID		273
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    267
+		    $ObjectID		    274
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWdmf"
 		  }
 		  Object {
-		    $ObjectID		    268
+		    $ObjectID		    275
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -14128,20 +16742,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		269
+		$ObjectID		276
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    270
+		    $ObjectID		    277
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWdmf"
 		  }
 		  Object {
-		    $ObjectID		    271
+		    $ObjectID		    278
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -14171,20 +16785,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		272
+		$ObjectID		279
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    273
+		    $ObjectID		    280
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWomegaE"
 		  }
 		  Object {
-		    $ObjectID		    274
+		    $ObjectID		    281
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -14214,20 +16828,20 @@ Library {
 	      EnableBusSupport	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		275
+		$ObjectID		282
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    276
+		    $ObjectID		    283
 		    Type		    "edit"
 		    Name		    "BW"
 		    Prompt		    "Bandwidth [Hz]"
 		    Value		    "BWdme"
 		  }
 		  Object {
-		    $ObjectID		    277
+		    $ObjectID		    284
 		    Type		    "edit"
 		    Name		    "y0"
 		    Prompt		    "Initial output"
@@ -15236,13 +17850,13 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    278
+	    $ObjectID		    285
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      9
 	      Object {
-		$ObjectID		279
+		$ObjectID		286
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15255,7 +17869,7 @@ Library {
 		Value			"Kp"
 	      }
 	      Object {
-		$ObjectID		280
+		$ObjectID		287
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15268,7 +17882,7 @@ Library {
 		Value			"Kd"
 	      }
 	      Object {
-		$ObjectID		281
+		$ObjectID		288
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15281,7 +17895,7 @@ Library {
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		282
+		$ObjectID		289
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15294,7 +17908,7 @@ Library {
 		Value			"Ki"
 	      }
 	      Object {
-		$ObjectID		283
+		$ObjectID		290
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15307,7 +17921,7 @@ Library {
 		Value			"Kb"
 	      }
 	      Object {
-		$ObjectID		284
+		$ObjectID		291
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15320,7 +17934,7 @@ Library {
 		Value			"omega0"
 	      }
 	      Object {
-		$ObjectID		285
+		$ObjectID		292
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15333,7 +17947,7 @@ Library {
 		Value			"u_max"
 	      }
 	      Object {
-		$ObjectID		286
+		$ObjectID		293
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15346,7 +17960,7 @@ Library {
 		Value			"u_max"
 	      }
 	      Object {
-		$ObjectID		287
+		$ObjectID		294
 		Type			"promote"
 		Array {
 		  Type			  "Cell"
@@ -15422,69 +18036,69 @@ Library {
 	      MaskHideContents	      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		288
+		$ObjectID		295
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  9
 		  Object {
-		    $ObjectID		    289
+		    $ObjectID		    296
 		    Type		    "edit"
 		    Name		    "Kp"
 		    Prompt		    "Proportional gain"
 		    Value		    "Kp"
 		  }
 		  Object {
-		    $ObjectID		    290
+		    $ObjectID		    297
 		    Type		    "edit"
 		    Name		    "Kd"
 		    Prompt		    "Differtial gain"
 		    Value		    "Kd"
 		  }
 		  Object {
-		    $ObjectID		    291
+		    $ObjectID		    298
 		    Type		    "edit"
 		    Name		    "N"
 		    Prompt		    "Dirty derivative gain"
 		    Value		    "N"
 		  }
 		  Object {
-		    $ObjectID		    292
+		    $ObjectID		    299
 		    Type		    "edit"
 		    Name		    "Ki"
 		    Prompt		    "Integral gain"
 		    Value		    "Ki"
 		  }
 		  Object {
-		    $ObjectID		    293
+		    $ObjectID		    300
 		    Type		    "edit"
 		    Name		    "Kb"
 		    Prompt		    "Back-calculation gain"
 		    Value		    "Kb"
 		  }
 		  Object {
-		    $ObjectID		    294
+		    $ObjectID		    301
 		    Type		    "edit"
 		    Name		    "omega0"
 		    Prompt		    "Initial speed"
 		    Value		    "omega0"
 		  }
 		  Object {
-		    $ObjectID		    295
+		    $ObjectID		    302
 		    Type		    "edit"
 		    Name		    "u_max"
 		    Prompt		    "Maximum output"
 		    Value		    "u_max"
 		  }
 		  Object {
-		    $ObjectID		    296
+		    $ObjectID		    303
 		    Type		    "edit"
 		    Name		    "u_min"
 		    Prompt		    "Minimum output"
 		    Value		    "u_min"
 		  }
 		  Object {
-		    $ObjectID		    297
+		    $ObjectID		    304
 		    Type		    "edit"
 		    Name		    "u0"
 		    Prompt		    "Initial output"
@@ -15972,34 +18586,34 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    298
+	    $ObjectID		    305
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      4
 	      Object {
-		$ObjectID		299
+		$ObjectID		306
 		Type			"edit"
 		Name			"fs"
 		Prompt			"Stoichiometric fuel-air ratio"
 		Value			"genset.eng.fs"
 	      }
 	      Object {
-		$ObjectID		300
+		$ObjectID		307
 		Type			"edit"
 		Name			"Vd"
 		Prompt			"Displacement volume (m3)"
 		Value			"genset.eng.vD"
 	      }
 	      Object {
-		$ObjectID		301
+		$ObjectID		308
 		Type			"edit"
 		Name			"F_max"
 		Prompt			"Maximum fuel-air equivalent ratio"
 		Value			"genset.eng.fMax"
 	      }
 	      Object {
-		$ObjectID		302
+		$ObjectID		309
 		Type			"edit"
 		Name			"m_f_cyc_max"
 		Prompt			"Maximum fuel injection @ rated power (kg)"
@@ -16712,7 +19326,7 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    303
+	    $ObjectID		    310
 	    $ClassName		    "Simulink.Mask"
 	    Type		    "20-sim 4.4 S-Function block"
 	    Description		    "This block is generated by the 20-sim ANSI-C Code Generator. \n\n* look under the mask to get i"
@@ -16730,49 +19344,49 @@ Library {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      7
 	      Object {
-		$ObjectID		304
+		$ObjectID		311
 		Type			"edit"
 		Name			"Kp"
 		Prompt			"Proportional gain"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		305
+		$ObjectID		312
 		Type			"edit"
 		Name			"Td"
 		Prompt			"Time constant for derivative term (s)"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		306
+		$ObjectID		313
 		Type			"edit"
 		Name			"N"
 		Prompt			"Derivative filter coefficient"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		307
+		$ObjectID		314
 		Type			"edit"
 		Name			"Ti"
 		Prompt			"Time constant for integral term"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		308
+		$ObjectID		315
 		Type			"edit"
 		Name			"max"
 		Prompt			"Maximum output"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		309
+		$ObjectID		316
 		Type			"edit"
 		Name			"min"
 		Prompt			"Minimum output"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		310
+		$ObjectID		317
 		Type			"edit"
 		Name			"u0"
 		Prompt			"Initial output"
@@ -17018,7 +19632,7 @@ Library {
       MaskHideContents	      off
       System {
 	Name			"Control Volume"
-	Location		[-9, 0, 1929, 1170]
+	Location		[-9, -9, 1929, 1161]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -17036,7 +19650,7 @@ Library {
 	  Name			  "ThdynCV2ZoneBG"
 	  SID			  "816"
 	  Ports			  [7, 10]
-	  Position		  [470, 62, 690, 323]
+	  Position		  [625, 62, 845, 323]
 	  ZOrder		  346
 	  BackgroundColor	  "yellow"
 	  NamePlacement		  "alternate"
@@ -17381,7 +19995,7 @@ Library {
 	  Name			  "ThdynCVConv_VarVol"
 	  SID			  "751"
 	  Ports			  [2, 3]
-	  Position		  [255, 209, 360, 311]
+	  Position		  [70, 214, 175, 316]
 	  ZOrder		  342
 	  BackgroundColor	  "yellow"
 	  MinAlgLoopOccurrences	  off
@@ -17393,11 +20007,11 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    311
+	    $ObjectID		    318
 	    $ClassName		    "Simulink.Mask"
 	    Object {
 	      $PropName		      "Parameters"
-	      $ObjectID		      312
+	      $ObjectID		      319
 	      $ClassName	      "Simulink.MaskParameter"
 	      Type		      "edit"
 	      Name		      "CV"
@@ -17574,6 +20188,208 @@ Library {
 	}
 	Block {
 	  BlockType		  SubSystem
+	  Name			  "ThdynCVConv_VarVolBus"
+	  SID			  "2604"
+	  Ports			  [4, 1]
+	  Position		  [255, 216, 360, 319]
+	  ZOrder		  348
+	  BackgroundColor	  "yellow"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    320
+	    $ClassName		    "Simulink.Mask"
+	    Object {
+	      $PropName		      "Parameters"
+	      $ObjectID		      321
+	      $ClassName	      "Simulink.MaskParameter"
+	      Type		      "edit"
+	      Name		      "CV"
+	      Prompt		      "Name of the control volume"
+	      Value		      "CV"
+	    }
+	  }
+	  System {
+	    Name		    "ThdynCVConv_VarVolBus"
+	    Location		    [-9, 0, 1929, 1170]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dm"
+	      SID		      "2605"
+	      Position		      [175, 123, 205, 137]
+	      ZOrder		      345
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dE"
+	      SID		      "2613"
+	      Position		      [175, 153, 205, 167]
+	      ZOrder		      354
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dmb"
+	      SID		      "2614"
+	      Position		      [175, 183, 205, 197]
+	      ZOrder		      355
+	      BackgroundColor	      "green"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dV"
+	      SID		      "2606"
+	      Position		      [175, 213, 205, 227]
+	      ZOrder		      346
+	      BackgroundColor	      "green"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      SID		      "2615"
+	      Ports		      [4, 1]
+	      Position		      [500, 116, 505, 234]
+	      ZOrder		      356
+	      ShowName		      off
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function"
+	      SID		      "2609"
+	      Ports		      [4, 4]
+	      Position		      [335, 114, 445, 236]
+	      ZOrder		      341
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "ThdynCVConv"
+	      Parameters	      "eng.fs,CV.p0,CV.T0,CV.F0,CV.V0"
+	      EnableBusSupport	      off
+	      Port {
+		PortNumber		1
+		Name			"p"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"T"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"F"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"V"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "pTFV"
+	      SID		      "2616"
+	      Position		      [530, 168, 560, 182]
+	      ZOrder		      357
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "dm"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "dE"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "dmb"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "dV"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "p"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "T"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "F"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      3
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "V"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      4
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      DstBlock		      "pTFV"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
 	  Name			  "ThdynCV_FixVol"
 	  SID			  "59"
 	  Ports			  [1, 1]
@@ -17589,11 +20405,11 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    313
+	    $ObjectID		    322
 	    $ClassName		    "Simulink.Mask"
 	    Object {
 	      $PropName		      "Parameters"
-	      $ObjectID		      314
+	      $ObjectID		      323
 	      $ClassName	      "Simulink.MaskParameter"
 	      Type		      "edit"
 	      Name		      "CV"
@@ -17798,7 +20614,7 @@ Library {
 	  Name			  "ThdynCV_VarVol"
 	  SID			  "73"
 	  Ports			  [2, 3]
-	  Position		  [70, 206, 165, 304]
+	  Position		  [260, 56, 355, 154]
 	  ZOrder		  152
 	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
 	  LibraryVersion	  "*1.33"
@@ -17811,11 +20627,11 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    315
+	    $ObjectID		    324
 	    $ClassName		    "Simulink.Mask"
 	    Object {
 	      $PropName		      "Parameters"
-	      $ObjectID		      316
+	      $ObjectID		      325
 	      $ClassName	      "Simulink.MaskParameter"
 	      Type		      "edit"
 	      Name		      "CV"
@@ -18072,7 +20888,7 @@ Library {
 	  Name			  "ThdynCV_VarVolBus"
 	  SID			  "806"
 	  Ports			  [4, 1]
-	  Position		  [260, 58, 355, 157]
+	  Position		  [435, 63, 530, 162]
 	  ZOrder		  344
 	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
 	  MinAlgLoopOccurrences	  off
@@ -18084,11 +20900,11 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    317
+	    $ObjectID		    326
 	    $ClassName		    "Simulink.Mask"
 	    Object {
 	      $PropName		      "Parameters"
-	      $ObjectID		      318
+	      $ObjectID		      327
 	      $ClassName	      "Simulink.MaskParameter"
 	      Type		      "edit"
 	      Name		      "CV"
@@ -18289,7 +21105,7 @@ Library {
       MaskHideContents	      off
       System {
 	Name			"Flow Restriction"
-	Location		[-9, 0, 1929, 1170]
+	Location		[-9, -9, 1929, 1161]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -18301,7 +21117,7 @@ Library {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"125"
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "AirWaterCooler"
@@ -18320,7 +21136,7 @@ Library {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "AirWaterCooler"
-	    Location		    [0, 0, 960, 1152]
+	    Location		    [-9, 0, 1929, 1170]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -18548,7 +21364,7 @@ Library {
 	  Name			  "AirWaterCoolerBus"
 	  SID			  "862"
 	  Ports			  [3, 2]
-	  Position		  [375, 159, 470, 261]
+	  Position		  [520, 164, 615, 266]
 	  ZOrder		  350
 	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
 	  MinAlgLoopOccurrences	  off
@@ -19777,6 +22593,339 @@ Library {
 	}
 	Block {
 	  BlockType		  SubSystem
+	  Name			  "IdealNozzleBus"
+	  SID			  "2564"
+	  Ports			  [3, 2]
+	  Position		  [370, 166, 470, 264]
+	  ZOrder		  469
+	  BackgroundColor	  "yellow"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "IdealNozzleBus"
+	    Location		    [-9, 0, 1929, 1170]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "125"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "A_eff"
+	      SID		      "2565"
+	      Position		      [60, 158, 90, 172]
+	      ZOrder		      4
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_u"
+	      SID		      "2566"
+	      Position		      [60, 188, 90, 202]
+	      ZOrder		      5
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTF_d"
+	      SID		      "2567"
+	      Position		      [60, 233, 90, 247]
+	      ZOrder		      6
+	      BackgroundColor	      "green"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      SID		      "2575"
+	      Ports		      [3, 1]
+	      Position		      [350, 146, 355, 214]
+	      ZOrder		      16
+	      ShowName		      off
+	      Inputs		      "3"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator1"
+	      SID		      "2577"
+	      Ports		      [3, 1]
+	      Position		      [350, 206, 355, 274]
+	      ZOrder		      64
+	      ShowName		      off
+	      Inputs		      "3"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "2578"
+	      Ports		      [1, 3]
+	      Position		      [120, 171, 125, 219]
+	      ZOrder		      65
+	      ShowName		      off
+	      OutputSignals	      "p,T,F"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<T>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"<F>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector1"
+	      SID		      "2580"
+	      Ports		      [1, 3]
+	      Position		      [120, 216, 125, 264]
+	      ZOrder		      66
+	      ShowName		      off
+	      OutputSignals	      "p,T,F"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<T>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"<F>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function"
+	      SID		      "2572"
+	      Ports		      [7, 6]
+	      Position		      [165, 152, 300, 268]
+	      ZOrder		      3
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "IdealNozzlePTF"
+	      Parameters	      "eng.fs"
+	      SFunctionModules	      "'GetIdealNozzleFlw GetThdynCombGasZach GetCompCombGas_rtutil'"
+	      EnableBusSupport	      off
+	      Port {
+		PortNumber		1
+		Name			"dmu"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"dEu"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"dmbu"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"dmd"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		5
+		Name			"dEd"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		6
+		Name			"dmbd"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_u"
+	      SID		      "2573"
+	      Position		      [405, 173, 435, 187]
+	      ZOrder		      14
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dmEmb_d"
+	      SID		      "2574"
+	      Position		      [405, 233, 435, 247]
+	      ZOrder		      15
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "A_eff"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pTF_u"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "<T>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "<F>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      3
+	      DstBlock		      "S-Function"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      5
+	    }
+	    Line {
+	      Name		      "<T>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      2
+	      DstBlock		      "S-Function"
+	      DstPort		      6
+	    }
+	    Line {
+	      Name		      "<F>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      3
+	      DstBlock		      "S-Function"
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "pTF_d"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "dmu"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "dEu"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "dmbu"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      3
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "dmd"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      4
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "dEd"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      5
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "dmbd"
+	      Labels		      [1, 1]
+	      SrcBlock		      "S-Function"
+	      SrcPort		      6
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      DstBlock		      "dmEmb_u"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator1"
+	      SrcPort		      1
+	      DstBlock		      "dmEmb_d"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
 	  Name			  "Turbine"
 	  SID			  "44"
 	  Ports			  [3, 5]
@@ -19792,7 +22941,7 @@ Library {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Turbine"
-	    Location		    [0, 0, 960, 1152]
+	    Location		    [-9, 0, 1929, 1170]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -20092,41 +23241,41 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    319
+	    $ObjectID		    328
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      5
 	      Object {
-		$ObjectID		320
+		$ObjectID		329
 		Type			"edit"
 		Name			"fs"
 		Prompt			"Stoichiometric fuel-air ratio"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		321
+		$ObjectID		330
 		Type			"edit"
 		Name			"flow_coeff_turb"
 		Prompt			"Flow coefficient for turbine model (3x1)"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		322
+		$ObjectID		331
 		Type			"edit"
 		Name			"D_turb_wheel"
 		Prompt			"Turbine wheel diameter (m)"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		323
+		$ObjectID		332
 		Type			"edit"
 		Name			"Uc_opt"
 		Prompt			"Optimal blade speed ratio"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		324
+		$ObjectID		333
 		Type			"edit"
 		Name			"eta_turb_max"
 		Prompt			"Maximum efficiency"
@@ -20435,48 +23584,48 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    325
+	    $ObjectID		    334
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      6
 	      Object {
-		$ObjectID		326
+		$ObjectID		335
 		Type			"edit"
 		Name			"fs"
 		Prompt			"Stoichiometric fuel-air ratio"
 		Value			"fs"
 	      }
 	      Object {
-		$ObjectID		327
+		$ObjectID		336
 		Type			"edit"
 		Name			"flow_coeff_turb"
 		Prompt			"Flow coefficient for turbine model (3x1)"
 		Value			"flowCoeffTurb"
 	      }
 	      Object {
-		$ObjectID		328
+		$ObjectID		337
 		Type			"edit"
 		Name			"D_turb_wheel"
 		Prompt			"Turbine wheel diameter (m)"
 		Value			"dTurbWheel"
 	      }
 	      Object {
-		$ObjectID		329
+		$ObjectID		338
 		Type			"edit"
 		Name			"Uc_opt"
 		Prompt			"Optimal blade speed ratio"
 		Value			"ucOpt"
 	      }
 	      Object {
-		$ObjectID		330
+		$ObjectID		339
 		Type			"edit"
 		Name			"eta_turb_max"
 		Prompt			"Maximum efficiency"
 		Value			"effTurbMax"
 	      }
 	      Object {
-		$ObjectID		331
+		$ObjectID		340
 		Type			"edit"
 		Name			"T_ref_turb"
 		Prompt			"Reference temperature"
@@ -21050,6 +24199,166 @@ Library {
 	    }
 	  }
 	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "EngCylHeatTransferBus"
+	  SID			  "2511"
+	  Ports			  [2, 2]
+	  Position		  [300, 24, 395, 126]
+	  ZOrder		  517
+	  BackgroundColor	  "[0.909804, 0.819608, 0.321569]"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "EngCylHeatTransferBus"
+	    Location		    [-9, 0, 1929, 1170]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "250"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pTFV_Cyl"
+	      SID		      "2512"
+	      Position		      [15, 133, 45, 147]
+	      ZOrder		      -1
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omega"
+	      SID		      "2514"
+	      Position		      [125, 193, 155, 207]
+	      ZOrder		      3
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "2520"
+	      Ports		      [1, 3]
+	      Position		      [60, 121, 65, 159]
+	      ZOrder		      8
+	      ShowName		      off
+	      OutputSignals	      "p,T,V"
+	      Port {
+		PortNumber		1
+		Name			"<p>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<T>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"<V>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "S-Function"
+	      SID		      "2516"
+	      Ports		      [4, 2]
+	      Position		      [190, 92, 315, 218]
+	      ZOrder		      5
+	      BackgroundColor	      "yellow"
+	      FunctionName	      "EngCylHeatTransfer"
+	      Parameters	      "cyl.dim.S,cyl.dim.B,cyl.HT.cAlpha,cyl.HT.mCp,cyl.HT.tempWall0,cyl.HT.cCylHT,eng.nCyl"
+	      EnableBusSupport	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dQ"
+	      SID		      "2518"
+	      Position		      [360, 118, 390, 132]
+	      ZOrder		      -2
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "tempWall"
+	      SID		      "2519"
+	      Position		      [360, 183, 390, 197]
+	      ZOrder		      4
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      DstBlock		      "dQ"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "tempWall"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pTFV_Cyl"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "omega"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "<T>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "<V>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      3
+	      Points		      [57, 0; 0, 20]
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "<p>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      Points		      [57, 0; 0, -20]
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	  }
+	}
       }
     }
     Block {
@@ -21099,7 +24408,7 @@ Library {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    332
+	    $ObjectID		    341
 	    $ClassName		    "Simulink.Mask"
 	    Description		    "Load Selection and Definition\nLoad_index   Load_amp   Load_bias   Start_time    T_load\n1-Step"
 	    ",             Final,      Initial,        Step time,      N/A,\n2-Sine,             amp,        bias,           D"
@@ -21110,35 +24419,35 @@ Library {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      5
 	      Object {
-		$ObjectID		333
+		$ObjectID		342
 		Type			"edit"
 		Name			"Load_index"
 		Prompt			"Load index "
 		Value			"Load_index"
 	      }
 	      Object {
-		$ObjectID		334
+		$ObjectID		343
 		Type			"edit"
 		Name			"Load_amp"
 		Prompt			"Load amplitude"
 		Value			"Load_amp"
 	      }
 	      Object {
-		$ObjectID		335
+		$ObjectID		344
 		Type			"edit"
 		Name			"Load_bias"
 		Prompt			"Load in bias"
 		Value			"Load_bias"
 	      }
 	      Object {
-		$ObjectID		336
+		$ObjectID		345
 		Type			"edit"
 		Name			"Start_time"
 		Prompt			"Load initiation time"
 		Value			"Start_time"
 	      }
 	      Object {
-		$ObjectID		337
+		$ObjectID		346
 		Type			"edit"
 		Name			"T_load"
 		Prompt			"Period of the load"
@@ -21504,11 +24813,11 @@ Library {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		338
+	$ObjectID		347
 	$ClassName		"Simulink.Mask"
 	Object {
 	  $PropName		  "Parameters"
-	  $ObjectID		  339
+	  $ObjectID		  348
 	  $ClassName		  "Simulink.MaskParameter"
 	  Type			  "edit"
 	  Name			  "genset"
@@ -21519,7 +24828,7 @@ Library {
       System {
 	Name			"MVEM_TC"
 	Location		[-9, 0, 1929, 1170]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -23376,20 +26685,20 @@ Library {
 	      SFBlockType	      "MATLAB Function"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		340
+		$ObjectID		349
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  2
 		  Object {
-		    $ObjectID		    341
+		    $ObjectID		    350
 		    Type		    "edit"
 		    Name		    "omegaEMax"
 		    Prompt		    "Maximum engine speed (rad/s)"
 		    Value		    "eng.RPMMax*pi/30"
 		  }
 		  Object {
-		    $ObjectID		    342
+		    $ObjectID		    351
 		    Type		    "edit"
 		    Name		    "coeffMechEff"
 		    Prompt		    "Coefficient for mechanical efficiency model (2x1)"

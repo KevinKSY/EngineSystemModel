@@ -6,6 +6,9 @@ eng.hn = 42700000;   %Low heating value of the fuel (J/kg)
 eng.coeffMechEff = []; %Coefficient for mechanical efficiency curvefitting (2x1)
 omegaE0 = 0;         %Initial speed of the engine (rad/s)
 eng.RPMMax = 0;      %Max. Rated RPM
+eng.nStroke = 2;
+eng.nCyl = 8;
+
 %% Charge air cooler parameters
 eng.cAC.Cd = 0;                 %Discharge coefficient of the cooler
 eng.cAC.areaAirPath = 0;        %Effective area of the air path [m2]
@@ -40,8 +43,8 @@ eng.turbo.comp.prRep = [];      %Pressure ratio array for look-up in
                                 %compressor map
 eng.turbo.comp.n288Rep = [];    %Corrected speed array for look-up in 
                                 %compressor map
-eng.turbo.comp.npr = length(turbo.comp.prRep);
-eng.turbo.comp.nsp = length(turbo.comp.n288Rep);
+eng.turbo.comp.npr = length(eng.turbo.comp.prRep);
+eng.turbo.comp.nsp = length(eng.turbo.comp.n288Rep);
 % Turbine for map unknown but performance known
 eng.turbo.turb.flowCoeff = [];   %Turbine flow coefficient
 eng.turbo.turb.effCoeff = [];    %Turbine efficiency coefficient
@@ -63,12 +66,11 @@ eng.turbo.jTC = 0;               %Rotor mass moment of inertia [kgm2]
 %
 %% Cylinder parameters
 % General
-eng.cyl.general.nStroke = 2;     %Number of stroke
-eng.cyl.general.nCyl = 8;        %Number of cylinders
 % Cylinder dimension
 eng.cyl.dim.B = 0;            %Cylinder bore [m]
 eng.cyl.dim.S = 0;            %Cylinder stroke [m]
 eng.cyl.dim.lambda = 0;       %Ratio of length of crank rod to connecting rod 
+eng.cyl.dim.CR = 0;
 % Scavenge port dimension
 eng.cyl.scavPort.X = 0;          %Scavenge port width [m]
 eng.cyl.scavPort.Y = 0;          %Scavenge port height [m]
@@ -99,10 +101,20 @@ eng.cyl.HT.tempWall0 = 600;      %Initial wall temperature of the cylinder [K]
 eng.cyl.comb.mqfCycMax = 0;      %Maximum fuel mass injected per cycle [kg]
 eng.cyl.comb.wiebePara = [];      %3-Wiebe Parameters (9x1)        
 % Initial conditions (Common for all cylinders)
-eng.cyl.init.phi0rad = [];       %Initial crank angle array [deg]
-eng.cyl.init.mCyl0 = 0;          %Initial mass array [kg]    
-eng.cyl.init.ECyl0 = 0;          %Initial internal energy array [J]
-eng.cyl.init.mbCyl0 = 0;         %Initial burned fuel mass array [kg]
-eng.cyl.init.vCyl0 = 0;          %Initial volume array [m3]
+eng.cyl.init.phi0 = [];       %Initial crank angle array [deg]
+eng.cyl.init.p0 = 0;          %Initial mass array [kg]    
+eng.cyl.init.T0 = 0;          %Initial internal energy array [J]
+eng.cyl.init.F0 = 0;         %Initial burned fuel mass array [kg]
+eng.cyl.init.phi0rad = eng.cyl.init.phi0*pi/180;   
+
+vComp = pi*eng.cyl.dim.B^2/4.0*eng.cyl.dim.S/(eng.cyl.dim.CR-1);                 
+eng.cyl.init.phi0rad = eng.cyl.init.phi0*pi/180;                                 
+eng.cyl.init.V0 = vComp + pi*eng.cyl.dim.B^2/4.0*(eng.cyl.dim.S/2.0*(1.0-cos(eng.cyl.init.phi0rad)) + ...
+    1.0/eng.cyl.dim.lambda*(1.0-sqrt(1.0 - (eng.cyl.dim.lambda*sin(eng.cyl.init.phi0rad)).^2)));
+[R,~,~,u,~,~,~,~,~,~,~,~,~] = GetThdynCombGasZach(eng.cyl.init.p0,eng.cyl.init.T0,eng.cyl.init.F0,fs);
+eng.cyl.init.m0 = eng.cyl.init.p0.*eng.cyl.init.V0 ./ (R.*eng.cyl.init.T0); 
+eng.cyl.init.E0 = eng.cyl.init.m0.*u;           
+eng.cyl.init.mb0 = eng.cyl.init.m0.*eng.cyl.init.F0 * eng.fs./(1 + eng.cyl.init.F0*eng.fs); 
+clear R u
 
 
