@@ -43,10 +43,10 @@ Library {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1327"
+	  LoadSaveID		  "2767"
 	  Extents		  [1692.0, 980.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [603.88333333333458, -561.91666666666708]
+	  ZoomFactor		  [1.5]
+	  Offset		  [-69.533333333333246, -20.40000000000002]
 	}
 	Object {
 	  $ObjectID		  6
@@ -68,7 +68,7 @@ Library {
   LastModifiedBy	  "yum"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Tue Jan 20 12:19:45 2015"
-  RTWModifiedTimeStamp	  343657164
+  RTWModifiedTimeStamp	  343657203
   ModelVersionFormat	  "1.%<AutoIncrement:160>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
@@ -1740,7 +1740,7 @@ Library {
       System {
 	Name			"Components"
 	Location		[-9, 0, 1929, 1170]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -14795,7 +14795,7 @@ Library {
 	      Position		      [780, 108, 855, 172]
 	      ZOrder		      344
 	      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
-	      LibraryVersion	      "1.159"
+	      LibraryVersion	      "1.160"
 	      SourceBlock	      "EngineSystemSubmodel/Control System/SpeedController"
 	      SourceType	      "20-sim 4.4 S-Function block"
 	      Kp		      "0"
@@ -15326,7 +15326,7 @@ Library {
 	      Position		      [395, 348, 510, 462]
 	      ZOrder		      568
 	      BackgroundColor	      "yellow"
-	      LibraryVersion	      "1.159"
+	      LibraryVersion	      "1.160"
 	      SourceBlock	      "EngineSystemSubmodel/EngineOperatingParameterCalculation/pCompCalc"
 	      SourceType	      ""
 	      vComp		      "vComp"
@@ -20852,7 +20852,7 @@ Library {
       System {
 	Name			"EngineOperatingParameterCalculation"
 	Location		[-9, 0, 1929, 1170]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -20863,7 +20863,7 @@ Library {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"150"
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "pCompCalc"
@@ -21148,7 +21148,7 @@ Library {
 	  Name			  "volEffCalc"
 	  SID			  "2770"
 	  Ports			  [3, 1]
-	  Position		  [45, 34, 135, 136]
+	  Position		  [535, 169, 625, 271]
 	  ZOrder		  565
 	  BackgroundColor	  "yellow"
 	  MinAlgLoopOccurrences	  off
