@@ -32,6 +32,6 @@ mex ThdynCVConv.c ThdynCVConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVConv1.c ThdynCVConv_wrapper1.c GetThdynCombGasZachV1.c -outdir ..
 mex turbine_calc_PTF.c turbine_calc_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex turbine_calc_MV_PTF.c turbine_calc_MV_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
-mex InCylinderMV.c InCylinderMV_wrapper.c GetThdynCombGasZachV1.c -outdir ..
+mex -g InCylinderMV.c InCylinderMV_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex GetThdynCombGasZachSFunc.c GetThdynCombGasZachV1.c -outdir ..
 cd(currFolder);
