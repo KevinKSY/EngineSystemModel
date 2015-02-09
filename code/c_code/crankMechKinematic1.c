@@ -1,5 +1,5 @@
 /*
- * File: ThdynCVConv.c
+ * File: crankMechKinematic.c
  *
  *
   *
@@ -26,18 +26,18 @@
   *  -------------------------------------------------------------------------
   * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
   *  ------------------------------------------------------------------------- 
- * Created: Mon Sep  8 13:42:35 2014
+ * Created: Wed Jul 23 11:27:18 2014
  * 
  *
  */
 
 #define S_FUNCTION_LEVEL 2
-#define S_FUNCTION_NAME ThdynCVConv1
+#define S_FUNCTION_NAME crankMechKinematic1
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
 #define NUM_INPUTS          4
 /* Input Port  0 */
-#define IN_PORT_0_NAME      dm
+#define IN_PORT_0_NAME      pCyl
 #define INPUT_0_WIDTH       1
 #define INPUT_DIMS_0_COL    1
 #define INPUT_0_DTYPE       real_T
@@ -46,7 +46,7 @@
 #define IN_0_BUS_BASED      0
 #define IN_0_BUS_NAME       
 #define IN_0_DIMS           1-D
-#define INPUT_0_FEEDTHROUGH 0
+#define INPUT_0_FEEDTHROUGH 1
 #define IN_0_ISSIGNED        0
 #define IN_0_WORDLENGTH      8
 #define IN_0_FIXPOINTSCALING 1
@@ -54,7 +54,7 @@
 #define IN_0_BIAS            0
 #define IN_0_SLOPE           0.125
 /* Input Port  1 */
-#define IN_PORT_1_NAME      dE
+#define IN_PORT_1_NAME      omega
 #define INPUT_1_WIDTH       1
 #define INPUT_DIMS_1_COL    1
 #define INPUT_1_DTYPE       real_T
@@ -63,7 +63,7 @@
 #define IN_1_BUS_BASED      0
 #define IN_1_BUS_NAME       
 #define IN_1_DIMS           1-D
-#define INPUT_1_FEEDTHROUGH 0
+#define INPUT_1_FEEDTHROUGH 1
 #define IN_1_ISSIGNED        0
 #define IN_1_WORDLENGTH      8
 #define IN_1_FIXPOINTSCALING 1
@@ -71,7 +71,7 @@
 #define IN_1_BIAS            0
 #define IN_1_SLOPE           0.125
 /* Input Port  2 */
-#define IN_PORT_2_NAME      dmf
+#define IN_PORT_2_NAME      phi
 #define INPUT_2_WIDTH       1
 #define INPUT_DIMS_2_COL    1
 #define INPUT_2_DTYPE       real_T
@@ -80,7 +80,7 @@
 #define IN_2_BUS_BASED      0
 #define IN_2_BUS_NAME       
 #define IN_2_DIMS           1-D
-#define INPUT_2_FEEDTHROUGH 0
+#define INPUT_2_FEEDTHROUGH 1
 #define IN_2_ISSIGNED        0
 #define IN_2_WORDLENGTH      8
 #define IN_2_FIXPOINTSCALING 1
@@ -88,7 +88,7 @@
 #define IN_2_BIAS            0
 #define IN_2_SLOPE           0.125
 /* Input Port  3 */
-#define IN_PORT_3_NAME      dV
+#define IN_PORT_3_NAME      pScav
 #define INPUT_3_WIDTH       1
 #define INPUT_DIMS_3_COL    1
 #define INPUT_3_DTYPE       real_T
@@ -97,7 +97,7 @@
 #define IN_3_BUS_BASED      0
 #define IN_3_BUS_NAME       
 #define IN_3_DIMS           1-D
-#define INPUT_3_FEEDTHROUGH 0
+#define INPUT_3_FEEDTHROUGH 1
 #define IN_3_ISSIGNED        0
 #define IN_3_WORDLENGTH      8
 #define IN_3_FIXPOINTSCALING 1
@@ -105,9 +105,9 @@
 #define IN_3_BIAS            0
 #define IN_3_SLOPE           0.125
 
-#define NUM_OUTPUTS          7
+#define NUM_OUTPUTS          3
 /* Output Port  0 */
-#define OUT_PORT_0_NAME      p
+#define OUT_PORT_0_NAME      dV
 #define OUTPUT_0_WIDTH       1
 #define OUTPUT_DIMS_0_COL    1
 #define OUTPUT_0_DTYPE       real_T
@@ -123,7 +123,7 @@
 #define OUT_0_BIAS            0
 #define OUT_0_SLOPE           0.125
 /* Output Port  1 */
-#define OUT_PORT_1_NAME      T
+#define OUT_PORT_1_NAME      Tq
 #define OUTPUT_1_WIDTH       1
 #define OUTPUT_DIMS_1_COL    1
 #define OUTPUT_1_DTYPE       real_T
@@ -139,7 +139,7 @@
 #define OUT_1_BIAS            0
 #define OUT_1_SLOPE           0.125
 /* Output Port  2 */
-#define OUT_PORT_2_NAME      F
+#define OUT_PORT_2_NAME      powInd
 #define OUTPUT_2_WIDTH       1
 #define OUTPUT_DIMS_2_COL    1
 #define OUTPUT_2_DTYPE       real_T
@@ -154,101 +154,29 @@
 #define OUT_2_FRACTIONLENGTH  3
 #define OUT_2_BIAS            0
 #define OUT_2_SLOPE           0.125
-/* Output Port  3 */
-#define OUT_PORT_3_NAME      V
-#define OUTPUT_3_WIDTH       1
-#define OUTPUT_DIMS_3_COL    1
-#define OUTPUT_3_DTYPE       real_T
-#define OUTPUT_3_COMPLEX     COMPLEX_NO
-#define OUT_3_FRAME_BASED    FRAME_NO
-#define OUT_3_BUS_BASED      0
-#define OUT_3_BUS_NAME       
-#define OUT_3_DIMS           1-D
-#define OUT_3_ISSIGNED        1
-#define OUT_3_WORDLENGTH      8
-#define OUT_3_FIXPOINTSCALING 1
-#define OUT_3_FRACTIONLENGTH  3
-#define OUT_3_BIAS            0
-#define OUT_3_SLOPE           0.125
-/* Output Port  4 */
-#define OUT_PORT_4_NAME      m_err
-#define OUTPUT_4_WIDTH       1
-#define OUTPUT_DIMS_4_COL    1
-#define OUTPUT_4_DTYPE       real_T
-#define OUTPUT_4_COMPLEX     COMPLEX_NO
-#define OUT_4_FRAME_BASED    FRAME_NO
-#define OUT_4_BUS_BASED      0
-#define OUT_4_BUS_NAME       
-#define OUT_4_DIMS           1-D
-#define OUT_4_ISSIGNED        1
-#define OUT_4_WORDLENGTH      8
-#define OUT_4_FIXPOINTSCALING 1
-#define OUT_4_FRACTIONLENGTH  3
-#define OUT_4_BIAS            0
-#define OUT_4_SLOPE           0.125
-/* Output Port  5 */
-#define OUT_PORT_5_NAME      mf_err
-#define OUTPUT_5_WIDTH       1
-#define OUTPUT_DIMS_5_COL    1
-#define OUTPUT_5_DTYPE       real_T
-#define OUTPUT_5_COMPLEX     COMPLEX_NO
-#define OUT_5_FRAME_BASED    FRAME_NO
-#define OUT_5_BUS_BASED      0
-#define OUT_5_BUS_NAME       
-#define OUT_5_DIMS           1-D
-#define OUT_5_ISSIGNED        1
-#define OUT_5_WORDLENGTH      8
-#define OUT_5_FIXPOINTSCALING 1
-#define OUT_5_FRACTIONLENGTH  3
-#define OUT_5_BIAS            0
-#define OUT_5_SLOPE           0.125
-/* Output Port  6 */
-#define OUT_PORT_6_NAME      E_err
-#define OUTPUT_6_WIDTH       1
-#define OUTPUT_DIMS_6_COL    1
-#define OUTPUT_6_DTYPE       real_T
-#define OUTPUT_6_COMPLEX     COMPLEX_NO
-#define OUT_6_FRAME_BASED    FRAME_NO
-#define OUT_6_BUS_BASED      0
-#define OUT_6_BUS_NAME       
-#define OUT_6_DIMS           1-D
-#define OUT_6_ISSIGNED        1
-#define OUT_6_WORDLENGTH      8
-#define OUT_6_FIXPOINTSCALING 1
-#define OUT_6_FRACTIONLENGTH  3
-#define OUT_6_BIAS            0
-#define OUT_6_SLOPE           0.125
 
-#define NPARAMS              5
+#define NPARAMS              3
 /* Parameter  1 */
-#define PARAMETER_0_NAME      fs
+#define PARAMETER_0_NAME      B
 #define PARAMETER_0_DTYPE     real_T
 #define PARAMETER_0_COMPLEX   COMPLEX_NO
 /* Parameter  2 */
-#define PARAMETER_1_NAME      p0
+#define PARAMETER_1_NAME      stroke
 #define PARAMETER_1_DTYPE     real_T
 #define PARAMETER_1_COMPLEX   COMPLEX_NO
 /* Parameter  3 */
-#define PARAMETER_2_NAME      T0
+#define PARAMETER_2_NAME      lambdaCrank
 #define PARAMETER_2_DTYPE     real_T
 #define PARAMETER_2_COMPLEX   COMPLEX_NO
-/* Parameter  4 */
-#define PARAMETER_3_NAME      F0
-#define PARAMETER_3_DTYPE     real_T
-#define PARAMETER_3_COMPLEX   COMPLEX_NO
-/* Parameter  5 */
-#define PARAMETER_4_NAME      V0
-#define PARAMETER_4_DTYPE     real_T
-#define PARAMETER_4_COMPLEX   COMPLEX_NO
 
-#define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
+#define SAMPLE_TIME_0        CONTINUOUS_SAMPLE_TIME
 #define NUM_DISC_STATES      0
 #define DISC_STATES_IC       [0]
-#define NUM_CONT_STATES      7
-#define CONT_STATES_IC       [p0,T0,F0,V0]
+#define NUM_CONT_STATES      0
+#define CONT_STATES_IC       [0]
 
 #define SFUNWIZ_GENERATE_TLC 1
-#define SOURCEFILES "__SFB__GetThdynCombGasZach.c"
+#define SOURCEFILES "__SFB__"
 #define PANELINDEX           6
 #define USE_SIMSTRUCT        0
 #define SHOW_COMPILE_STEPS   0                   
@@ -262,35 +190,20 @@
 #define PARAM_DEF1(S) ssGetSFcnParam(S, 1)
 #define PARAM_DEF2(S) ssGetSFcnParam(S, 2)
 #define PARAM_DEF3(S) ssGetSFcnParam(S, 3)
-#define PARAM_DEF4(S) ssGetSFcnParam(S, 4)
 
 #define IS_PARAM_DOUBLE(pVal) (mxIsNumeric(pVal) && !mxIsLogical(pVal) &&\
 !mxIsEmpty(pVal) && !mxIsSparse(pVal) && !mxIsComplex(pVal) && mxIsDouble(pVal))
 
-extern void ThdynCVConv_Outputs_wrapper(real_T *p,
-                          real_T *T,
-                          real_T *F,
-                          real_T *V ,
-                          real_T *m_err,  
-                          real_T *mf_err,
-                          real_T *E_err,
-                          const real_T *xC,
-                          const real_T  *fs);
-extern void ThdynCVConv_Derivatives_wrapper(const real_T *dm,
-                          const real_T *dE,
-                          const real_T *dmf,
-                          const real_T *dV,
-                          const real_T *p,
-                          const real_T *T,
-                          const real_T *F,
-                          const real_T *V,       
-                          real_T *dx ,
-                          real_T *xC, 
-                          const real_T  *fs,  const int_T  p_width0,
-                          const real_T  *p0,  const int_T  p_width1,
-                          const real_T  *T0,  const int_T  p_width2,
-                          const real_T  *F0,  const int_T  p_width3,
-                           const real_T *V0, const int_T  p_width4);
+extern void crankMechKinematic_Outputs_wrapper(const real_T *pCyl,
+                          const real_T *omega,
+                          const real_T *phi,
+                          const real_T *pScav,
+                          real_T *dV,
+                          real_T *Tq,
+                          real_T *powInd,
+                          const real_T  *B, const int_T  p_width1, 
+                          const real_T  *stroke, const int_T  p_width2, 
+                          const real_T  *lambdaCrank, const int_T p_width3);
 
 /*====================*
  * S-function methods *
@@ -335,24 +248,7 @@ extern void ThdynCVConv_Derivatives_wrapper(const real_T *dm,
 	  }
 	 }
 
-	 {
-	  const mxArray *pVal3 = ssGetSFcnParam(S,3);
-	  if (!IS_PARAM_DOUBLE(pVal3)) {
-	    validParam = true;
-	    paramIndex = 3;
-	    goto EXIT_POINT;
-	  }
-	 }
-
-	 {
-	  const mxArray *pVal4 = ssGetSFcnParam(S,4);
-	  if (!IS_PARAM_DOUBLE(pVal4)) {
-	    validParam = true;
-	    paramIndex = 4;
-	    goto EXIT_POINT;
-	  }
-	 }
-      
+     
      EXIT_POINT:
       if (validParam) {
           char parameterErrorMsg[1024];
@@ -418,7 +314,6 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDirectFeedThrough(S, 3, INPUT_3_FEEDTHROUGH);
     ssSetInputPortRequiredContiguous(S, 3, 1); /*direct input signal access*/
 
-
     if (!ssSetNumOutputPorts(S, NUM_OUTPUTS)) return;
     /* Output Port 0 */
     ssSetOutputPortWidth(S, 0, OUTPUT_0_WIDTH);
@@ -432,22 +327,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortWidth(S, 2, OUTPUT_2_WIDTH);
     ssSetOutputPortDataType(S, 2, SS_DOUBLE);
     ssSetOutputPortComplexSignal(S, 2, OUTPUT_2_COMPLEX);
-    /* Output Port 3 */
-    ssSetOutputPortWidth(S, 3, OUTPUT_3_WIDTH);
-    ssSetOutputPortDataType(S, 3, SS_DOUBLE);
-    ssSetOutputPortComplexSignal(S, 3, OUTPUT_3_COMPLEX);
-    /* Output Port 4 */
-    ssSetOutputPortWidth(S, 4, OUTPUT_4_WIDTH);
-    ssSetOutputPortDataType(S, 4, SS_DOUBLE);
-    ssSetOutputPortComplexSignal(S, 4, OUTPUT_4_COMPLEX);
-    /* Output Port 5 */
-    ssSetOutputPortWidth(S, 5, OUTPUT_5_WIDTH);
-    ssSetOutputPortDataType(S, 5, SS_DOUBLE);
-    ssSetOutputPortComplexSignal(S, 5, OUTPUT_5_COMPLEX);
-    /* Output Port 5 */
-    ssSetOutputPortWidth(S, 6, OUTPUT_5_WIDTH);
-    ssSetOutputPortDataType(S, 6, SS_DOUBLE);
-    ssSetOutputPortComplexSignal(S, 6, OUTPUT_5_COMPLEX);    
+
     ssSetNumSampleTimes(S, 1);
     ssSetNumRWork(S, 0);
     ssSetNumIWork(S, 0);
@@ -485,22 +365,6 @@ static void mdlInitializeSampleTimes(SimStruct *S)
  static void mdlInitializeConditions(SimStruct *S)
  {
    
-   real_T *xC   = ssGetContStates(S);
-   real_T fs, F0; 
-   real_T R, h, s, u, RF, RP, RT, uF, uP, uT, sF, sP, sT, Cp, Cv, K; 
-   
-   fs = (*mxGetPr(ssGetSFcnParam(S, 0)));
-   
-    xC[0] = (*mxGetPr(ssGetSFcnParam(S, 1)));
-    xC[1] = (*mxGetPr(ssGetSFcnParam(S, 2)));
-    xC[2] = (*mxGetPr(ssGetSFcnParam(S, 3)));
-    xC[3] = (*mxGetPr(ssGetSFcnParam(S, 4)));   
-    
-    GetThdynCombGasZachV1(xC[0],xC[1],xC[2],fs,&R,&h,&s,&u,&RF,&RP,&RT, 
-        &uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv,&K);
-    xC[4] = xC[0]*xC[3]/(R*xC[1]);
-    xC[5] = u*xC[4];  
-    xC[6] = xC[0]*xC[2]*fs/(1+xC[2]*fs);    
  }
 #define MDL_SET_INPUT_PORT_DATA_TYPE
 static void mdlSetInputPortDataType(SimStruct *S, int port, DTypeId dType)
@@ -524,49 +388,21 @@ static void mdlSetDefaultPortDataTypes(SimStruct *S)
 */
 static void mdlOutputs(SimStruct *S, int_T tid)
 {
-    real_T        *p  = (real_T *)ssGetOutputPortRealSignal(S,0);
-    real_T        *T  = (real_T *)ssGetOutputPortRealSignal(S,1);
-    real_T        *F  = (real_T *)ssGetOutputPortRealSignal(S,2);
-    real_T        *V  = (real_T *)ssGetOutputPortRealSignal(S,3);
-    real_T        *m_err  = (real_T *)ssGetOutputPortRealSignal(S,4);
-    real_T        *mf_err  = (real_T *)ssGetOutputPortRealSignal(S,5);
-    real_T        *E_err = (real_T *)ssGetOutputPortRealSignal(S,6);
-    const real_T   *xC = ssGetContStates(S);
-    const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
-
-    ThdynCVConv_Outputs_wrapper(p, T, F, V, m_err, mf_err, E_err, xC, fs);
-}
-
-#define MDL_DERIVATIVES  /* Change to #undef to remove function */
-/* Function: mdlDerivatives =================================================
-   * Abstract:
-   *    In this function, you compute the S-function block's derivatives.
-   *    The derivatives are placed in the derivative vector, ssGetdX(S).
-   */
-  static void mdlDerivatives(SimStruct *S)
-  {
-    const real_T   *dm  = (const real_T*) ssGetInputPortSignal(S,0);
-    const real_T   *dE  = (const real_T*) ssGetInputPortSignal(S,1);
-    const real_T   *dmf  = (const real_T*) ssGetInputPortSignal(S,2);
-    const real_T   *dV  = (const real_T*) ssGetInputPortSignal(S,3);
-    real_T         *dx  = ssGetdX(S);
-    real_T         *xC  = ssGetContStates(S);
-    real_T        *p  = (real_T *) ssGetOutputPortRealSignal(S,0);
-    real_T        *T  = (real_T *) ssGetOutputPortRealSignal(S,1);
-    real_T        *F  = (real_T *) ssGetOutputPortRealSignal(S,2);
-    real_T        *V  = (real_T *) ssGetOutputPortRealSignal(S,3);
+    const real_T   *pCyl  = (const real_T*) ssGetInputPortSignal(S,0);
+    const real_T   *omega  = (const real_T*) ssGetInputPortSignal(S,1);
+    const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,2);
+    const real_T   *pScav  = (const real_T*) ssGetInputPortSignal(S,3);
+    real_T        *dV  = (real_T *)ssGetOutputPortRealSignal(S,0);
+    real_T        *Tq  = (real_T *)ssGetOutputPortRealSignal(S,1);
+    real_T        *powInd  = (real_T *)ssGetOutputPortRealSignal(S,2);
     const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
-    const int_T   p_width3  = mxGetNumberOfElements(PARAM_DEF3(S));
-    const int_T   p_width4  = mxGetNumberOfElements(PARAM_DEF4(S));
-    const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
-    const real_T  *p0  = (const real_T *)mxGetData(PARAM_DEF1(S));
-    const real_T  *T0  = (const real_T *)mxGetData(PARAM_DEF2(S));
-    const real_T  *F0  = (const real_T *)mxGetData(PARAM_DEF3(S));
-    const real_T  *V0  = (const real_T *)mxGetData(PARAM_DEF4(S));
+    const real_T  *B  = (const real_T *)mxGetData(PARAM_DEF0(S));
+    const real_T  *stroke  = (const real_T *)mxGetData(PARAM_DEF1(S));
+    const real_T  *lambdaCrank  = (const real_T *)mxGetData(PARAM_DEF2(S));
 
-    ThdynCVConv_Derivatives_wrapper(dm, dE, dmf, dV, p, T, F, V,dx,  xC, fs, p_width0, p0, p_width1, T0, p_width2, F0, p_width3, V0, p_width4);
+    crankMechKinematic_Outputs_wrapper(pCyl, omega, phi, pScav, dV, Tq, powInd, B, p_width0, stroke, p_width1, lambdaCrank, p_width2);
 }
 
 /* Function: mdlTerminate =====================================================

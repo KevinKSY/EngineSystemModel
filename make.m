@@ -2,9 +2,9 @@
 fprintf('\n Now compiling all the code for c-mex s-functions\n');
 currFolder = pwd;
 cd code
-delete '*.mex*'
+%delete '*.mex*'
 cd c_code
-
+%{
 mex AirWaterCoolerPTF.c AirWaterCoolerPTF_wrapper.c GetHTCoeffHTX.c GetAirViscosity.c GetThdynCombGasZachV1.c GetAirDensity.c GetAirThermalConduct.c GetCompCombGas_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c -outdir ..
 mex blower.c blower_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex combState.c combState_wrapper.c -outdir ..
@@ -29,9 +29,13 @@ mex SpeedController.c -outdir ..
 mex ThdynCV.c ThdynCV_wrapper.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVNV.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVConv.c ThdynCVConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
-mex ThdynCVConv1.c ThdynCVConv_wrapper1.c GetThdynCombGasZachV1.c -outdir ..
+mex ThdynCV2ZoneConv.c ThdynCV2ZoneConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex turbine_calc_PTF.c turbine_calc_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex turbine_calc_MV_PTF.c turbine_calc_MV_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
-mex -g InCylinderMV.c InCylinderMV_wrapper.c GetThdynCombGasZachV1.c -outdir ..
+mex InCylinderMV.c InCylinderMV_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex GetThdynCombGasZachSFunc.c GetThdynCombGasZachV1.c -outdir ..
+mex ThdynCV2ZoneBG.c ThdynCV2ZoneBG_wrapper.c GetThdynCombGasZachV1.c GetPTF.c -outdir ..
+%}
+mex -g ThdynCVNV2Zone.c ThdynCVNV2Zone_wrapper.c GetPTF.c GetThdynCombGasZachV1.c
+mex -g crankMechKinematic1.c crankMechKinematic_wrapper1.c -outdir ..
 cd(currFolder);

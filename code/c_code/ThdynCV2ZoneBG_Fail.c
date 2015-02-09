@@ -32,7 +32,7 @@
  */
 
 #define S_FUNCTION_LEVEL 2
-#define S_FUNCTION_NAME ThdynCV2ZoneConv
+#define S_FUNCTION_NAME ThdynCV2ZoneBG
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
 #define NUM_INPUTS          9
@@ -190,7 +190,7 @@
 #define IN_8_BIAS            0
 #define IN_8_SLOPE           0.125
 
-#define NUM_OUTPUTS          7
+#define NUM_OUTPUTS          8
 /* Output Port  0 */
 #define OUT_PORT_0_NAME      p
 #define OUTPUT_0_WIDTH       1
@@ -303,7 +303,22 @@
 #define OUT_6_FRACTIONLENGTH  3
 #define OUT_6_BIAS            0
 #define OUT_6_SLOPE           0.125
-
+/* Output Port  7 */
+#define OUT_PORT_7_NAME      pb
+#define OUTPUT_7_WIDTH       1
+#define OUTPUT_DIMS_7_COL    1
+#define OUTPUT_7_DTYPE       real_T
+#define OUTPUT_7_COMPLEX     COMPLEX_NO
+#define OUT_7_FRAME_BASED    FRAME_NO
+#define OUT_7_BUS_BASED      0
+#define OUT_7_BUS_NAME       
+#define OUT_7_DIMS           1-D
+#define OUT_7_ISSIGNED        1
+#define OUT_7_WORDLENGTH      8
+#define OUT_7_FIXPOINTSCALING 1
+#define OUT_7_FRACTIONLENGTH  3
+#define OUT_7_BIAS            0
+#define OUT_7_SLOPE           0.125
 
 #define NPARAMS              10
 /* Parameter  1 */
@@ -327,15 +342,15 @@
 #define PARAMETER_4_DTYPE     real_T
 #define PARAMETER_4_COMPLEX   COMPLEX_NO
 /* Parameter  6 */
-#define PARAMETER_5_NAME      p0
+#define PARAMETER_5_NAME      m0
 #define PARAMETER_5_DTYPE     real_T
 #define PARAMETER_5_COMPLEX   COMPLEX_NO
 /* Parameter  7 */
-#define PARAMETER_6_NAME      T0
+#define PARAMETER_6_NAME      E0
 #define PARAMETER_6_DTYPE     real_T
 #define PARAMETER_6_COMPLEX   COMPLEX_NO
 /* Parameter  8 */
-#define PARAMETER_7_NAME      F0
+#define PARAMETER_7_NAME      mb0
 #define PARAMETER_7_DTYPE     real_T
 #define PARAMETER_7_COMPLEX   COMPLEX_NO
 /* Parameter  9 */
@@ -347,23 +362,63 @@
 #define PARAMETER_9_DTYPE     real_T
 #define PARAMETER_9_COMPLEX   COMPLEX_NO
 
-#define NDWORKS              2
-// DWork1
-#define DWORK_0_NAME         mb0
+#define NDWORKS              10
+// DWork 1
+#define DWORK_0_NAME         Tu_prev
 #define DWORK_0_WIDTH        1
 #define DWORK_0_DTYPE        real_T
 #define DWORK_0_COMPLEX      COMPLEX_NO
-// DWork1
-#define DWORK_1_NAME         ResetMix
+// DWork 2
+#define DWORK_1_NAME         Ru_prev
 #define DWORK_1_WIDTH        1
 #define DWORK_1_DTYPE        real_T
 #define DWORK_1_COMPLEX      COMPLEX_NO
+// DWork3
+#define DWORK_2_NAME         uu_prev
+#define DWORK_2_WIDTH        1
+#define DWORK_2_DTYPE        real_T
+#define DWORK_2_COMPLEX      COMPLEX_NO
+// DWork4
+#define DWORK_3_NAME         Cvu_prev
+#define DWORK_3_WIDTH        1
+#define DWORK_3_DTYPE        real_T
+#define DWORK_3_COMPLEX      COMPLEX_NO
+// DWork 5
+#define DWORK_4_NAME         Tb_prev
+#define DWORK_4_WIDTH        1
+#define DWORK_4_DTYPE        real_T
+#define DWORK_4_COMPLEX      COMPLEX_NO
+// DWork 6
+#define DWORK_5_NAME         Rb_prev
+#define DWORK_5_WIDTH        1
+#define DWORK_5_DTYPE        real_T
+#define DWORK_5_COMPLEX      COMPLEX_NO
+// DWork7
+#define DWORK_6_NAME         ub_prev
+#define DWORK_6_WIDTH        1
+#define DWORK_6_DTYPE        real_T
+#define DWORK_6_COMPLEX      COMPLEX_NO
+// DWork8
+#define DWORK_7_NAME         Cvb_prev
+#define DWORK_7_WIDTH        1
+#define DWORK_7_DTYPE        real_T
+#define DWORK_7_COMPLEX      COMPLEX_NO
+// DWork9
+#define DWORK_8_NAME         mb0
+#define DWORK_8_WIDTH        1
+#define DWORK_8_DTYPE        real_T
+#define DWORK_8_COMPLEX      COMPLEX_NO
+// DWork10
+#define DWORK_9_NAME         resetMix
+#define DWORK_9_WIDTH        1
+#define DWORK_9_DTYPE        int
+#define DWORK_9_COMPLEX      COMPLEX_NO
 
 #define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
 #define NUM_DISC_STATES      0
 #define DISC_STATES_IC       [0]
-#define NUM_CONT_STATES      7
-#define CONT_STATES_IC       [0,0,0,0,0,0,0,0,0]
+#define NUM_CONT_STATES      8
+#define CONT_STATES_IC       [0,0,0,0,0,0,0,0]
 
 #define SFUNWIZ_GENERATE_TLC 1
 #define SOURCEFILES "__SFB__GetThdynCombGasZach.c__SFB__"
@@ -390,7 +445,7 @@
 #define IS_PARAM_DOUBLE(pVal) (mxIsNumeric(pVal) && !mxIsLogical(pVal) &&\
 !mxIsEmpty(pVal) && !mxIsSparse(pVal) && !mxIsComplex(pVal) && mxIsDouble(pVal))
 
-extern void ThdynCV2ZoneConv_Outputs_wrapper(
+extern void ThdynCV2ZoneBG_Outputs_wrapper(
                           real_T *p,
                           real_T *Tu,
                           real_T *Fu,
@@ -399,43 +454,52 @@ extern void ThdynCV2ZoneConv_Outputs_wrapper(
                           real_T *Fb,
                           real_T *Vb ,
                           const real_T *xC);
-extern void ThdynCV2ZoneConv_Derivatives_wrapper(const real_T *dmEmb,
+extern void ThdynCV2ZoneBG_Derivatives_wrapper(const real_T *dmHmb,
                           const real_T *dV,
                           const real_T *dmfb,
                           const real_T *FComb,
                           const real_T *dQCyl,
                           const real_T *omega,
                           const real_T *phi,
-                          const real_T *combState,
-                          const real_T *mqf0,                
-                          const real_T *p,
+                          real_T *dx,
+                          real_T *xC, 
+                          const real_T  *fs,  const int_T  p_width0,
+                          const real_T  *DPhiMix,  const int_T  p_width1,
+                          const real_T  *phiMix0,  const int_T  p_width2,
+                          const real_T  *alpha,  const int_T  p_width3,
+                          const real_T  *hn,  const int_T  p_width4,
+                          const real_T  *nStroke, const int_T pidth5,
+                          const real_T *Tu_prev,
+                          const real_T *Ru_prev,
+                          const real_T *uu_prev,
+                          const real_T *Cvu_prev,
+                          const real_T *Tb_prev,
+                          const real_T *Rb_prev,
+                          const real_T *ub_prev,
+                          const real_T *Cvb_prev,
+                          const real_T *mb0,
+                          const int *resetMix);
+extern void ThdynCV2ZoneBG_Update_wrapper(const real_T *p,
                           const real_T *Tu,
                           const real_T *Fu,
                           const real_T *Vu,
                           const real_T *Tb,
                           const real_T *Fb,
                           const real_T *Vb,
-                          real_T *dx ,
-                          real_T *xC, 
-                          const real_T *mb0,
-                          const real_T  *fs,  const int_T  p_width0,
-                          const real_T  *DPhiMix,  const int_T  p_width1,
-                          const real_T  *phiMix0,  const int_T  p_width2,
-                          const real_T  *alpha,  const int_T  p_width3,
-                          const real_T  *hn,  const int_T  p_width4,
-                          const real_T  *p0,  const int_T  p_width5,
-                          const real_T  *T0,  const int_T  p_width6,
-                          const real_T  *F0,  const int_T  p_width7,
-                           const real_T *V0, const int_T  p_width8,
-                           const real_T *nStroke, const int_T  p_width9);
-extern void ThdynCV2ZoneConv_Update_wrapper(const real_T *FComb,
                           const real_T *combState,
-                          const real_T *mqf0,
                           const real_T *xC,
+                          real_T *Tu_prev,
+                          real_T *Ru_prev,
+                          real_T *uu_prev,
+                          real_T *Cvu_prev,
+                          real_T *Tb_prev,
+                          real_T *Rb_prev,
+                          real_T *ub_prev,
+                          real_T *Cvb_prev,
                           real_T *mb0,
-                          real_T *ResetMix,
+                          real_T *ResetMix,        
                           const real_T  *fs,  const int_T  p_width0,
-                          const real_T  *alpha,  const int_T  p_width3);
+                          const real_T *alpha, const int_T p_widht3);
 /*====================*
  * S-function methods *
  *====================*/
@@ -672,14 +736,42 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortWidth(S, 6, OUTPUT_6_WIDTH);
     ssSetOutputPortDataType(S, 6, SS_DOUBLE);
     ssSetOutputPortComplexSignal(S, 6, OUTPUT_6_COMPLEX);
+    /* Output Port 7 */
+    ssSetOutputPortWidth(S, 7, OUTPUT_7_WIDTH);
+    ssSetOutputPortDataType(S, 7, SS_DOUBLE);
+    ssSetOutputPortComplexSignal(S, 7, OUTPUT_7_COMPLEX);
     
     ssSetNumDWork(S,NDWORKS);
     /*DWork vector 1*/
     ssSetDWorkWidth(S, 0, DWORK_0_WIDTH);
     ssSetDWorkDataType(S, 0, SS_DOUBLE);
-    /*DWork vector 2*/
+    /*DWork vector 2*/    
     ssSetDWorkWidth(S, 1, DWORK_1_WIDTH);
     ssSetDWorkDataType(S, 1, SS_DOUBLE);
+    /*DWork vector 3*/    
+    ssSetDWorkWidth(S, 2, DWORK_2_WIDTH);
+    ssSetDWorkDataType(S, 2, SS_DOUBLE);
+    /*DWork vector 4*/
+	ssSetDWorkWidth(S, 3, DWORK_3_WIDTH);
+    ssSetDWorkDataType(S, 3, SS_DOUBLE);
+    /*DWork vector 5*/
+    ssSetDWorkWidth(S, 4, DWORK_4_WIDTH);
+    ssSetDWorkDataType(S, 4, SS_DOUBLE);
+    /*DWork vector 6*/    
+    ssSetDWorkWidth(S, 5, DWORK_5_WIDTH);
+    ssSetDWorkDataType(S, 5, SS_DOUBLE);
+    /*DWork vector 7*/    
+    ssSetDWorkWidth(S, 6, DWORK_6_WIDTH);
+    ssSetDWorkDataType(S, 6, SS_DOUBLE);
+    /*DWork vector 8*/
+	ssSetDWorkWidth(S, 7, DWORK_7_WIDTH);
+    ssSetDWorkDataType(S, 7, SS_DOUBLE);   
+    /*DWork vector 9*/
+	ssSetDWorkWidth(S, 8, DWORK_8_WIDTH);
+    ssSetDWorkDataType(S, 8, SS_DOUBLE);   
+    /*DWork vector 10*/
+	ssSetDWorkWidth(S, 9, DWORK_9_WIDTH);
+    ssSetDWorkDataType(S, 9, SS_DOUBLE);   
     
     ssSetNumSampleTimes(S, 1);
     ssSetNumRWork(S, 0);
@@ -760,28 +852,50 @@ static void mdlInitializeSampleTimes(SimStruct *S)
   */
  static void mdlInitializeConditions(SimStruct *S)
  {
-    real_T *xC   = ssGetContStates(S);
-    const real_T  *fs = (const real_T *)mxGetData(PARAM_DEF0(S));
-    const real_T  *alpha  = (const real_T *)mxGetData(PARAM_DEF3(S));
-    const real_T  *p0  = (const real_T *)mxGetData(PARAM_DEF5(S));
-    const real_T  *T0  = (const real_T *)mxGetData(PARAM_DEF6(S));
-    const real_T  *F0  = (const real_T *)mxGetData(PARAM_DEF7(S));
-    const real_T  *V0  = (const real_T *)mxGetData(PARAM_DEF8(S)); 
-    
-    real_T  *mb0 = (real_T *)ssGetDWork(S,0);
-    real_T  *ResetMix = (real_T *)ssGetDWork(S,1);    
-   
-    xC[0] =  p0[0];
-    xC[1] =  T0[0];
-    xC[2] =  F0[0];
-    xC[3] =  V0[0]*(1-alpha[0]);
-    xC[4] =  T0[0];
-    xC[5] =  F0[0];
-    xC[6] =  V0[0]*alpha[0];
-    mb0[0] = 0;
-    ResetMix[0] = 1;
+    double R0,h0,s0,u0,RF0,RP0,RT0,uF0,uP0,uT0,sF0,sP0,sT0,Cp0,Cv0,K0;
 
- }
+    const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
+    const real_T  *DPhiMix  = (const real_T *)mxGetData(PARAM_DEF1(S));
+    const real_T  *phiMix0  = (const real_T *)mxGetData(PARAM_DEF2(S));
+    const real_T  *alpha  = (const real_T *)mxGetData(PARAM_DEF3(S));
+    const real_T  *hn  = (const real_T *)mxGetData(PARAM_DEF4(S));
+    const real_T  *m0  = (const real_T *)mxGetData(PARAM_DEF5(S));
+    const real_T  *E0  = (const real_T *)mxGetData(PARAM_DEF6(S));
+    const real_T  *mb0  = (const real_T *)mxGetData(PARAM_DEF7(S));
+    const real_T  *V0  = (const real_T *)mxGetData(PARAM_DEF8(S));   
+    
+    real_T *Tu_prev = (real_T*) ssGetDWork(S,0);
+    real_T *Ru_prev = (real_T*) ssGetDWork(S,1);
+    real_T *uu_prev = (real_T*) ssGetDWork(S,2);    
+	real_T *Cvu_prev = (real_T*) ssGetDWork(S,3);    
+    real_T *Tb_prev = (real_T*) ssGetDWork(S,4);
+    real_T *Rb_prev = (real_T*) ssGetDWork(S,5);
+    real_T *ub_prev = (real_T*) ssGetDWork(S,6);    
+	real_T *Cvb_prev = (real_T*) ssGetDWork(S,7);        
+    real_T *mb00 = (real_T*) ssGetDWork(S,8);    
+	real_T *resetMix = (real_T*) ssGetDWork(S,9);        
+    
+   real_T *xC   = ssGetContStates(S);
+
+   xC[0] = (1-alpha[0])*m0[0];
+   xC[1] = (1-alpha[0])*E0[0];
+   xC[2] = (1-alpha[0])*mb0[0];
+   xC[3] = (1-alpha[0])*V0[0];
+   xC[4] = m0[0] - xC[0];
+   xC[5] = E0[0] - xC[1];
+   xC[6] = mb0[0] - xC[2];
+   xC[7] = V0[0] - xC[3];
+   Tu_prev[0] = 300;
+   Ru_prev[0] = 287;
+   uu_prev[0] = 2.1386e+05;
+   Cvu_prev[0] = 718.7221;
+   Tb_prev[0] = 300;
+   Rb_prev[0] = 287;
+   ub_prev[0] = 2.1386e+05;
+   Cvb_prev[0] = 718.7221;
+   mb00[0] = 0;
+   resetMix[0] = 1;
+}
 #define MDL_SET_INPUT_PORT_DATA_TYPE
 static void mdlSetInputPortDataType(SimStruct *S, int port, DTypeId dType)
 {
@@ -804,16 +918,41 @@ static void mdlSetDefaultPortDataTypes(SimStruct *S)
 */
 static void mdlOutputs(SimStruct *S, int_T tid)
 {
-    real_T        *p  = (real_T *)ssGetOutputPortRealSignal(S,0);
+    real_T        *pu  = (real_T *)ssGetOutputPortRealSignal(S,0);
+    real_T        *pb  = (real_T *)ssGetOutputPortRealSignal(S,7);
     real_T        *Tu  = (real_T *)ssGetOutputPortRealSignal(S,1);
     real_T        *Fu  = (real_T *)ssGetOutputPortRealSignal(S,2);
     real_T        *Vu  = (real_T *)ssGetOutputPortRealSignal(S,3);
     real_T        *Tb  = (real_T *)ssGetOutputPortRealSignal(S,4);
     real_T        *Fb  = (real_T *)ssGetOutputPortRealSignal(S,5);
     real_T        *Vb  = (real_T *)ssGetOutputPortRealSignal(S,6);
+    const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
+    const real_T *Tu_prev = (const real_T*) ssGetDWork(S,0);
+    const real_T *Ru_prev = (const real_T*) ssGetDWork(S,1);
+    const real_T *uu_prev = (const real_T*) ssGetDWork(S,2);    
+	const real_T *Cvu_prev = (const real_T*) ssGetDWork(S,3);    
+    const real_T *Tb_prev = (const real_T*) ssGetDWork(S,4);
+    const real_T *Rb_prev = (const real_T*) ssGetDWork(S,5);
+    const real_T *ub_prev = (const real_T*) ssGetDWork(S,6);    
+	const real_T *Cvb_prev = (const real_T*) ssGetDWork(S,7);        
+    real_T R1, h1, s1, u1, RF, RP, RT, uF, uP, uT, sF, sP, sT, Cp, Cv1, K;
+    real_T R2, h2, s2, u2, Cv2;
+    
     const real_T   *xC = ssGetContStates(S);
+    real_T a1, a2;
+    
+    GetPTF(xC[0], xC[2], xC[1], xC[3], *Tu_prev, *Ru_prev, *uu_prev, *Cvu_prev, *fs, pu, Tu, Fu);
+    GetPTF(xC[4], xC[6], xC[5], xC[7], *Tb_prev, *Rb_prev, *ub_prev, *Cvb_prev, *fs, pb, Tb, Fb);
 
-    ThdynCV2ZoneConv_Outputs_wrapper(p, Tu, Fu, Vu, Tb, Fb, Vb, xC);
+    GetThdynCombGasZachV1(pu[0],Tu[0],Fu[0],fs[0],&R1,&h1,&s1,&u1,
+        &RF,&RP,&RT,&uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv1,&K);            
+    GetThdynCombGasZachV1(pb[0],Tb[0],Fb[0],fs[0],&R2,&h2,&s2,&u2,
+        &RF,&RP,&RT,&uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv2,&K);      
+    
+    Vu[0] = xC[3];
+    Vb[0] = xC[7];
+    a1 = Vu[0]*xC[4]*R2*Tb[0];
+    a2 = Vb[0]*xC[0]*R1*Tu[0];
 }
 
 #define MDL_DERIVATIVES  /* Change to #undef to remove function */
@@ -835,7 +974,6 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T   *mqf0 = (const real_T*) ssGetInputPortSignal(S,8);
     real_T         *dx  = ssGetdX(S);
     real_T         *xC  = ssGetContStates(S);
-    const real_T  *mb0 = (const real_T*)ssGetDWork(S,0);
     real_T        *p  = (real_T *) ssGetOutputPortRealSignal(S,0);
     real_T        *Tu  = (real_T *) ssGetOutputPortRealSignal(S,1);
     real_T        *Fu  = (real_T *) ssGetOutputPortRealSignal(S,2);
@@ -863,8 +1001,21 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T  *F0  = (const real_T *)mxGetData(PARAM_DEF7(S));
     const real_T  *V0  = (const real_T *)mxGetData(PARAM_DEF8(S));
     const real_T  *nStroke  = (const real_T *)mxGetData(PARAM_DEF9(S));
+    const real_T *Tu_prev = (const real_T*) ssGetDWork(S,0);
+    const real_T *Ru_prev = (const real_T*) ssGetDWork(S,1);
+    const real_T *uu_prev = (const real_T*) ssGetDWork(S,2);    
+	const real_T *Cvu_prev = (const real_T*) ssGetDWork(S,3);    
+    const real_T *Tb_prev = (const real_T*) ssGetDWork(S,4);
+    const real_T *Rb_prev = (const real_T*) ssGetDWork(S,5);
+    const real_T *ub_prev = (const real_T*) ssGetDWork(S,6);    
+	const real_T *Cvb_prev = (const real_T*) ssGetDWork(S,7);        
+    const real_T *mb0 = (const real_T*) ssGetDWork(S,8);    
+	const int *resetMix = (const int*) ssGetDWork(S,9);         
 
-    ThdynCV2ZoneConv_Derivatives_wrapper(dmEmb, dV, dmfb, FComb, dQCyl, omega, phi, combState, mqf0, p, Tu, Fu, Vu, Tb, Fb, Vb,dx,  xC, mb0, fs, p_width0, DPhiMix, p_width1, phiMix0, p_width2, alpha, p_width3, hn, p_width4, p0, p_width5, T0, p_width6, F0, p_width7, V0, p_width8, nStroke, p_width9);
+    ThdynCV2ZoneBG_Derivatives_wrapper(dmEmb,dV,dmfb,FComb,dQCyl,omega,
+            phi,dx,xC,fs,p_width0,DPhiMix,p_width1,phiMix0,p_width2,
+            alpha,p_width3,hn,p_width4,nStroke,p_width9,Tu_prev,Ru_prev,
+            uu_prev,Cvu_prev,Tb_prev,Rb_prev,ub_prev,Cvb_prev,mb0,resetMix);
 }
 #define MDL_UPDATE  /* Change to #undef to remove function */
 /* Function: mdlUpdate ======================================================
@@ -876,17 +1027,35 @@ static void mdlOutputs(SimStruct *S, int_T tid)
    */
   static void mdlUpdate(SimStruct *S, int_T tid)
   {
+    const real_T   *p  = (const real_T *) ssGetOutputPortRealSignal(S,0);
+    const real_T   *Tu  = (const real_T *) ssGetOutputPortRealSignal(S,1);
+    const real_T   *Fu  = (const real_T *) ssGetOutputPortRealSignal(S,2);
+    const real_T   *Vu  = (const real_T *) ssGetOutputPortRealSignal(S,3);
+    const real_T   *Tb  = (const real_T *) ssGetOutputPortRealSignal(S,4);
+    const real_T   *Fb  = (const real_T *) ssGetOutputPortRealSignal(S,5);
+    const real_T   *Vb  = (const real_T *) ssGetOutputPortRealSignal(S,6);      
     const real_T   *FComb  = (const real_T*) ssGetInputPortSignal(S,3);
     const real_T   *combState = (const real_T*) ssGetInputPortSignal(S,7);
     const real_T   *mqf0 = (const real_T*) ssGetInputPortSignal(S,8);
-    real_T  *mb0 = (real_T*)ssGetDWork(S,0);
-    real_T *ResetMix = (real_T*)ssGetDWork(S,1);
     const real_T  *xC  = ssGetContStates(S);
     const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
     const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
     const int_T   p_width3  = mxGetNumberOfElements(PARAM_DEF3(S));
     const real_T  *alpha  = (const real_T *)mxGetData(PARAM_DEF3(S));
-    ThdynCV2ZoneConv_Update_wrapper(FComb,combState,mqf0,xC,mb0,ResetMix,fs,p_width0,alpha,p_width3);  
+    real_T *Tu_prev = ( real_T*) ssGetDWork(S,0);
+    real_T *Ru_prev = ( real_T*) ssGetDWork(S,1);
+    real_T *uu_prev = ( real_T*) ssGetDWork(S,2);    
+	real_T *Cvu_prev = ( real_T*) ssGetDWork(S,3);    
+    real_T *Tb_prev = ( real_T*) ssGetDWork(S,4);
+    real_T *Rb_prev = ( real_T*) ssGetDWork(S,5);
+    real_T *ub_prev = ( real_T*) ssGetDWork(S,6);    
+	real_T *Cvb_prev = ( real_T*) ssGetDWork(S,7);        
+    real_T *mb0 = ( real_T*) ssGetDWork(S,8);    
+	real_T *resetMix = ( real_T*) ssGetDWork(S,9);         
+
+    ThdynCV2ZoneBG_Update_wrapper(p,Tu,Fu,Vu,Tb,Fb,Vb,combState,xC,Tu_prev,
+            Ru_prev,uu_prev,Cvu_prev,Tb_prev,Rb_prev,ub_prev,Cvb_prev,mb0,
+            resetMix,fs,p_width0,alpha,p_width3);  
   }
 
       

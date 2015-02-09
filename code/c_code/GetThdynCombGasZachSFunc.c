@@ -13,7 +13,7 @@
 /*
  * You must specify the S_FUNCTION_NAME as the name of your S-function
  * (i.e. replace sfuntmpl_basic with the name of your S-function).
- */
+ */ 
 
 #define S_FUNCTION_NAME  GetThdynCombGasZachSFunc
 #define S_FUNCTION_LEVEL 2
