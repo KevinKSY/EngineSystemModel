@@ -625,7 +625,8 @@ extern void ThdynCVNV2Zone_Update_wrapper(const real_T *phi,
                           const real_T *DPhiMix, const int_T p_width3,
                           const real_T *phiMix0, const int_T p_width4,
                           const real_T *alpha, const int_T p_width5,
-                          const real_T *nStroke, const int_T p_width6);
+						  const real_T *hn, const int_T p_width6,
+                          const real_T *nStroke, const int_T p_width7);
 
 /*====================*
  * S-function methods *
@@ -1191,12 +1192,14 @@ static void mdlUpdate(SimStruct *S, int_T tid)
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
     const int_T   p_width3  = mxGetNumberOfElements(PARAM_DEF3(S));
+	const int_T   p_width4 = mxGetNumberOfElements(PARAM_DEF4(S));
     const int_T   p_width9  = mxGetNumberOfElements(PARAM_DEF9(S));
 
     const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF0(S));
     const real_T  *DPhiMix  = (const real_T *)mxGetData(PARAM_DEF1(S));
     const real_T  *phiMix0  = (const real_T *)mxGetData(PARAM_DEF2(S));
     const real_T  *alpha  = (const real_T *)mxGetData(PARAM_DEF3(S));
+	const real_T  *hn = (const real_T *)mxGetData(PARAM_DEF4(S));
     const real_T  *nStroke  = (const real_T *)mxGetData(PARAM_DEF9(S));
 
     ThdynCVNV2Zone_Update_wrapper(phi,FComb,combState,p,Tu,Fu,Vu,Tb,Fb,Vb,
@@ -1206,7 +1209,7 @@ static void mdlUpdate(SimStruct *S, int_T tid)
             mu_prev,mub_prev,Vu_prev,mfb_prev,
             mMix_prev,mb0,ResetMix,
             fs,p_width0,DPhiMix,p_width1,phiMix0,p_width2,
-            alpha,p_width3,nStroke,p_width9);
+            alpha,p_width3,hn,p_width4,nStroke,p_width9);
 }
 
 
