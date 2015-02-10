@@ -33,28 +33,28 @@ void ThdynCVNV2Zone_Output_wrapper(const real_T     *FComb,
                                  real_T             *Vb,
 								 real_T             *pb,
                                  const real_T       *xC, 
-                                 const real_T       *p_prev,        
-                                 const real_T       *Tu_prev,
-                                 const real_T       *Fu_prev,
-                                 const real_T       *Ru_prev,
-                                 const real_T       *uu_prev,
-                                 const real_T       *Cvu_prev,
-                                 const real_T       *Tb_prev,
-                                 const real_T       *Fb_prev,
-                                 const real_T       *Rb_prev,
-                                 const real_T       *ub_prev,
-                                 const real_T       *Cvb_prev,
-                                 const real_T       *mCyl_prev,
-                                 const real_T       *mbCyl_prev,
-                                 const real_T       *VCyl_prev,
-                                 const real_T       *QCyl_prev,
-                                 const real_T       *HCyl_prev,        
-                                 const real_T       *WCyl_prev,        
-                                 const real_T       *mu_prev,
-                                 const real_T       *mub_prev,
-                                 const real_T       *Vu_prev,
-                                 const real_T       *mfb_prev,
-                                 const real_T       *mMix_prev,
+                                 const real_T       *pPrev,        
+                                 const real_T       *TuPrev,
+                                 const real_T       *FuPrev,
+                                 const real_T       *RuPrev,
+                                 const real_T       *uuPrev,
+                                 const real_T       *CvuPrev,
+                                 const real_T       *TbPrev,
+                                 const real_T       *FbPrev,
+                                 const real_T       *RbPrev,
+                                 const real_T       *ubPrev,
+                                 const real_T       *CvbPrev,
+                                 const real_T       *mCylPrev,
+                                 const real_T       *mbCylPrev,
+                                 const real_T       *VCylPrev,
+                                 const real_T       *QCylPrev,
+                                 const real_T       *HCylPrev,        
+                                 const real_T       *WCylPrev,        
+                                 const real_T       *muPrev,
+                                 const real_T       *mubPrev,
+                                 const real_T       *VuPrev,
+                                 const real_T       *mfbPrev,
+                                 const real_T       *mMixPrev,
                                  const real_T       *mb0,
                                  const real_T  *fs,  const int_T  p_width0,
                                  const real_T *DPhiMix, const int_T p_width1,
@@ -65,21 +65,9 @@ void ThdynCVNV2Zone_Output_wrapper(const real_T     *FComb,
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 real_T mCyl, mbCyl, VCyl, mfb, QCyl, HCyl, WCyl;
-real_T dmCyl, dVCyl, dmbCyl, dmfb, dQCyl, dHCyl, dWCyl;
-real_T Ffs;
-real_T dmu, dmub, dmb, dmbb, dVu, dVb, dWu, dHu, dQu, dWb, dHb, dQb;
-real_T mMix, dmMix, dmbMix;
-real_T phiCyc, q;
-real_T puTemp, pbTemp;
-real_T muTemp, mubTemp, EuTemp, mbTemp, mbbTemp, EbTemp;
-real_T mb_prev, Vb_prev;
-
+real_T phiCyc, q, mMix, dmMix;
 real_T pCyl, TCyl, FCyl;
-real_T Ru, hu, su, uu, RF1, RP1, RT1, uF1, uP1, uT1, sF1, sP1, sT1, Cp1, Cv1, K1;
-real_T Rb, hb, sb, ub, RF2, RP2, RT2, uF2, uP2, uT2, sF2, sP2, sT2, Cp2, Cv2, K2;
-
 const real_T pi = 3.141592653590;
-
 
 mCyl = xC[0];
 mbCyl = xC[1];
@@ -89,28 +77,8 @@ QCyl = xC[4];
 HCyl = xC[5];
 WCyl = xC[6];
 
-puTemp = p_prev[0];  
-Tu[0] = Tu_prev[0];    Fu[0] = Fu_prev[0];    Vu[0] = Vu_prev[0];
-Tb[0] = Tb_prev[0];    Fb[0] = Fb_prev[0];    Vb[0] = VCyl_prev[0] - Vu_prev[0];
-
-GetPTF(mCyl, mbCyl, -QCyl+HCyl-WCyl, VCyl, Tu_prev[0], Ru_prev[0], uu_prev[0],
-	Cvu_prev[0], fs[0], &pCyl, &TCyl, &FCyl);
-
-GetThdynCombGasZachV1(puTemp, Tu[0], Fu[0], fs[0], &Ru, &hu, &su, &uu,
-	&RF1, &RP1, &RT1, &uF1, &uP1, &uT1, &sF1, &sP1, &sT1,
-	&Cp1, &Cv1, &K1);
-GetThdynCombGasZachV1(puTemp, Tb[0], Fb[0], fs[0], &Rb, &hb, &sb, &ub,
-	&RF2, &RP2, &RT2, &uF2, &uP2, &uT2, &sF2, &sP2, &sT2,
-	&Cp2, &Cv2, &K2);
-
-//Calculate mass, energy balance for cylinder
-dmCyl = mCyl - mCyl_prev[0];
-dQCyl = QCyl - QCyl_prev[0];
-dHCyl = HCyl - HCyl_prev[0];
-dmbCyl = mbCyl - mbCyl_prev[0];
-dVCyl = VCyl - VCyl_prev[0];
-dWCyl = WCyl - WCyl_prev[0];
-dmfb = mfb - mfb_prev[0];
+GetPTF(mCyl, mbCyl, -QCyl+HCyl-WCyl, VCyl, TuPrev[0], RuPrev[0], uuPrev[0],
+	CvuPrev[0], fs[0], &pCyl, &TCyl, &FCyl);
 
 // Calculate the the mix rate
 phiCyc = phi[0]*180.0/pi;
@@ -119,43 +87,27 @@ q = (phiCyc - phiMix0[0]) / DPhiMix[0];
 if (q < 0)
 {
     q = 0;
+	dmMix = 0;
 }
 else
 {
     if (q > 1)
     {
         q = 1;
+		dmMix = 0;
     }
+	else
+	{
+		mMix = mb0[0] * q*q*(3 - 2 * q);
+		dmMix = mMix - mMixPrev[0];
+	}
 }
-mMix = mb0[0]*q*q*(3-2*q);
-dmMix = mMix - mMix_prev[0];
-dmbMix = dmMix*(Fb_prev[0]*fs[0]/(1+Fb_prev[0]*fs[0]));
-Ffs = FComb[0]*fs[0];
-mb_prev = (mCyl_prev[0] - mu_prev[0]);
-
-// Calculate mass, energy balance for unburned zone
-dmu = dmCyl - (1+Ffs)/Ffs*dmfb + dmMix;
-dmub = dmbCyl - dmfb + dmbMix;
-dQu = dQCyl*Tu_prev[0]*mu_prev[0] / (Tu_prev[0]*mu_prev[0] + Tb_prev[0]*mb_prev);
-dHu = dHCyl - (1/Ffs*hu + hn[0])*dmfb + dmMix*hb;
-muTemp = mu_prev[0] + dmu;
-mubTemp = mub_prev[0] + dmub;
-
-// Calculate mass, energy balance for burned zone
-dmb = (1+Ffs)/Ffs*dmfb - dmMix;
-dmbb = dmfb - dmbMix;
-dQb = dQCyl*Tb_prev[0]*mb_prev / (Tu_prev[0]*mu_prev[0] + Tb_prev[0]*mb_prev);
-dHb = (1/Ffs*hu + hn[0])*dmfb - dmMix*hb;
-mbTemp = mCyl - muTemp;
-mbbTemp = mbCyl - mubTemp;
 
 // Iterate Vu and Vb for the common pressure
-Get2ZonePTFIter(mu_prev, uu_prev, QCyl_prev, HCyl_prev,
-	WCyl_prev, VCyl_prev, Vu_prev, 
-	VCyl, muTemp, mbTemp, mubTemp, mbbTemp, dVCyl, dWCyl,
-	dQu, dQb, dHu, dHb, &puTemp, &pbTemp, Tu, Tb, Fu, Fb, Vu, Vb);
-p[0] = puTemp;
-pb[0] = pbTemp;
+Get2ZonePTFIter(mCyl, mbCyl, VCyl, mfb, QCyl, HCyl, WCyl, dmMix, FComb[0], fs[0], hn[0], pPrev[0],
+	TuPrev[0], FuPrev[0], RuPrev[0], uuPrev[0], CvuPrev[0], TbPrev[0], FbPrev[0], RbPrev[0],
+	ubPrev[0], CvbPrev[0], mCylPrev[0], mbCylPrev[0], VCylPrev[0], QCylPrev[0], HCylPrev[0],
+	WCylPrev[0], muPrev[0], mubPrev[0], VuPrev[0], mfbPrev[0], p, pb, Tu, Tb, Fu, Fb, Vu, Vb);
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
 
@@ -194,28 +146,28 @@ void ThdynCVNV2Zone_Update_wrapper(const real_T *phi,
                           const real_T *Fb,
                           const real_T *Vb,
                           const real_T *xC,        
-                          real_T *p_prev,        
-                          real_T *Tu_prev,
-                          real_T *Fu_prev,
-                          real_T *Ru_prev,
-                          real_T *uu_prev,
-                          real_T *Cvu_prev,
-                          real_T *Tb_prev,
-                          real_T *Fb_prev,
-                          real_T *Rb_prev,
-                          real_T *ub_prev,
-                          real_T *Cvb_prev,
-                          real_T *mCyl_prev,
-                          real_T *mbCyl_prev,
-                          real_T *VCyl_prev,
-                          real_T *QCyl_prev,
-                          real_T *HCyl_prev,        
-                          real_T *WCyl_prev,        
-                          real_T *mu_prev,
-                          real_T *mub_prev,
-                          real_T *Vu_prev,
-                          real_T *mfb_prev,
-                          real_T *mMix_prev,
+                          real_T *pPrev,        
+                          real_T *TuPrev,
+                          real_T *FuPrev,
+                          real_T *RuPrev,
+                          real_T *uuPrev,
+                          real_T *CvuPrev,
+                          real_T *TbPrev,
+                          real_T *FbPrev,
+                          real_T *RbPrev,
+                          real_T *ubPrev,
+                          real_T *CvbPrev,
+                          real_T *mCylPrev,
+                          real_T *mbCylPrev,
+                          real_T *VCylPrev,
+                          real_T *QCylPrev,
+                          real_T *HCylPrev,        
+                          real_T *WCylPrev,        
+                          real_T *muPrev,
+                          real_T *mubPrev,
+                          real_T *VuPrev,
+                          real_T *mfbPrev,
+                          real_T *mMixPrev,
                           real_T *mb0,
                           real_T *ResetMix,        
                           const real_T  *fs,  const int_T  p_width1,
@@ -225,136 +177,59 @@ void ThdynCVNV2Zone_Update_wrapper(const real_T *phi,
 						  const real_T *hn, const int_T p_width6,
                           const real_T *nStroke, const int_T p_width7)
 {
-	real_T mCyl, mbCyl, VCyl, mfb, QCyl, HCyl, WCyl;
-	real_T dmCyl, dVCyl, dmbCyl, dmfb, dQCyl, dHCyl, dWCyl;
-	real_T Ffs;
-	real_T dmu, dmub, dmb, dmbb, dVu, dVb, dWu, dHu, dQu, dWb, dHb, dQb;
-	real_T mMix, dmMix, dmbMix;
-	real_T phiCyc, q;
-	real_T puTemp, pbTemp;
-	real_T muTemp, mubTemp, EuTemp, mbTemp, mbbTemp, EbTemp;
-	real_T mb_prev, Vb_prev;
-
-	real_T pCyl, TCyl, FCyl;
 	real_T R, h, s, u, RF, RP, RT, uF, uP, uT, sF, sP, sT, Cp, Cv, K;
-	real_T Ru, hu, su, uu, RF1, RP1, RT1, uF1, uP1, uT1, sF1, sP1, sT1, Cp1, Cv1, K1;
-	real_T Rb, hb, sb, ub, RF2, RP2, RT2, uF2, uP2, uT2, sF2, sP2, sT2, Cp2, Cv2, K2;
-
+	real_T phiCyc, q;
 	const real_T pi = 3.141592653590;
-	
-	
-	GetThdynCombGasZachV1(p_prev[0], Tu_prev[0], Fu_prev[0], fs[0], &Ru, &hu, &su, &uu,
-		&RF1, &RP1, &RT1, &uF1, &uP1, &uT1, &sF1, &sP1, &sT1,
-		&Cp1, &Cv1, &K1);
-	GetThdynCombGasZachV2(p_prev[0], Tb_prev[0], Fb_prev[0], fs[0], &Rb, &hb, &sb, &ub,
-		&RF2, &RP2, &RT2, &uF2, &uP2, &uT2, &sF2, &sP2, &sT2,
-		&Cp2, &Cv2, &K2);
 
-	mCyl = xC[0];
-	mbCyl = xC[1];
-	VCyl = xC[2];
-	mfb = xC[3];
-	QCyl = xC[4];
-	HCyl = xC[5];
-	WCyl = xC[6];
 
-	//Calculate mass, energy balance for cylinder
-	dmCyl = mCyl - mCyl_prev[0];
-	dQCyl = QCyl - QCyl_prev[0];
-	dHCyl = HCyl - HCyl_prev[0];
-	dmbCyl = mbCyl - mbCyl_prev[0];
-	dVCyl = VCyl - VCyl_prev[0];
-	dWCyl = WCyl - WCyl_prev[0];
-	dmfb = mfb - mfb_prev[0];
+	pPrev[0] = p[0];    
+    TuPrev[0] = Tu[0];    FuPrev[0] = Fu[0];      VuPrev[0] = Vu[0];
+    GetThdynCombGasZachV1(p[0],Tu[0],Fu[0],fs[0],&R,&h,&s,&u,
+                &RF,&RP,&RT,&uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv,&K);
+    RuPrev[0] = R;    uuPrev[0] = u;    CvuPrev[0] = Cv;
+    muPrev[0] = p[0]*Vu[0]/(R*Tu[0]);    
+    mubPrev[0] = muPrev[0]*Fu[0]*fs[0]/(1+Fu[0]*fs[0]);
+    TbPrev[0] = Tb[0];    FbPrev[0] = Fb[0];     
+    GetThdynCombGasZachV1(p[0],Tb[0],Fb[0],fs[0],&R,&h,&s,&u,
+                &RF,&RP,&RT,&uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv,&K);
+    RbPrev[0] = R;    ubPrev[0] = u,	CvbPrev[0] = Cv;
+    mCylPrev[0] = xC[0];  mbCylPrev[0] = xC[1];   VCylPrev[0] = xC[2];
+    mfbPrev[0] = xC[3];
+    
+	QCylPrev[0] = xC[4];
+	HCylPrev[0] = xC[5];
+	WCylPrev[0] = xC[6];
 
-	// Calculate the the mix rate
+    // Calculate the the mix rate
 	phiCyc = phi[0] * 180.0 / pi;
 	phiCyc = ((int)(floor(phiCyc)) % ((int)(nStroke[0] * 180))) + phiCyc - floor(phiCyc);
 	q = (phiCyc - phiMix0[0]) / DPhiMix[0];
 	if (q < 0)
 	{
 		q = 0;
+		mMixPrev[0] = 0;
 	}
 	else
 	{
 		if (q > 1)
 		{
 			q = 1;
+			mMixPrev[0] = 0;
+		}
+		else
+		{
+			mMixPrev[0] = mb0[0] * q*q*(3 - 2 * q);
 		}
 	}
-	mMix = mb0[0] * q*q*(3 - 2 * q);
-	dmMix = mMix - mMix_prev[0];
-	dmbMix = dmMix*(Fb_prev[0] * fs[0] / (1 + Fb_prev[0] * fs[0]));
-	Ffs = FComb[0] * fs[0];
-	mb_prev = (mCyl_prev[0] - mu_prev[0]);
-
-	// Calculate mass, energy balance for unburned zone
-	dmu = dmCyl - (1 + Ffs) / Ffs*dmfb + dmMix;
-	dmub = dmbCyl - dmfb + dmbMix;
-	dQu = dQCyl*Tu_prev[0] * mu_prev[0] / (Tu_prev[0] * mu_prev[0] + Tb_prev[0] * mb_prev);
-	dHu = dHCyl - (1 / Ffs*hu + hn[0])*dmfb + dmMix*hb;
-	muTemp = mu_prev[0] + dmu;
-	mubTemp = mub_prev[0] + dmub;
-
-	// Calculate mass, energy balance for burned zone
-	dmb = (1 + Ffs) / Ffs*dmfb - dmMix;
-	dmbb = dmfb - dmbMix;
-	dQb = dQCyl*Tb_prev[0] * mb_prev / (Tu_prev[0] * mu_prev[0] + Tb_prev[0] * mb_prev);
-	dHb = (1 / Ffs*hu + hn[0])*dmfb - dmMix*hb;
-	mbTemp = mCyl - muTemp;
-	mbbTemp = mbCyl - mubTemp;
-
-	// Iterate Vu and Vb for the common pressure
-	Get2ZonePTFIter(mu_prev, uu_prev, QCyl_prev, HCyl_prev,
-		WCyl_prev, VCyl_prev, Vu_prev, 
-		VCyl, muTemp, mbTemp, mubTemp, mbbTemp, dVCyl, dWCyl,
-		dQu, dQb, dHu, dHb, &puTemp, &pbTemp, Tu, Tb, Fu, Fb, Vu, Vb,fs);
-	
-    p_prev[0] = p[0];    
-    Tu_prev[0] = Tu[0];    Fu_prev[0] = Fu[0];      Vu_prev[0] = Vu[0];
-    GetThdynCombGasZachV1(p[0],Tu[0],Fu[0],fs[0],&R,&h,&s,&u,
-                &RF,&RP,&RT,&uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv,&K);
-    Ru_prev[0] = R;    uu_prev[0] = u;    Cvu_prev[0] = Cv;
-    mu_prev[0] = p[0]*Vu[0]/(R*Tu[0]);    
-    mub_prev[0] = mu_prev[0]*Fu[0]*fs[0]/(1+Fu[0]*fs[0]);
-    Tb_prev[0] = Tb[0];    Fb_prev[0] = Fb[0];     
-    GetThdynCombGasZachV1(p[0],Tb[0],Fb[0],fs[0],&R,&h,&s,&u,
-                &RF,&RP,&RT,&uF,&uP,&uT,&sF,&sP,&sT,&Cp,&Cv,&K);
-    Rb_prev[0] = R;    ub_prev[0] = u,	Cvb_prev[0] = Cv;
-    mCyl_prev[0] = xC[0];  mbCyl_prev[0] = xC[1];   VCyl_prev[0] = xC[2];
-    mfb_prev[0] = xC[3];
-    
-	QCyl_prev[0] = xC[4];
-	HCyl_prev[0] = xC[5];
-	WCyl_prev[0] = xC[6];
-
-    // Calculate the the mix rate
-    phiCyc = phi[0]*180.0/pi;
-    phiCyc = ((int)(floor(phiCyc)) % ((int)(nStroke[0]*180))) + phiCyc - floor(phiCyc);
-    q = (phiCyc - phiMix0[0]) / DPhiMix[0];
-    if (q < 0)
-    {
-        q = 0;
-    }
-    else
-    {
-        if (q > 1)
-        {
-            q = 1;
-        }
-    }
-    mMix_prev[0] = mb0[0]*q*q*(3-2*q);
-
     if(combState[0] == 2 && ResetMix[0] == 0)
     {
         ResetMix[0] = 1;
     }
     if(combState[0] == 5 && ResetMix[0] == 1)
     {
-        
         ResetMix[0] = 0;
-        mb0[0] = xC[0] - mu_prev[0] - alpha[0]*(xC[0]);
-        mMix_prev[0] = 0;
+        mb0[0] = xC[0] - muPrev[0] - alpha[0]*(xC[0]);
+        mMixPrev[0] = 0;
     }
-}
+ }
 

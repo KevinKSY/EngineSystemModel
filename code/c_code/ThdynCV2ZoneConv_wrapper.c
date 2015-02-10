@@ -212,7 +212,7 @@ else
         q = 1;
     }
 }
-dmMix = mb0[0]*6*q*(1-q)*omega[0]/(DPhiMix[0]*pi/180);
+dmMix = mb0[0] * 6 * q*(1 - q)*omega[0] / (DPhiMix[0] * pi / 180);
 dmbMix = dmMix*(FbTemp*fs[0]/(1+FbTemp*fs[0]));
 // Calculate the fuel equivalent ratio and its derivative
 Ffs = FComb[0]*fs[0];

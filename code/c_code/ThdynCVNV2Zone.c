@@ -830,10 +830,10 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDirectFeedThrough(S, 8, INPUT_8_FEEDTHROUGH);
     ssSetInputPortRequiredContiguous(S, 8, 1); /*direct input signal access*/    
 	/*Input Port 9 */
-	ssSetInputPortWidth(S, 9, INPUT_8_WIDTH); /* */
+	ssSetInputPortWidth(S, 9, INPUT_9_WIDTH); /* */
 	ssSetInputPortDataType(S, 9, SS_DOUBLE);
-	ssSetInputPortComplexSignal(S, 9, INPUT_8_COMPLEX);
-	ssSetInputPortDirectFeedThrough(S, 9, INPUT_8_FEEDTHROUGH);
+	ssSetInputPortComplexSignal(S, 9, INPUT_9_COMPLEX);
+	ssSetInputPortDirectFeedThrough(S, 9, INPUT_9_FEEDTHROUGH);
 	ssSetInputPortRequiredContiguous(S, 9, 1); /*direct input signal access*/
 
     if (!ssSetNumOutputPorts(S, NUM_OUTPUTS)) return;
