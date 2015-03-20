@@ -2,8 +2,9 @@
 fprintf('\n Now compiling all the code for c-mex s-functions\n');
 currFolder = pwd;
 cd code
-delete '*.mex*'
+%delete '*.mex*'
 cd c_code
+%{
 mex AirWaterCoolerPTF.c AirWaterCoolerPTF_wrapper.c GetHTCoeffHTX.c GetAirViscosity.c GetThdynCombGasZachV1.c GetAirDensity.c GetAirThermalConduct.c GetCompCombGas_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c -outdir ..
 mex blower.c blower_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex combState.c combState_wrapper.c -outdir ..
@@ -35,4 +36,12 @@ mex turbine_calc_MV_PTF.c turbine_calc_MV_PTF_wrapper.c GetThdynCombGasZachV1.c 
 mex InCylinderMV.c InCylinderMV_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex GetThdynCombGasZachSFunc.c GetThdynCombGasZachV1.c -outdir ..
 mex crankMechKinematic1.c crankMechKinematic_wrapper1.c -outdir ..
+mex workPerCycle.c -outdir ..
+mex GetXCombGas.c GetXCombGas_wrapper.c GetCompCombGas.c GetEquilGrill.c GetCompleteComb.c GetCompCombGas_rtwutil.c rtGetNaN.c rtGetInf.c sum.c rt_nonfinite.c -outdir ..
+%}
+mex dNOxMol.c dNOxMol_wrapper.c dNOx.c GetThdynCombGasZachV1.c GetCompCombGas.c GetEquilGrill.c GetCompleteComb.c GetCompCombGas_rtwutil.c rtGetNaN.c rtGetInf.c sum.c rt_nonfinite.c -outdir ..
+mex resetCyc.c resetCyc_wrapper.c -outdir ..
+mex GetPerCycle.c -outdir ..
+mex SFCCyc.c SFCCyc_wrapper.c -outdir ..
+
 cd(currFolder);

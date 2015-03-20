@@ -14,9 +14,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
-#include "rt_nonfinite.h"
 
-#include "rtwtypes.h"
+
 
 /* Type Definitions */
 

@@ -108,7 +108,7 @@ else {
             if ((*phiComb > -20)&(*phiComb < -15)) {
                 *combStateO = 0;
                 *phiIgO = 0;
-                *mqfO = 0;
+                *mqfO = *mqf;
             }
             else {
                 *combStateO = *combState;
