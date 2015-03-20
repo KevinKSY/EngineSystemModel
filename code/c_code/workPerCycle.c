@@ -367,7 +367,7 @@ static void mdlUpdate(SimStruct *S, int_T tid)
     b = nStroke[0]*3.14159265359;
     
 	if (phi[0] > phiClc[0]) {
-        phiClc[0] = phi[0] + b;
+        phiClc[0] = phiClc[0] + b;
 		wCyl[0] = xC[0] - OldWCyl[0];	
 		OldWCyl[0] = xC[0];
     }
