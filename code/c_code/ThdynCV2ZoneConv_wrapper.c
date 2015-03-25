@@ -217,9 +217,9 @@ dmbMix = dmMix*(FbTemp*fs[0]/(1+FbTemp*fs[0]));
 // Calculate the fuel equivalent ratio and its derivative
 Ffs = FComb[0]*fs[0];
 dmu = dmEmb[0] - (1+Ffs)/Ffs*dmfb[0] + dmMix;
-dmub = dmEmb[2] - dmfb[0] + dmbMix;
+dmub = dmEmb[2] - (1 + Fu[0]/(1+Fu[0]*fs[0])/FComb[0])*dmfb[0] + dmbMix;
 dmb = (1+Ffs)/Ffs*dmfb[0] - dmMix;
-dmbb = dmfb[0] - dmbMix;
+dmbb = (1 + Fu[0] / (1 + Fu[0] * fs[0]) / FComb[0])*dmfb[0] - dmbMix;
 dFu = (dmub*muTemp - dmu*mubTemp)/(fs[0]*(muTemp - mubTemp)*(muTemp - mubTemp));
 dFb = (dmbb*mbTemp - dmb*mbbTemp)/(fs[0]*(mbTemp - mbbTemp)*(mbTemp - mbbTemp));
 
