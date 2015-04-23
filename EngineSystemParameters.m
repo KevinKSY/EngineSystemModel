@@ -36,6 +36,7 @@ eng.CV.V0 = 0;                  %Initial Volume
 %eng.CV.F0 = 0;                 %Initial burned fuel mass [kg]
 
 %% Turbocharger parameters
+eng.turbo.jTC = 0;              %rotor inertia
 % Compressor 
 eng.turbo.comp.flowMap = [];    %Compressor map for corrected flow
 eng.turbo.comp.effMap = [];     %Compressor map for efficiency
@@ -43,12 +44,16 @@ eng.turbo.comp.prRep = [];      %Pressure ratio array for look-up in
                                 %compressor map
 eng.turbo.comp.n288Rep = [];    %Corrected speed array for look-up in 
                                 %compressor map
+eng.turbo.comp.mDotRep = [];    %Corrected mass flow array for look-up in 
+                                %compressor map                                
 eng.turbo.comp.npr = length(eng.turbo.comp.prRep);
 eng.turbo.comp.nsp = length(eng.turbo.comp.n288Rep);
+
 % Turbine for map unknown but performance known
-eng.turbo.turb.flowCoeff = [];   %Turbine flow coefficient
-eng.turbo.turb.effCoeff = [];    %Turbine efficiency coefficient
-eng.turbo.jTC = 0;               %Rotor mass moment of inertia [kgm2]
+%eng.turbo.turb.flowCoeff = [];   %Turbine flow coefficient
+%eng.turbo.turb.effCoeff = [];    %Turbine efficiency coefficient
+%eng.turbo.jTC = 0;               %Rotor mass moment of inertia [kgm2]
+
 % Turbine for only flow curve known of a single RPM but efficiency unknown
 %eng.turbo.turb.flowCoeff = [];  %Flow coefficient for turbine model(Flow
 %                                 vs. ER)
@@ -56,14 +61,18 @@ eng.turbo.jTC = 0;               %Rotor mass moment of inertia [kgm2]
 %eng.turbo.turb.ucOpt = 0;       %Optimal blade speed ratio
 %eng.turbo.turb.effMax = 0;      %Maximum isentropic efficiency
 %eng.turbo.turb.tempRef = 0;     %Reference temperature for turbine flow
+
 % Turbine for map known
-%eng.turbo.turb.flowMap = [];    %Compressor map for corrected flow
-%eng.turbo.turb.effMap = [];     %Compressor map for efficiency
-%eng.turbo.turb.prRep = [];      %Pressure ratio array for look-up in compressor map
-%eng.turbo.turb.n288Rep = [];    %Corrected speed array for look-up in compressor map
-%eng.turbo.turb.npr = length(turbo.comp.prRep);
-%eng.turbo.turb.nsp = length(turbo.comp.n288Rep);
-%
+eng.turbo.turb.flowMap = [];    %Compressor map for corrected flow
+eng.turbo.turb.effMap = [];     %Compressor map for efficiency
+eng.turbo.turb.prRep = [];      %Pressure ratio array for look-up in compressor map
+eng.turbo.turb.n288Rep = [];    %Corrected speed array for look-up in compressor map
+eng.turbo.turb.npr = length(turbo.comp.prRep);
+eng.turbo.turb.nsp = length(turbo.comp.n288Rep);
+
+% Mechainical efficiency in case not included in the turbine efficiency
+eng.turbo.fricCoeff = [];       %Mechanical efficiency in polynomial function of speed
+
 %% Cylinder parameters
 % General
 % Cylinder dimension

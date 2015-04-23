@@ -57,11 +57,11 @@ void hysterisis_Outputs_wrapper(const real_T *u,
                           const real_T  *lower, const int_T  p_width1)
 {
 if (u[0] > upper[0]) {
-    y[0] = 0;
+    y[0] = 1;
 }
 else {
     if (u[0] < lower[0]) {
-    y[0] = 1;
+    y[0] = 0;
     }
     else {
         y[0] = yPrev[0];
