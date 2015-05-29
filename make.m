@@ -9,7 +9,7 @@ mex AirWaterCoolerPTF.c AirWaterCoolerPTF_wrapper.c GetHTCoeffHTX.c GetAirViscos
 mex blower.c blower_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex combState.c combState_wrapper.c -outdir ..
 mex CombWiebe.c CombWiebe_wrapper.c -outdir ..
-mex -g compressor_calc_PTF.c compressor_calc_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
+mex compressor_calc_PTF.c compressor_calc_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex compressor_calc_PTFV1.c compressor_calc_PTFV1_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex crankMechKinematic.c crankMechKinematic_wrapper.c -outdir ..
 mex EngCylHeatTransfer.c EngCylHeatTransfer_wrapper.c -outdir ..
@@ -28,12 +28,12 @@ mex pCompCalc.c pCompCalc_wrapper.c -outdir ..
 mex pMaxFinder.c pMaxFinder_wrapper.c -outdir ..
 mex SpeedController.c -outdir ..
 mex ThdynCV.c ThdynCV_wrapper.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
-mex -g ThdynCVNV.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
+mex ThdynCVNV.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVConv.c ThdynCVConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCV2ZoneConv.c ThdynCV2ZoneConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVNV2Zone.c ThdynCVNV2Zone_wrapper.c GetPTF.c GetThdynCombGasZachV1.c Get2ZonePTFIter.c
 mex turbine_calc_PTF.c turbine_calc_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
-mex -g turbine_calc_PTFV1.c turbine_calc_PTFV1_wrapper.c GetThdynCombGasZachV1.c -outdir ..
+mex turbine_calc_PTFV1.c turbine_calc_PTFV1_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex turbine_calc_MV_PTF.c turbine_calc_MV_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex InCylinderMV.c InCylinderMV_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex GetThdynCombGasZachSFunc.c GetThdynCombGasZachV1.c -outdir ..

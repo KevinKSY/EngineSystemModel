@@ -2,6 +2,7 @@
 
 #include "Wartsila2StrokeSim_7S82XSSTune_sfun.h"
 #include "Wartsila2StrokeSim_7S82XSSTune_sfun_debug_macros.h"
+#include "c6_Wartsila2StrokeSim_7S82XSSTune.h"
 
 /* Type Definitions */
 
@@ -28,6 +29,12 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_method_dispatcher(SimStruct
   *simstructPtr, unsigned int chartFileNumber, const char* specsCksum, int_T
   method, void *data)
 {
+  if (chartFileNumber==6) {
+    c6_Wartsila2StrokeSim_7S82XSSTune_method_dispatcher(simstructPtr, method,
+      data);
+    return 1;
+  }
+
   return 0;
 }
 
@@ -67,14 +74,22 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_process_check_sum_call( int nlhs,
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1045280655U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2744724890U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(4293344108U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2782541903U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1878192006U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3857271079U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3589979458U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2798306308U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
       switch (chartFileNumber) {
+       case 6:
+        {
+          extern void sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_check_sum(mxArray
+            *plhs[]);
+          sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_check_sum(plhs);
+          break;
+        }
+
        default:
         ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(0.0);
         ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(0.0);
@@ -90,10 +105,10 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_process_check_sum_call( int nlhs,
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(251902028U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1502151366U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3844166739U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(4126498582U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1316814724U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1107280448U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2120215841U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2259094478U);
   }
 
   return 1;
@@ -129,6 +144,20 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_autoinheritance_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 6:
+      {
+        if (strcmp(aiChksum, "byXBwxCtvl4MrtQ7wA6riH") == 0) {
+          extern mxArray
+            *sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_autoinheritance_info(void);
+          plhs[0] =
+            sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -164,6 +193,18 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_get_eml_resolved_functions_info
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 6:
+      {
+        extern const mxArray
+          *sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_eml_resolved_functions_info();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -199,6 +240,16 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_third_party_uses_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 6:
+      {
+        if (strcmp(tpChksum, "QdjPPYh6ztI5REtDBmHHTB") == 0) {
+          extern mxArray
+            *sf_c6_Wartsila2StrokeSim_7S82XSSTune_third_party_uses_info(void);
+          plhs[0] = sf_c6_Wartsila2StrokeSim_7S82XSSTune_third_party_uses_info();
+          break;
+        }
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -227,6 +278,16 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_jit_fallback_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 6:
+      {
+        if (strcmp(tpChksum, "QdjPPYh6ztI5REtDBmHHTB") == 0) {
+          extern mxArray *sf_c6_Wartsila2StrokeSim_7S82XSSTune_jit_fallback_info
+            (void);
+          plhs[0] = sf_c6_Wartsila2StrokeSim_7S82XSSTune_jit_fallback_info();
+          break;
+        }
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -255,6 +316,17 @@ unsigned int sf_Wartsila2StrokeSim_7S82XSSTune_updateBuildInfo_args_info( int
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 6:
+      {
+        if (strcmp(tpChksum, "QdjPPYh6ztI5REtDBmHHTB") == 0) {
+          extern mxArray
+            *sf_c6_Wartsila2StrokeSim_7S82XSSTune_updateBuildInfo_args_info(void);
+          plhs[0] =
+            sf_c6_Wartsila2StrokeSim_7S82XSSTune_updateBuildInfo_args_info();
+          break;
+        }
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -271,6 +343,17 @@ void sf_Wartsila2StrokeSim_7S82XSSTune_get_post_codegen_info( int nlhs, mxArray 
   mxGetString(prhs[1], tpChksum,sizeof(tpChksum)/sizeof(char));
   tpChksum[(sizeof(tpChksum)/sizeof(char)-1)] = '\0';
   switch (chartFileNumber) {
+   case 6:
+    {
+      if (strcmp(tpChksum, "QdjPPYh6ztI5REtDBmHHTB") == 0) {
+        extern mxArray
+          *sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_post_codegen_info(void);
+        plhs[0] = sf_c6_Wartsila2StrokeSim_7S82XSSTune_get_post_codegen_info();
+        return;
+      }
+    }
+    break;
+
    default:
     break;
   }
@@ -282,7 +365,7 @@ void Wartsila2StrokeSim_7S82XSSTune_debug_initialize(struct
   SfDebugInstanceStruct* debugInstance)
 {
   _Wartsila2StrokeSim_7S82XSSTuneMachineNumber_ = sf_debug_initialize_machine
-    (debugInstance,"Wartsila2StrokeSim_7S82XSSTune","sfun",0,0,0,0,0);
+    (debugInstance,"Wartsila2StrokeSim_7S82XSSTune","sfun",0,1,0,0,0);
   sf_debug_set_machine_event_thresholds(debugInstance,
     _Wartsila2StrokeSim_7S82XSSTuneMachineNumber_,0,0);
   sf_debug_set_machine_data_thresholds(debugInstance,

@@ -8,7 +8,6 @@ LIBFLAGS =
 OBJECTS = \
 	"EngineSystemSubmodel_sfun.obj"\
 	"c1_EngineSystemSubmodel.obj"\
-	"c3_EngineSystemSubmodel.obj"\
 	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
 	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
 	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
@@ -31,5 +30,3 @@ EngineSystemSubmodel_sfun.obj :	"EngineSystemSubmodel_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "EngineSystemSubmodel_sfun.c"
 c1_EngineSystemSubmodel.obj :	"c1_EngineSystemSubmodel.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_EngineSystemSubmodel.c"
-c3_EngineSystemSubmodel.obj :	"c3_EngineSystemSubmodel.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_EngineSystemSubmodel.c"

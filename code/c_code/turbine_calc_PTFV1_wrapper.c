@@ -108,76 +108,91 @@ n288 = *omegat*60/(2.0*pi)/sqrt(*Tu);
 // interpolate in the 2D speed table to find the corresponding 
 // corrected flow (dm_corr) and isentropic efficiency (eta_ic)
 i = 1;
-while ((pr_rep[i] < pic) && (i < *npr))
+if ((n288 <= n288_rep[0]) || (n288 >= n288_rep[nsp[0] - 1]) || (pic <= pr_rep[0]) || (pic >= pr_rep[npr[0] - 1]))
 {
-    i++;
+	dmu[0] = 0;
+	deu[0] = 0;
+	dmbu[0] = 0;
+	dmd[0] = 0;
+	ded[0] = 0;
+	dmbd[0] = 0;
+	Tqt[0] = 0;
+	eta_ic[0] = 0;
+	Td_calc[0] = 0;
 }
-istart = i - 1;
-iend = i;
-j = 1;
-while ((n288_rep[j] < n288) && (j < *nsp))
-{
-    j++;
-}        
-jstart = j - 1;
-jend = j;
-dn288_intv = n288_rep[jend] - n288_rep[jstart];
-dpr_intv = pr_rep[iend] - pr_rep[istart];
+else
+{ 
+	while ((pr_rep[i] < pic) && (i < *npr))
+	{
+		i++;
+	}
+	istart = i - 1;
+	iend = i;
+	j = 1;
+	while ((n288_rep[j] < n288) && (j < *nsp))
+	{
+		j++;
+	}        
+	jstart = j - 1;
+	jend = j;
+	dn288_intv = n288_rep[jend] - n288_rep[jstart];
+	dpr_intv = pr_rep[iend] - pr_rep[istart];
 
-dz1 = turb_flow_map[iend+(*nsp)*jstart] - turb_flow_map[istart+(*nsp)*jstart];
-dz11 = turb_eff_map[iend+(*nsp)*jstart] - turb_eff_map[istart+(*nsp)*jstart];
-dz2 = turb_flow_map[iend+(*nsp)*jend] - turb_flow_map[istart+(*nsp)*jend];
-dz21 = turb_eff_map[iend+(*nsp)*jend] - turb_eff_map[istart+(*nsp)*jend];
-z1 = turb_flow_map[istart+(*nsp)*jstart] + (dz1/dpr_intv)*(pic- pr_rep[istart]);
-z11 = turb_eff_map[istart+(*nsp)*jstart] + (dz11/dpr_intv)*(pic- pr_rep[istart]);
-z2 = turb_flow_map[istart+(*nsp)*jend] + (dz2/dpr_intv)*(pic- pr_rep[istart]);
-z21 = turb_eff_map[istart+(*nsp)*jend] + (dz21/dpr_intv)*(pic- pr_rep[istart]);
-dz_flow = z2 - z1;
-dz_eff = z21 - z11;
-dm_corr = z1 + (dz_flow/dn288_intv)*(n288- n288_rep[jstart]);
-*eta_ic = z11 + (dz_eff/dn288_intv)*(n288- n288_rep[jstart]);
+	dz1 = turb_flow_map[iend+(*nsp)*jstart] - turb_flow_map[istart+(*nsp)*jstart];
+	dz11 = turb_eff_map[iend+(*nsp)*jstart] - turb_eff_map[istart+(*nsp)*jstart];
+	dz2 = turb_flow_map[iend+(*nsp)*jend] - turb_flow_map[istart+(*nsp)*jend];
+	dz21 = turb_eff_map[iend+(*nsp)*jend] - turb_eff_map[istart+(*nsp)*jend];
+	z1 = turb_flow_map[istart+(*nsp)*jstart] + (dz1/dpr_intv)*(pic- pr_rep[istart]);
+	z11 = turb_eff_map[istart+(*nsp)*jstart] + (dz11/dpr_intv)*(pic- pr_rep[istart]);
+	z2 = turb_flow_map[istart+(*nsp)*jend] + (dz2/dpr_intv)*(pic- pr_rep[istart]);
+	z21 = turb_eff_map[istart+(*nsp)*jend] + (dz21/dpr_intv)*(pic- pr_rep[istart]);
+	dz_flow = z2 - z1;
+	dz_eff = z21 - z11;
+	dm_corr = z1 + (dz_flow/dn288_intv)*(n288- n288_rep[jstart]);
+	*eta_ic = z11 + (dz_eff/dn288_intv)*(n288- n288_rep[jstart]);
 
-//Calculate the thermodynamic property of the upstream gas
-GetThdynCombGasZachV1(*pu,*Tu,*Fu,fs[0],&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,
-        &uFu,&upu,&uTu,&sFu,&spu,&sTu,&Cpu,&Cvu,&Ku);
+	//Calculate the thermodynamic property of the upstream gas
+	GetThdynCombGasZachV1(*pu,*Tu,*Fu,fs[0],&Ru,&hu,&su,&uu,&RFu,&Rpu,&RTu,
+			&uFu,&upu,&uTu,&sFu,&spu,&sTu,&Cpu,&Cvu,&Ku);
 
-//Calculate the temperature and thermodynamic property of the downstream 
-//gas with isentropic expansion
-Tdi = *Tu*pow(pic,((1-Ku)/(Ku)));
-GetThdynCombGasZachV1(*pd,Tdi,*Fu,fs[0],&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,
-        &RTdi,&uFdi,&updi,&uTdi,&sFdi,&spdi,&sTdi,&Cpdi,&Cvdi,&Kdi);
+	//Calculate the temperature and thermodynamic property of the downstream 
+	//gas with isentropic expansion
+	Tdi = *Tu*pow(pic,((1-Ku)/(Ku)));
+	GetThdynCombGasZachV1(*pd,Tdi,*Fu,fs[0],&Rdi,&hdi,&sdi,&udi,&RFdi,&Rpdi,
+			&RTdi,&uFdi,&updi,&uTdi,&sFdi,&spdi,&sTdi,&Cpdi,&Cvdi,&Kdi);
 
-//Calculate the actual increase in enthalpy using isentropic efficiency
-if (*eta_ic < 0.5) {
-    delhc = -(hu-hdi)*eta_prev[0];
-	eta_ic[0] = 0.5;
-}
-else {
-    delhc = -(hu-hdi)*eta_ic[0];
-}
-hd = hu+delhc;
-// Calculating the flows and the mechanical torque
-if (dm_corr == 0) {
-    dmu[0] = flow_prev[0];
-}
-else {
-    *dmu = dm_corr * (*pu/1e3) / sqrt(*Tu);
-}
-*deu = *dmu * hu;
-*dmbu = (*dmu) * (*Fu) * (*fs) / (1.0 + (*Fu) * (*fs));
-*dmd = *dmu;
-*ded = *dmu*(hd);
-*dmbd = *dmbu;
-*Tqt = -delhc* *dmu/(*omegat+1.0e-6);
-// Calculating the discharge temperature
-*Td_calc = Tdi / eta_ic[0];
-err_td = 1;
-while (err_td > 0.001) {
-	GetThdynCombGasZachV1(*pd, *Td_calc, *Fu, fs[0], &Rd, &hd_temp, &sd, &ud, &RFd, &Rpd,
-		&RTd, &uFd, &upd, &uTd, &sFd, &spd, &sTd, &Cpd, &Cvd, &Kd);
-	dtd = (hd_temp - hd) / (uTd + Rd);
-	err_td = abs(dtd) / (*Td_calc);
-	*Td_calc = *Td_calc - dtd;
-}
-/* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
+	//Calculate the actual increase in enthalpy using isentropic efficiency
+	if (*eta_ic < 0.5) {
+		delhc = -(hu-hdi)*eta_prev[0];
+		eta_ic[0] = 0.5;
+	}
+	else {
+		delhc = -(hu-hdi)*eta_ic[0];
+	}
+	hd = hu+delhc;
+	// Calculating the flows and the mechanical torque
+	if (dm_corr == 0) {
+		dmu[0] = flow_prev[0];
+	}
+	else {
+		*dmu = dm_corr * (*pu/1e3) / sqrt(*Tu);
+	}
+	*deu = *dmu * hu;
+	*dmbu = (*dmu) * (*Fu) * (*fs) / (1.0 + (*Fu) * (*fs));
+	*dmd = *dmu;
+	*ded = *dmu*(hd);
+	*dmbd = *dmbu;
+	*Tqt = -delhc* *dmu/(*omegat+1.0e-6);
+	// Calculating the discharge temperature
+	*Td_calc = Tdi / eta_ic[0];
+	err_td = 1;
+	while (err_td > 0.001) {
+		GetThdynCombGasZachV1(*pd, *Td_calc, *Fu, fs[0], &Rd, &hd_temp, &sd, &ud, &RFd, &Rpd,
+			&RTd, &uFd, &upd, &uTd, &sFd, &spd, &sTd, &Cpd, &Cvd, &Kd);
+		dtd = (hd_temp - hd) / (uTd + Rd);
+		err_td = abs(dtd) / (*Td_calc);
+		*Td_calc = *Td_calc - dtd;
+	}
+	/* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
+	}
 }

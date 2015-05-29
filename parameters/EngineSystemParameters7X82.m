@@ -11,11 +11,11 @@ eng.coeffMechEff = [0.135;0.155]; %Coefficient for mechanical efficiency curvefi
 eng.RPMMax = 79;      %Max. Rated RPM
 eng.nStroke = 2;
 eng.nCyl = 7;
-eng.Pe = 32543;
+eng.Pe = 32543e3;
 
-eng.omegaE0 = interp1(eng_data.TC.Pe,eng_data.TC.RPM,eng.Pe*eng.engLoad0,'pchip')*pi/30;         %Initial speed of the engine (rad/s)
-eng.BSFC0 = interp1(eng_data.perf.Pe,eng_data.perf.ref.BSFC,eng.Pe*eng.engLoad0,'pchip');         %Initial speed of the engine (rad/s)    
-eng.dQCylRef = interp1(eng_data.perf.Pe,eng_data.HB.Cyl + eng_data.HB.Radiation,eng.Pe*eng.engLoad0,'pchip')/eng.nCyl;         %Reference heat transfer rate    
+eng.omegaE0 = interp1(eng_data.TC.Pe,eng_data.TC.RPM,eng.Pe/1000*eng.engLoad0,'pchip')*pi/30;         %Initial speed of the engine (rad/s)
+eng.BSFC0 = interp1(eng_data.perf.Pe,eng_data.perf.ref.BSFC,eng.Pe/1000*eng.engLoad0,'pchip');         %Initial speed of the engine (rad/s)    
+eng.dQCylRef = interp1(eng_data.perf.Pe,eng_data.HB.Cyl + eng_data.HB.Radiation,eng.Pe/1000*eng.engLoad0,'pchip')*1000;         %Reference heat transfer rate    
 
 eng.pAmb = 1e5;  %Ambient conditions
 eng.tAmb = 300;  %Ambient conditions
@@ -35,8 +35,8 @@ eng.cAC.dCWPipe = 0.008;            %Coolant tube diameter [m]
 %% Control volumes 
 % (Should be defined for each control volume with a specific name replacing
 % "CV")
-pScav = interp1(eng_data.TC.Pe,eng_data.TC.p_scvg,eng.Pe*eng.engLoad0,'pchip');
-TScav = interp1(eng_data.TC.Pe,eng_data.TC.T_acool,eng.Pe*eng.engLoad0,'pchip');
+pScav = interp1(eng_data.TC.Pe,eng_data.TC.p_scvg,eng.Pe/1000*eng.engLoad0,'pchip');
+TScav = interp1(eng_data.TC.Pe,eng_data.TC.T_acool,eng.Pe/1000*eng.engLoad0,'pchip');
 pScav = pScav*1e5;
 TScav = TScav + 273.15;
 eng.scavRec.p0 = pScav;                  %Initial pressure [Pa]
@@ -70,14 +70,14 @@ eng.pipeBCool.m0 = m0;                  %Initial mass [kg]
 eng.pipeBCool.E0 = E0;                  %Initial internal energy [J]
 eng.pipeBCool.mb0 = mb0;                 %Initial burned fuel mass [kg]
 
-pExh = interp1(eng_data.TC.Pe,eng_data.TC.p_exh,eng.Pe*eng.engLoad0,'pchip');
-TExh = interp1(eng_data.TC.Pe,eng_data.TC.T_exh_rec,eng.Pe*eng.engLoad0,'pchip');
+pExh = interp1(eng_data.TC.Pe,eng_data.TC.p_exh,eng.Pe/1000*eng.engLoad0,'pchip');
+TExh = interp1(eng_data.TC.Pe,eng_data.TC.T_exh_rec,eng.Pe/1000*eng.engLoad0,'pchip');
 pExh = pExh*1e5;
 TExh = TExh + 273.15;
 eng.exhRec.p0 = pExh;                  %Initial pressure [Pa]
 eng.exhRec.T0 = TExh;                  %Initial temperature [K]
-eng.exhRec.F0 = 0.4;                 %Initial FAER
-eng.exhRec.V0 = 1.15;                   %Volume
+eng.exhRec.F0 = 0.6;                 %Initial FAER
+eng.exhRec.V0 = 10;                   %Volume
 [m0, E0, mb0] = GetMEMbZach(eng.exhRec.p0,eng.exhRec.T0, ...
     eng.exhRec.F0,eng.exhRec.V0,eng.fs);
 eng.exhRec.m0 = m0;                  %Initial mass [kg]
@@ -88,8 +88,8 @@ eng.exhRec.mb0 = mb0;                 %Initial burned fuel mass [kg]
 %% Turbocharger parameters
 load('turb_mapABB TPL_BFitTo7X82.mat');
 load('comp_mapABB TPL_BFitTo7X82.mat');
-eng.turbo.jTC = 2;              %rotor inertia
-eng.turbo.omegaT0 = interp1(eng_data.TC.Pe,eng_data.TC.RPMTC,eng.Pe*eng.engLoad0)*pi/30;
+eng.turbo.jTC = 3;              %rotor inertia
+eng.turbo.omegaT0 = interp1(eng_data.TC.Pe,eng_data.TC.RPMTC,eng.Pe/1000*eng.engLoad0)*pi/30;
 % Compressor 
 eng.turbo.comp.flowMap = comp_flow_map;    %Compressor map for corrected flow
 eng.turbo.comp.effMap = comp_eff_map;     %Compressor map for efficiency
@@ -235,9 +235,9 @@ clear E0 m0 mb0 i
 %% # Engine controller
 % * Speed controller
 eng.control.speed.LPBW        = 0.66;        % Cutoff frequency for low pass filter [Hz]
-eng.control.speed.Kp         = 2.0;        % Proportional gain for controller //0.8
+eng.control.speed.Kp         = 1.0;        % Proportional gain for controller //0.8
 eng.control.speed.Td         = 0.05;        % Derivative time constant
-eng.control.speed.Ti         = 8.0;        % Integral gain for controller
+eng.control.speed.Ti         = 4.0;        % Integral gain for controller
 eng.control.speed.N          = 2.0;      % Dirty derivative gain
 eng.control.speed.uMin       = 0.1;      % Minimum output
 eng.control.speed.uMax       = 1.1;      % Maximum output
@@ -248,7 +248,10 @@ eng.control.inj.Kp        = 0.008;    % Proportional gain for injection control
 eng.control.inj.Ti        = 0.66;     % Integral time constant [s]
 eng.control.inj.uMax       = 10;       % Maximum allowable injection timing [deg]
 eng.control.inj.uMin       = -8;        % Minimum allowable injection timing [deg]
-eng.control.inj.phiInjRef  = [0.062957; -0.42114; -1.7037; -2.2529; -2.5997; -2.9539; ...
+eng.control.inj.phiInjxRef  = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
+                    0.75; 0.7; 0.65; 0.6; 0.5; ...
+                    0.4; 0.3; 0.2];                    
+eng.control.inj.phiInjyRef  = [0.062957; -0.42114; -1.7037; -2.2529; -2.5997; -2.9539; ...
 						-3.3680; -4.1241; -4.4972; -5.3514; -6.9719; ...
 						-8.0000; -8.0000];
 eng.control.EVO =  1.2;                   
@@ -256,8 +259,11 @@ eng.control.EVO =  1.2;
 eng.control.EVC.Kp           = 0.002;    % Proportional gain
 eng.control.EVC.Ti           = 0.66;     % Integral time constant [s]
 eng.control.EVC.uMax          = 1.9;      % Maximum allowable duration of valve open
-eng.control.EVC.uMin          = 0.5;      % Minimum allowable duration of valve open 
-eng.control.EVC.EVORef          = [	1.3608; 1.3441;1.1429; 1.0445; 1.0701; ...
+eng.control.EVC.uMin          = 0.3;      % Minimum allowable duration of valve open 
+eng.control.EVC.EVCxRef          = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
+                    0.75; 0.7; 0.65; 0.6; 0.5; ...
+                    0.4; 0.3; 0.2];                    
+eng.control.EVC.EVCyRef          = [	1.3608; 1.3441;1.1429; 1.0445; 1.0701; ...
                     1.0422; 0.99251; 0.78144; 0.78227; 0.89018; ...
                     1.0227; 1.1185; 1.0580];                    
                             % Exhaust valve open duration for different
@@ -295,5 +301,13 @@ eng.control.HRejId.Ti            = 2.2;      % Integral time constant for the co
 eng.control.HRejId.sw            = 1;        % Switch on/off for the identification
 eng.control.HRejId.LPBWQCyl      = 0.1;        % Bandwidth for LP filter for heat transfer (Hz)
 
+% * Low pass filter for fuel and exhaust flow
+    eng.control.dmfLP.BW                = 0.66;  % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.dmeLP.BW                = 0.66;  % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.powLP.BW                = 1.5;     % Cutoff frequency for LP filter for power output [Hz]
+
+eng.control.dmeLP.dmf0              = 0;  % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.dmeLP.dme0              = 0;  % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.powLP.pow0              = eng.engLoad0*eng.Pe;     % Cutoff frequency for LP filter for power output [Hz]
 %% Load model
 coeffProp = [57.37123;0.93965;-0.73220];

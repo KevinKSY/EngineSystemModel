@@ -7,6 +7,7 @@ LIBFLAGS =
 
 OBJECTS = \
 	"Wartsila2StrokeSim_7S82XSSTune_sfun.obj"\
+	"c6_Wartsila2StrokeSim_7S82XSSTune.obj"\
 	"Wartsila2StrokeSim_7S82XSSTune_sfun_registry.obj"\
 	"lccstub.obj"\
 	"Wartsila2StrokeSim_7S82XSSTune_sfun.def"\
@@ -31,6 +32,8 @@ Wartsila2StrokeSim_7S82XSSTune_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
 	$(LD) $(LDFLAGS) -o Wartsila2StrokeSim_7S82XSSTune_sfun.mexw64 @Wartsila2StrokeSim_7S82XSSTune_sfun.lmko
 Wartsila2StrokeSim_7S82XSSTune_sfun.obj :	"Wartsila2StrokeSim_7S82XSSTune_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Wartsila2StrokeSim_7S82XSSTune_sfun.c"
+c6_Wartsila2StrokeSim_7S82XSSTune.obj :	"c6_Wartsila2StrokeSim_7S82XSSTune.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_Wartsila2StrokeSim_7S82XSSTune.c"
 Wartsila2StrokeSim_7S82XSSTune_sfun_registry.obj :	"Wartsila2StrokeSim_7S82XSSTune_sfun_registry.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Wartsila2StrokeSim_7S82XSSTune_sfun_registry.c"
 lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"

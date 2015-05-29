@@ -140,10 +140,10 @@ else {
 	err_T_out = 1;
 	while (err_T_out > 1e-3) {
         T_mean = (T_in - T_out)/(log(T_in) - log(T_out));
-        C1 = dmu[0]*Cpu;
+        C1 = fabs(dmu[0])*Cpu;
         C2 = dm_cw[0]*Cp_cw[0];
         C = C1/C2;
-        alpha = GetHTCoeffHTX(p_in, dmu[0], T_mean, D_cw_pipe[0], A_air_path[0]);
+        alpha = GetHTCoeffHTX(p_in, fabs(dmu[0]), T_mean, D_cw_pipe[0], A_air_path[0]);
         N = K*alpha/C1;
         epsilon = 1 - exp((exp(-C*pow(N,0.78))-1)/(C*pow(N,-0.22)));
         T_out_temp = T_in - epsilon*(T_in - T_cw[0]);
