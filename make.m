@@ -29,6 +29,7 @@ mex pMaxFinder.c pMaxFinder_wrapper.c -outdir ..
 mex SpeedController.c -outdir ..
 mex ThdynCV.c ThdynCV_wrapper.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVNV.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
+mex ThdynCVNVState.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVConv.c ThdynCVConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCV2ZoneConv.c ThdynCV2ZoneConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVNV2Zone.c ThdynCVNV2Zone_wrapper.c GetPTF.c GetThdynCombGasZachV1.c Get2ZonePTFIter.c

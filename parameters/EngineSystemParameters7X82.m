@@ -6,7 +6,7 @@ load('7X82.mat');
 eng.jShaft = 425900;          %Mass moment of inertia of the engine shaft [kgm2]
 eng.fs = 0.0683;          %Fuel-air equivalent ratio
 eng.hn = 42700000;   %Low heating value of the fuel (J/kg)
-eng.coeffMechEff = [0.135;0.155]; %Coefficient for mechanical efficiency curvefitting (2x1)
+eng.coeffMechEff = [0;0]; %Coefficient for mechanical efficiency curvefitting (2x1)
 
 eng.RPMMax = 79;      %Max. Rated RPM
 eng.nStroke = 2;
@@ -168,10 +168,10 @@ for i = 1:eng.nCyl
     eng.cyl(i).exhVVProf.dCALiftTopRef = 63.5; %Nominal duration of crank angle for valve open [deg]
     clearLoadedFile('ExhVVProfileRTFLEX68D');
     % Heat transfer
-    eng.cyl(i).HT.mCp = 10000;              %Heat capacity of the cylinder [J/K]
-    eng.cyl(i).HT.cCylHT = [5.3040e-4;-1.1493e0;8.3165e2;-1.9799e5];           %Polynomial coefficient for heat rejection model from the cylinder (4 x 1)
+    eng.cyl(i).HT.mCp = 10000;              %Heat capacity of te cylinder [J/K]
+    eng.cyl(i).HT.cCylHT = [-5.1517e-4,0.92207,-549.84,109640]; %Polynomial coefficient for heat rejection model from the cylinder (4 x 1)
     eng.cyl(i).HT.cAlpha = 1;           %Fitting coefficient for convective heat transfer coefficient
-    eng.cyl(i).HT.tempWall0 = 600;      %Initial wall temperature of the cylinder [K]
+    eng.cyl(i).HT.tempWall0 = 550;      %Initial wall temperature of the cylinder [K]
     % Combustion
     eng.cyl(i).comb.mqfCycMax = 0.17705;      %Maximum fuel mass injected per cycle [kg]
     eng.cyl(i).comb.wiebePara = [0.07;0.57;3.05;10;22;50;1.5;1;0.7];%[0.07;0.57;3.05;11;24;56.3;1.5;1;0.7];      %3-Wiebe Parameters (9x1)        
