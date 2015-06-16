@@ -163,7 +163,7 @@ else
 
 	//Calculate the actual increase in enthalpy using isentropic efficiency
 	if (*eta_ic < 0.5) {
-		delhc = -(hu-hdi)*eta_prev[0];
+		delhc = -(hu-hdi)*0.5;
 		eta_ic[0] = 0.5;
 	}
 	else {

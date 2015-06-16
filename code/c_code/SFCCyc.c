@@ -159,6 +159,8 @@ static void mdlInitializeSizes(SimStruct *S)
 	 return; /* Parameter mismatch will be reported by Simulink */
      }
 
+    ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
+    
     ssSetNumContStates(S, NUM_CONT_STATES);
     ssSetNumDiscStates(S, NUM_DISC_STATES);
 

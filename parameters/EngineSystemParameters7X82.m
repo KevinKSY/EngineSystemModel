@@ -13,20 +13,20 @@ eng.nStroke = 2;
 eng.nCyl = 7;
 eng.Pe = 32543e3;
 
-eng.omegaE0 = interp1(eng_data.TC.Pe,eng_data.TC.RPM,eng.Pe/1000*eng.engLoad0,'pchip')*pi/30;         %Initial speed of the engine (rad/s)
+eng.omegaE0 = interp1(eng_data.perf.Pe,eng_data.perf.RPM,eng.Pe/1000*eng.engLoad0,'pchip')*pi/30;         %Initial speed of the engine (rad/s)
 eng.BSFC0 = interp1(eng_data.perf.Pe,eng_data.perf.ref.BSFC,eng.Pe/1000*eng.engLoad0,'pchip');         %Initial speed of the engine (rad/s)    
 eng.dQCylRef = interp1(eng_data.perf.Pe,eng_data.HB.Cyl + eng_data.HB.Radiation,eng.Pe/1000*eng.engLoad0,'pchip')*1000;         %Reference heat transfer rate    
 
 eng.pAmb = 1e5;  %Ambient conditions
-eng.tAmb = 300;  %Ambient conditions
+eng.tAmb = 25 + 273.15;  %Ambient conditions
 eng.fAmb =   0;  %Ambient conditions
 eng.pBack = 1.03e5;  %Ambient conditions
-eng.tCW = 36+273.15; %Cooling water temperature
+eng.tCW = 29 + 273.15; %Cooling water temperature
 %% Charge air cooler parameters
 eng.cAC.Cd = 0.8;                 %Discharge coefficient of the cooler
 eng.cAC.areaAirPath = 0.3628;        %Effective area of the air path [m2]
 eng.cAC.dmCW = 145.56;               %Cooling water flow [kg/s]
-eng.cAC.coeffTCWK = [-15.6973914238822,5074.68648335995]; 
+eng.cAC.coeffTCWK = [-15.6973914238822,5074.68648335995]*1.5; 
                                 %Coefficient for curvefitting 
                                 %for cooling water temp. vs. effective heat
                                 %exchange area [m2]
@@ -86,8 +86,8 @@ eng.exhRec.mb0 = mb0;                 %Initial burned fuel mass [kg]
 
 
 %% Turbocharger parameters
-load('turb_mapABB TPL_BFitTo7X82.mat');
-load('comp_mapABB TPL_BFitTo7X82.mat');
+load('turb_mapABB A175-35L FitTo7X82.mat');
+load('comp_mapABB A175-35L FitTo7X82.mat');
 eng.turbo.jTC = 3;              %rotor inertia
 eng.turbo.omegaT0 = interp1(eng_data.TC.Pe,eng_data.TC.RPMTC,eng.Pe/1000*eng.engLoad0)*pi/30;
 % Compressor 
@@ -149,11 +149,11 @@ for i = 1:eng.nCyl
     eng.cyl(i).scavPort.r = 0.04;          %Radius of fillet of the opening [m]
     eng.cyl(i).scavPort.nPort = 28;      %Number of scanvenge ports
     % Exhaust valve dimenstion
-    eng.cyl(i).exhVVDim.liftMax = 0.17;    %Exhaust valve maximum lift [m]
-    eng.cyl(i).exhVVDim.Dv = .422;         %Exhaust valve head diameter [m]
+    eng.cyl(i).exhVVDim.liftMax = 0.25;    %Exhaust valve maximum lift [m]
+    eng.cyl(i).exhVVDim.Dv = 0.6;%.422;         %Exhaust valve head diameter [m]
     eng.cyl(i).exhVVDim.beta = 0.6632;       %Exhaust valve seat angle [rad]
     eng.cyl(i).exhVVDim.w = .021;          %Exhaust valve seat width [m]
-    eng.cyl(i).exhVVDim.Dp = .380;         %Exhaust valve inner seat diameter [m]
+    eng.cyl(i).exhVVDim.Dp = 0.504;%.380;         %Exhaust valve inner seat diameter [m]
     eng.cyl(i).exhVVDim.Ds = .086;         %Exhaust valve stem diameter [m]
     %eng.cyl(i).exhVVDim.AEffFactor = 0.2140; %If necessary
     % Exhaust valve profile
@@ -174,7 +174,7 @@ for i = 1:eng.nCyl
     eng.cyl(i).HT.tempWall0 = 600;      %Initial wall temperature of the cylinder [K]
     % Combustion
     eng.cyl(i).comb.mqfCycMax = 0.17705;      %Maximum fuel mass injected per cycle [kg]
-    eng.cyl(i).comb.wiebePara = [0.07;0.57;3.05;11;24;56.3;1.5;1;0.7];      %3-Wiebe Parameters (9x1)        
+    eng.cyl(i).comb.wiebePara = [0.07;0.57;3.05;10;22;50;1.5;1;0.7];%[0.07;0.57;3.05;11;24;56.3;1.5;1;0.7];      %3-Wiebe Parameters (9x1)        
     % CYLINDER Initial conditions (Common for all cylinders)
     eng.cyl(i).init.phi0 = zeros(eng.nCyl,1);
     eng.cyl(i).init.p0 = eng.cyl(i).init.phi0;
@@ -256,11 +256,11 @@ eng.control.inj.phiInjyRef  = [0.062957; -0.42114; -1.7037; -2.2529; -2.5997; -2
 						-8.0000; -8.0000];
 eng.control.EVO =  1.2;                   
 % * Exhaust valve controller
-eng.control.EVC.Kp           = 0.002;    % Proportional gain
+eng.control.EVC.Kp           = 0.001;    % Proportional gain
 eng.control.EVC.Ti           = 0.66;     % Integral time constant [s]
 eng.control.EVC.uMax          = 1.9;      % Maximum allowable duration of valve open
-eng.control.EVC.uMin          = 0.3;      % Minimum allowable duration of valve open 
-eng.control.EVC.EVCxRef          = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
+eng.control.EVC.uMin          = 0.2;      % Minimum allowable duration of valve open 
+eng.control.EVC.EVCxRef       = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
                     0.75; 0.7; 0.65; 0.6; 0.5; ...
                     0.4; 0.3; 0.2];                    
 eng.control.EVC.EVCyRef          = [	1.3608; 1.3441;1.1429; 1.0445; 1.0701; ...

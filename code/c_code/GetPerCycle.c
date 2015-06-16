@@ -138,6 +138,8 @@ static void mdlInitializeSizes(SimStruct *S)
     DECL_AND_INIT_DIMSINFO(outputDimsInfo);
     ssSetNumSFcnParams(S, NPARAMS);  /* Number of expected parameters */
 
+    ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
+    
     ssSetNumContStates(S, NUM_CONT_STATES);
     ssSetNumDiscStates(S, NUM_DISC_STATES);
 

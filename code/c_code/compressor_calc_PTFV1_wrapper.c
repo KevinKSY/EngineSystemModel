@@ -107,6 +107,21 @@ else{
 
 //Find the corrected flow and efficiency from the compressor map table
 n288 = *omegat*60/(2.0*pi)*sqrt(298.0/ *Tu);
+
+if ((pic <= pr_rep[0])||(pic >= pr_rep[npr[0]-1])||(n288 <= n288_rep[0])||(n288 >= n288_rep[nsp[0]-1]))
+{
+	dmu[0] = 0; 
+	deu[0] = 0;
+	dmbu[0] = 0; 
+	dmd[0] = 0; 
+	ded[0] = 0; 
+	dmbd[0] = 0; 
+	Tqt[0] = 0; 
+	eta_ic[0] = 0; 
+	Td_calc[0] = 0; 
+}
+else
+{
 // interpolate in the 2D speed table to find the corresponding 
 // corrected flow (dm_corr) and isentropic efficiency (eta_ic)
 i = 1;
@@ -198,7 +213,7 @@ while (err_td > 0.001) {
 	err_td = abs(dtd) / (*Td_calc);
 	*Td_calc = *Td_calc - dtd;
 }
-
+}
 
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }

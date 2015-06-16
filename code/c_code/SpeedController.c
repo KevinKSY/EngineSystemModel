@@ -58,8 +58,6 @@
 /* 20-sim include files */
 #include "xxtypes.h"
 #include "xxmatrix.h"
-#include "motionprofiles.h"
-#include "EulerAngles.h"
 
 #define PARAM_DEF0(S) ssGetSFcnParam(S, 0)
 #define PARAM_DEF1(S) ssGetSFcnParam(S, 1)
@@ -185,6 +183,9 @@ static void mdlInitializeSizes (SimStruct *S)
 		ssSetNumContStates (S, 2);        /* number of continuous states */
 		ssSetNumDiscStates (S, 0);                      /* number of discrete states */
 	}
+    
+    ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
+    
 	ssSetNumInputs (S, xx_number_of_inputs);    /* number of inputs */
 	ssSetNumOutputs (S, xx_number_of_outputs);  /* number of outputs */
 	ssSetDirectFeedThrough (S, XXTRUE);   /* direct feedthrough flag */

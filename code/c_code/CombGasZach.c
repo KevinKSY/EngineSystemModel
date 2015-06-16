@@ -351,7 +351,8 @@ static void mdlInitializeSizes(SimStruct *S)
      if (ssGetNumSFcnParams(S) != ssGetSFcnParamsCount(S)) {
 	 return; /* Parameter mismatch will be reported by Simulink */
      }
-
+    ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
+    
     ssSetNumContStates(S, NUM_CONT_STATES);
     ssSetNumDiscStates(S, NUM_DISC_STATES);
 

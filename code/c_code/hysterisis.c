@@ -76,6 +76,8 @@ static void mdlInitializeSizes(SimStruct *S)
         return;
     }
 
+    ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
+    
     ssSetNumContStates(S, 0);
     ssSetNumDiscStates(S, 0);
 

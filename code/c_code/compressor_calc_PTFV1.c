@@ -547,6 +547,8 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetNumContStates(S, NUM_CONT_STATES);
     ssSetNumDiscStates(S, NUM_DISC_STATES);
 
+    ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
+    
     if (!ssSetNumInputPorts(S, NUM_INPUTS)) return;
     /*Input Port 0 */
     ssSetInputPortWidth(S,  0, INPUT_0_WIDTH); /* */
