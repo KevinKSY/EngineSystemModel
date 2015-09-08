@@ -161,7 +161,7 @@
 #define IN_7_BUS_BASED      0
 #define IN_7_BUS_NAME       
 #define IN_7_DIMS           1-D
-#define INPUT_7_FEEDTHROUGH 1
+#define INPUT_7_FEEDTHROUGH 0
 #define IN_7_ISSIGNED        0
 #define IN_7_WORDLENGTH      8
 #define IN_7_FIXPOINTSCALING 1
@@ -203,7 +203,7 @@
 #define IN_9_BIAS            0
 #define IN_9_SLOPE           0.125
 
-#define NUM_OUTPUTS          1
+#define NUM_OUTPUTS          3
 /* Output Port  0 */
 #define OUT_PORT_0_NAME      FOut
 #define OUTPUT_0_WIDTH       1
@@ -220,6 +220,41 @@
 #define OUT_0_FRACTIONLENGTH  3
 #define OUT_0_BIAS            0
 #define OUT_0_SLOPE           0.125
+
+/* Output Port  1 */
+#define OUT_PORT_1_NAME      lambS
+#define OUTPUT_1_WIDTH       1
+#define OUTPUT_DIMS_1_COL    1
+#define OUTPUT_1_DTYPE       real_T
+#define OUTPUT_1_COMPLEX     COMPLEX_NO
+#define OUT_1_FRAME_BASED    FRAME_NO
+#define OUT_1_BUS_BASED      0
+#define OUT_1_BUS_NAME       
+#define OUT_1_DIMS           1-D
+#define OUT_1_ISSIGNED        1
+#define OUT_1_WORDLENGTH      8
+#define OUT_1_FIXPOINTSCALING 1
+#define OUT_1_FRACTIONLENGTH  3
+#define OUT_1_BIAS            1
+#define OUT_1_SLOPE           0.125
+
+/* Output Port  2 */
+#define OUT_PORT_2_NAME      beta
+#define OUTPUT_2_WIDTH       1
+#define OUTPUT_DIMS_2_COL    1
+#define OUTPUT_2_DTYPE       real_T
+#define OUTPUT_2_COMPLEX     COMPLEX_NO
+#define OUT_2_FRAME_BASED    FRAME_NO
+#define OUT_2_BUS_BASED      0
+#define OUT_2_BUS_NAME       
+#define OUT_2_DIMS           1-D
+#define OUT_2_ISSIGNED        1
+#define OUT_2_WORDLENGTH      8
+#define OUT_2_FIXPOINTSCALING 1
+#define OUT_2_FRACTIONLENGTH  3
+#define OUT_2_BIAS            0
+#define OUT_2_SLOPE           0.125
+
 
 #define NPARAMS              4
 /* Parameter  1 */
@@ -298,9 +333,11 @@ extern void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
 			const real_T *TOut,
 			const real_T *InPortOpen,
 			const real_T *mDotIn,
-			const real_T *combState,
+			const real_T *combState, 
 			const real_T *phi,
 			real_T *FOut,
+			real_T *lambS,
+			real_T *betaS,
 			const real_T *xC,
 			const real_T  *kai, const int_T  p_width0,
 			const real_T  *delta, const int_T  p_width1,
@@ -514,6 +551,15 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortWidth(S, 0, OUTPUT_0_WIDTH);
     ssSetOutputPortDataType(S, 0, SS_DOUBLE);
     ssSetOutputPortComplexSignal(S, 0, OUTPUT_0_COMPLEX);
+
+	ssSetOutputPortWidth(S, 1, OUTPUT_1_WIDTH);
+	ssSetOutputPortDataType(S, 1, SS_DOUBLE);
+	ssSetOutputPortComplexSignal(S, 1, OUTPUT_1_COMPLEX);
+
+	ssSetOutputPortWidth(S, 2, OUTPUT_2_WIDTH);
+	ssSetOutputPortDataType(S, 2, SS_DOUBLE);
+	ssSetOutputPortComplexSignal(S, 2, OUTPUT_2_COMPLEX);
+
     ssSetNumSampleTimes(S, 1);
     ssSetNumRWork(S, 0);
     ssSetNumIWork(S, 0);
@@ -626,6 +672,8 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,8);
     const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,9);
     real_T        *FOut  = (real_T *)ssGetOutputPortRealSignal(S,0);
+	real_T		  *lambS = (real_T *)ssGetOutputPortRealSignal(S,1);
+	real_T		  *betaS = (real_T *)ssGetOutputPortRealSignal(S, 2);
     const real_T   *xC = ssGetContStates(S);
     const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
@@ -641,7 +689,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T *mInPrev = (real_T *) ssGetDWork(S,2);
     const real_T *F0 = (real_T *) ssGetDWork(S,3);
 
-    scavenging1Zone_Outputs_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, InPortOpen, mDotIn, combState, phi, FOut, xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, resetIn, resetOut, mInPrev, F0);
+    scavenging1Zone_Outputs_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, InPortOpen, mDotIn, combState, phi, FOut, lambS, betaS, xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, resetIn, resetOut, mInPrev, F0);
 }
 
 #define MDL_DERIVATIVES  /* Change to #undef to remove function */

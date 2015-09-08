@@ -39,6 +39,8 @@ void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
 			const real_T *combState,
 			const real_T *phi,
 			real_T *FOut,
+			real_T *lambS,
+			real_T *betaS,
 			const real_T *xC,
 			const real_T  *kai, const int_T  p_width0,
 			const real_T  *delta, const int_T  p_width1,
@@ -104,7 +106,8 @@ else{
     FOut[0] = 0;
 }
 
-
+betaS[0] = beta;
+lambS[0] = lambdaS;
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
 
