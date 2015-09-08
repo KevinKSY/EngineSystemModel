@@ -88,7 +88,7 @@ eng.exhRec.mb0 = mb0;                 %Initial burned fuel mass [kg]
 %% Turbocharger parameters
 load('turb_mapABB A175-35L FitTo7X82.mat');
 load('comp_mapABB A175-35L FitTo7X82.mat');
-eng.turbo.jTC = 3;              %rotor inertia
+eng.turbo.jTC = 5.7;              %rotor inertia
 eng.turbo.omegaT0 = interp1(eng_data.TC.Pe,eng_data.TC.RPMTC,eng.Pe/1000*eng.engLoad0)*pi/30;
 % Compressor 
 eng.turbo.comp.flowMap = comp_flow_map;    %Compressor map for corrected flow
@@ -169,8 +169,12 @@ for i = 1:eng.nCyl
     clearLoadedFile('ExhVVProfileRTFLEX68D');
     % Heat transfer
     eng.cyl(i).HT.mCp = 10000;              %Heat capacity of te cylinder [J/K]
-    eng.cyl(i).HT.cCylHT = [-5.1517e-4,0.92207,-549.84,109640]; %Polynomial coefficient for heat rejection model from the cylinder (4 x 1)
-    eng.cyl(i).HT.cAlpha = 1;           %Fitting coefficient for convective heat transfer coefficient
+    slope = 80;
+    eng.cyl(i).HT.cCylHT = [0;0.003;slope;-slope*600+1000];
+    %[5.3040e-4;-1.1493e0;8.3165e2;-1.9799e5];%[5.1517e-4,-0.92207,549.84,-109640]; %Polynomial coefficient for heat rejection model from the cylinder (4 x 1)
+                            
+    
+    eng.cyl(i).HT.cAlpha = 1.2;           %Fitting coefficient for convective heat transfer coefficient
     eng.cyl(i).HT.tempWall0 = 550;      %Initial wall temperature of the cylinder [K]
     % Combustion
     eng.cyl(i).comb.mqfCycMax = 0.17705;      %Maximum fuel mass injected per cycle [kg]
@@ -246,14 +250,13 @@ eng.control.speed.u0         = eng.engLoad0; % Initial output of the controller
 eng.control.inj.deltaPCombRef   = 40;       % Reference pressure rise due to combustion [bar]
 eng.control.inj.Kp        = 0.008;    % Proportional gain for injection control
 eng.control.inj.Ti        = 0.66;     % Integral time constant [s]
-eng.control.inj.uMax       = 10;       % Maximum allowable injection timing [deg]
+eng.control.inj.uMax       = 2;       % Maximum allowable injection timing [deg]
 eng.control.inj.uMin       = -8;        % Minimum allowable injection timing [deg]
 eng.control.inj.phiInjxRef  = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
                     0.75; 0.7; 0.65; 0.6; 0.5; ...
                     0.4; 0.3; 0.2];                    
-eng.control.inj.phiInjyRef  = [0.062957; -0.42114; -1.7037; -2.2529; -2.5997; -2.9539; ...
-						-3.3680; -4.1241; -4.4972; -5.3514; -6.9719; ...
-						-8.0000; -8.0000];
+eng.control.inj.phiInjyRef  = [0.17194;-0.54814;-1.3524;-1.7890;-2.2412; ...
+    -2.6465;-2.8950;-3.1654;-3.4797;-4.2672;-5.4270];
 eng.control.EVO =  1.2;                   
 % * Exhaust valve controller
 eng.control.EVC.Kp           = 0.001;    % Proportional gain
@@ -263,9 +266,8 @@ eng.control.EVC.uMin          = 0.2;      % Minimum allowable duration of valve 
 eng.control.EVC.EVCxRef       = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
                     0.75; 0.7; 0.65; 0.6; 0.5; ...
                     0.4; 0.3; 0.2];                    
-eng.control.EVC.EVCyRef          = [	1.3608; 1.3441;1.1429; 1.0445; 1.0701; ...
-                    1.0422; 0.99251; 0.78144; 0.78227; 0.89018; ...
-                    1.0227; 1.1185; 1.0580];                    
+eng.control.EVC.EVCyRef          = [0.97568;0.85588;0.56557;0.47186; ...
+    0.37639;0.2;0.2;0.2;0.2;0.2;0.2];                    
                             % Exhaust valve open duration for different
                             % load
 
