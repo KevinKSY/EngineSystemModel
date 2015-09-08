@@ -581,8 +581,6 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetDWorkWidth(S, 3, DWORK_3_WIDTH);
     ssSetDWorkDataType(S, 3, SS_DOUBLE);
     
-    ssSetSimulinkVersionGeneratedIn(S, "8.4");
-   
     /* Take care when specifying exception free code - see sfuntmpl_doc.c */
     ssSetOptions(S, (SS_OPTION_EXCEPTION_FREE_CODE |
                      SS_OPTION_USE_TLC_WITH_ACCELERATOR | 
@@ -644,7 +642,7 @@ static void mdlSetDefaultPortDataTypes(SimStruct *S)
   ssSetInputPortDataType( S, 0, SS_DOUBLE);
  ssSetOutputPortDataType(S, 0, SS_DOUBLE);
 }
-
+/*
 #define MDL_SET_WORK_WIDTHS
 #if defined(MDL_SET_WORK_WIDTHS) && defined(MATLAB_MEX_FILE)
 
@@ -656,6 +654,7 @@ static void mdlSetWorkWidths(SimStruct *S)
 }
 
 #endif
+*/
 /* Function: mdlOutputs =======================================================
  *
 */
