@@ -2,9 +2,15 @@ cd C:\Users\yum\Documents\GitHub\EngineSystemModel
 fprintf('\n Now compiling all the code for c-mex s-functions\n');
 currFolder = pwd;
 cd code
-delete '*.mex*'
+ans = '';
+while ~(strcmp(ans,'y') || strcmp(ans,'n'))
+    ans = input('Delete all the mex file? (y/n)','s');
+end;
+if (ans == 'y') 
+    delete '*.mex*';
+end;
 cd c_code
-
+%{
 mex AirWaterCoolerPTF.c AirWaterCoolerPTF_wrapper.c GetHTCoeffHTX.c GetAirViscosity.c GetThdynCombGasZachV1.c GetAirDensity.c GetAirThermalConduct.c GetCompCombGas_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c -outdir ..
 mex blower.c blower_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex blowerFit.c blowerFit_wrapper.c GetThdynCombGasZachV1.c -outdir ..
@@ -44,5 +50,7 @@ mex GetXCombGas.c GetXCombGas_wrapper.c GetCompCombGas.c GetEquilGrill.c GetComp
 mex dNOxMol.c dNOxMol_wrapper.c dNOx.c GetThdynCombGasZachV1.c GetCompCombGas.c GetEquilGrill.c GetCompleteComb.c GetCompCombGas_rtwutil.c rtGetNaN.c rtGetInf.c sum.c rt_nonfinite.c -outdir ..
 mex resetCyc.c resetCyc_wrapper.c -outdir ..
 mex GetPerCycle.c -outdir ..
-mex SFCCyc.c SFCCyc_wrapper.c -outdir ..
+mex SFCCyc.c SFCyc_wrapper.c -outdir ..
+%}
+mex -g scavenging1Zone.c scavenging1Zone_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 cd(currFolder);
