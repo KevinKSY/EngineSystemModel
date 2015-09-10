@@ -52,5 +52,5 @@ mex resetCyc.c resetCyc_wrapper.c -outdir ..
 mex GetPerCycle.c -outdir ..
 mex SFCCyc.c SFCyc_wrapper.c -outdir ..
 %}
-mex scavenging1Zone.c scavenging1Zone_wrapper.c GetThdynCombGasZachV1.c -outdir ..
+mex -g scavenging1Zone.c scavenging1Zone_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 cd(currFolder);

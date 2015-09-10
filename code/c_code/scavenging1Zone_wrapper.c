@@ -34,8 +34,6 @@ void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
 			const real_T *FIn,
 			const real_T *pOut,
 			const real_T *TOut,
-			const real_T *InPortOpen,
-			const real_T *mDotIn,
 			const real_T *combState,
 			const real_T *phi,
 			real_T *FOut,
@@ -46,22 +44,23 @@ void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
 			const real_T  *delta, const int_T  p_width1,
 			const real_T  *fs, const int_T  p_width2,
 			const real_T  *volDisp, const int_T  p_width3,
+			const real_T  *CAIPO, const int_T  p_width4,
             const int_T *resetIn,
             const int_T *resetOut,
             const real_T *mInPrev,
-            const real_T *F0)
+            const real_T *F0,
+			const real_T *rho0)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 const double pi = 3.14159265359;
 real_T beta;    // Purity of the exhaust gas
 real_T lambdaS; // Delivery ratio
 real_T RIn;       // Gas constant of inlet gas
-real_T rho0;      // Density of inducted gas
 real_T dummy;
 real_T mIn;       // mass of inducted air
 real_T mInTemp;       // mass of inducted air since opening of the port
-real_T phiCyc0;       //Crank angle at IPO
 real_T phiCyc;      //Crank angle in degree (0~360)
+real_T rhoInit;
 
         
 mIn = xC[0];
@@ -70,22 +69,21 @@ phiCyc = phi[0]*180.0/pi;
 phiCyc = ((int)(floor(phiCyc)) % ((int)360)) + phiCyc - floor(phiCyc);
 
 
-if (InPortOpen > 0){
+if ((phiCyc > CAIPO[0]) & (phiCyc < (360 - CAIPO[0]))){
     if (resetIn[0] == 1){
         GetThdynCombGasZachV1(pIn[0], TIn[0], FIn[0], fs[0], &RIn, &dummy, &dummy, &dummy, &dummy, 
         &dummy, &dummy, &dummy, &dummy, &dummy, &dummy, &dummy, &dummy, &dummy, &dummy, &dummy);
-        rho0 = pIn[0] / RIn / TIn[0];
+		rhoInit = pIn[0] / RIn / TIn[0];
         mInTemp = mIn - mInPrev[0];
-        lambdaS = mInTemp / rho0 / volDisp[0];
+		lambdaS = mInTemp / rhoInit / volDisp[0];
         beta = 0;
-        phiCyc0 = phiCyc;
     }
     else{
         mInTemp = mIn - mInPrev[0];
-        lambdaS = mInTemp / rho0 / volDisp[0];
+        lambdaS = mInTemp / rho0[0] / volDisp[0];
         beta = 1 - exp(-kai[0]*lambdaS*
-                pow(((phiCyc - phiCyc0)/
-                     (2*(180-phiCyc0))),delta[0]));
+                pow(((phiCyc - CAIPO[0])/
+                     (2*(180-CAIPO[0]))),delta[0]));
     }
 }
 else{
@@ -95,7 +93,7 @@ else{
 
 
 if (FCyl > 0){
-    if (InPortOpen[0] > 0){
+    if ((phiCyc > CAIPO[0]) & (phiCyc < (360 - CAIPO[0]))){
         FOut[0] = (1-beta)*F0[0]/(beta*F0[0]*fs[0] + 1);
     }
     else{
@@ -121,7 +119,6 @@ void scavenging1Zone_Derivatives_wrapper(const real_T *FCyl,
 			const real_T *FIn,
 			const real_T *pOut,
 			const real_T *TOut,
-			const real_T *InPortOpen,
 			const real_T *mDotIn,
 			const real_T *combState,
 			const real_T *phi,
@@ -131,7 +128,8 @@ void scavenging1Zone_Derivatives_wrapper(const real_T *FCyl,
 			const real_T  *kai,  const int_T  p_width0,
 			const real_T  *delta,  const int_T  p_width1,
 			const real_T  *fs,  const int_T  p_width2,
-			const real_T  *volDisp,  const int_T  p_width3)
+			const real_T  *volDisp,  const int_T  p_width3,
+			const real_T  *CAIPO, const int_T  p_width4)
 {
 /* %%%-SFUNWIZ_wrapper_Derivatives_Changes_BEGIN --- EDIT HERE TO _END */
 dx[0] = mDotIn[0];
@@ -144,7 +142,6 @@ void scavenging1Zone_Update_wrapper(const real_T *FCyl,
 			const real_T *FIn,
 			const real_T *pOut,
 			const real_T *TOut,
-			const real_T *InPortOpen,
 			const real_T *mDotIn,
 			const real_T *combState,
 			const real_T *phi,
@@ -155,33 +152,33 @@ void scavenging1Zone_Update_wrapper(const real_T *FCyl,
 			const real_T  *delta,  const int_T  p_width1,
 			const real_T  *fs,  const int_T  p_width2,
 			const real_T  *volDisp,  const int_T  p_width3,
+			const real_T  *CAIPO, const int_T  p_width4,
             int_T *resetIn,
             int_T *resetOut,
             real_T *mInPrev,
-            real_T *F0)
+            real_T *F0,
+			real_T *rho0)
 {
 const double pi = 3.14159265359;
-real_T beta;    // Purity of the exhaust gas
-real_T lambdaS; // Delivery ratio
 real_T RIn;       // Gas constant of inlet gas
-real_T rho0;      // Density of inducted gas
 real_T dummy;
 real_T mIn;       // mass of inducted air
-real_T mInTemp;       // mass of inducted air since opening of the port
-real_T phiCyc0;       //Crank angle at IPO
 real_T phiCyc;      //Crank angle in degree (0~360)
 
 mIn = xC[0];
 
-phiCyc = phi[0]*180.0/pi;
+phiCyc = phi[0] * 180.0 / pi;
 phiCyc = ((int)(floor(phiCyc)) % ((int)360)) + phiCyc - floor(phiCyc);
 
-
-if (InPortOpen > 0){
+if ((phiCyc > CAIPO[0]) & (phiCyc < (360 - CAIPO[0]))){
     if (resetIn[0] == 1){
         resetIn[0] = 0;
+		GetThdynCombGasZachV1(pIn[0], TIn[0], FIn[0], fs[0], &RIn, 
+			&dummy, &dummy, &dummy, &dummy,&dummy, &dummy, &dummy, 
+			&dummy, &dummy, &dummy, &dummy, &dummy, &dummy, &dummy, 
+			&dummy);
+		rho0[0] = pIn[0] / RIn / TIn[0];
     }
-
 }
 else{
     if (resetIn[0] == 0){

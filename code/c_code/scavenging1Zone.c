@@ -31,7 +31,7 @@
 #define S_FUNCTION_NAME scavenging1Zone
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
-#define NUM_INPUTS          10
+#define NUM_INPUTS          9
 /* Input Port  0 */
 #define IN_PORT_0_NAME      FCyl
 #define INPUT_0_WIDTH       1
@@ -135,7 +135,7 @@
 #define IN_5_BIAS            0
 #define IN_5_SLOPE           0.125
 /* Input Port  6 */
-#define IN_PORT_6_NAME      InPortOpen
+#define IN_PORT_6_NAME      mDotIn
 #define INPUT_6_WIDTH       1
 #define INPUT_DIMS_6_COL    1
 #define INPUT_6_DTYPE       real_T
@@ -144,7 +144,7 @@
 #define IN_6_BUS_BASED      0
 #define IN_6_BUS_NAME       
 #define IN_6_DIMS           1-D
-#define INPUT_6_FEEDTHROUGH 1
+#define INPUT_6_FEEDTHROUGH 0
 #define IN_6_ISSIGNED        0
 #define IN_6_WORDLENGTH      8
 #define IN_6_FIXPOINTSCALING 1
@@ -152,7 +152,7 @@
 #define IN_6_BIAS            0
 #define IN_6_SLOPE           0.125
 /* Input Port  7 */
-#define IN_PORT_7_NAME      mDotIn
+#define IN_PORT_7_NAME      combState
 #define INPUT_7_WIDTH       1
 #define INPUT_DIMS_7_COL    1
 #define INPUT_7_DTYPE       real_T
@@ -161,7 +161,7 @@
 #define IN_7_BUS_BASED      0
 #define IN_7_BUS_NAME       
 #define IN_7_DIMS           1-D
-#define INPUT_7_FEEDTHROUGH 0
+#define INPUT_7_FEEDTHROUGH 1
 #define IN_7_ISSIGNED        0
 #define IN_7_WORDLENGTH      8
 #define IN_7_FIXPOINTSCALING 1
@@ -169,7 +169,7 @@
 #define IN_7_BIAS            0
 #define IN_7_SLOPE           0.125
 /* Input Port  8 */
-#define IN_PORT_8_NAME      combState
+#define IN_PORT_8_NAME      phi
 #define INPUT_8_WIDTH       1
 #define INPUT_DIMS_8_COL    1
 #define INPUT_8_DTYPE       real_T
@@ -185,23 +185,6 @@
 #define IN_8_FRACTIONLENGTH  9
 #define IN_8_BIAS            0
 #define IN_8_SLOPE           0.125
-/* Input Port  9 */
-#define IN_PORT_9_NAME      phi
-#define INPUT_9_WIDTH       1
-#define INPUT_DIMS_9_COL    1
-#define INPUT_9_DTYPE       real_T
-#define INPUT_9_COMPLEX     COMPLEX_NO
-#define IN_9_FRAME_BASED    FRAME_NO
-#define IN_9_BUS_BASED      0
-#define IN_9_BUS_NAME       
-#define IN_9_DIMS           1-D
-#define INPUT_9_FEEDTHROUGH 1
-#define IN_9_ISSIGNED        0
-#define IN_9_WORDLENGTH      8
-#define IN_9_FIXPOINTSCALING 1
-#define IN_9_FRACTIONLENGTH  9
-#define IN_9_BIAS            0
-#define IN_9_SLOPE           0.125
 
 #define NUM_OUTPUTS          3
 /* Output Port  0 */
@@ -256,7 +239,7 @@
 #define OUT_2_SLOPE           0.125
 
 
-#define NPARAMS              4
+#define NPARAMS              5
 /* Parameter  1 */
 #define PARAMETER_0_NAME      kai
 #define PARAMETER_0_DTYPE     real_T
@@ -273,8 +256,12 @@
 #define PARAMETER_3_NAME      volDisp
 #define PARAMETER_3_DTYPE     real_T
 #define PARAMETER_3_COMPLEX   COMPLEX_NO
+/* Parameter  5 */
+#define PARAMETER_4_NAME      CAIPO
+#define PARAMETER_4_DTYPE     real_T
+#define PARAMETER_4_COMPLEX   COMPLEX_NO
 
-#define NDWORKS              4
+#define NDWORKS              5
 // DWork 1
 #define DWORK_0_NAME         resetIn
 #define DWORK_0_WIDTH        1
@@ -299,6 +286,11 @@
 #define DWORK_3_DTYPE        real_T
 #define DWORK_3_COMPLEX      COMPLEX_NO
 
+// DWork 5
+#define DWORK_4_NAME         rho0
+#define DWORK_4_WIDTH        1
+#define DWORK_4_DTYPE        real_T
+#define DWORK_4_COMPLEX      COMPLEX_NO
 
 #define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
 #define NUM_DISC_STATES      0
@@ -321,6 +313,7 @@
 #define PARAM_DEF1(S) ssGetSFcnParam(S, 1)
 #define PARAM_DEF2(S) ssGetSFcnParam(S, 2)
 #define PARAM_DEF3(S) ssGetSFcnParam(S, 3)
+#define PARAM_DEF4(S) ssGetSFcnParam(S, 4)
 
 #define IS_PARAM_DOUBLE(pVal) (mxIsNumeric(pVal) && !mxIsLogical(pVal) &&\
 !mxIsEmpty(pVal) && !mxIsSparse(pVal) && !mxIsComplex(pVal) && mxIsDouble(pVal))
@@ -331,8 +324,6 @@ extern void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
 			const real_T *FIn,
 			const real_T *pOut,
 			const real_T *TOut,
-			const real_T *InPortOpen,
-			const real_T *mDotIn,
 			const real_T *combState, 
 			const real_T *phi,
 			real_T *FOut,
@@ -343,35 +334,18 @@ extern void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
 			const real_T  *delta, const int_T  p_width1,
 			const real_T  *fs, const int_T  p_width2,
 			const real_T  *volDisp, const int_T  p_width3,
+			const real_T  *CAIPO, const int_T  p_width4,
             const int_T *resetIn, 
             const int_T *resetOut, 
             const real_T *mInPrev,
-            const real_T *F0);
+            const real_T *F0,
+			const real_T *rho0);
 extern void scavenging1Zone_Derivatives_wrapper(const real_T *FCyl,
 			const real_T *pIn,
 			const real_T *TIn,
 			const real_T *FIn,
 			const real_T *pOut,
 			const real_T *TOut,
-			const real_T *InPortOpen,
-			const real_T *mDotIn,
-			const real_T *combState,
-			const real_T *phi,
-			const real_T *FOut,
-			real_T *dx,
-			real_T *xC,
-			const real_T  *kai,  const int_T  p_width0,
-			const real_T  *delta,  const int_T  p_width1,
-			const real_T  *fs,  const int_T  p_width2,
-			const real_T  *volDisp,  const int_T  p_width3);
-
-extern void scavenging1Zone_Update_wrapper(const real_T *FCyl,
-			const real_T *pIn,
-			const real_T *TIn,
-			const real_T *FIn,
-			const real_T *pOut,
-			const real_T *TOut,
-			const real_T *InPortOpen,
 			const real_T *mDotIn,
 			const real_T *combState,
 			const real_T *phi,
@@ -382,10 +356,30 @@ extern void scavenging1Zone_Update_wrapper(const real_T *FCyl,
 			const real_T  *delta,  const int_T  p_width1,
 			const real_T  *fs,  const int_T  p_width2,
 			const real_T  *volDisp,  const int_T  p_width3,
+			const real_T  *CAIPO, const int_T  p_width4);
+
+extern void scavenging1Zone_Update_wrapper(const real_T *FCyl,
+			const real_T *pIn,
+			const real_T *TIn,
+			const real_T *FIn,
+			const real_T *pOut,
+			const real_T *TOut,
+			const real_T *mDotIn,
+			const real_T *combState,
+			const real_T *phi,
+			const real_T *FOut,
+			real_T *dx,
+			real_T *xC,
+			const real_T  *kai,  const int_T  p_width0,
+			const real_T  *delta,  const int_T  p_width1,
+			const real_T  *fs,  const int_T  p_width2,
+			const real_T  *volDisp,  const int_T  p_width3,
+			const real_T  *CAIPO, const int_T  p_width4,
             int_T *resetIn,
-            int_T *resetOut,
+			int_T *resetOut,
             real_T *mInPrev,
-            real_T *F0);
+            real_T *F0,
+			real_T *rho0);
 
 /*====================*
  * S-function methods *
@@ -438,7 +432,16 @@ extern void scavenging1Zone_Update_wrapper(const real_T *FCyl,
 	    goto EXIT_POINT;
 	  }
 	 }
-      
+
+	{
+		const mxArray *pVal4 = ssGetSFcnParam(S, 4);
+		if (!IS_PARAM_DOUBLE(pVal4)) {
+			validParam = true;
+			paramIndex = 4;
+			goto EXIT_POINT;
+		}
+	}
+
      EXIT_POINT:
       if (validParam) {
           char parameterErrorMsg[1024];
@@ -540,13 +543,6 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDirectFeedThrough(S, 8, INPUT_8_FEEDTHROUGH);
     ssSetInputPortRequiredContiguous(S, 8, 1); /*direct input signal access*/
 
-    /*Input Port 9 */
-    ssSetInputPortWidth(S,  9, INPUT_9_WIDTH); /* */
-    ssSetInputPortDataType(S, 9, SS_DOUBLE);
-    ssSetInputPortComplexSignal(S,  9, INPUT_9_COMPLEX);
-    ssSetInputPortDirectFeedThrough(S, 9, INPUT_9_FEEDTHROUGH);
-    ssSetInputPortRequiredContiguous(S, 9, 1); /*direct input signal access*/
-
 
     if (!ssSetNumOutputPorts(S, NUM_OUTPUTS)) return;
     ssSetOutputPortWidth(S, 0, OUTPUT_0_WIDTH);
@@ -581,7 +577,11 @@ static void mdlInitializeSizes(SimStruct *S)
     /*DWork vector 4*/
     ssSetDWorkWidth(S, 3, DWORK_3_WIDTH);
     ssSetDWorkDataType(S, 3, SS_DOUBLE);
-    
+	/*DWork vector 5*/
+	ssSetDWorkWidth(S, 4, DWORK_4_WIDTH);
+	ssSetDWorkDataType(S, 4, SS_DOUBLE);
+
+
     /* Take care when specifying exception free code - see sfuntmpl_doc.c */
     ssSetOptions(S, (SS_OPTION_EXCEPTION_FREE_CODE |
                      SS_OPTION_USE_TLC_WITH_ACCELERATOR | 
@@ -617,12 +617,14 @@ static void mdlInitializeSampleTimes(SimStruct *S)
    int_T *resetOut = (int_T *) ssGetDWork(S,1);
    real_T *mInPrev = (real_T *) ssGetDWork(S,2);
    real_T *F0 = (real_T *) ssGetDWork(S,3);
+   real_T *rho0 = (real_T *)ssGetDWork(S, 4);
 
     /* Initialize the dwork*/
    resetIn[0] = 1;
    resetOut[0] = 1;
    mInPrev[0] = 0;
    F0[0] = 0;
+   rho0[0] = 0;
 
     xC[0] =  0;
  }
@@ -667,10 +669,8 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,3);
     const real_T   *pOut  = (const real_T*) ssGetInputPortSignal(S,4);
     const real_T   *TOut  = (const real_T*) ssGetInputPortSignal(S,5);
-    const real_T   *InPortOpen  = (const real_T*) ssGetInputPortSignal(S,6);
-    const real_T   *mDotIn  = (const real_T*) ssGetInputPortSignal(S,7);
-    const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,8);
-    const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,9);
+    const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,7);
+    const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,8);
     real_T        *FOut  = (real_T *)ssGetOutputPortRealSignal(S,0);
 	real_T		  *lambS = (real_T *)ssGetOutputPortRealSignal(S,1);
 	real_T		  *betaS = (real_T *)ssGetOutputPortRealSignal(S, 2);
@@ -679,17 +679,19 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
     const int_T   p_width3  = mxGetNumberOfElements(PARAM_DEF3(S));
+	const int_T   p_width4 = mxGetNumberOfElements(PARAM_DEF4(S));
     const real_T  *kai  = (const real_T *)mxGetData(PARAM_DEF0(S));
     const real_T  *delta  = (const real_T *)mxGetData(PARAM_DEF1(S));
     const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF2(S));
     const real_T  *volDisp  = (const real_T *)mxGetData(PARAM_DEF3(S));
-    
-    const int_T *resetIn = (int_T *) ssGetDWork(S,0);
-    const int_T *resetOut = (int_T *) ssGetDWork(S,1);
-    const real_T *mInPrev = (real_T *) ssGetDWork(S,2);
-    const real_T *F0 = (real_T *) ssGetDWork(S,3);
+	const real_T  *CAIPO = (const real_T *)mxGetData(PARAM_DEF4(S));
+    const int_T *resetIn = (const int_T *) ssGetDWork(S,0);
+    const int_T *resetOut = (const int_T *) ssGetDWork(S,1);
+    const real_T *mInPrev = (const real_T *) ssGetDWork(S,2);
+    const real_T *F0 = (const real_T *) ssGetDWork(S,3);
+	const real_T *rho0 = (const real_T *)ssGetDWork(S,4);
 
-    scavenging1Zone_Outputs_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, InPortOpen, mDotIn, combState, phi, FOut, lambS, betaS, xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, resetIn, resetOut, mInPrev, F0);
+    scavenging1Zone_Outputs_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, combState, phi, FOut, lambS, betaS, xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, CAIPO, p_width4, resetIn, resetOut, mInPrev, F0, rho0);
 }
 
 #define MDL_DERIVATIVES  /* Change to #undef to remove function */
@@ -706,10 +708,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,3);
     const real_T   *pOut  = (const real_T*) ssGetInputPortSignal(S,4);
     const real_T   *TOut  = (const real_T*) ssGetInputPortSignal(S,5);
-    const real_T   *InPortOpen  = (const real_T*) ssGetInputPortSignal(S,6);
-    const real_T   *mDotIn  = (const real_T*) ssGetInputPortSignal(S,7);
-    const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,8);
-    const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,9);
+    const real_T   *mDotIn  = (const real_T*) ssGetInputPortSignal(S,6);
+    const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,7);
+    const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,8);
     real_T         *dx  = ssGetdX(S);
     real_T         *xC  = ssGetContStates(S);
     real_T        *FOut  = (real_T *) ssGetOutputPortRealSignal(S,0);
@@ -717,12 +718,14 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
     const int_T   p_width3  = mxGetNumberOfElements(PARAM_DEF3(S));
+	const int_T   p_width4 = mxGetNumberOfElements(PARAM_DEF4(S));
     const real_T  *kai  = (const real_T *)mxGetData(PARAM_DEF0(S));
     const real_T  *delta  = (const real_T *)mxGetData(PARAM_DEF1(S));
     const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF2(S));
     const real_T  *volDisp  = (const real_T *)mxGetData(PARAM_DEF3(S));
+	const real_T  *CAIPO = (const real_T *)mxGetData(PARAM_DEF3(S));
 
-    scavenging1Zone_Derivatives_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, InPortOpen, mDotIn, combState, phi, FOut,dx,  xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3);
+    scavenging1Zone_Derivatives_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, mDotIn, combState, phi, FOut,dx,  xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, CAIPO, p_width4);
 }
 
 #define MDL_UPDATE  /* Change to #undef to remove function */
@@ -741,10 +744,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,3);
     const real_T   *pOut  = (const real_T*) ssGetInputPortSignal(S,4);
     const real_T   *TOut  = (const real_T*) ssGetInputPortSignal(S,5);
-    const real_T   *InPortOpen  = (const real_T*) ssGetInputPortSignal(S,6);
-    const real_T   *mDotIn  = (const real_T*) ssGetInputPortSignal(S,7);
-    const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,8);
-    const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,9);
+    const real_T   *mDotIn  = (const real_T*) ssGetInputPortSignal(S,6);
+    const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,7);
+    const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,8);
     real_T         *dx  = ssGetdX(S);
     real_T         *xC  = ssGetContStates(S);
     real_T        *FOut  = (real_T *) ssGetOutputPortRealSignal(S,0);
@@ -752,16 +754,19 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
     const int_T   p_width3  = mxGetNumberOfElements(PARAM_DEF3(S));
+	const int_T   p_width4 = mxGetNumberOfElements(PARAM_DEF4(S));
     const real_T  *kai  = (const real_T *)mxGetData(PARAM_DEF0(S));
     const real_T  *delta  = (const real_T *)mxGetData(PARAM_DEF1(S));
     const real_T  *fs  = (const real_T *)mxGetData(PARAM_DEF2(S));
     const real_T  *volDisp  = (const real_T *)mxGetData(PARAM_DEF3(S));
+	const real_T  *CAIPO = (const real_T *)mxGetData(PARAM_DEF4(S));
     int_T *resetIn = (int_T *) ssGetDWork(S,0);
     int_T *resetOut = (int_T *) ssGetDWork(S,1);
     real_T *mInPrev = (real_T *) ssGetDWork(S,2);
     real_T *F0 = (real_T *) ssGetDWork(S,3);
+	real_T *rho0 = (real_T *)ssGetDWork(S,4);
 
-    scavenging1Zone_Update_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, InPortOpen, mDotIn, combState, phi, FOut,dx,  xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, resetIn, resetOut, mInPrev,F0);
+    scavenging1Zone_Update_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, mDotIn, combState, phi, FOut,dx,  xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, CAIPO, p_width3, resetIn, resetOut, mInPrev,F0, rho0);
 }
 
   
