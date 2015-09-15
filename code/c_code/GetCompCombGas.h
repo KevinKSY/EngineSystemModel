@@ -1,39 +1,40 @@
 /*
- * GetCompCombGas.h
+ * File: GetCompCombGas.h
  *
- * Code generation for function 'GetCompCombGas'
- *
- * C source code generated on: Tue Jul 31 11:27:42 2012
- *
+ * MATLAB Coder version            : 2.7
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06
  */
 
 #ifndef __GETCOMPCOMBGAS_H__
 #define __GETCOMPCOMBGAS_H__
-/* Include files */
+
+/* Include Files */
 #include <math.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
 #include "rt_nonfinite.h"
-#include "GetCompCombGas_rtwutil.h"
 #include "rtwtypes.h"
-
-
-/* Type Definitions */
-
-/* Named Constants */
-
-/* Variable Declarations */
-
-/* Variable Definitions */
+#include "ThdynPack_types.h"
 
 /* Function Declarations */
 #ifdef __cplusplus
+
 extern "C" {
+
 #endif
-extern void GetCompCombGas(const real_T inarr_CompCG[5], const real_T Fc[5], const real_T x_air[12], real_T x[12]);
+
+  extern void GetCompCombGas(double P, double T, double F, double T_L, double
+    T_H, const double Fc[4], const double x_air[12], double x[12]);
+
 #ifdef __cplusplus
+
 }
 #endif
 #endif
-/* End of code generation (GetCompCombGas.h) */
+
+/*
+ * File trailer for GetCompCombGas.h
+ *
+ * [EOF]
+ */

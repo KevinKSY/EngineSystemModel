@@ -179,6 +179,11 @@ for i = 1:eng.nCyl
     % Combustion
     eng.cyl(i).comb.mqfCycMax = 0.17705;      %Maximum fuel mass injected per cycle [kg]
     eng.cyl(i).comb.wiebePara = [0.07;0.57;3.05;10;22;50;1.5;1;0.7];%[0.07;0.57;3.05;11;24;56.3;1.5;1;0.7];      %3-Wiebe Parameters (9x1)        
+    % Gas exchange
+    eng.cyl(i).gasEx.kai = 2.5;             %Shape parameter for instantaneous exhaust gas composition for S model by Sher
+    eng.cyl(i).gasEx.delta = 1.53;          % Shape parameter for instantaneous exhaust gas composition for S model by Sher
+    
+    
     % CYLINDER Initial conditions (Common for all cylinders)
     eng.cyl(i).init.phi0 = zeros(eng.nCyl,1);
     eng.cyl(i).init.p0 = eng.cyl(i).init.phi0;
@@ -311,5 +316,10 @@ eng.control.powLP.BW                = 1.5;     % Cutoff frequency for LP filter 
 eng.control.dmeLP.dmf0              = 0;  % Cutoff frequency for LP filter for fuel flow [Hz]
 eng.control.dmeLP.dme0              = 0;  % Cutoff frequency for LP filter for fuel flow [Hz]
 eng.control.powLP.pow0              = eng.engLoad0*eng.Pe;     % Cutoff frequency for LP filter for power output [Hz]
+
+% * smoke limiter
+eng.control.smokeLim.LPBW       = 1;        % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.smokeLim.FMax       = 0.95;     % Maximum allowable F in the cylinder
+
 %% Load model
 coeffProp = [57.37123;0.93965;-0.73220];

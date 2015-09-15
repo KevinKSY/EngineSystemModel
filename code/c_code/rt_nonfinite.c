@@ -1,10 +1,8 @@
-/*
- * rt_nonfinite.c
- *
- * Code generation for function 'GetCompCombGas'
- *
- * C source code generated on: Tue Jul 31 11:27:42 2012
- *
+/* 
+ * File: rt_nonfinite.c 
+ *  
+ * MATLAB Coder version            : 2.7 
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06 
  */
 
 /*
@@ -84,4 +82,8 @@ boolean_T rtIsNaNF(real32_T value)
 }
 
 
-/* End of code generation (rt_nonfinite.c) */
+/* 
+ * File trailer for rt_nonfinite.c 
+ *  
+ * [EOF] 
+ */

@@ -1,54 +1,92 @@
 /*
- * GetIdealNozzleFlow.c
+ * File: GetIdealNozzleFlow.c
  *
- * Code generation for function 'GetIdealNozzleFlow'
- *
- * C source code generated on: Tue Mar 25 11:39:08 2014
- *
+ * MATLAB Coder version            : 2.7
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06
  */
 
-/* Include files */
+/* Include Files */
 #include "rt_nonfinite.h"
+#include "GetAirDensity.h"
+#include "GetAirThermalConduct.h"
+#include "GetAirViscosity.h"
+#include "GetCompCombGas.h"
+#include "GetCorrAirComp.h"
+#include "GetDensityHCVapor.h"
+#include "GetDiffusivityHCVaporToAir.h"
+#include "GetEquilGrill.h"
+#include "GetEquilOlikara.h"
+#include "GetFuelPropertyN_Dodecane.h"
+#include "GetHTCoeffHTX.h"
+#include "GetIdealNozzleFlow.h"
+#include "GetIdealNozzleFlowPTF.h"
+#include "GetMEMbZach.h"
+#include "GetPTF.h"
+#include "GetPTFV1.h"
+#include "GetPTx.h"
+#include "GetTFromPhF.h"
+#include "GetT_atm_p.h"
+#include "GetThdynCombGasZach.h"
 #include "GetThdynCombGasZachV1.h"
-#include "GetCompCombGas_rtwutil.h"
+#include "GetThermalPropertyHCVaporReal.h"
+#include "GetThermoDynProp.h"
+#include "GetThermoDynPropPartial.h"
+#include "GetTotalStaticPT.h"
+#include "GetViscosityHCVapor.h"
+#include "ThdynPack_rtwutil.h"
 
 /* Function Definitions */
-void GetIdealNozzleFlow(real_T Cd, real_T A, real_T p_in, real_T p_out, 
-        real_T T_in, real_T F_in, real_T fs, real_T *m_dot, 
-        real_T *h_dot, real_T *m_b_dot)
-{
-  real_T pr;
-  real_T gamma1;
-  real_T h;
-  real_T K;
-  real_T R;
-  real_T MW;
-  real_T unused1,unused2,unused3,unused4,unused5,unused6,unused7,unused8,
-          unused9,unused10,unused11,unused12,unused13;
 
-  /* Calculate the mass flow through ideal nozzle(valve) */
-  /*    Input */
-  /*        Cd, A, p_in, p_out, T_in, X_in */
-  /*    Output */
-  /*        m_dot */
-  GetThdynCombGasZachV1(p_in, T_in, F_in, fs, &R, &h, &unused1, &unused2, 
-          &unused3, &unused4, &unused5, &unused6, &unused7, &unused8, 
-          &unused11, &unused12, &unused13, &unused9, &unused10, &K);
-  
+/*
+ * Calculate the mass flow through ideal nozzle(valve)
+ *    Input
+ *        Cd, A, p_in, p_out, T_in, X_in
+ *    Output
+ *        m_dot
+ * Arguments    : double Cd
+ *                double A
+ *                double p_in
+ *                double p_out
+ *                double T_in
+ *                const double X_in[12]
+ *                double *m_dot
+ *                double *h_dot
+ *                double N_dot[12]
+ * Return Type  : void
+ */
+void GetIdealNozzleFlow(double Cd, double A, double p_in, double p_out, double
+  T_in, const double X_in[12], double *m_dot, double *h_dot, double N_dot[12])
+{
+  double pr;
+  double gamma1;
+  double ht;
+  double b_gamma;
+  double Cv;
+  double Cp;
+  double R;
+  double MW;
+  int i;
+  GetThermoDynProp(p_in, T_in, X_in, &R, &Cp, &Cv, &b_gamma, &ht, &gamma1, &pr);
   MW = 8314.4621 / R;
   pr = p_out / p_in;
-  gamma1 = (K - 1.0) / K;
-  if (pr < rt_powd_snf(2.0 / (K + 1.0), 1.0 / gamma1)) {
-    *m_dot = Cd * A* p_in / sqrt(R * T_in) 
-            * sqrt(K * rt_powd_snf(2.0/(K + 1.0), (K + 1.0)/(K - 1.0)));
+  b_gamma = Cp / Cv;
+  gamma1 = (b_gamma - 1.0) / b_gamma;
+  if (pr < rt_powd_snf(2.0 / (b_gamma + 1.0), 1.0 / gamma1)) {
+    *m_dot = Cd * A * p_in / sqrt(R * T_in) * sqrt(b_gamma * rt_powd_snf(2.0 /
+      (b_gamma + 1.0), (b_gamma + 1.0) / (b_gamma - 1.0)));
   } else {
-    *m_dot = Cd * A * p_in / sqrt(R * T_in) * rt_powd_snf(pr, 1.0 / K) *
+    *m_dot = Cd * A * p_in / sqrt(R * T_in) * rt_powd_snf(pr, 1.0 / b_gamma) *
       sqrt(2.0 / gamma1 * (1.0 - rt_powd_snf(pr, gamma1)));
   }
 
-  *h_dot = *m_dot * h;
-  *m_b_dot = *m_dot*(F_in*fs / (1+F_in*fs));
-	
+  *h_dot = *m_dot * ht;
+  for (i = 0; i < 12; i++) {
+    N_dot[i] = X_in[i] * *m_dot / MW;
+  }
 }
 
-/* End of code generation (GetIdealNozzleFlow.c) */
+/*
+ * File trailer for GetIdealNozzleFlow.c
+ *
+ * [EOF]
+ */

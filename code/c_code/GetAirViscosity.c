@@ -1,41 +1,70 @@
 /*
- * GetAirViscosity.c
+ * File: GetAirViscosity.c
  *
- * Code generation for function 'GetAirViscosity'
- *
- * C source code generated on: Tue Mar 25 11:39:07 2014
- *
+ * MATLAB Coder version            : 2.7
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06
  */
 
-/* Include files */
+/* Include Files */
 #include "rt_nonfinite.h"
+#include "GetAirDensity.h"
+#include "GetAirThermalConduct.h"
 #include "GetAirViscosity.h"
+#include "GetCompCombGas.h"
+#include "GetCorrAirComp.h"
+#include "GetDensityHCVapor.h"
+#include "GetDiffusivityHCVaporToAir.h"
+#include "GetEquilGrill.h"
+#include "GetEquilOlikara.h"
+#include "GetFuelPropertyN_Dodecane.h"
+#include "GetHTCoeffHTX.h"
+#include "GetIdealNozzleFlow.h"
+#include "GetIdealNozzleFlowPTF.h"
+#include "GetMEMbZach.h"
+#include "GetPTF.h"
+#include "GetPTFV1.h"
+#include "GetPTx.h"
+#include "GetTFromPhF.h"
+#include "GetT_atm_p.h"
+#include "GetThdynCombGasZach.h"
+#include "GetThdynCombGasZachV1.h"
+#include "GetThermalPropertyHCVaporReal.h"
+#include "GetThermoDynProp.h"
+#include "GetThermoDynPropPartial.h"
+#include "GetTotalStaticPT.h"
+#include "GetViscosityHCVapor.h"
 
 /* Function Definitions */
-real_T GetAirViscosity(real_T rho, real_T T)
+
+/*
+ * The function calculates the air viscosity based on correlation
+ * proposed by Kadoya.
+ *  Theory
+ *    \mu\left(p,T\right) = H \left(\mu_0(T_r) + \Delta\mu(\rho_r)\right)
+ *    \mu_0(T) = A_1 T + A_{0.5} T^{0.5} + \sum_{i=0}^{-4} A_i T_r^i
+ *    \mu(\rho_r) = \sum_{i=1}^{4} B_i rho_r^i
+ *    T_r = T/T_{ref}     \rho_r = rho/rho_{ref}
+ *
+ *  Input
+ *    rho : pressure in kg/m3
+ *    T : Temperature in K
+ * Arguments    : double rho
+ *                double T
+ * Return Type  : double
+ */
+double GetAirViscosity(double rho, double T)
 {
-  real_T rho_r;
-  real_T T_r;
-  real_T TT[6];
-  int32_T i;
-  real_T rhor[4];
-  static const real_T b[6] = { 0.128517, -1.0, -0.709661, 0.662534, -0.197846,
+  double rho_r;
+  double T_r;
+  double TT[6];
+  int i;
+  double rhor[4];
+  static const double b[6] = { 0.128517, -1.0, -0.709661, 0.662534, -0.197846,
     0.00770147 };
 
-  real_T y;
-  static const real_T b_b[4] = { 0.465601, 1.26469, -0.511425, 0.2746 };
+  double d1;
+  static const double b_b[4] = { 0.465601, 1.26469, -0.511425, 0.2746 };
 
-  /* The function calculates the air viscosity based on correlation */
-  /* proposed by Kadoya.  */
-  /*  Theory */
-  /*    \mu\left(p,T\right) = H \left(\mu_0(T_r) + \Delta\mu(\rho_r)\right) */
-  /*    \mu_0(T) = A_1 T + A_{0.5} T^{0.5} + \sum_{i=0}^{-4} A_i T_r^i */
-  /*    \mu(\rho_r) = \sum_{i=1}^{4} B_i rho_r^i */
-  /*    T_r = T/T_{ref}     \rho_r = rho/rho_{ref} */
-  /*     */
-  /*  Input */
-  /*    rho : pressure in kg/m3 */
-  /*    T : Temperature in K */
   /*  Output */
   /*    mu_a : viscosity of the air in Pa-s */
   /*  Validity : 300~2000K and upto 100MPa.  */
@@ -58,8 +87,8 @@ real_T GetAirViscosity(real_T rho, real_T T)
   TT[0] = T_r;
   rhor[0] = rho_r;
   for (i = 0; i < 3; i++) {
-    TT[1 + i] = TT[i] / T_r;
-    rhor[1 + i] = rhor[i] * rho_r;
+    TT[i + 1] = TT[i] / T_r;
+    rhor[i + 1] = rhor[i] * rho_r;
   }
 
   TT[4] = TT[3] / T_r;
@@ -68,12 +97,16 @@ real_T GetAirViscosity(real_T rho, real_T T)
     rho_r += TT[i] * b[i];
   }
 
-  y = 0.0;
+  d1 = 0.0;
   for (i = 0; i < 4; i++) {
-    y += rhor[i] * b_b[i];
+    d1 += rhor[i] * b_b[i];
   }
 
-  return 6.1609 * ((rho_r + 2.60661 * sqrt(T_r)) + y) / 1.0E+6;
+  return 6.1609 * ((rho_r + 2.60661 * sqrt(T_r)) + d1) / 1.0E+6;
 }
 
-/* End of code generation (GetAirViscosity.c) */
+/*
+ * File trailer for GetAirViscosity.c
+ *
+ * [EOF]
+ */

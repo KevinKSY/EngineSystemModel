@@ -1,21 +1,45 @@
 /*
- * GetThdynCombGasZachV1.h
+ * File: GetThdynCombGasZachV1.h
  *
- * Code generation for function 'GetThdynCombGasZachV1'
- *
- * C source code generated on: Tue Oct 07 15:50:29 2014
- *
+ * MATLAB Coder version            : 2.7
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06
  */
 
 #ifndef __GETTHDYNCOMBGASZACHV1_H__
 #define __GETTHDYNCOMBGASZACHV1_H__
-/* Include files */
+
+/* Include Files */
 #include <math.h>
+#include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "rt_nonfinite.h"
+#include "rtwtypes.h"
+#include "ThdynPack_types.h"
 
 /* Function Declarations */
-extern void GetThdynCombGasZachV1(real_T P, real_T T, real_T F, real_T fs, real_T *R, real_T *h, real_T *s, real_T *u, real_T *RF, real_T *RP, real_T *RT, real_T *uF, real_T *uP, real_T *uT, real_T *sF, real_T *sP, real_T *sT, real_T *Cp, real_T *Cv, real_T *K);
+#ifdef __cplusplus
+
+extern "C" {
+
 #endif
-/* End of code generation (GetThdynCombGasZachV1.h) */
+
+  extern void GetThdynCombGasZachV1(double P, double T, double F, double fs,
+    double *R, double *h, double *s, double *u, double *RF, double *RP, double
+    *RT, double *uF, double *uP, double *uT, double *sF, double *sP, double *sT,
+    double *Cp, double *Cv, double *K);
+  extern void b_GetThdynCombGasZachV1(double P, double T, double F, double fs,
+    double *R, double *h, double *s, double *u, double *RF, double *RP, double
+    *RT, double *uF, double *uP, double *uT, double *sF, double *sP, double *sT);
+
+#ifdef __cplusplus
+
+}
+#endif
+#endif
+
+/*
+ * File trailer for GetThdynCombGasZachV1.h
+ *
+ * [EOF]
+ */

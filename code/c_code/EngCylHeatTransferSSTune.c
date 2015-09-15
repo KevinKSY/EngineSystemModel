@@ -141,7 +141,7 @@
 #define OUT_0_BIAS            0
 #define OUT_0_SLOPE           0.125
 
-#define NPARAMS              5
+#define NPARAMS              4
 /* Parameter  1 */
 #define PARAMETER_0_NAME      stroke
 #define PARAMETER_0_DTYPE     real_T
@@ -155,10 +155,6 @@
 #define PARAMETER_2_DTYPE     real_T
 #define PARAMETER_2_COMPLEX   COMPLEX_NO
 /* Parameter  4 */
-#define PARAMETER_3_NAME      cCylHT
-#define PARAMETER_3_DTYPE     real_T
-#define PARAMETER_3_COMPLEX   COMPLEX_NO
-/* Parameter  5 */
 #define PARAMETER_4_NAME      nCyl
 #define PARAMETER_4_DTYPE     real_T
 #define PARAMETER_4_COMPLEX   COMPLEX_NO
@@ -184,7 +180,6 @@
 #define PARAM_DEF1(S) ssGetSFcnParam(S, 1)
 #define PARAM_DEF2(S) ssGetSFcnParam(S, 2)
 #define PARAM_DEF3(S) ssGetSFcnParam(S, 3)
-#define PARAM_DEF4(S) ssGetSFcnParam(S, 4)
 
 #define IS_PARAM_DOUBLE(pVal) (mxIsNumeric(pVal) && !mxIsLogical(pVal) &&\
 !mxIsEmpty(pVal) && !mxIsSparse(pVal) && !mxIsComplex(pVal) && mxIsDouble(pVal))
@@ -198,8 +193,7 @@ extern void EngCylHeatTransfer_Outputs_wrapper(const real_T *pCyl,
                           const real_T  *stroke, const int_T  p_width0, 
                           const real_T  *B, const int_T  p_width1, 
                           const real_T  *cAlpha, const int_T  p_width2, 
-                          const real_T  *cCylHT, const int_T  p_width5, 
-                          const real_T  *nCyl, const int_T p_width6);
+                          const real_T  *nCyl, const int_T p_width3);
 
 /*====================*
  * S-function methods *
@@ -252,17 +246,7 @@ extern void EngCylHeatTransfer_Outputs_wrapper(const real_T *pCyl,
 	    goto EXIT_POINT;
 	  }
 	 }
-
-	 {
-	  const mxArray *pVal4 = ssGetSFcnParam(S,4);
-	  if (!IS_PARAM_DOUBLE(pVal4)) {
-	    validParam = true;
-	    paramIndex = 4;
-	    goto EXIT_POINT;
-	  }
-	 }
-
-      
+     
      EXIT_POINT:
       if (validParam) {
           char parameterErrorMsg[1024];
@@ -414,14 +398,12 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
     const int_T   p_width3  = mxGetNumberOfElements(PARAM_DEF3(S));
-    const int_T   p_width4  = mxGetNumberOfElements(PARAM_DEF4(S));
     const real_T  *stroke  = (const real_T *)mxGetData(PARAM_DEF0(S));
     const real_T  *B  = (const real_T *)mxGetData(PARAM_DEF1(S));
     const real_T  *cAlpha  = (const real_T *)mxGetData(PARAM_DEF2(S));
-    const real_T  *cCylHT  = (const real_T *)mxGetData(PARAM_DEF3(S));
-    const real_T  *nCyl  = (const real_T *)mxGetData(PARAM_DEF4(S));
+    const real_T  *nCyl  = (const real_T *)mxGetData(PARAM_DEF3(S));
 
-    EngCylHeatTransfer_Outputs_wrapper(pCyl, tempCyl, vCyl, omega, tempWall, dQ, stroke, p_width0, B, p_width1, cAlpha, p_width2, cCylHT, p_width3, nCyl, p_width4);
+    EngCylHeatTransfer_Outputs_wrapper(pCyl, tempCyl, vCyl, omega, tempWall, dQ, stroke, p_width0, B, p_width1, cAlpha, p_width2, nCyl, p_width3);
 }
 
 /* Function: mdlTerminate =====================================================

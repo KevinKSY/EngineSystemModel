@@ -1,31 +1,41 @@
 /*
- * GetIdealNozzleFlow.h
+ * File: GetIdealNozzleFlow.h
  *
- * Code generation for function 'GetIdealNozzleFlow'
- *
- * C source code generated on: Tue Mar 25 11:39:08 2014
- *
+ * MATLAB Coder version            : 2.7
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06
  */
 
 #ifndef __GETIDEALNOZZLEFLOW_H__
 #define __GETIDEALNOZZLEFLOW_H__
-/* Include files */
+
+/* Include Files */
 #include <math.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
 #include "rt_nonfinite.h"
-
 #include "rtwtypes.h"
+#include "ThdynPack_types.h"
 
 /* Function Declarations */
 #ifdef __cplusplus
+
 extern "C" {
+
 #endif
-extern void GetIdealNozzleFlow(real_T Cd, real_T A, real_T p_in, real_T p_out, real_T
-  T_in, real_T F_in, real_T fs, real_T *m_dot, real_T *h_dot, real_T *m_b_dot);
+
+  extern void GetIdealNozzleFlow(double Cd, double A, double p_in, double p_out,
+    double T_in, const double X_in[12], double *m_dot, double *h_dot, double
+    N_dot[12]);
+
 #ifdef __cplusplus
+
 }
 #endif
 #endif
-/* End of code generation (GetIdealNozzleFlow.h) */
+
+/*
+ * File trailer for GetIdealNozzleFlow.h
+ *
+ * [EOF]
+ */
