@@ -71,7 +71,7 @@ void IdealNozzlePTF_Outputs_wrapper(const real_T *A_eff,
 //parameters
 //  double fs;      //Stoichiometric fuel-air ratio
 //variables
-double aa;   //Pressure ratio up/down and in/out, flow direction
+double Cd, aa;   //Pressure ratio up/down and in/out, flow direction
 double p_in, T_in, F_in, p_out; //Inlet pressure, temperature, FA equivalent ratio
 double a;
 //code
@@ -88,9 +88,9 @@ else {
     F_in = *Fd;    	p_out = *pu;
     a = -1;
 }
-
-GetIdealNozzleFlow(1, *A_eff, p_in, p_out, T_in, F_in, *fs, 
-        dmu, deu, dmbu);
+Cd = 1;
+GetIdealNozzleFlowPTF(Cd, *A_eff, p_in, p_out, T_in, F_in, *fs, 
+        dmu, deu, dmbu);    
 
 *dmu = *dmu*a;
 *deu = *deu*a;

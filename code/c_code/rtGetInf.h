@@ -1,10 +1,8 @@
-/*
- * rtGetInf.h
- *
- * Code generation for function 'GetCompCombGas'
- *
- * C source code generated on: Tue Jul 31 11:27:42 2012
- *
+/* 
+ * File: rtGetInf.h 
+ *  
+ * MATLAB Coder version            : 2.7 
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06 
  */
 
 #ifndef __RTGETINF_H__
@@ -20,4 +18,8 @@ extern real_T rtGetMinusInf(void);
 extern real32_T rtGetMinusInfF(void);
 
 #endif
-/* End of code generation (rtGetInf.h) */
+/* 
+ * File trailer for rtGetInf.h 
+ *  
+ * [EOF] 
+ */

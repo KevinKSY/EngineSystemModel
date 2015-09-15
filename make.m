@@ -11,7 +11,7 @@ if (ans == 'y')
 end;
 cd c_code
 %{
-mex AirWaterCoolerPTF.c AirWaterCoolerPTF_wrapper.c GetHTCoeffHTX.c GetAirViscosity.c GetThdynCombGasZachV1.c GetAirDensity.c GetAirThermalConduct.c GetCompCombGas_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c -outdir ..
+mex AirWaterCoolerPTF.c AirWaterCoolerPTF_wrapper.c GetHTCoeffHTX.c GetAirViscosity.c GetThdynCombGasZachV1.c GetAirDensity.c GetAirThermalConduct.c ThdynPack_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c -outdir ..
 mex blower.c blower_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex blowerFit.c blowerFit_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex combState.c combState_wrapper.c -outdir ..
@@ -27,12 +27,12 @@ mex GetExhVVLift.c GetExhVVLift_wrapper.c -outdir ..
 mex GetVVLift.c GetVVLift_wrapper.c -outdir ..
 mex GetInportArea.c GetInportArea_wrapper.c -outdir ..
 mex hysterisis.c hysterisis_wrapper.c -outdir ..
-mex IdealNozzlePTF.c IdealNozzlePTF_wrapper.c GetThdynCombGasZachV1.c GetIdealNozzleFlow.c GetCompCombGas_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c -outdir ..
+mex IdealNozzlePTF.c IdealNozzlePTF_wrapper.c GetThdynCombGasZachV1.c GetIdealNozzleFlowPTF.c ThdynPack_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c sqrt.c power.c rdivide.c -outdir ..
 mex interpolateDescend.c interpolateDescend_wrapper.c -outdir ..
 mex lowPassFilterBW4.c lowPassFilterBW4_wrapper.c -outdir ..
 mex pCompCalc.c pCompCalc_wrapper.c -outdir ..
 mex pMaxFinder.c pMaxFinder_wrapper.c -outdir ..
-mex SpeedController.c -outdir ..
+mex SpeedController.c SpeedController_wrapper.c -outdir ..
 mex ThdynCV.c ThdynCV_wrapper.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVNV.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVNVState.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
@@ -46,11 +46,12 @@ mex InCylinderMV.c InCylinderMV_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex GetThdynCombGasZachSFunc.c GetThdynCombGasZachV1.c -outdir ..
 mex crankMechKinematic1.c crankMechKinematic_wrapper1.c -outdir ..
 mex workPerCycle.c -outdir ..
-mex GetXCombGas.c GetXCombGas_wrapper.c GetCompCombGas.c GetEquilGrill.c GetCompleteComb.c GetCompCombGas_rtwutil.c rtGetNaN.c rtGetInf.c sum.c rt_nonfinite.c -outdir ..
-mex dNOxMol.c dNOxMol_wrapper.c dNOx.c GetThdynCombGasZachV1.c GetCompCombGas.c GetEquilGrill.c GetCompleteComb.c GetCompCombGas_rtwutil.c rtGetNaN.c rtGetInf.c sum.c rt_nonfinite.c -outdir ..
+mex GetXCombGas.c GetXCombGas_wrapper.c GetCompCombGas.c GetEquilGrill.c GetCompleteComb.c ThdynPack_rtwutil.c rtGetNaN.c rtGetInf.c sum.c rt_nonfinite.c -outdir ..
+mex dNOxMol.c dNOxMol_wrapper.c dNOx.c GetThdynCombGasZachV1.c GetCompCombGas.c GetEquilGrill.c GetCompleteComb.c ThdynPack_rtwutil.c rtGetNaN.c rtGetInf.c sum.c rt_nonfinite.c -outdir ..
 mex resetCyc.c resetCyc_wrapper.c -outdir ..
 mex GetPerCycle.c -outdir ..
-mex SFCCyc.c SFCyc_wrapper.c -outdir ..
+mex SFCCyc.c SFCCyc_wrapper.c -outdir ..
 %}
-mex -g scavenging1Zone.c scavenging1Zone_wrapper.c GetThdynCombGasZachV1.c -outdir ..
+mex -g scavenging1Zone.c scavenging1Zone_wrapper.c GetThdynCombGasZachV1.c GetTFromPhF.c -outdir ..
+%}
 cd(currFolder);

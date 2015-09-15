@@ -59,8 +59,7 @@ void EngCylHeatTransfer_Outputs_wrapper(const real_T *pCyl,
                           const real_T  *stroke, const int_T  p_width0, 
                           const real_T  *B, const int_T  p_width1, 
                           const real_T  *cAlpha, const int_T  p_width2, 
-                          const real_T  *cCylHT, const int_T  p_width5, 
-                          const real_T  *nCyl, const int_T p_width6)
+                          const real_T  *nCyl, const int_T p_width3)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 const double pi = 3.14159265359;

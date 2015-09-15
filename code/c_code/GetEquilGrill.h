@@ -1,38 +1,40 @@
 /*
- * GetEquilGrill.h
+ * File: GetEquilGrill.h
  *
- * Code generation for function 'GetEquilGrill'
- *
- * C source code generated on: Tue Jul 31 11:27:42 2012
- *
+ * MATLAB Coder version            : 2.7
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06
  */
 
 #ifndef __GETEQUILGRILL_H__
 #define __GETEQUILGRILL_H__
-/* Include files */
+
+/* Include Files */
 #include <math.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
 #include "rt_nonfinite.h"
-#include "GetCompCombGas_rtwutil.h"
 #include "rtwtypes.h"
-
-/* Type Definitions */
-
-/* Named Constants */
-
-/* Variable Declarations */
-
-/* Variable Definitions */
+#include "ThdynPack_types.h"
 
 /* Function Declarations */
 #ifdef __cplusplus
+
 extern "C" {
+
 #endif
-extern void GetEquilGrill(real_T P, real_T T, real_T F, const real_T Fc[5], const real_T Ac[11], real_T x[12]);
+
+  extern void GetEquilGrill(double P, double T, double F, const double Fc[4],
+    const double Ac[11], double x[12]);
+
 #ifdef __cplusplus
+
 }
 #endif
 #endif
-/* End of code generation (GetEquilGrill.h) */
+
+/*
+ * File trailer for GetEquilGrill.h
+ *
+ * [EOF]
+ */

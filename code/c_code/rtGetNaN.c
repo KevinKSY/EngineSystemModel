@@ -1,10 +1,8 @@
-/*
- * rtGetNaN.c
- *
- * Code generation for function 'GetCompCombGas'
- *
- * C source code generated on: Tue Jul 31 11:27:42 2012
- *
+/* 
+ * File: rtGetNaN.c 
+ *  
+ * MATLAB Coder version            : 2.7 
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06 
  */
 
 /*
@@ -93,4 +91,8 @@ real32_T rtGetNaNF(void)
   return nanF.wordL.wordLreal;
 }
 
-/* End of code generation (rtGetNaN.c) */
+/* 
+ * File trailer for rtGetNaN.c 
+ *  
+ * [EOF] 
+ */

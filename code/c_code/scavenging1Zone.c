@@ -33,7 +33,7 @@
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
 #define NUM_INPUTS          9
 /* Input Port  0 */
-#define IN_PORT_0_NAME      FCyl
+#define IN_PORT_0_NAME      pCyl
 #define INPUT_0_WIDTH       1
 #define INPUT_DIMS_0_COL    1
 #define INPUT_0_DTYPE       real_T
@@ -50,7 +50,7 @@
 #define IN_0_BIAS            0
 #define IN_0_SLOPE           0.125
 /* Input Port  1 */
-#define IN_PORT_1_NAME      pIn
+#define IN_PORT_1_NAME      TCyl
 #define INPUT_1_WIDTH       1
 #define INPUT_DIMS_1_COL    1
 #define INPUT_1_DTYPE       real_T
@@ -67,7 +67,7 @@
 #define IN_1_BIAS            0
 #define IN_1_SLOPE           0.125
 /* Input Port  2 */
-#define IN_PORT_2_NAME      TIn
+#define IN_PORT_2_NAME      FCyl
 #define INPUT_2_WIDTH       1
 #define INPUT_DIMS_2_COL    1
 #define INPUT_2_DTYPE       real_T
@@ -84,7 +84,7 @@
 #define IN_2_BIAS            0
 #define IN_2_SLOPE           0.125
 /* Input Port  3 */
-#define IN_PORT_3_NAME      FIn
+#define IN_PORT_3_NAME      pIn
 #define INPUT_3_WIDTH       1
 #define INPUT_DIMS_3_COL    1
 #define INPUT_3_DTYPE       real_T
@@ -99,9 +99,9 @@
 #define IN_3_FIXPOINTSCALING 1
 #define IN_3_FRACTIONLENGTH  9
 #define IN_3_BIAS            0
-#define IN_3_SLOPE           0.125
+#define IN_3_SLOPE           0.145
 /* Input Port  4 */
-#define IN_PORT_4_NAME      pOut
+#define IN_PORT_4_NAME      TIn
 #define INPUT_4_WIDTH       1
 #define INPUT_DIMS_4_COL    1
 #define INPUT_4_DTYPE       real_T
@@ -118,7 +118,7 @@
 #define IN_4_BIAS            0
 #define IN_4_SLOPE           0.125
 /* Input Port  5 */
-#define IN_PORT_5_NAME      TOut
+#define IN_PORT_5_NAME      FIn
 #define INPUT_5_WIDTH       1
 #define INPUT_DIMS_5_COL    1
 #define INPUT_5_DTYPE       real_T
@@ -186,9 +186,9 @@
 #define IN_8_BIAS            0
 #define IN_8_SLOPE           0.125
 
-#define NUM_OUTPUTS          3
+#define NUM_OUTPUTS          4
 /* Output Port  0 */
-#define OUT_PORT_0_NAME      FOut
+#define OUT_PORT_0_NAME      TOut
 #define OUTPUT_0_WIDTH       1
 #define OUTPUT_DIMS_0_COL    1
 #define OUTPUT_0_DTYPE       real_T
@@ -205,7 +205,7 @@
 #define OUT_0_SLOPE           0.125
 
 /* Output Port  1 */
-#define OUT_PORT_1_NAME      lambS
+#define OUT_PORT_1_NAME      FOut
 #define OUTPUT_1_WIDTH       1
 #define OUTPUT_DIMS_1_COL    1
 #define OUTPUT_1_DTYPE       real_T
@@ -218,11 +218,11 @@
 #define OUT_1_WORDLENGTH      8
 #define OUT_1_FIXPOINTSCALING 1
 #define OUT_1_FRACTIONLENGTH  3
-#define OUT_1_BIAS            1
+#define OUT_1_BIAS            0
 #define OUT_1_SLOPE           0.125
 
 /* Output Port  2 */
-#define OUT_PORT_2_NAME      beta
+#define OUT_PORT_2_NAME      lambS
 #define OUTPUT_2_WIDTH       1
 #define OUTPUT_DIMS_2_COL    1
 #define OUTPUT_2_DTYPE       real_T
@@ -235,8 +235,25 @@
 #define OUT_2_WORDLENGTH      8
 #define OUT_2_FIXPOINTSCALING 1
 #define OUT_2_FRACTIONLENGTH  3
-#define OUT_2_BIAS            0
+#define OUT_2_BIAS            1
 #define OUT_2_SLOPE           0.125
+
+/* Output Port  3 */
+#define OUT_PORT_3_NAME      beta
+#define OUTPUT_3_WIDTH       1
+#define OUTPUT_DIMS_3_COL    1
+#define OUTPUT_3_DTYPE       real_T
+#define OUTPUT_3_COMPLEX     COMPLEX_NO
+#define OUT_3_FRAME_BASED    FRAME_NO
+#define OUT_3_BUS_BASED      0
+#define OUT_3_BUS_NAME       
+#define OUT_3_DIMS           1-D
+#define OUT_3_ISSIGNED        1
+#define OUT_3_WORDLENGTH      8
+#define OUT_3_FIXPOINTSCALING 1
+#define OUT_3_FRACTIONLENGTH  3
+#define OUT_3_BIAS            0
+#define OUT_3_SLOPE           0.125
 
 
 #define NPARAMS              5
@@ -261,36 +278,43 @@
 #define PARAMETER_4_DTYPE     real_T
 #define PARAMETER_4_COMPLEX   COMPLEX_NO
 
-#define NDWORKS              5
+#define NDWORKS              7
 // DWork 1
 #define DWORK_0_NAME         resetIn
 #define DWORK_0_WIDTH        1
 #define DWORK_0_DTYPE        int_T
 #define DWORK_0_COMPLEX      COMPLEX_NO
-
 // DWork 2
 #define DWORK_1_NAME         resetOut
 #define DWORK_1_WIDTH        1
 #define DWORK_1_DTYPE        int_T
 #define DWORK_1_COMPLEX      COMPLEX_NO
-
 // DWork 3
 #define DWORK_2_NAME         mInPrev
 #define DWORK_2_WIDTH        1
 #define DWORK_2_DTYPE        real_T
 #define DWORK_2_COMPLEX      COMPLEX_NO
-
 // DWork 4
 #define DWORK_3_NAME         F0
 #define DWORK_3_WIDTH        1
 #define DWORK_3_DTYPE        real_T
 #define DWORK_3_COMPLEX      COMPLEX_NO
-
 // DWork 5
 #define DWORK_4_NAME         rho0
 #define DWORK_4_WIDTH        1
 #define DWORK_4_DTYPE        real_T
 #define DWORK_4_COMPLEX      COMPLEX_NO
+// DWork 6
+#define DWORK_5_NAME         hIn0
+#define DWORK_5_WIDTH        1
+#define DWORK_5_DTYPE        real_T
+#define DWORK_5_COMPLEX      COMPLEX_NO
+// DWork 7
+#define DWORK_6_NAME         hCyl0
+#define DWORK_6_WIDTH        1
+#define DWORK_6_DTYPE        real_T
+#define DWORK_6_COMPLEX      COMPLEX_NO
+
 
 #define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
 #define NUM_DISC_STATES      0
@@ -318,14 +342,15 @@
 #define IS_PARAM_DOUBLE(pVal) (mxIsNumeric(pVal) && !mxIsLogical(pVal) &&\
 !mxIsEmpty(pVal) && !mxIsSparse(pVal) && !mxIsComplex(pVal) && mxIsDouble(pVal))
 
-extern void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
+extern void scavenging1Zone_Outputs_wrapper(const real_T *pCyl,
+			const real_T *TCyl,
+			const real_T *FCyl,
 			const real_T *pIn,
 			const real_T *TIn,
 			const real_T *FIn,
-			const real_T *pOut,
-			const real_T *TOut,
 			const real_T *combState, 
 			const real_T *phi,
+			real_T *TOut,
 			real_T *FOut,
 			real_T *lambS,
 			real_T *betaS,
@@ -339,16 +364,19 @@ extern void scavenging1Zone_Outputs_wrapper(const real_T *FCyl,
             const int_T *resetOut, 
             const real_T *mInPrev,
             const real_T *F0,
-			const real_T *rho0);
-extern void scavenging1Zone_Derivatives_wrapper(const real_T *FCyl,
+			const real_T *rho0,
+			const real_T *hIn0,
+			const real_T *hCyl0);
+extern void scavenging1Zone_Derivatives_wrapper(const real_T *pCyl,
+			const real_T *TCyl,
+			const real_T *FCyl,
 			const real_T *pIn,
 			const real_T *TIn,
 			const real_T *FIn,
-			const real_T *pOut,
-			const real_T *TOut,
 			const real_T *mDotIn,
 			const real_T *combState,
 			const real_T *phi,
+			const real_T *TOut,
 			const real_T *FOut,
 			real_T *dx,
 			real_T *xC,
@@ -358,15 +386,16 @@ extern void scavenging1Zone_Derivatives_wrapper(const real_T *FCyl,
 			const real_T  *volDisp,  const int_T  p_width3,
 			const real_T  *CAIPO, const int_T  p_width4);
 
-extern void scavenging1Zone_Update_wrapper(const real_T *FCyl,
+extern void scavenging1Zone_Update_wrapper(const real_T *pCyl,
+			const real_T *TCyl,
+			const real_T *FCyl,
 			const real_T *pIn,
 			const real_T *TIn,
 			const real_T *FIn,
-			const real_T *pOut,
-			const real_T *TOut,
 			const real_T *mDotIn,
 			const real_T *combState,
 			const real_T *phi,
+			const real_T *TOut,
 			const real_T *FOut,
 			real_T *dx,
 			real_T *xC,
@@ -379,7 +408,9 @@ extern void scavenging1Zone_Update_wrapper(const real_T *FCyl,
 			int_T *resetOut,
             real_T *mInPrev,
             real_T *F0,
-			real_T *rho0);
+			real_T *rho0,			
+			real_T *hIn0,
+			real_T *hCyl0);
 
 /*====================*
  * S-function methods *
@@ -543,7 +574,6 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDirectFeedThrough(S, 8, INPUT_8_FEEDTHROUGH);
     ssSetInputPortRequiredContiguous(S, 8, 1); /*direct input signal access*/
 
-
     if (!ssSetNumOutputPorts(S, NUM_OUTPUTS)) return;
     ssSetOutputPortWidth(S, 0, OUTPUT_0_WIDTH);
     ssSetOutputPortDataType(S, 0, SS_DOUBLE);
@@ -556,6 +586,10 @@ static void mdlInitializeSizes(SimStruct *S)
 	ssSetOutputPortWidth(S, 2, OUTPUT_2_WIDTH);
 	ssSetOutputPortDataType(S, 2, SS_DOUBLE);
 	ssSetOutputPortComplexSignal(S, 2, OUTPUT_2_COMPLEX);
+
+	ssSetOutputPortWidth(S, 3, OUTPUT_3_WIDTH);
+	ssSetOutputPortDataType(S, 3, SS_DOUBLE);
+	ssSetOutputPortComplexSignal(S, 3, OUTPUT_3_COMPLEX);
 
     ssSetNumSampleTimes(S, 1);
     ssSetNumRWork(S, 0);
@@ -580,6 +614,12 @@ static void mdlInitializeSizes(SimStruct *S)
 	/*DWork vector 5*/
 	ssSetDWorkWidth(S, 4, DWORK_4_WIDTH);
 	ssSetDWorkDataType(S, 4, SS_DOUBLE);
+	/*DWork vector 6*/
+	ssSetDWorkWidth(S, 5, DWORK_4_WIDTH);
+	ssSetDWorkDataType(S, 5, SS_DOUBLE);
+	/*DWork vector 7*/
+	ssSetDWorkWidth(S, 6, DWORK_4_WIDTH);
+	ssSetDWorkDataType(S, 6, SS_DOUBLE);
 
 
     /* Take care when specifying exception free code - see sfuntmpl_doc.c */
@@ -618,13 +658,17 @@ static void mdlInitializeSampleTimes(SimStruct *S)
    real_T *mInPrev = (real_T *) ssGetDWork(S,2);
    real_T *F0 = (real_T *) ssGetDWork(S,3);
    real_T *rho0 = (real_T *)ssGetDWork(S, 4);
+   real_T *hIn0 = (real_T *)ssGetDWork(S, 5);
+   real_T *hCyl0 = (real_T *)ssGetDWork(S, 6);
 
     /* Initialize the dwork*/
    resetIn[0] = 1;
    resetOut[0] = 1;
    mInPrev[0] = 0;
    F0[0] = 0;
-   rho0[0] = 0;
+   rho0[0] = 1.16;
+   hIn0[0] = 3e5;
+   hCyl0[0] = 3e5;
 
     xC[0] =  0;
  }
@@ -663,17 +707,18 @@ static void mdlSetWorkWidths(SimStruct *S)
 */
 static void mdlOutputs(SimStruct *S, int_T tid)
 {
-    const real_T   *FCyl  = (const real_T*) ssGetInputPortSignal(S,0);
-    const real_T   *pIn  = (const real_T*) ssGetInputPortSignal(S,1);
-    const real_T   *TIn  = (const real_T*) ssGetInputPortSignal(S,2);
-    const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,3);
-    const real_T   *pOut  = (const real_T*) ssGetInputPortSignal(S,4);
-    const real_T   *TOut  = (const real_T*) ssGetInputPortSignal(S,5);
+	const real_T   *pCyl = (const real_T*)ssGetInputPortSignal(S, 0);
+	const real_T   *TCyl = (const real_T*)ssGetInputPortSignal(S, 1);
+    const real_T   *FCyl  = (const real_T*) ssGetInputPortSignal(S,2);
+    const real_T   *pIn  = (const real_T*) ssGetInputPortSignal(S,3);
+    const real_T   *TIn  = (const real_T*) ssGetInputPortSignal(S,4);
+    const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,5);
     const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,7);
     const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,8);
-    real_T        *FOut  = (real_T *)ssGetOutputPortRealSignal(S,0);
-	real_T		  *lambS = (real_T *)ssGetOutputPortRealSignal(S,1);
-	real_T		  *betaS = (real_T *)ssGetOutputPortRealSignal(S, 2);
+	real_T        *TOut = (real_T *)ssGetOutputPortRealSignal(S, 0);
+    real_T        *FOut  = (real_T *)ssGetOutputPortRealSignal(S,1);
+	real_T		  *lambS = (real_T *)ssGetOutputPortRealSignal(S,2);
+	real_T		  *betaS = (real_T *)ssGetOutputPortRealSignal(S, 3);
     const real_T   *xC = ssGetContStates(S);
     const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
@@ -690,8 +735,14 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T *mInPrev = (const real_T *) ssGetDWork(S,2);
     const real_T *F0 = (const real_T *) ssGetDWork(S,3);
 	const real_T *rho0 = (const real_T *)ssGetDWork(S,4);
+	const real_T *hIn0 = (const real_T *)ssGetDWork(S, 5);
+	const real_T *hCyl0 = (const real_T *)ssGetDWork(S, 6);
 
-    scavenging1Zone_Outputs_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, combState, phi, FOut, lambS, betaS, xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, CAIPO, p_width4, resetIn, resetOut, mInPrev, F0, rho0);
+
+	scavenging1Zone_Outputs_wrapper(pCyl,TCyl,FCyl,pIn,TIn,FIn,combState,phi,
+		TOut,FOut,lambS,betaS, xC, 
+		kai,p_width0,delta,p_width1,fs,p_width2,volDisp,p_width3,CAIPO,p_width4,
+		resetIn,resetOut,mInPrev,F0,rho0,hIn0,hCyl0);
 }
 
 #define MDL_DERIVATIVES  /* Change to #undef to remove function */
@@ -702,18 +753,19 @@ static void mdlOutputs(SimStruct *S, int_T tid)
    */
   static void mdlDerivatives(SimStruct *S)
   {
-    const real_T   *FCyl  = (const real_T*) ssGetInputPortSignal(S,0);
-    const real_T   *pIn  = (const real_T*) ssGetInputPortSignal(S,1);
-    const real_T   *TIn  = (const real_T*) ssGetInputPortSignal(S,2);
-    const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,3);
-    const real_T   *pOut  = (const real_T*) ssGetInputPortSignal(S,4);
-    const real_T   *TOut  = (const real_T*) ssGetInputPortSignal(S,5);
+	const real_T   *pCyl = (const real_T*)ssGetInputPortSignal(S, 0);
+	const real_T   *TCyl = (const real_T*)ssGetInputPortSignal(S, 1);
+    const real_T   *FCyl  = (const real_T*) ssGetInputPortSignal(S,2);
+    const real_T   *pIn  = (const real_T*) ssGetInputPortSignal(S,3);
+    const real_T   *TIn  = (const real_T*) ssGetInputPortSignal(S,4);
+    const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,5);
     const real_T   *mDotIn  = (const real_T*) ssGetInputPortSignal(S,6);
     const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,7);
     const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,8);
     real_T         *dx  = ssGetdX(S);
     real_T         *xC  = ssGetContStates(S);
-    real_T        *FOut  = (real_T *) ssGetOutputPortRealSignal(S,0);
+	const real_T   *TOut = (real_T *)ssGetOutputPortRealSignal(S, 0);
+    const real_T   *FOut  = (real_T *) ssGetOutputPortRealSignal(S,1);
     const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
@@ -725,7 +777,10 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T  *volDisp  = (const real_T *)mxGetData(PARAM_DEF3(S));
 	const real_T  *CAIPO = (const real_T *)mxGetData(PARAM_DEF3(S));
 
-    scavenging1Zone_Derivatives_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, mDotIn, combState, phi, FOut,dx,  xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, CAIPO, p_width4);
+	scavenging1Zone_Derivatives_wrapper(pCyl,TCyl,FCyl,pIn,TIn,FIn,mDotIn,combState,phi,
+		TOut,FOut, dx, xC,
+		kai,p_width0,delta,p_width1,fs,p_width2,volDisp,p_width3,CAIPO,p_width4);
+
 }
 
 #define MDL_UPDATE  /* Change to #undef to remove function */
@@ -738,18 +793,19 @@ static void mdlOutputs(SimStruct *S, int_T tid)
    */
   static void mdlUpdate(SimStruct *S, int_T tid)
   {
-    const real_T   *FCyl  = (const real_T*) ssGetInputPortSignal(S,0);
-    const real_T   *pIn  = (const real_T*) ssGetInputPortSignal(S,1);
-    const real_T   *TIn  = (const real_T*) ssGetInputPortSignal(S,2);
-    const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,3);
-    const real_T   *pOut  = (const real_T*) ssGetInputPortSignal(S,4);
-    const real_T   *TOut  = (const real_T*) ssGetInputPortSignal(S,5);
+	const real_T   *pCyl = (const real_T*)ssGetInputPortSignal(S, 0);
+	const real_T   *TCyl = (const real_T*)ssGetInputPortSignal(S, 1);
+    const real_T   *FCyl  = (const real_T*) ssGetInputPortSignal(S,2);
+    const real_T   *pIn  = (const real_T*) ssGetInputPortSignal(S,3);
+    const real_T   *TIn  = (const real_T*) ssGetInputPortSignal(S,4);
+    const real_T   *FIn  = (const real_T*) ssGetInputPortSignal(S,5);
     const real_T   *mDotIn  = (const real_T*) ssGetInputPortSignal(S,6);
     const real_T   *combState  = (const real_T*) ssGetInputPortSignal(S,7);
     const real_T   *phi  = (const real_T*) ssGetInputPortSignal(S,8);
     real_T         *dx  = ssGetdX(S);
     real_T         *xC  = ssGetContStates(S);
-    real_T        *FOut  = (real_T *) ssGetOutputPortRealSignal(S,0);
+	real_T		  *TOut = (real_T *)ssGetOutputPortRealSignal(S, 0);
+    real_T        *FOut  = (real_T *) ssGetOutputPortRealSignal(S,1);
     const int_T   p_width0  = mxGetNumberOfElements(PARAM_DEF0(S));
     const int_T   p_width1  = mxGetNumberOfElements(PARAM_DEF1(S));
     const int_T   p_width2  = mxGetNumberOfElements(PARAM_DEF2(S));
@@ -765,8 +821,13 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     real_T *mInPrev = (real_T *) ssGetDWork(S,2);
     real_T *F0 = (real_T *) ssGetDWork(S,3);
 	real_T *rho0 = (real_T *)ssGetDWork(S,4);
+	real_T *hIn0 = (real_T *)ssGetDWork(S, 5);
+	real_T *hCyl0 = (real_T *)ssGetDWork(S, 6);
 
-    scavenging1Zone_Update_wrapper(FCyl, pIn, TIn, FIn, pOut, TOut, mDotIn, combState, phi, FOut,dx,  xC, kai, p_width0, delta, p_width1, fs, p_width2, volDisp, p_width3, CAIPO, p_width3, resetIn, resetOut, mInPrev,F0, rho0);
+	scavenging1Zone_Update_wrapper(pCyl,TCyl,FCyl,pIn,TIn,FIn,mDotIn,combState,phi,
+		TOut,FOut, dx, xC,
+		kai,p_width0,delta,p_width1,fs,p_width2,volDisp,p_width3,CAIPO,p_width4,
+		resetIn,resetOut,mInPrev,F0,rho0,hIn0,hCyl0);
 }
 
   

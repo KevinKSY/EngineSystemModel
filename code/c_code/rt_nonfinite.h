@@ -1,10 +1,8 @@
-/*
- * rt_nonfinite.h
- *
- * Code generation for function 'GetCompCombGas'
- *
- * C source code generated on: Tue Jul 31 11:27:42 2012
- *
+/* 
+ * File: rt_nonfinite.h 
+ *  
+ * MATLAB Coder version            : 2.7 
+ * C/C++ source code generated on  : 14-Sep-2015 17:04:06 
  */
 
 #ifndef __RT_NONFINITE_H__
@@ -50,4 +48,8 @@ typedef struct {
 } IEEESingle;
 
 #endif
-/* End of code generation (rt_nonfinite.h) */
+/* 
+ * File trailer for rt_nonfinite.h 
+ *  
+ * [EOF] 
+ */
