@@ -65,6 +65,6 @@ void ThdynCV_Outputs_wrapper(const real_T *m,
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 
-GetPTF(*m, *mb, *E, *V, *T_prev, *R_prev, *u_prev, *Cv_prev, *fs, p, T, F);
+GetPTFV1(*m, *mb, *E, *V, *T_prev, *R_prev, *u_prev, *Cv_prev, *fs, p, T, F);
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }

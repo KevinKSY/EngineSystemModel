@@ -1008,7 +1008,7 @@ static void mdlInitializeSampleTimes(SimStruct *S)
 	xC[5] = E0[0];
 	xC[6] = 0;
    
-    GetPTF(m0[0],mb0[0],E0[0],V0[0],300,287,2.1386e5,718.7,fs[0], 
+    GetPTFV1(m0[0],mb0[0],E0[0],V0[0],300,287,2.1386e5,718.7,fs[0], 
             p_prev,Tu_prev,Fu_prev);
     Ru_prev[0] = 287;
     uu_prev[0] = E0[0]/m0[0];

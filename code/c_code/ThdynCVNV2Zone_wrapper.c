@@ -77,7 +77,7 @@ QCyl = xC[4];
 HCyl = xC[5];
 WCyl = xC[6];
 
-GetPTF(mCyl, mbCyl, -QCyl+HCyl-WCyl, VCyl, TuPrev[0], RuPrev[0], uuPrev[0],
+GetPTFV1(mCyl, mbCyl, -QCyl+HCyl-WCyl, VCyl, TuPrev[0], RuPrev[0], uuPrev[0],
 	CvuPrev[0], fs[0], &pCyl, &TCyl, &FCyl);
 
 // Calculate the the mix rate

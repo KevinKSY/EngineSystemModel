@@ -17,11 +17,11 @@ eng.omegaE0 = interp1(eng_data.perf.Pe,eng_data.perf.RPM,eng.Pe/1000*eng.engLoad
 eng.BSFC0 = interp1(eng_data.perf.Pe,eng_data.perf.ref.BSFC,eng.Pe/1000*eng.engLoad0,'pchip');         %Initial speed of the engine (rad/s)    
 eng.dQCylRef = interp1(eng_data.perf.Pe,eng_data.HB.Cyl + eng_data.HB.Radiation,eng.Pe/1000*eng.engLoad0,'pchip')*1000;         %Reference heat transfer rate    
 
-eng.pAmb = 1e5;  %Ambient conditions
-eng.tAmb = 25 + 273.15;  %Ambient conditions
-eng.fAmb =   0;  %Ambient conditions
-eng.pBack = 1.03e5;  %Ambient conditions
-eng.tCW = 29 + 273.15; %Cooling water temperature
+            eng.pAmb = 1e5;  %Ambient conditions
+            eng.tAmb = 25 + 273.15;  %Ambient conditions
+            eng.fAmb =   0;  %Ambient conditions
+            eng.pBack = 1.03e5;  %Ambient conditions
+            eng.tCW = 29 + 273.15; %Cooling water temperature
 %% Charge air cooler parameters
 eng.cAC.Cd = 0.8;                 %Discharge coefficient of the cooler
 eng.cAC.areaAirPath = 0.3628;        %Effective area of the air path [m2]
@@ -242,7 +242,16 @@ clear E0 m0 mb0 i
 
 
 %% # Engine controller
-% * Speed controller
+% * engine governor
+eng.control.gov.LPBW        = 0.66;        % Cutoff frequency for low pass filter [Hz]
+eng.control.gov.Kp         = 1.0;        % Proportional gain for controller //0.8
+eng.control.gov.Td         = 0.05;        % Derivative time constant
+eng.control.gov.Ti         = 4.0;        % Integral gain for controller
+eng.control.gov.N          = 2.0;      % Dirty derivative gain
+eng.control.gov.uMin       = 0.1;      % Minimum output
+eng.control.gov.uMax       = 1.1;      % Maximum output
+eng.control.gov.u0         = eng.engLoad0; % Initial output of the controller
+% * vessel speed controller
 eng.control.speed.LPBW        = 0.66;        % Cutoff frequency for low pass filter [Hz]
 eng.control.speed.Kp         = 1.0;        % Proportional gain for controller //0.8
 eng.control.speed.Td         = 0.05;        % Derivative time constant
@@ -309,7 +318,7 @@ eng.control.HRejId.sw            = 1;        % Switch on/off for the identificat
 eng.control.HRejId.LPBWQCyl      = 0.1;        % Bandwidth for LP filter for heat transfer (Hz)
 
 % * Low pass filter for fuel and exhaust flow
-    eng.control.dmfLP.BW                = 0.66;  % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.dmfLP.BW                = 0.66;  % Cutoff frequency for LP filter for fuel flow [Hz]
 eng.control.dmeLP.BW                = 0.66;  % Cutoff frequency for LP filter for fuel flow [Hz]
 eng.control.powLP.BW                = 1.5;     % Cutoff frequency for LP filter for power output [Hz]
 

@@ -138,9 +138,9 @@ void Get2ZonePTFIter(real_T mCyl,
 		}
 		EuTemp = EuPrev - dQu - dWu + dHu;
 		EbTemp = EbPrev - dQb - dWb + dHb;
-		GetPTF(muTemp, mubTemp, EuTemp, VuTemp[0], TuPrev, RuPrev, uuPrev,
+		GetPTFV1(muTemp, mubTemp, EuTemp, VuTemp[0], TuPrev, RuPrev, uuPrev,
 			CvuPrev, fs, puTemp, TuTemp, FuTemp);
-		GetPTF(mbTemp, mbbTemp, EbTemp, VbTemp[0], TbPrev, RbPrev, ubPrev,
+		GetPTFV1(mbTemp, mbbTemp, EbTemp, VbTemp[0], TbPrev, RbPrev, ubPrev,
 			CvbPrev, fs, pbTemp, TbTemp, FbTemp);
 		delP = (puTemp[0] - pbTemp[0]);
 		errP = fabs(delP / puTemp[0]);

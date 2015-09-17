@@ -576,7 +576,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T *u_prev = (const real_T*) ssGetDWork(S,2);
     const real_T *Cv_prev = (const real_T*) ssGetDWork(S,3);
 
-    GetPTF(xC[0], xC[2], xC[1], xC[3], *T_prev, *R_prev, *u_prev, *Cv_prev, *fs, p, T, F);
+    GetPTFV1(xC[0], xC[2], xC[1], xC[3], *T_prev, *R_prev, *u_prev, *Cv_prev, *fs, p, T, F);
     m[0] = xC[0];
     E[0] = xC[1];
     mb[0] = xC[2];

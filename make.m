@@ -10,7 +10,7 @@ if (ans == 'y')
     delete '*.mex*';
 end;
 cd c_code
-%{
+%{a
 mex AirWaterCoolerPTF.c AirWaterCoolerPTF_wrapper.c GetHTCoeffHTX.c GetAirViscosity.c GetThdynCombGasZachV1.c GetAirDensity.c GetAirThermalConduct.c ThdynPack_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c -outdir ..
 mex blower.c blower_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex blowerFit.c blowerFit_wrapper.c GetThdynCombGasZachV1.c -outdir ..
@@ -27,18 +27,21 @@ mex GetExhVVLift.c GetExhVVLift_wrapper.c -outdir ..
 mex GetVVLift.c GetVVLift_wrapper.c -outdir ..
 mex GetInportArea.c GetInportArea_wrapper.c -outdir ..
 mex hysterisis.c hysterisis_wrapper.c -outdir ..
+
 mex IdealNozzlePTF.c IdealNozzlePTF_wrapper.c GetThdynCombGasZachV1.c GetIdealNozzleFlowPTF.c ThdynPack_rtwutil.c rt_nonfinite.c rtGetInf.c rtGetNAN.c sqrt.c power.c rdivide.c -outdir ..
 mex interpolateDescend.c interpolateDescend_wrapper.c -outdir ..
 mex lowPassFilterBW4.c lowPassFilterBW4_wrapper.c -outdir ..
 mex pCompCalc.c pCompCalc_wrapper.c -outdir ..
 mex pMaxFinder.c pMaxFinder_wrapper.c -outdir ..
+%}
 mex SpeedController.c SpeedController_wrapper.c -outdir ..
-mex ThdynCV.c ThdynCV_wrapper.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
-mex ThdynCVNV.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
-mex ThdynCVNVState.c GetPTF.c GetThdynCombGasZachV1.c -outdir ..
+mex ThdynCV.c ThdynCV_wrapper.c GetPTFV1.c GetThdynCombGasZachV1.c -outdir ..
+%{a
+mex ThdynCVNV.c GetPTFV1.c GetThdynCombGasZachV1.c -outdir ..
+mex ThdynCVNVState.c GetPTFV1.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCVConv.c ThdynCVConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex ThdynCV2ZoneConv.c ThdynCV2ZoneConv_wrapper.c GetThdynCombGasZachV1.c -outdir ..
-mex ThdynCVNV2Zone.c ThdynCVNV2Zone_wrapper.c GetPTF.c GetThdynCombGasZachV1.c Get2ZonePTFIter.c
+mex ThdynCVNV2Zone.c ThdynCVNV2Zone_wrapper.c GetPTFV1.c GetThdynCombGasZachV1.c Get2ZonePTFIter.c
 mex turbine_calc_PTF.c turbine_calc_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex turbine_calc_PTFV1.c turbine_calc_PTFV1_wrapper.c GetThdynCombGasZachV1.c -outdir ..
 mex turbine_calc_MV_PTF.c turbine_calc_MV_PTF_wrapper.c GetThdynCombGasZachV1.c -outdir ..
@@ -52,6 +55,6 @@ mex resetCyc.c resetCyc_wrapper.c -outdir ..
 mex GetPerCycle.c -outdir ..
 mex SFCCyc.c SFCCyc_wrapper.c -outdir ..
 %}
-mex -g scavenging1Zone.c scavenging1Zone_wrapper.c GetThdynCombGasZachV1.c GetTFromPhF.c -outdir ..
+mex scavenging1Zone.c scavenging1Zone_wrapper.c GetThdynCombGasZachV1.c GetTFromPhF.c -outdir ..
 %}
 cd(currFolder);
