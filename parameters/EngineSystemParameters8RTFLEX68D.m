@@ -330,7 +330,7 @@ eng.control.powLP.pow0              = eng.engLoad0*eng.Pe;     % Cutoff frequenc
 
 % * smoke limiter
 eng.control.smokeLim.LPBW       = 0.66;        % Cutoff frequency for LP filter for fuel flow [Hz]
-eng.control.smokeLim.FMax       = 0.9;     % Maximum allowable F in the cylinder
+eng.control.smokeLim.FMax       = 0.7;     % Maximum allowable F in the cylinder
 
 %% Load model
 coeffProp = [2.537e4;534.1;31.77];
