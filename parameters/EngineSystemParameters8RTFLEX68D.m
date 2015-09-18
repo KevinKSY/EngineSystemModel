@@ -235,14 +235,14 @@ clear E0 m0 mb0 i
 %% # Engine controller
 % * engine governor
 eng.control.gov.LPBW        = 1.00;        % Cutoff frequency for low pass filter [Hz]
-eng.control.gov.Kp         = 1.0;        % Proportional gain for controller //0.8
-eng.control.gov.Td         = 10.0;        % Derivative time constant
-eng.control.gov.Ti         = 8.0;        % Integral gain for controller
+eng.control.gov.Kp         = 0.5;        % Proportional gain for controller //0.8
+eng.control.gov.Td         = 1.0;        % Derivative time constant
+eng.control.gov.Ti         = 5.0;        % Integral gain for controller
 eng.control.gov.N          = 1.0;      % Dirty derivative gain
 eng.control.gov.uMin       = 0.1;      % Minimum output
-eng.control.gov.uMax       = 1.2;      % Maximum output
+eng.control.gov.uMax       = 1.1;      % Maximum output
 eng.control.gov.u0         = eng.engLoad0; % Initial output of the controller
-eng.control.gov.Kb         = 1.0;       % Back propagation gain (Anti-winding)
+eng.control.gov.Kb         = 2.0;       % Back propagation gain (Anti-winding)
 % * vessel speed controller
 eng.control.speed.LPBW        = 0.66;        % Cutoff frequency for low pass filter [Hz]
 eng.control.speed.Kp         = 0.1;        % Proportional gain for controller //0.8
