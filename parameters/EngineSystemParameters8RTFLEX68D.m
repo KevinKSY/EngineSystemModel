@@ -317,7 +317,7 @@ eng.control.blowerFit.Kb = 1e4;           % back propagation gain for blower fit
 % * Heat Rejection Model Identification
 eng.control.HRejId.Kp            = 0.0005;      % Proportional gain for the controller
 eng.control.HRejId.Ti            = 5;      % Integral time constant for the controller
-eng.control.HRejId.sw            = 1;        % Switch on/off for the identification
+eng.control.HRejId.sw            = 0;        % Switch on/off for the identification
 eng.control.HRejId.LPBWQCyl      = 0.66;        % Bandwidth for LP filter for heat transfer (Hz)
 
 % * Low pass filter for fuel and exhaust flow
