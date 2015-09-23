@@ -3,7 +3,7 @@
 
 load('8RT-FLEX68-D.mat');
 %% General
-eng.jShaft = 425900;          %Mass moment of inertia of the engine shaft [kgm2]
+eng.jShaft = 323000;          %Mass moment of inertia of the engine shaft [kgm2]
 eng.fs = 0.0683;          %Fuel-air equivalent ratio
 eng.hn = 42700000;   %Low heating value of the fuel (J/kg)
 eng.coeffMechEff = [0.135;0.155]; %Coefficient for mechanical efficiency curvefitting (2x1)
@@ -244,7 +244,7 @@ eng.control.gov.uMax       = 1.1;      % Maximum output
 eng.control.gov.u0         = eng.engLoad0; % Initial output of the controller
 eng.control.gov.Kb         = 2.0;       % Back propagation gain (Anti-winding)
 % * vessel speed controller
-eng.control.speed.LPBW        = 0.66;        % Cutoff frequency for low pass filter [Hz]
+eng.control.speed.LPBW        = 100;        % Cutoff frequency for low pass filter [Hz]
 eng.control.speed.Kp         = 0.1;        % Proportional gain for controller //0.8
 eng.control.speed.Td         = 0.05;        % Derivative time constant
 eng.control.speed.Ti         = 100.0;        % Integral gain for controller

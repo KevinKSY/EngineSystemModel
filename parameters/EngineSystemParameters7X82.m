@@ -3,10 +3,10 @@
  
 load('7X82.mat');
 %% General
-eng.jShaft = 425900;          %Mass moment of inertia of the engine shaft [kgm2]
+eng.jShaft = 425900*2;          %Mass moment of inertia of the engine shaft [kgm2]
 eng.fs = 0.0683;          %Fuel-air equivalent ratio
 eng.hn = 42700000;   %Low heating value of the fuel (J/kg)
-eng.coeffMechEff = [0;0]; %Coefficient for mechanical efficiency curvefitting (2x1)
+eng.coeffMechEff = [0.135;0.155]; %Coefficient for mechanical efficiency curvefitting (2x1)
 
 eng.RPMMax = 79;      %Max. Rated RPM
 eng.nStroke = 2;
@@ -17,15 +17,15 @@ eng.omegaE0 = interp1(eng_data.perf.Pe,eng_data.perf.RPM,eng.Pe/1000*eng.engLoad
 eng.BSFC0 = interp1(eng_data.perf.Pe,eng_data.perf.ref.BSFC,eng.Pe/1000*eng.engLoad0,'pchip');         %Initial speed of the engine (rad/s)    
 eng.dQCylRef = interp1(eng_data.perf.Pe,eng_data.HB.Cyl + eng_data.HB.Radiation,eng.Pe/1000*eng.engLoad0,'pchip')*1000;         %Reference heat transfer rate    
 
-            eng.pAmb = 1e5;  %Ambient conditions
-            eng.tAmb = 25 + 273.15;  %Ambient conditions
-            eng.fAmb =   0;  %Ambient conditions
-            eng.pBack = 1.03e5;  %Ambient conditions
-            eng.tCW = 29 + 273.15; %Cooling water temperature
+eng.pAmb = 1e5;  %Ambient conditions
+eng.tAmb = 25 + 273.15;  %Ambient conditions
+eng.fAmb =   0;  %Ambient conditions
+eng.pBack = 1.03e5;  %Ambient conditions
+eng.tCW = 29 + 273.15; %Cooling water temperature
 %% Charge air cooler parameters
 eng.cAC.Cd = 0.8;                 %Discharge coefficient of the cooler
 eng.cAC.areaAirPath = 0.3628;        %Effective area of the air path [m2]
-eng.cAC.dmCW = 145.56;               %Cooling water flow [kg/s]
+eng.cAC.dmCW = 72.78;               %Cooling water flow [kg/s]
 eng.cAC.coeffTCWK = [-15.6973914238822,5074.68648335995]*1.5; 
                                 %Coefficient for curvefitting 
                                 %for cooling water temp. vs. effective heat
@@ -181,7 +181,7 @@ for i = 1:eng.nCyl
     eng.cyl(i).comb.wiebePara = [0.07;0.57;3.05;10;22;50;1.5;1;0.7];%[0.07;0.57;3.05;11;24;56.3;1.5;1;0.7];      %3-Wiebe Parameters (9x1)        
     % Gas exchange
     eng.cyl(i).gasEx.kai = 2.5;             %Shape parameter for instantaneous exhaust gas composition for S model by Sher
-    eng.cyl(i).gasEx.delta = 1.53;          % Shape parameter for instantaneous exhaust gas composition for S model by Sher
+    eng.cyl(i).gasEx.delta = 2.0;          % Shape parameter for instantaneous exhaust gas composition for S model by Sher
     
     
     % CYLINDER Initial conditions (Common for all cylinders)
@@ -243,37 +243,39 @@ clear E0 m0 mb0 i
 
 %% # Engine controller
 % * engine governor
-eng.control.gov.LPBW        = 0.66;        % Cutoff frequency for low pass filter [Hz]
-eng.control.gov.Kp         = 1.0;        % Proportional gain for controller //0.8
-eng.control.gov.Td         = 0.05;        % Derivative time constant
-eng.control.gov.Ti         = 4.0;        % Integral gain for controller
-eng.control.gov.N          = 2.0;      % Dirty derivative gain
+eng.control.gov.LPBW        = 1.0;        % Cutoff frequency for low pass filter [Hz]
+eng.control.gov.Kp         = 0.5;        % Proportional gain for controller //0.8
+eng.control.gov.Td         = 1.0;        % Derivative time constant
+eng.control.gov.Ti         = 5.0;        % Integral gain for controller
+eng.control.gov.N          = 1.0;      % Dirty derivative gain
 eng.control.gov.uMin       = 0.1;      % Minimum output
 eng.control.gov.uMax       = 1.1;      % Maximum output
 eng.control.gov.u0         = eng.engLoad0; % Initial output of the controller
+eng.control.gov.Kb         = 2.0;        %Back propagation gain (Anti-winding)
 % * vessel speed controller
-eng.control.speed.LPBW        = 0.66;        % Cutoff frequency for low pass filter [Hz]
-eng.control.speed.Kp         = 1.0;        % Proportional gain for controller //0.8
+eng.control.speed.LPBW        = 100;        % Cutoff frequency for low pass filter [Hz]
+eng.control.speed.Kp         = 0.1;        % Proportional gain for controller //0.8
 eng.control.speed.Td         = 0.05;        % Derivative time constant
-eng.control.speed.Ti         = 4.0;        % Integral gain for controller
+eng.control.speed.Ti         = 100.0;        % Integral gain for controller
 eng.control.speed.N          = 2.0;      % Dirty derivative gain
 eng.control.speed.uMin       = 0.1;      % Minimum output
 eng.control.speed.uMax       = 1.1;      % Maximum output
 eng.control.speed.u0         = eng.engLoad0; % Initial output of the controller
+eng.control.speed.Kb        = 10l       %Back propagation gain (Anti-winding)
 % * Injection controller
 eng.control.inj.deltaPCombRef   = 40;       % Reference pressure rise due to combustion [bar]
 eng.control.inj.Kp        = 0.008;    % Proportional gain for injection control
 eng.control.inj.Ti        = 0.66;     % Integral time constant [s]
-eng.control.inj.uMax       = 2;       % Maximum allowable injection timing [deg]
+eng.control.inj.uMax       = 10;       % Maximum allowable injection timing [deg]
 eng.control.inj.uMin       = -8;        % Minimum allowable injection timing [deg]
 eng.control.inj.phiInjxRef  = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
                     0.75; 0.7; 0.65; 0.6; 0.5; ...
-                    0.4; 0.3; 0.2];                    
+                    0.4; 0.3; 0.25];                    
 eng.control.inj.phiInjyRef  = [0.17194;-0.54814;-1.3524;-1.7890;-2.2412; ...
     -2.6465;-2.8950;-3.1654;-3.4797;-4.2672;-5.4270];
 eng.control.EVO =  1.2;                   
 % * Exhaust valve controller
-eng.control.EVC.Kp           = 0.001;    % Proportional gain
+eng.control.EVC.Kp           = 0.002;    % Proportional gain
 eng.control.EVC.Ti           = 0.66;     % Integral time constant [s]
 eng.control.EVC.uMax          = 1.9;      % Maximum allowable duration of valve open
 eng.control.EVC.uMin          = 0.2;      % Minimum allowable duration of valve open 
@@ -281,7 +283,7 @@ eng.control.EVC.EVCxRef       = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
                     0.75; 0.7; 0.65; 0.6; 0.5; ...
                     0.4; 0.3; 0.2];                    
 eng.control.EVC.EVCyRef          = [0.97568;0.85588;0.56557;0.47186; ...
-    0.37639;0.2;0.2;0.2;0.2;0.2;0.2];                    
+    0.37639;0.2;0.2;0.2;0.2;0.2;0.25];                    
                             % Exhaust valve open duration for different
                             % load
 
@@ -290,32 +292,43 @@ eng.control.pMax.Kp          = 0.5;      % Proportional gain
 eng.control.pMax.Ti          = 0.66;     % Integral time constant
 eng.control.pMax.uMax         = 200;      % Maximum allowable maximum cylinder pressure [bar]
 eng.control.pMax.uMin         = 60;       % Minimum allowable maximum cylinder pressure [bar]
-eng.control.pMax.LPBWPow      = 1.5;     % Cutoff frequency for LP filter for power output [Hz]
-eng.control.pMax.LPBWdmf      = 1.5;     % Cutoff frequency for LP filter for fuel flow [Hz]
-eng.control.pMax.LPBWdme      = 1.5;     % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.pMax.LPBWPow      = 0.5;     % Cutoff frequency for LP filter for power output [Hz]
+eng.control.pMax.LPBWdmf      = 0.5;     % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.pMax.LPBWdme      = 0.5;     % Cutoff frequency for LP filter for fuel flow [Hz]
 
 % * Waste gate control          
 eng.control.WG.Ratio  = 0.04;     % Ratio of the bypass flow (set point)
-eng.control.WG.Kp            = 0.05;      % Proportional gain for the controller
-eng.control.WG.Ti            = 1.0;      % Integral time constant for the controller
-eng.control.WG.Kb            = 5.0;      % Back calculation gain for anti-windup
-eng.control.WG.uMax    = 0.005;       % Maximum output of the controller
+eng.control.WG.Kp            = 0.002;      % Proportional gain for the controller
+eng.control.WG.Ti            = 0.5;      % Integral time constant for the controller
+eng.control.WG.Kb            = 5e2;      % Back calculation gain for anti-windup
+eng.control.WG.uMax    = 1;       % Maximum output of the controller
 eng.control.WG.uMin    = 0;        % Minimum output of the controller
-eng.control.WG.LPBWdmExhBypass = 1.5;       % Cutoff frequency for LP filter for waste gate bypass flow [Hz]
-eng.control.WG.LPBWdmExh = 1.5;           % Cutoff frequency for LP filter for exhaust flow [Hz]
+eng.control.WG.LPBWdmExhBypass = 0.66;       % Cutoff frequency for LP filter for waste gate bypass flow [Hz]
+eng.control.WG.LPBWdmExh = 0.66;           % Cutoff frequency for LP filter for exhaust flow [Hz]
 eng.control.WG.upperOpenSPWG = 4e5;      % Upper threshold value of scavenge air pressure to open waste gate
 eng.control.WG.lowerCloseSPWG = 3.7e5;     % Lower threshold value of scavenge air pressure to close waste gate
+eng.control.WG.tau = 10;
 
 % * Blower control
 eng.control.blower.upper = 210000;   % Upper threshold value of scavenge air pressure to turn off the blower
 eng.control.blower.lower = 190000;   % Lower threshold value of scavenge air pressure to turn on the blower 
 eng.control.blower.tau = 10;           % Time constant for blower starting / stop [s]
 
+% * Blower fitting                                                               
+eng.control.blowerFit.Kp = 1e-4;   % Proportional gain for blower fitting        
+eng.control.blowerFit.Td = 10000;                                                
+eng.control.blowerFit.N = 1;                                                     
+eng.control.blowerFit.Ti = 10;   % Integral time constatn for blower fitting     
+eng.control.blowerFit.uMax = 2;   % maximum mass flow for blower fitting         
+eng.control.blowerFit.uMin = 0;     % minimum mass flow for blower fitting       
+eng.control.blowerFit.u0 = 0;                                                    
+eng.control.blowerFit.Kb = 1e4;           % back propagation gain for blower fit
+  
 % * Heat Rejection Model Identification
-eng.control.HRejId.Kp            = 0.00012;      % Proportional gain for the controller
-eng.control.HRejId.Ti            = 2.2;      % Integral time constant for the controller
+eng.control.HRejId.Kp            = 0.0005;      % Proportional gain for the controller
+eng.control.HRejId.Ti            = 5;      % Integral time constant for the controller
 eng.control.HRejId.sw            = 1;        % Switch on/off for the identification
-eng.control.HRejId.LPBWQCyl      = 0.1;        % Bandwidth for LP filter for heat transfer (Hz)
+eng.control.HRejId.LPBWQCyl      = 0.66;        % Bandwidth for LP filter for heat transfer (Hz)
 
 % * Low pass filter for fuel and exhaust flow
 eng.control.dmfLP.BW                = 0.66;  % Cutoff frequency for LP filter for fuel flow [Hz]
@@ -327,8 +340,8 @@ eng.control.dmeLP.dme0              = 0;  % Cutoff frequency for LP filter for f
 eng.control.powLP.pow0              = eng.engLoad0*eng.Pe;     % Cutoff frequency for LP filter for power output [Hz]
 
 % * smoke limiter
-eng.control.smokeLim.LPBW       = 1;        % Cutoff frequency for LP filter for fuel flow [Hz]
-eng.control.smokeLim.FMax       = 0.95;     % Maximum allowable F in the cylinder
+eng.control.smokeLim.LPBW       = 0.66;        % Cutoff frequency for LP filter for fuel flow [Hz]
+eng.control.smokeLim.FMax       = 0.7;     % Maximum allowable F in the cylinder
 
 %% Load model
 coeffProp = [57.37123;0.93965;-0.73220];
