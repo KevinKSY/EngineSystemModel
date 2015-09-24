@@ -261,7 +261,7 @@ eng.control.speed.N          = 2.0;      % Dirty derivative gain
 eng.control.speed.uMin       = 0.1;      % Minimum output
 eng.control.speed.uMax       = 1.1;      % Maximum output
 eng.control.speed.u0         = eng.engLoad0; % Initial output of the controller
-eng.control.speed.Kb        = 10l       %Back propagation gain (Anti-winding)
+eng.control.speed.Kb        = 10;       %Back propagation gain (Anti-winding)
 % * Injection controller
 eng.control.inj.deltaPCombRef   = 40;       % Reference pressure rise due to combustion [bar]
 eng.control.inj.Kp        = 0.008;    % Proportional gain for injection control
