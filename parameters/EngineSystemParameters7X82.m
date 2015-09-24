@@ -174,7 +174,7 @@ for i = 1:eng.nCyl
     %[5.3040e-4;-1.1493e0;8.3165e2;-1.9799e5];%[5.1517e-4,-0.92207,549.84,-109640]; %Polynomial coefficient for heat rejection model from the cylinder (4 x 1)
                             
     
-    eng.cyl(i).HT.cAlpha = 1.2;           %Fitting coefficient for convective heat transfer coefficient
+    eng.cyl(i).HT.cAlpha = 1.5;           %Fitting coefficient for convective heat transfer coefficient
     eng.cyl(i).HT.tempWall0 = 550;      %Initial wall temperature of the cylinder [K]
     % Combustion
     eng.cyl(i).comb.mqfCycMax = 0.17705;      %Maximum fuel mass injected per cycle [kg]
@@ -263,7 +263,7 @@ eng.control.speed.uMax       = 1.1;      % Maximum output
 eng.control.speed.u0         = eng.engLoad0; % Initial output of the controller
 eng.control.speed.Kb        = 10;       %Back propagation gain (Anti-winding)
 % * Injection controller
-eng.control.inj.deltaPCombRef   = 40;       % Reference pressure rise due to combustion [bar]
+eng.control.inj.deltaPCombRef   = 50;       % Reference pressure rise due to combustion [bar]
 eng.control.inj.Kp        = 0.008;    % Proportional gain for injection control
 eng.control.inj.Ti        = 0.66;     % Integral time constant [s]
 eng.control.inj.uMax       = 10;       % Maximum allowable injection timing [deg]
