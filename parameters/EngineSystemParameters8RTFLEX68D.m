@@ -116,8 +116,8 @@ eng.turbo.turb.effCoeff = [-1.089;0.9185;-0.1066;0.2123;-0.05319;-0.0054512] ...
 
 % Mechainical efficiency in case not included in the turbine efficiency
 %eng.turbo.fricCoeff = [9.79860e-06,0.0179043,-0.75512];       %Mechanical efficiency in polynomial function of speed
-clearLoadedFile('turb_mapABB TPL_BFitTo7X82.mat');
-clearLoadedFile('comp_mapABB TPL_BFitTo7X82.mat');
+%clearLoadedFile('turb_mapABB TPL_BFitTo7X82.mat');
+clearLoadedFile('comp_mapABB A175-35LFitTo8RTFLEX68DLLT.mat');
 %% Blower
 
 eng.blower.effBlower = 0.8;
@@ -234,11 +234,11 @@ clear E0 m0 mb0 i
 
 %% # Engine controller
 % * engine governor
-eng.control.gov.LPBW        = 1.00;        % Cutoff frequency for low pass filter [Hz]
-eng.control.gov.Kp         = 0.5;        % Proportional gain for controller //0.8
+eng.control.gov.LPBW        = 5.00;        % Cutoff frequency for low pass filter [Hz]
+eng.control.gov.Kp         = 1.5;        % Proportional gain for controller //0.8
 eng.control.gov.Td         = 1.0;        % Derivative time constant
-eng.control.gov.Ti         = 5.0;        % Integral gain for controller
-eng.control.gov.N          = 1.0;      % Dirty derivative gain
+eng.control.gov.Ti         = 1.0;        % Integral gain for controller
+eng.control.gov.N          = 0.0;      % Dirty derivative gain
 eng.control.gov.uMin       = 0.1;      % Minimum output
 eng.control.gov.uMax       = 1.1;      % Maximum output
 eng.control.gov.u0         = eng.engLoad0; % Initial output of the controller
@@ -259,9 +259,10 @@ eng.control.inj.Kp        = 0.008;    % Proportional gain for injection control
 eng.control.inj.Ti        = 0.66;     % Integral time constant [s]
 eng.control.inj.uMax       = 10;       % Maximum allowable injection timing [deg]
 eng.control.inj.uMin       = -8;        % Minimum allowable injection timing [deg]
-eng.control.inj.phiInjxRef  = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
-                    0.75; 0.7; 0.65; 0.6; 0.5; ...
-                    0.4; 0.3; 0.25];                    
+eng.control.inj.phiInjxRef  = [1.03263157894737;1;0.965263157894737;0.947368421052632;0.928421052631579;0.908421052631579;0.888421052631579;0.866315789473684;0.843157894736842;0.793684210526316;0.736842105263158;0.669473684210526;0.629473684210526];
+%[	1.1; 1.0; 0.9; 0.85; 0.8; ...
+%                    0.75; 0.7; 0.65; 0.6; 0.5; ...
+%                    0.4; 0.3; 0.25];                    
 eng.control.inj.phiInjyRef  = [3.1152;2.7349;1.4160;0.8937;0.4388;0.1550; ...
                               -0.1900;-0.8957;-1.1282;-1.5810;-2.2854; ...
                               -3.9676;-5.5131];
@@ -272,9 +273,10 @@ eng.control.EVC.Kp           = 0.002;    % Proportional gain
 eng.control.EVC.Ti           = 0.66;     % Integral time constant [s]
 eng.control.EVC.uMax          = 1.9;      % Maximum allowable duration of valve open
 eng.control.EVC.uMin          = 0.2;      % Minimum allowable duration of valve open 
-eng.control.EVC.EVCxRef       = [	1.1; 1.0; 0.9; 0.85; 0.8; ...
-                    0.75; 0.7; 0.65; 0.6; 0.5; ...
-                    0.4; 0.3; 0.25];                    
+eng.control.EVC.EVCxRef       = [1.03263157894737;1;0.965263157894737;0.947368421052632;0.928421052631579;0.908421052631579;0.888421052631579;0.866315789473684;0.843157894736842;0.793684210526316;0.736842105263158;0.669473684210526;0.629473684210526];
+%                    [1.1; 1.0; 0.9; 0.85; 0.8; ...
+%                    0.75; 0.7; 0.65; 0.6; 0.5; ...
+%                    0.4; 0.3; 0.25];                    
 eng.control.EVC.EVCyRef         = [1.4963;1.4854;1.3416;1.2802;1.2835; ...
     1.26524;1.2394;1.1310;1.1358;1.1978;1.2877;1.3698;1.3239];
 %= [1.4831;1.4752;1.3200;1.2715;1.2578; 1.2376;1.2143;1.0956;1.1091;1.1898;1.3072;1.4590;1.4022];
@@ -334,7 +336,7 @@ eng.control.powLP.pow0              = eng.engLoad0*eng.Pe;     % Cutoff frequenc
 
 % * smoke limiter
 eng.control.smokeLim.LPBW       = 0.66;        % Cutoff frequency for LP filter for fuel flow [Hz]
-eng.control.smokeLim.FMax       = 0.7;     % Maximum allowable F in the cylinder
+eng.control.smokeLim.FMax       = 0.84;     % Maximum allowable F in the cylinder
 
 %% Load model
 coeffProp = [2.537e4;534.1;31.77];
